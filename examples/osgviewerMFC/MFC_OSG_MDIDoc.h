@@ -1,4 +1,4 @@
-// MFC_OSG_MDIDoc.h : interface of the CMFC_OSG_MDIDoc class
+﻿// MFC_OSG_MDIDoc.h : interface of the CMFC_OSG_MDIDoc class
 //
 
 

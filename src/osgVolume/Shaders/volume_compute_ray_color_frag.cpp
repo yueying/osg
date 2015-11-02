@@ -1,4 +1,4 @@
-char volume_compute_ray_color_frag[] = "#version 110\n"
+﻿char volume_compute_ray_color_frag[] = "#version 110\n"
                                        "\n"
                                        "uniform vec4 viewportDimensions;\n"
                                        "uniform sampler3D volumeTexture;\n"

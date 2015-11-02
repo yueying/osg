@@ -1,4 +1,4 @@
-#ifndef IVE_PROXYNODE
+﻿#ifndef IVE_PROXYNODE
 #define IVE_PROXYNODE 1
 
 #include <osg/ProxyNode>

@@ -1,4 +1,4 @@
-#ifndef PRIMITIVE_OPERATORS_H
+﻿#ifndef PRIMITIVE_OPERATORS_H
 #define PRIMITIVE_OPERATORS_H
 
 #include <vector>

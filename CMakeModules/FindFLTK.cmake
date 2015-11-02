@@ -1,4 +1,4 @@
-# Locate FLTK
+﻿# Locate FLTK
 # This module defines
 # FLTK_LIBRARY
 # FLTK_FOUND, if false, do not try to link to gdal 

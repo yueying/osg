@@ -1,4 +1,4 @@
-#ifndef IVE_COLORMASK
+﻿#ifndef IVE_COLORMASK
 #define IVE_COLORMASK 1
 
 #include <osg/ColorMask>

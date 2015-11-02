@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) 2012 APX Labs, LLC
+﻿/* -*-c++-*- OpenSceneGraph - Copyright (C) 2012 APX Labs, LLC
  *
  * This library is open source and may be redistributed and/or modified under
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or

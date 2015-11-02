@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/VariableRateCounter>
 
 #include <iostream>

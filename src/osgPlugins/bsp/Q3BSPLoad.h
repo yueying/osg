@@ -1,4 +1,4 @@
-
+﻿
 
 #ifndef Q3BSPLOAD_H
 #define Q3BSPLOAD_H

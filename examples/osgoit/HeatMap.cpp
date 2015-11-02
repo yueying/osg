@@ -1,4 +1,4 @@
-/*
+﻿/*
  * 3D Heat map using vertex displacement mapping
  * Rendered using depth peeling in fragment shader.
  */

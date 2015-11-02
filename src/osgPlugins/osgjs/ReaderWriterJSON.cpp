@@ -1,4 +1,4 @@
-//    copyright: 'Cedric Pinson cedric@plopbyte.com'
+﻿//    copyright: 'Cedric Pinson cedric@plopbyte.com'
 #include <osg/Image>
 #include <osg/Notify>
 #include <osg/Geode>

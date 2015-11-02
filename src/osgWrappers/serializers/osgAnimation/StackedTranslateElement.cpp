@@ -1,4 +1,4 @@
-#include <osgAnimation/StackedTranslateElement>
+﻿#include <osgAnimation/StackedTranslateElement>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

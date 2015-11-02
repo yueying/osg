@@ -1,4 +1,4 @@
-#ifndef CAPTURESETTINGS_H
+﻿#ifndef CAPTURESETTINGS_H
 #define CAPTURESETTINGS_H
 
 #include <osgDB/ReadFile>

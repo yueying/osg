@@ -1,4 +1,4 @@
-#ifndef IVE_TEXTURE
+﻿#ifndef IVE_TEXTURE
 #define IVE_TEXTURE 1
 
 #include <osg/Texture>

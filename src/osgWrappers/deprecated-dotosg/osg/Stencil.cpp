@@ -1,4 +1,4 @@
-#include "osg/Stencil"
+﻿#include "osg/Stencil"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

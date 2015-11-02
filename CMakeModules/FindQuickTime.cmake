@@ -1,4 +1,4 @@
-# Locate QuickTime
+﻿# Locate QuickTime
 # This module defines
 # QUICKTIME_LIBRARY
 # QUICKTIME_FOUND, if false, do not try to link to gdal

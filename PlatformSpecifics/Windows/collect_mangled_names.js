@@ -1,4 +1,4 @@
-/* collect_mangled_names - Copyright (C) 2006 Joran Jessurun 
+﻿/* collect_mangled_names - Copyright (C) 2006 Joran Jessurun 
 
  *
 

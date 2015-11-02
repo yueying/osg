@@ -1,4 +1,4 @@
-#ifndef XBASEPARSER_H_
+﻿#ifndef XBASEPARSER_H_
 #define XBASEPARSER_H_
 
 

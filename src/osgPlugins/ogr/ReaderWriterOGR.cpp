@@ -1,4 +1,4 @@
-/* -*- mode: c++; c-default-style: k&r; tab-width: 4; c-basic-offset: 4; -*-
+﻿/* -*- mode: c++; c-default-style: k&r; tab-width: 4; c-basic-offset: 4; -*-
  * Copyright (C) 2007 Cedric Pinson - mornifle@plopbyte.net
  *
  * This library is open source and may be redistributed and/or modified under

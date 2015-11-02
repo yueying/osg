@@ -1,4 +1,4 @@
-# This file should only be included when WIN32
+﻿# This file should only be included when WIN32
 
 SET(LIB_NAME OpenThreads)
 SET(LIB_PUBLIC_HEADERS ${OpenThreads_PUBLIC_HEADERS})

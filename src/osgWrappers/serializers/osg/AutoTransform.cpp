@@ -1,4 +1,4 @@
-#include <osg/AutoTransform>
+﻿#include <osg/AutoTransform>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

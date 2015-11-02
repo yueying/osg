@@ -1,4 +1,4 @@
-
+﻿
 #include "FFmpegAudioStream.hpp"
 
 #include <OpenThreads/ScopedLock>

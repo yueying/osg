@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/MultiSegmentPlacer>
 
 #include <osgDB/Registry>

@@ -1,4 +1,4 @@
-// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
+﻿// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 // $Id: osgwidgetaddremove.cpp 45 2008-04-23 16:46:11Z cubicool $
 
 #include <osgWidget/Util>

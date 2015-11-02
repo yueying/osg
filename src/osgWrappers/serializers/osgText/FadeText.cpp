@@ -1,4 +1,4 @@
-#include <osgText/FadeText>
+﻿#include <osgText/FadeText>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

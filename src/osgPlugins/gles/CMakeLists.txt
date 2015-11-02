@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     ReaderWriterGLES.cpp
     OpenGLESGeometryOptimizer.cpp
     TriangleStripVisitor.cpp

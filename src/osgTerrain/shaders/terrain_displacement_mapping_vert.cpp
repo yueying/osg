@@ -1,4 +1,4 @@
-char terrain_displacement_mapping_vert[] = "#version 120\n"
+﻿char terrain_displacement_mapping_vert[] = "#version 120\n"
                                            "\n"
                                            "#pragma import_defines ( HEIGHTFIELD_LAYER, COMPUTE_DIAGONALS, LIGHTING )\n"
                                            "\n"

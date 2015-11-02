@@ -1,4 +1,4 @@
-#include <sstream>
+﻿#include <sstream>
 #include <memory>
 #ifndef WIN32
 #include <strings.h>//for strncasecmp

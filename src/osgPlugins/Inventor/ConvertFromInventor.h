@@ -1,4 +1,4 @@
-#ifndef _CONVERTFROMINVENTOR_H_
+﻿#ifndef _CONVERTFROMINVENTOR_H_
 #define _CONVERTFROMINVENTOR_H_
 
 #include <osg/Group>

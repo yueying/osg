@@ -1,4 +1,4 @@
-// Copyright Eric Wing
+﻿// Copyright Eric Wing
 // This plugin is the bridge to OS X's ImageIO framework
 // which provides access to all of Apple's supported image types.
 // This plugin plus the QTKit plugin obsoletes the old QuickTime plugin.

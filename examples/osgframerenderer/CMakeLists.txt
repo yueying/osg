@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     CameraPathProperty.cpp
     CameraProperty.cpp
     CaptureSettings.cpp

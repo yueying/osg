@@ -1,4 +1,4 @@
-SET(TARGET_SRC 
+﻿SET(TARGET_SRC 
     Block.cpp
     Clip.cpp
     Converter.cpp

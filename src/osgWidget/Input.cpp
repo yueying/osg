@@ -1,4 +1,4 @@
-// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
+﻿// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 
 #include <osg/io_utils>
 #include <osgWidget/WindowManager>

@@ -1,4 +1,4 @@
-// The majority of the application is dedicated to building the
+﻿// The majority of the application is dedicated to building the
 // current contributors list by parsing the ChangeLog, it just takes
 // one line in the main itself to report the version number.
 

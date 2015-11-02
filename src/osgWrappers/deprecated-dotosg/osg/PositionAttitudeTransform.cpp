@@ -1,4 +1,4 @@
-#include "osg/PositionAttitudeTransform"
+﻿#include "osg/PositionAttitudeTransform"
 #include <osg/io_utils>
 
 #include "osgDB/Registry"

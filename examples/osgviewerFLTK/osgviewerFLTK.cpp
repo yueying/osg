@@ -1,4 +1,4 @@
-/* OpenSceneGraph example, osganimate.
+﻿/* OpenSceneGraph example, osganimate.
 *
 *  C++ source file - (C) 2003 Robert Osfield.
 *  (C) 2005 Mike Weiblen http://mew.cx/

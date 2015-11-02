@@ -1,4 +1,4 @@
-#include <osg/Switch>
+﻿#include <osg/Switch>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     Cluster.cpp
     ExportHTML.cpp
     PointsEventHandler.cpp

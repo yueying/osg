@@ -1,4 +1,4 @@
-#ifndef IVE_BLINKSEQUENCE
+﻿#ifndef IVE_BLINKSEQUENCE
 #define IVE_BLINKSEQUENCE 1
 
 #include <osgSim/BlinkSequence>

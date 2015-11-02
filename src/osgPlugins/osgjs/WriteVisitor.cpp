@@ -1,4 +1,4 @@
-#include "WriteVisitor"
+﻿#include "WriteVisitor"
 #include <osgDB/WriteFile>
 #include <osgDB/FileUtils>
 #include <osgDB/ReadFile>

@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     AncillaryRecords.cpp
     AttrData.cpp
     ControlRecords.cpp

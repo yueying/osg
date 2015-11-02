@@ -1,4 +1,4 @@
-#ifndef IVE_OBJECT
+﻿#ifndef IVE_OBJECT
 #define IVE_OBJECT 1
 
 

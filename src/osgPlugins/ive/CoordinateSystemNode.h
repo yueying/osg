@@ -1,4 +1,4 @@
-#ifndef IVE_COORDINATESYSTEMNODE
+﻿#ifndef IVE_COORDINATESYSTEMNODE
 #define IVE_COORDINATESYSTEMNODE 1
 
 #include <osg/CoordinateSystemNode>

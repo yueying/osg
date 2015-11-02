@@ -1,4 +1,4 @@
-#include <osg/Notify>
+﻿#include <osg/Notify>
 #include <osg/BoundingBox>
 #include <osg/PagedLOD>
 #include <osg/Timer>

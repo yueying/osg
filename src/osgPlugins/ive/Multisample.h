@@ -1,4 +1,4 @@
-#ifndef IVE_MULTISAMPLE
+﻿#ifndef IVE_MULTISAMPLE
 #define IVE_MULTISAMPLE 1
 
 #include <osg/Multisample>

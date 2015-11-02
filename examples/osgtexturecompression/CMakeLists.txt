@@ -1,3 +1,3 @@
-SET(TARGET_SRC osgtexturecompression.cpp )
+﻿SET(TARGET_SRC osgtexturecompression.cpp )
 
 SETUP_EXAMPLE(osgtexturecompression)

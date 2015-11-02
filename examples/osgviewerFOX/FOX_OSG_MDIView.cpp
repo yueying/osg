@@ -1,4 +1,4 @@
-#include "FOX_OSG_MDIView.h"
+﻿#include "FOX_OSG_MDIView.h"
 
 #include <osgViewer/ViewerEventHandlers>
 

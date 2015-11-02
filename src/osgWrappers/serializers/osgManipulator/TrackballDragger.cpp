@@ -1,4 +1,4 @@
-#include <osgManipulator/TrackballDragger>
+﻿#include <osgManipulator/TrackballDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

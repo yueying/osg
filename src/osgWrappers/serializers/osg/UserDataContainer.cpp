@@ -1,4 +1,4 @@
-#include <osg/UserDataContainer>
+﻿#include <osg/UserDataContainer>
 
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

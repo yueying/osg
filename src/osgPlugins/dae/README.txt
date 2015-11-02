@@ -1,4 +1,4 @@
-osgPlugins/dae/README.txt -  Mike Weiblen http://mew.cx/
+﻿osgPlugins/dae/README.txt -  Mike Weiblen http://mew.cx/
 
 OSG reader/writer plugin for the COLLADA digital asset exchange (DAE) schema.
 See http://collada.org/ and http://khronos.org/collada/ for further info.

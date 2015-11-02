@@ -1,4 +1,4 @@
-// PNM Reader -- Written by Eric Sokolowsky
+﻿// PNM Reader -- Written by Eric Sokolowsky
 // Reads Ascii and Binary files in the PPM, PGM, and PBM formats.
 
 #include <osg/Image>

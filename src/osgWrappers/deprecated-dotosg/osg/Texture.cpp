@@ -1,4 +1,4 @@
-#include <osg/Texture>
+﻿#include <osg/Texture>
 #include <osg/Notify>
 #include <osg/io_utils>
 

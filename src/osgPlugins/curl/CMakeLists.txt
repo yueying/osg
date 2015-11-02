@@ -1,4 +1,4 @@
-OPTION(CURL_IS_STATIC "on if curl is a static lib " ON)
+﻿OPTION(CURL_IS_STATIC "on if curl is a static lib " ON)
 MARK_AS_ADVANCED(CURL_IS_STATIC)
 
 IF(WIN32)

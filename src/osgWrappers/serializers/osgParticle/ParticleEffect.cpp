@@ -1,4 +1,4 @@
-#include <osgParticle/ParticleEffect>
+﻿#include <osgParticle/ParticleEffect>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

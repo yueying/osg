@@ -1,4 +1,4 @@
-#include "osgSim/VisibilityGroup"
+﻿#include "osgSim/VisibilityGroup"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

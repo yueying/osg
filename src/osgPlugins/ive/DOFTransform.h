@@ -1,4 +1,4 @@
-#ifndef IVE_DOFTRANSFORM
+﻿#ifndef IVE_DOFTRANSFORM
 #define IVE_DOFTRANSFORM 1
 
 #include <osgSim/DOFTransform>

@@ -1,4 +1,4 @@
-#ifndef IVE_EXCEPTION
+﻿#ifndef IVE_EXCEPTION
 #define IVE_EXCEPTION 1
 
 #include <string>

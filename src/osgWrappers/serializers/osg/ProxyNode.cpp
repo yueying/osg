@@ -1,4 +1,4 @@
-#include <osg/ProxyNode>
+﻿#include <osg/ProxyNode>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-
+﻿
 #######################################################################################################
 #  macro for linking libraries that come from Findxxxx commands, so there is a variable that contains the
 #  full path of the library name. in order to differentiate release and debug, this macro get the

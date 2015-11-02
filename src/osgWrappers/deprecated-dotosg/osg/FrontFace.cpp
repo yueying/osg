@@ -1,4 +1,4 @@
-#include "osg/FrontFace"
+﻿#include "osg/FrontFace"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

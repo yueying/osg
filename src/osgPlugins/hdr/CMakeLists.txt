@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     ReaderWriterHDR.cpp
     hdrloader.cpp
     hdrwriter.cpp

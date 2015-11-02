@@ -1,4 +1,4 @@
-# Locate nvidia-texture-tools
+﻿# Locate nvidia-texture-tools
 # This module defines
 # NVTT_LIBRARY
 # NVTT_FOUND, if false, do not try to link to nvtt

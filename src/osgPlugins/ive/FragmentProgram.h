@@ -1,4 +1,4 @@
-#ifndef IVE_FRAGMENT_PROGRAM
+﻿#ifndef IVE_FRAGMENT_PROGRAM
 #define IVE_FRAGMENT_PROGRAM 1
 
 #include <osg/FragmentProgram>

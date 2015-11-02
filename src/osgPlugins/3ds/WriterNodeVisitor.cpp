@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 /*
  * 3DS reader/writer for Open Scene Graph

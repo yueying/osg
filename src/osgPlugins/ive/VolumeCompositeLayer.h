@@ -1,4 +1,4 @@
-#ifndef IVE_VOLIMECOMPOSITELAYER
+﻿#ifndef IVE_VOLIMECOMPOSITELAYER
 #define IVE_VOLUMECOMPOSITELAYER 1
 
 #include <osgVolume/Layer>

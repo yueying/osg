@@ -1,4 +1,4 @@
-#include <osg/VertexProgram>
+﻿#include <osg/VertexProgram>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

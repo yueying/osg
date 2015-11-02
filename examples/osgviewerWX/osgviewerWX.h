@@ -1,4 +1,4 @@
-#ifndef _WXSIMPLEVIEWERWX_H_
+﻿#ifndef _WXSIMPLEVIEWERWX_H_
 #define _WXSIMPLEVIEWERWX_H_
 
 #include "wx/defs.h"

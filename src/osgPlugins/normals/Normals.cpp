@@ -1,4 +1,4 @@
-#include "Normals.h"
+﻿#include "Normals.h"
 
 using namespace osg;
 

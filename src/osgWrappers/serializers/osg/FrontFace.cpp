@@ -1,4 +1,4 @@
-#include <osg/FrontFace>
+﻿#include <osg/FrontFace>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

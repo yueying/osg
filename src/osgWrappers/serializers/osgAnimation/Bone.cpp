@@ -1,4 +1,4 @@
-#include <osgAnimation/Bone>
+﻿#include <osgAnimation/Bone>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

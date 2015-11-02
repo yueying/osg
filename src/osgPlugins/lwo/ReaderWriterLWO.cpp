@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 /*
  * Lightwave Object loader for Open Scene Graph

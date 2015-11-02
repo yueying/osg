@@ -1,4 +1,4 @@
-/* OpenSceneGraph example, osgmovie.
+﻿/* OpenSceneGraph example, osgmovie.
 *
 *  Permission is hereby granted, free of charge, to any person obtaining a copy
 *  of this software and associated documentation files (the "Software"), to deal

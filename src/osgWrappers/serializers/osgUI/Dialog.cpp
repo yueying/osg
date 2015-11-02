@@ -1,4 +1,4 @@
-#include <osgUI/Dialog>
+﻿#include <osgUI/Dialog>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

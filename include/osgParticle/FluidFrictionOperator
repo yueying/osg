@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield
+ï»¿/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield
  *
  * This library is open source and may be redistributed and/or modified under
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or
@@ -65,10 +65,10 @@ namespace osgParticle
         /// Get the overriden radius value.
         inline float getOverrideRadius() const;
 
-        /// Set the fluid parameters as for air (20°C temperature).
+        /// Set the fluid parameters as for air (20ç™ˆ temperature).
         inline void setFluidToAir();
 
-        /// Set the fluid parameters as for pure water (20°C temperature).
+        /// Set the fluid parameters as for pure water (20ç™ˆ temperature).
         inline void setFluidToWater();
 
         /// Apply the friction forces to a particle. Do not call this method manually.

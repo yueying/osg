@@ -1,4 +1,4 @@
-#include <osg/TexEnvFilter>
+﻿#include <osg/TexEnvFilter>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

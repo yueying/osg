@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     TextNode.cpp
     osgtext3D_orig.cpp
     osgtext3D_test.cpp

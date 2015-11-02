@@ -1,4 +1,4 @@
-#ifndef OSGDB_XMLSTREAMOPERATOR
+﻿#ifndef OSGDB_XMLSTREAMOPERATOR
 #define OSGDB_XMLSTREAMOPERATOR
 
 #include <osgDB/StreamOperator>

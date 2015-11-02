@@ -1,4 +1,4 @@
-#ifndef IVE_POINTSPRITE
+﻿#ifndef IVE_POINTSPRITE
 #define IVE_POINTSPRITE 1
 
 #include <osg/PointSprite>

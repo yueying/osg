@@ -1,4 +1,4 @@
-#ifndef IVE_VERTEX_PROGRAM
+﻿#ifndef IVE_VERTEX_PROGRAM
 #define IVE_VERTEX_PROGRAM 1
 
 #include <osg/VertexProgram>

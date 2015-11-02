@@ -1,4 +1,4 @@
-#include <gtk/gtk.h>
+﻿#include <gtk/gtk.h>
 #include <gtk/gtkgl.h>
 #include <osgViewer/Viewer>
 #include <osgGA/TrackballManipulator>

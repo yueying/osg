@@ -1,4 +1,4 @@
-#include <osgParticle/ModularEmitter>
+﻿#include <osgParticle/ModularEmitter>
 #include <osgParticle/Emitter>
 #include <osgParticle/ConnectedParticleSystem>
 #include <osg/Notify>

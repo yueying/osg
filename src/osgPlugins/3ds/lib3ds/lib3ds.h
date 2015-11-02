@@ -1,4 +1,4 @@
-/* -*- c -*- */
+﻿/* -*- c -*- */
 #ifndef INCLUDED_LIB3DS_H
 #define INCLUDED_LIB3DS_H
 /*

@@ -1,4 +1,4 @@
-//Created by Thomas Hogarth 2009
+﻿//Created by Thomas Hogarth 2009
 
 //force the link to our desired osgPlugins
 #include "osgPlugins.h"

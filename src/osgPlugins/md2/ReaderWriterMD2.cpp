@@ -1,4 +1,4 @@
-/*
+﻿/*
  * ReaderWriterMD2.cpp
  *
  * MD2 Reading code

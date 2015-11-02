@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(CompositeProperty_Proxy)
 USE_DOTOSGWRAPPER(FixedFunctionTechnique_Proxy)

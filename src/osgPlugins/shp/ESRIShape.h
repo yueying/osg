@@ -1,4 +1,4 @@
-#ifndef OSG_SHAPE_H
+﻿#ifndef OSG_SHAPE_H
 #define OSG_SHAPE_H
 
 #include <stdio.h>

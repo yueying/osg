@@ -1,4 +1,4 @@
-#include <osgWidget/VncClient>
+﻿#include <osgWidget/VncClient>
 
 #include <osgDB/Registry>
 #include <osgViewer/Viewer>

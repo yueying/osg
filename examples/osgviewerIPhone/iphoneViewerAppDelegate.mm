@@ -1,4 +1,4 @@
-// Created by Thomas Hogarth 2009
+﻿// Created by Thomas Hogarth 2009
 // cleaned up by Stephan Huber 2013
 //
 

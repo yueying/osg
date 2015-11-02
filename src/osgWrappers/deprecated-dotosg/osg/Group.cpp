@@ -1,4 +1,4 @@
-#include "osg/Group"
+﻿#include "osg/Group"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

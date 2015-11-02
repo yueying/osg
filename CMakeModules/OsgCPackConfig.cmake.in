@@ -1,4 +1,4 @@
-# This file will be configured to contain variables for CPack. These variables
+﻿# This file will be configured to contain variables for CPack. These variables
 # should be set in the CMake list file of the project before CPack module is
 # included. Example variables are:
 #   CPACK_GENERATOR                     - Generator used to create package

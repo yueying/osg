@@ -1,4 +1,4 @@
-#ifndef IVE_FOG
+﻿#ifndef IVE_FOG
 #define IVE_FOG 1
 
 #include <osg/Fog>

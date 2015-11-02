@@ -1,4 +1,4 @@
-#include <osg/FragmentProgram>
+﻿#include <osg/FragmentProgram>
 #include <osg/io_utils>
 
 #include <iostream>

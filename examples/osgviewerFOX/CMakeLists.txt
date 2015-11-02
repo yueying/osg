@@ -1,4 +1,4 @@
-SET(TARGET_SRC FOX_OSG.cpp  FOX_OSG_MDIView.cpp  osgviewerFOX.cpp )
+﻿SET(TARGET_SRC FOX_OSG.cpp  FOX_OSG_MDIView.cpp  osgviewerFOX.cpp )
 
 SET(TARGET_H FOX_OSG.h  FOX_OSG_MDIView.h  osgviewerFOX.h)
 

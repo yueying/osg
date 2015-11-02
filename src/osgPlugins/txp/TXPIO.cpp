@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 #include <osgDB/Input>
 #include <osgDB/Output>
 #include <osgDB/WriteFile>

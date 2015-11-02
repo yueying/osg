@@ -1,3 +1,3 @@
-SET(TARGET_SRC ReaderWriterROT.cpp )
+﻿SET(TARGET_SRC ReaderWriterROT.cpp )
 #### end var setup  ###
 SETUP_PLUGIN(rot)

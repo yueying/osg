@@ -1,4 +1,4 @@
-#miscellaneous macros
+﻿#miscellaneous macros
 
 ################### macros from http://www.cmake.org/Wiki/CMakeMacroListOperations
 MACRO(CAR var)

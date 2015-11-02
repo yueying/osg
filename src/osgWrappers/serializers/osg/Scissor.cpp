@@ -1,4 +1,4 @@
-#include <osg/Scissor>
+﻿#include <osg/Scissor>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

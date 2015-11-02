@@ -1,4 +1,4 @@
-# Locate ZeroConf / Bonjour
+﻿# Locate ZeroConf / Bonjour
 # This module defines
 # ZEROCONF_LIBRARY
 # ZEROCONF_FOUND, if false, do not try to link to gdal 

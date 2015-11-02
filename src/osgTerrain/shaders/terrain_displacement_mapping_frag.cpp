@@ -1,4 +1,4 @@
-char terrain_displacement_mapping_frag[] = "#pragma import_defines ( TEXTURE_2D, TEXTURE_WEIGHTS, COLOR_LAYER0, COLOR_LAYER1, COLOR_LAYER2)\n"
+﻿char terrain_displacement_mapping_frag[] = "#pragma import_defines ( TEXTURE_2D, TEXTURE_WEIGHTS, COLOR_LAYER0, COLOR_LAYER1, COLOR_LAYER2)\n"
                                            "\n"
                                            "\n"
                                            "#if defined(TEXTURE_2D) && defined(COLOR_LAYER0)\n"

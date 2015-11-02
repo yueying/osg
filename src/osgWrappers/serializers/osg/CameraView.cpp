@@ -1,4 +1,4 @@
-#include <osg/CameraView>
+﻿#include <osg/CameraView>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

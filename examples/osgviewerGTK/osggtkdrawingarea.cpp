@@ -1,4 +1,4 @@
-#include "osggtkdrawingarea.h"
+﻿#include "osggtkdrawingarea.h"
 
 OSGGTKDrawingArea::OSGGTKDrawingArea():
 _widget   (gtk_drawing_area_new()),

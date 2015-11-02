@@ -1,4 +1,4 @@
-#include <osgGA/TerrainManipulator>
+﻿#include <osgGA/TerrainManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

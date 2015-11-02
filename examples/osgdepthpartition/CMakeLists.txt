@@ -1,4 +1,4 @@
-SET(TARGET_SRC osgdepthpartition.cpp )
+﻿SET(TARGET_SRC osgdepthpartition.cpp )
 
 #### end var setup  ###
 SETUP_EXAMPLE(osgdepthpartition)

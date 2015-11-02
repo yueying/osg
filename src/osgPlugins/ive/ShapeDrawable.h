@@ -1,4 +1,4 @@
-#ifndef IVE_SHAPEDRAWABLE
+﻿#ifndef IVE_SHAPEDRAWABLE
 #define IVE_SHAPEDRAWABLE 1
 
 #include <osg/ShapeDrawable>

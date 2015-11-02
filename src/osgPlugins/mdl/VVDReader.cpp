@@ -1,4 +1,4 @@
-#include <osg/BoundingSphere>
+﻿#include <osg/BoundingSphere>
 #include <osg/Geometry>
 #include <osg/Group>
 #include <osg/Object>

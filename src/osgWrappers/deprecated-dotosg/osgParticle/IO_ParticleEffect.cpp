@@ -1,4 +1,4 @@
-#include <osgParticle/ParticleEffect>
+﻿#include <osgParticle/ParticleEffect>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

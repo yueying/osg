@@ -1,4 +1,4 @@
-#ifndef IVE_IMAGESEQUENCE
+﻿#ifndef IVE_IMAGESEQUENCE
 #define IVE_IMAGESEQUENCE 1
 
 #include <osg/ImageSequence>

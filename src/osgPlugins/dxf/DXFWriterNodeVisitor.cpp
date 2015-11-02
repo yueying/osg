@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 /*
  * Autcad DXF writer for Open Scene Graph

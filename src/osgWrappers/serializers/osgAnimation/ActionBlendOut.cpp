@@ -1,4 +1,4 @@
-#include <osgAnimation/ActionBlendOut>
+﻿#include <osgAnimation/ActionBlendOut>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

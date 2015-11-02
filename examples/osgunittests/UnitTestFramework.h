@@ -1,4 +1,4 @@
-/* -*-c++-*- 
+﻿/* -*-c++-*- 
 *
 *  OpenSceneGraph example, osgunittests.
 *

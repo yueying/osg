@@ -1,4 +1,4 @@
-#include "osg/ShadeModel"
+﻿#include "osg/ShadeModel"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

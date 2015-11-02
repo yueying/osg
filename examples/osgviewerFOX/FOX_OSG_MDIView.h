@@ -1,4 +1,4 @@
-#ifndef _FOXOSGMDIVIEW_H_
+﻿#ifndef _FOXOSGMDIVIEW_H_
 #define _FOXOSGMDIVIEW_H_
 
 #include "FOX_OSG.h"

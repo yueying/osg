@@ -1,4 +1,4 @@
-#include <osgUI/ColorPalette>
+﻿#include <osgUI/ColorPalette>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

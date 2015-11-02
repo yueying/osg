@@ -1,4 +1,4 @@
-// MFC_OSG_MDIView.cpp : implementation of the CMFC_OSG_MDIView class
+﻿// MFC_OSG_MDIView.cpp : implementation of the CMFC_OSG_MDIView class
 //
 
 #include "stdafx.h"

@@ -1,4 +1,4 @@
-#include <osg/Texture1D>
+﻿#include <osg/Texture1D>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

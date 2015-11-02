@@ -1,4 +1,4 @@
-#ifndef IVE_TEXT
+﻿#ifndef IVE_TEXT
 #define IVE_TEXT 1
 
 #include <osgText/Text>

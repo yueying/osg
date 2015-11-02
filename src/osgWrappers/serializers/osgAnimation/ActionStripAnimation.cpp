@@ -1,4 +1,4 @@
-#include <osgAnimation/ActionStripAnimation>
+﻿#include <osgAnimation/ActionStripAnimation>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

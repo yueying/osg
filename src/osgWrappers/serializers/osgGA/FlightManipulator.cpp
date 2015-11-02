@@ -1,4 +1,4 @@
-#include <osgGA/FlightManipulator>
+﻿#include <osgGA/FlightManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

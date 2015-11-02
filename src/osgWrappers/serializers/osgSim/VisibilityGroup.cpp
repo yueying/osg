@@ -1,4 +1,4 @@
-#include <osgSim/VisibilityGroup>
+﻿#include <osgSim/VisibilityGroup>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

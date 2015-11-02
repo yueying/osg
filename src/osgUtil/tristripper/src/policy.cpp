@@ -1,5 +1,5 @@
-//
-// Copyright (C) 2004 Tanguy Fautré.
+ï»¿//
+// Copyright (C) 2004 Tanguy Fautr?
 // For conditions of distribution and use,
 // see copyright notice in tri_stripper.h
 //

@@ -1,4 +1,4 @@
-#include <osgParticle/SinkOperator>
+﻿#include <osgParticle/SinkOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

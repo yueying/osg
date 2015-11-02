@@ -1,4 +1,4 @@
-#include <osg/Group>
+﻿#include <osg/Group>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

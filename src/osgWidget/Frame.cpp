@@ -1,4 +1,4 @@
-// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
+﻿// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 
 #include <osg/io_utils>
 #include <osgDB/ReadFile>
@@ -380,7 +380,7 @@ Frame* Frame::createSimpleFrameFromTheme(
 
 
 
-// (c) 2006-2008   Jean-Sébastien Guay
+// (c) 2006-2008   Jean-S茅bastien Guay
 // adapted by Cedric Pinson
 
 /** Implementation of copyImage. */

@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_SERIALIZER_WRAPPER(osgSim_AzimElevationSector)
 USE_SERIALIZER_WRAPPER(osgSim_AzimSector)

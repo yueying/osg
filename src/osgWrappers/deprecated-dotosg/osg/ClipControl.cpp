@@ -1,4 +1,4 @@
-#include "osg/ClipControl"
+﻿#include "osg/ClipControl"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

@@ -1,4 +1,4 @@
-LIGHTWAVE (LWO2) PLUGIN INTRODUCTION
+﻿LIGHTWAVE (LWO2) PLUGIN INTRODUCTION
 ------------------------------------------------------------------------------
 
   This is the plugin version of my LWO2->OSG converter. It has all the

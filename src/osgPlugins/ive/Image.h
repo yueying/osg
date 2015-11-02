@@ -1,4 +1,4 @@
-#ifndef IVE_IMAGE
+﻿#ifndef IVE_IMAGE
 #define IVE_IMAGE 1
 
 #include <osg/Image>

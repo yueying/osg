@@ -1,4 +1,4 @@
-/*  -*-c++-*-
+﻿/*  -*-c++-*-
  *  Copyright (C) 2010 Cedric Pinson <cedric.pinson@plopbyte.net>
  */
 

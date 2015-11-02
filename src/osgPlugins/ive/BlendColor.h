@@ -1,4 +1,4 @@
-#ifndef IVE_BLENDCOLOR
+﻿#ifndef IVE_BLENDCOLOR
 #define IVE_BLENDCOLOR 1
 
 #include <osg/BlendColor>

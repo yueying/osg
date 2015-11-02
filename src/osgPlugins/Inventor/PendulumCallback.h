@@ -1,4 +1,4 @@
-#ifndef _PENDULUMCALLBACK_H_
+﻿#ifndef _PENDULUMCALLBACK_H_
 #define _PENDULUMCALLBACK_H_
 
 #include <osg/Node>

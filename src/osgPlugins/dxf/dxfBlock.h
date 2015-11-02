@@ -1,4 +1,4 @@
-/* dxfReader for OpenSceneGraph  Copyright (C) 2005 by GraphArchitecture ( grapharchitecture.com )
+﻿/* dxfReader for OpenSceneGraph  Copyright (C) 2005 by GraphArchitecture ( grapharchitecture.com )
  * Programmed by Paul de Repentigny <pdr@grapharchitecture.com>
  *
  * OpenSceneGraph is (C) 2004 Robert Osfield

@@ -1,4 +1,4 @@
-#include <osg/LineStipple>
+﻿#include <osg/LineStipple>
 
 #include <osgDB/Registry>
 #include <osgDB/Input>

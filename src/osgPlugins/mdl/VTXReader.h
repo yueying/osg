@@ -1,4 +1,4 @@
-#ifndef __VTX_READER_H_
+﻿#ifndef __VTX_READER_H_
 #define __VTX_READER_H_
 
 

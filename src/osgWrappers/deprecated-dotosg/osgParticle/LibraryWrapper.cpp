@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(AccelOperator_Proxy)
 USE_DOTOSGWRAPPER(AngularAccelOperator_Proxy)

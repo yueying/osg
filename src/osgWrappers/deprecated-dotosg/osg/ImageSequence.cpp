@@ -1,4 +1,4 @@
-#include "osg/ImageSequence"
+﻿#include "osg/ImageSequence"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

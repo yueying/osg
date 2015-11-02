@@ -1,4 +1,4 @@
-#include <osg/ShapeDrawable>
+﻿#include <osg/ShapeDrawable>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#ifndef ESRI_SHAPE_PARSER_H
+﻿#ifndef ESRI_SHAPE_PARSER_H
 #define ESRI_SHAPE_PARSER_H
 
 #include <string>

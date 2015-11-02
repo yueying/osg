@@ -1,4 +1,4 @@
-#include <osg/MatrixTransform>
+﻿#include <osg/MatrixTransform>
 
 #include <osgAnimation/Animation>
 #include <osgAnimation/BasicAnimationManager>

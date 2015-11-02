@@ -1,4 +1,4 @@
-#include <osgTerrain/Locator>
+﻿#include <osgTerrain/Locator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

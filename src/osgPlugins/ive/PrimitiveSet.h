@@ -1,4 +1,4 @@
-#ifndef IVE_PRIMITIVESET
+﻿#ifndef IVE_PRIMITIVESET
 #define IVE_PRIMITIVESET 1
 
 #include <osg/PrimitiveSet>

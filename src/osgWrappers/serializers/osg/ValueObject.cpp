@@ -1,4 +1,4 @@
-#include <osg/ValueObject>
+﻿#include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

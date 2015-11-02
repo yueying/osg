@@ -1,4 +1,4 @@
-#include <osg/ClipNode>
+﻿#include <osg/ClipNode>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

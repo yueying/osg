@@ -1,4 +1,4 @@
-#ifdef __linux
+﻿#ifdef __linux
 #include <sys/stat.h>
 
 int stat(const char *file_name, struct stat *buf) 

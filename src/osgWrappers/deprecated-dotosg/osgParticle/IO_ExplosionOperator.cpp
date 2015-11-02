@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/ExplosionOperator>
 
 #include <osgDB/Registry>

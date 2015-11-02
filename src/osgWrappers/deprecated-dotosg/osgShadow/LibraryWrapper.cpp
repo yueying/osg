@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(ShadowedScene_Proxy)
 USE_DOTOSGWRAPPER(ShadowMap_Proxy)

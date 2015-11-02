@@ -1,4 +1,4 @@
-# Locate gdal
+﻿# Locate gdal
 # This module defines
 # JASPER_LIBRARY
 # JASPER_FOUND, if false, do not try to link to gdal 

@@ -1,4 +1,4 @@
-#include <osg/ColorMaski>
+﻿#include <osg/ColorMaski>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#ifndef IVE_GEODE
+﻿#ifndef IVE_GEODE
 #define IVE_GEODE 1
 
 #include <osg/Geode>

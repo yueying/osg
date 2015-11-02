@@ -1,4 +1,4 @@
-#ifndef IVE_LIGHTPOINT
+﻿#ifndef IVE_LIGHTPOINT
 #define IVE_LIGHTPOINT 1
 
 #include <osgSim/LightPoint>

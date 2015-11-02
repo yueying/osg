@@ -1,4 +1,4 @@
-#include <osgSim/ScalarBar>
+﻿#include <osgSim/ScalarBar>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

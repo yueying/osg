@@ -1,4 +1,4 @@
-#include <osgFX/Effect>
+﻿#include <osgFX/Effect>
 
 #include <osgDB/Registry>
 #include <osgDB/Input>

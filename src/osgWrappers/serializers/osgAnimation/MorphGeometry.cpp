@@ -1,4 +1,4 @@
-#include <osgAnimation/MorphGeometry>
+﻿#include <osgAnimation/MorphGeometry>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

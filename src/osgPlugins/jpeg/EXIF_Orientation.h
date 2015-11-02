@@ -1,4 +1,4 @@
-#ifndef EXIF_Orientation_H
+﻿#ifndef EXIF_Orientation_H
 #define EXIF_Orientation_H
 
 #include <stdio.h>

@@ -1,4 +1,4 @@
-#ifndef _VIRTUAL_PROGRAM__
+﻿#ifndef _VIRTUAL_PROGRAM__
 #define _VIRTUAL_PROGRAM__ 1
 
 #include<string>

@@ -1,4 +1,4 @@
-#include <osgManipulator/TranslateAxisDragger>
+﻿#include <osgManipulator/TranslateAxisDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

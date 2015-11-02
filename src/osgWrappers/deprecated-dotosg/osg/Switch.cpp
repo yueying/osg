@@ -1,4 +1,4 @@
-#include "osg/Switch"
+﻿#include "osg/Switch"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

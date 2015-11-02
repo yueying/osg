@@ -1,4 +1,4 @@
-// MFC_OSG_MDIView.h : interface of the CMFC_OSG_MDIView class
+﻿// MFC_OSG_MDIView.h : interface of the CMFC_OSG_MDIView class
 //
 #pragma once
 

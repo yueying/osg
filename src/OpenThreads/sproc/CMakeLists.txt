@@ -1,4 +1,4 @@
-# This file should only be included when using Sproc
+﻿# This file should only be included when using Sproc
 
 SET(LIB_NAME OpenThreads)
 SET(LIB_PUBLIC_HEADERS ${OpenThreads_PUBLIC_HEADERS})

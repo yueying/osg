@@ -1,4 +1,4 @@
-/*  -*-c++-*-
+﻿/*  -*-c++-*-
  *  Copyright (C) 2010 Jeremy Moles <cubicool@gmail.com>
  *
  * This library is open source and may be redistributed and/or modified under

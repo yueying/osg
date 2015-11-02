@@ -1,4 +1,4 @@
-#include <osgTerrain/GeometryTechnique>
+﻿#include <osgTerrain/GeometryTechnique>
 
 #include <iostream>
 #include <string>

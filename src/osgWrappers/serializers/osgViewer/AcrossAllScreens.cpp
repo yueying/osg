@@ -1,4 +1,4 @@
-#include <osgViewer/config/AcrossAllScreens>
+﻿#include <osgViewer/config/AcrossAllScreens>
 
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

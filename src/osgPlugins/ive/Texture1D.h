@@ -1,4 +1,4 @@
-#ifndef IVE_TEXTURE1D
+﻿#ifndef IVE_TEXTURE1D
 #define IVE_TEXTURE1D 1
 
 #include <osg/Texture1D>

@@ -1,4 +1,4 @@
-#include <osgGA/KeySwitchMatrixManipulator>
+﻿#include <osgGA/KeySwitchMatrixManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

@@ -1,4 +1,4 @@
-# Locate gdal
+﻿# Locate gdal
 # This module defines
 # FOX_LIBRARY
 # FOX_FOUND, if false, do not try to link to gdal 

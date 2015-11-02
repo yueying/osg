@@ -1,4 +1,4 @@
-#include <osg/PositionAttitudeTransform>
+﻿#include <osg/PositionAttitudeTransform>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/ParticleSystemUpdater>
 
 #include <osg/ref_ptr>

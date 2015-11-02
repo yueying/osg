@@ -1,4 +1,4 @@
-# Locate Performer
+﻿# Locate Performer
 # This module defines
 # PERFORMER_LIBRARY
 # PERFORMER_FOUND, if false, do not try to link to gdal 

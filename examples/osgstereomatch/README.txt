@@ -1,4 +1,4 @@
-The osgstereomatch example illustrates how multiple render passes and multiple render targets on the GPU can be used in stereo vision disparity map calculation.
+﻿The osgstereomatch example illustrates how multiple render passes and multiple render targets on the GPU can be used in stereo vision disparity map calculation.
 
 A simple algorithm is implemented in both a single- and multi-pass way to show the differences in speed of execution.
 

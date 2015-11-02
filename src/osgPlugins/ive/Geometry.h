@@ -1,4 +1,4 @@
-#ifndef IVE_GEOMETRY
+﻿#ifndef IVE_GEOMETRY
 #define IVE_GEOMETRY 1
 
 #include <osg/Geometry>

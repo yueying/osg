@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(AlphaFunc)
 USE_DOTOSGWRAPPER(AnimationPath)

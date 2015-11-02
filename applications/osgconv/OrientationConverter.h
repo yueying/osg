@@ -1,4 +1,4 @@
-#ifndef _ORIENTATION_CONVERTER_H
+﻿#ifndef _ORIENTATION_CONVERTER_H
 #define _ORIENTATION_CONVERTER_H
 
 #include <osg/Vec3>

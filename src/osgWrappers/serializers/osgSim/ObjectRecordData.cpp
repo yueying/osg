@@ -1,4 +1,4 @@
-#include <osgSim/ObjectRecordData>
+﻿#include <osgSim/ObjectRecordData>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

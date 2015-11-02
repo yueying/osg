@@ -1,4 +1,4 @@
-#include "osg/Texture2D"
+﻿#include "osg/Texture2D"
 #include "osg/ImageSequence"
 
 #include "osgDB/Registry"

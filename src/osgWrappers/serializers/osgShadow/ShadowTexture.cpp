@@ -1,4 +1,4 @@
-#include <osgShadow/ShadowTexture>
+﻿#include <osgShadow/ShadowTexture>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

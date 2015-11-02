@@ -1,4 +1,4 @@
-#include <osgTerrain/DisplacementMappingTechnique>
+﻿#include <osgTerrain/DisplacementMappingTechnique>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

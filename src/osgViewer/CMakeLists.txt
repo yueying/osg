@@ -1,4 +1,4 @@
-# FIXME: For OS X, need flag for Framework or dylib
+﻿# FIXME: For OS X, need flag for Framework or dylib
 IF(DYNAMIC_OPENSCENEGRAPH)
     ADD_DEFINITIONS(-DOSGVIEWER_LIBRARY)
 ELSE()

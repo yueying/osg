@@ -1,4 +1,4 @@
-#include <osgShadow/ShadowedScene>
+﻿#include <osgShadow/ShadowedScene>
 
 #include <iostream>
 #include <string>

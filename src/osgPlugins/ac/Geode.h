@@ -1,4 +1,4 @@
-#ifndef AC3D_GEODE
+﻿#ifndef AC3D_GEODE
 #define AC3D_GEODE 1
 
 #include <osg/Geode>

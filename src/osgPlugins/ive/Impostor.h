@@ -1,4 +1,4 @@
-#ifndef IVE_IMPOSTOR
+﻿#ifndef IVE_IMPOSTOR
 #define IVE_IMPOSTOR 1
 
 #include <osgSim/Impostor>

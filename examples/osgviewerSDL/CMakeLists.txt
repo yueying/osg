@@ -1,4 +1,4 @@
-SET(TARGET_EXTERNAL_LIBRARIES ${SDL_LIBRARY} )
+﻿SET(TARGET_EXTERNAL_LIBRARIES ${SDL_LIBRARY} )
 
 IF("${SDL_LIBRARY}" MATCHES "SDLmain")
        # Found a precompiled SDLmain library.

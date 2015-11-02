@@ -1,4 +1,4 @@
-#include "osgSim/Impostor"
+﻿#include "osgSim/Impostor"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

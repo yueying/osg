@@ -1,4 +1,4 @@
-#include <osgSim/Sector>
+﻿#include <osgSim/Sector>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

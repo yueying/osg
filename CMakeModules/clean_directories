@@ -1,4 +1,4 @@
-find . -name Makefile | xargs rm -rf 
+﻿find . -name Makefile | xargs rm -rf 
 find . -name cmake_install.cmake  | xargs rm -rf 
 find . -name CMakeFiles | xargs rm -rf 
 rm -rf CMakeCache.txt cmake_uninstall.cmake install_manifest.txt

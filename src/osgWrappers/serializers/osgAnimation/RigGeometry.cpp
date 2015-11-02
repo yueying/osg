@@ -1,4 +1,4 @@
-#include <osgAnimation/RigGeometry>
+﻿#include <osgAnimation/RigGeometry>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

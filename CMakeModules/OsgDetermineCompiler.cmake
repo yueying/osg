@@ -1,4 +1,4 @@
-# - If Visual Studio is being used, this script sets the variable OSG_COMPILER
+﻿# - If Visual Studio is being used, this script sets the variable OSG_COMPILER
 # The principal reason for this is due to MSVC 8.0 SP0 vs SP1 builds.
 #
 # Variable:

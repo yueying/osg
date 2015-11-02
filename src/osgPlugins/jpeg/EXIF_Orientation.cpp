@@ -1,4 +1,4 @@
-#include "EXIF_Orientation.h"
+﻿#include "EXIF_Orientation.h"
 
 #include <stdio.h>
 #include <string.h>

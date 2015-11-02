@@ -1,4 +1,4 @@
-#include <osg/ClearNode>
+﻿#include <osg/ClearNode>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

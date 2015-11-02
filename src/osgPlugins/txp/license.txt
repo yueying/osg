@@ -1,5 +1,5 @@
-//
-// TerraPage® loader for Open Scene Graph
+ï»¿//
+// TerraPage?loader for Open Scene Graph
 //
 //  Copyright (C) 2002  Boris Bralo
 //

@@ -1,4 +1,4 @@
-#ifndef IVE_BILLBOARD
+﻿#ifndef IVE_BILLBOARD
 #define IVE_BILLBOARD 1
 
 #include <osg/Billboard>

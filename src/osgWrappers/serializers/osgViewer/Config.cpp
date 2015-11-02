@@ -1,4 +1,4 @@
-#include <osgViewer/View>
+﻿#include <osgViewer/View>
 
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

@@ -1,4 +1,4 @@
-#ifndef IVE_COMPOSITELAYER
+﻿#ifndef IVE_COMPOSITELAYER
 #define IVE_COMPOSITELAYER 1
 
 #include <osgTerrain/Layer>

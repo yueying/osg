@@ -1,4 +1,4 @@
-#include <osgParticle/Shooter>
+﻿#include <osgParticle/Shooter>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

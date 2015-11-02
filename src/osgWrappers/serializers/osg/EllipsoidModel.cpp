@@ -1,4 +1,4 @@
-#include <osg/CoordinateSystemNode>
+﻿#include <osg/CoordinateSystemNode>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

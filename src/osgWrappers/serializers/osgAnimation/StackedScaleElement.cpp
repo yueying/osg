@@ -1,4 +1,4 @@
-#include <osgAnimation/StackedScaleElement>
+﻿#include <osgAnimation/StackedScaleElement>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

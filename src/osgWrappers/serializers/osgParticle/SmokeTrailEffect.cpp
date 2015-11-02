@@ -1,4 +1,4 @@
-#include <osgParticle/SmokeTrailEffect>
+﻿#include <osgParticle/SmokeTrailEffect>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

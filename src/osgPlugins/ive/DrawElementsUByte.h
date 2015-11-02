@@ -1,4 +1,4 @@
-#ifndef IVE_DRAWELEMENTSUBYTE
+﻿#ifndef IVE_DRAWELEMENTSUBYTE
 #define IVE_DRAWELEMENTSUBYTE 1
 
 #include <osg/PrimitiveSet>

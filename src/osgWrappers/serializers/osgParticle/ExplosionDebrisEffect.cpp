@@ -1,4 +1,4 @@
-#include <osgParticle/ExplosionDebrisEffect>
+﻿#include <osgParticle/ExplosionDebrisEffect>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

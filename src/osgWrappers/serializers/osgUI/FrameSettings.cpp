@@ -1,4 +1,4 @@
-#include <osgUI/FrameSettings>
+﻿#include <osgUI/FrameSettings>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

@@ -1,4 +1,4 @@
-#ifndef IVE_TEXTURE2DARRAY
+﻿#ifndef IVE_TEXTURE2DARRAY
 #define IVE_TEXTURE2DARRAY 1
 
 #include <osg/Texture2DArray>

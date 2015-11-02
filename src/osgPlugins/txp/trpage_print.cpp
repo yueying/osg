@@ -1,4 +1,4 @@
-/* ************************
+﻿/* ************************
    Copyright Terrain Experts Inc.
    Terrain Experts Inc (TERREX) reserves all rights to this source code
    unless otherwise specified in writing by the President of TERREX.

@@ -1,4 +1,4 @@
-Features and issues with Performer plugin
+﻿Features and issues with Performer plugin
 =========================================
 
 Issues

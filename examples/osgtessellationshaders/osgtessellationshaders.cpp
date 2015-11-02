@@ -1,4 +1,4 @@
-/* A demonstration of Tessellation Shaders in OpenScenegraph.
+﻿/* A demonstration of Tessellation Shaders in OpenScenegraph.
  *
  * Instructions:
  *   Press plus to increase tesselation and minus to decrease it.

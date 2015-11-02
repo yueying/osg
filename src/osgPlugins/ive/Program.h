@@ -1,4 +1,4 @@
-#ifndef IVE_PROGRAM
+﻿#ifndef IVE_PROGRAM
 #define IVE_PROGRAM 1
 
 #include <osg/Program>

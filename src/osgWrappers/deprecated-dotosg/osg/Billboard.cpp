@@ -1,4 +1,4 @@
-#include "osg/Billboard"
+﻿#include "osg/Billboard"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

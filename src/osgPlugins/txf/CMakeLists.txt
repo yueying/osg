@@ -1,4 +1,4 @@
-
+﻿
 SET(TARGET_SRC 
     ReaderWriterTXF.cpp
     TXFFont.cpp

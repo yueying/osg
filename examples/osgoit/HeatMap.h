@@ -1,4 +1,4 @@
-
+﻿
 #ifndef HEATMAP_H
 #define HEATMAP_H
 

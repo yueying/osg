@@ -1,4 +1,4 @@
-# OpenThreads is a C++ based threading library. Its largest userbase 
+﻿# OpenThreads is a C++ based threading library. Its largest userbase 
 # seems to OpenSceneGraph so you might notice I accept OSGDIR as an
 # environment path.
 # I consider this part of the Findosg* suite used to find OpenSceneGraph 

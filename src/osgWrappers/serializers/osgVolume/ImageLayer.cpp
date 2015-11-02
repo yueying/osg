@@ -1,4 +1,4 @@
-#include <osgVolume/Layer>
+﻿#include <osgVolume/Layer>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

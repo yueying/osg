@@ -1,4 +1,4 @@
-#ifndef IVE_DEPTH
+﻿#ifndef IVE_DEPTH
 #define IVE_DEPTH 1
 
 #include <osg/Depth>

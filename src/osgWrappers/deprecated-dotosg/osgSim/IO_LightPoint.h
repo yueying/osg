@@ -1,4 +1,4 @@
-#ifndef DOTOSGSIM_LIGHTPOINT
+﻿#ifndef DOTOSGSIM_LIGHTPOINT
 #define DOTOSGSIM_LIGHTPOINT
 
 #include <osgSim/LightPoint>

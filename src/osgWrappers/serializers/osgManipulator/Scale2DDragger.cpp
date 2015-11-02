@@ -1,4 +1,4 @@
-#include <osgManipulator/Scale2DDragger>
+﻿#include <osgManipulator/Scale2DDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

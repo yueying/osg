@@ -1,4 +1,4 @@
-SET(TARGET_SRC osgthreadedterrain.cpp)
+﻿SET(TARGET_SRC osgthreadedterrain.cpp)
 
 SET(TARGET_ADDED_LIBRARIES osgTerrain )
 

@@ -1,4 +1,4 @@
-#include <osg/Group>
+﻿#include <osg/Group>
 #include <osgDB/FileUtils>
 #include <osgDB/FileNameUtils>
 #include <osgDB/ReadFile>

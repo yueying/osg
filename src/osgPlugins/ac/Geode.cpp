@@ -1,4 +1,4 @@
-/*  Code for writing AC3D format files, constructs one object per Geode
+﻿/*  Code for writing AC3D format files, constructs one object per Geode
  * since geodes only have 1 material, and AC3D allows multiple materials you
  * may not get an exact vopy of an ac3d file used as input.
  *

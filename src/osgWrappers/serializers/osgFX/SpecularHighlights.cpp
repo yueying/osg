@@ -1,4 +1,4 @@
-#include <osgFX/SpecularHighlights>
+﻿#include <osgFX/SpecularHighlights>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

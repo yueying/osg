@@ -1,4 +1,4 @@
-#ifndef IVE_TEXENVCOMBINE
+﻿#ifndef IVE_TEXENVCOMBINE
 #define IVE_TEXENVCOMBINE 1
 
 #include <osg/TexEnvCombine>

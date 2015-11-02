@@ -1,4 +1,4 @@
-#ifndef IVE_LIGHTMODEL
+﻿#ifndef IVE_LIGHTMODEL
 #define IVE_LIGHTMODEL 1
 
 #include <osg/LightModel>

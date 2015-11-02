@@ -1,4 +1,4 @@
-#ifndef OSG_CONVERT_TO_INVENTOR_H
+﻿#ifndef OSG_CONVERT_TO_INVENTOR_H
 #define OSG_CONVERT_TO_INVENTOR_H
 //
 //  ConvertToInventor converts OSG scene graph to Inventor or VRML 1 scene graph

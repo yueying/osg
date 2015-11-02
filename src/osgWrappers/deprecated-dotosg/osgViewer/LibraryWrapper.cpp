@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(CompositeViewer_Proxy)
 USE_DOTOSGWRAPPER(View_Proxy)

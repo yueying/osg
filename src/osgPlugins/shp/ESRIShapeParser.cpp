@@ -1,4 +1,4 @@
-#include <fcntl.h>
+﻿#include <fcntl.h>
 #include <osg/Geometry>
 #include <osg/Notify>
 #include <osgUtil/Tessellator>

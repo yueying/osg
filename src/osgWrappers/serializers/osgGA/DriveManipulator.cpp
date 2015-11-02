@@ -1,4 +1,4 @@
-#include <osgGA/DriveManipulator>
+﻿#include <osgGA/DriveManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

@@ -1,4 +1,4 @@
-#include "CaptureSettings.h"
+﻿#include "CaptureSettings.h"
 
 using namespace gsc;
 

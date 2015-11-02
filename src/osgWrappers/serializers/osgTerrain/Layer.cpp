@@ -1,4 +1,4 @@
-#include <osgTerrain/Layer>
+﻿#include <osgTerrain/Layer>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

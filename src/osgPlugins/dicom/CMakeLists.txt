@@ -1,4 +1,4 @@
-IF  (DCMTK_FOUND)
+﻿IF  (DCMTK_FOUND)
 
     # note, we have to include a '/' in front of the directory string to prevent a CMake bug from ignoring the directory
     INCLUDE_DIRECTORIES(${DCMTK_ROOT_INCLUDE_DIR})

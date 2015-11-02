@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) Cedric Pinson
+﻿/* -*-c++-*- OpenSceneGraph - Copyright (C) Cedric Pinson
  *
  * This application is open source and may be redistributed and/or modified
  * freely and without restriction, both in commercial and non commercial
@@ -91,7 +91,7 @@ public:
 
                 // Calculate handedness
                 (*finalTangent)[i][3] = (((n ^ t) * t2) < 0.0) ? -1.0 : 1.0;
-                // The bitangent vector B is then given by B = (N × T) · Tw
+                // The bitangent vector B is then given by B = (N 脳 T) 路 Tw
             }
             finalTangent->setUserValue("tangent", true);
             geom.setVertexAttribArray(geom.getNumVertexAttribArrays(), finalTangent, osg::Array::BIND_PER_VERTEX);

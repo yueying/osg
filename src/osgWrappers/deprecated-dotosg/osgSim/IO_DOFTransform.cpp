@@ -1,4 +1,4 @@
-#include "osgSim/DOFTransform"
+﻿#include "osgSim/DOFTransform"
 #include <osg/io_utils>
 
 #include "osgDB/Registry"

@@ -1,4 +1,4 @@
-#include <osg/TransferFunction>
+﻿#include <osg/TransferFunction>
 
 #include <iostream>
 #include <string>

@@ -1,4 +1,4 @@
-# - Try to find GStreamer and its plugins
+﻿# - Try to find GStreamer and its plugins
 # Once done, this will define
 #
 #  GSTREAMER_FOUND - system has GStreamer

@@ -1,4 +1,4 @@
-//
+﻿//
 //  ConvertToInventor converts OSG scene graph to Inventor or VRML 1 scene graph
 //
 //  It requires OSG and Inventor compatible library, such as Coin,

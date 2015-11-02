@@ -1,4 +1,4 @@
-#include <osgParticle/SegmentPlacer>
+﻿#include <osgParticle/SegmentPlacer>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

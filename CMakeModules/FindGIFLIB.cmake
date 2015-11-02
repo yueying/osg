@@ -1,4 +1,4 @@
-# This module defines
+﻿# This module defines
 # GIFLIB_LIBRARY
 # GIFLIB_FOUND, if false, do not try to link 
 # GIFLIB_INCLUDE_DIR, where to find the headers

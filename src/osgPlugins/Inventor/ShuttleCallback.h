@@ -1,4 +1,4 @@
-#ifndef _SHUTTLECALLBACK_H_
+﻿#ifndef _SHUTTLECALLBACK_H_
 #define _SHUTTLECALLBACK_H_
 
 #include <osg/Node>

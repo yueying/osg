@@ -1,4 +1,4 @@
-SET(TARGET_SRC osgversion.cpp )
+﻿SET(TARGET_SRC osgversion.cpp )
 
 IF (OSG_MAINTAINER)
     SET(TARGET_SRC ${TARGET_SRC} Contributors.cpp )

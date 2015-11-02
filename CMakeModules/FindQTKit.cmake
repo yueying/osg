@@ -1,4 +1,4 @@
-# Locate Apple QTKit (next-generation QuickTime)
+﻿# Locate Apple QTKit (next-generation QuickTime)
 # This module defines
 # QTKIT_LIBRARY
 # QTKIT_FOUND, if false, do not try to link to gdal 

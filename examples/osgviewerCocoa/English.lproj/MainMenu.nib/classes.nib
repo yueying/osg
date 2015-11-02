@@ -1,4 +1,4 @@
-{
+﻿{
     IBClasses = (
         {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
         {

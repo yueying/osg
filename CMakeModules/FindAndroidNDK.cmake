@@ -1,4 +1,4 @@
-# Locate AndroidNDK
+﻿# Locate AndroidNDK
 # This module defines
 # ANDROID_NDK
 # ANDROID_FOUND, if false, do not try to use AndroidNDK

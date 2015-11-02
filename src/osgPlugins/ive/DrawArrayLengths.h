@@ -1,4 +1,4 @@
-#ifndef IVE_DRAWARRAYLENGTHS
+﻿#ifndef IVE_DRAWARRAYLENGTHS
 #define IVE_DRAWARRAYLENGTHS 1
 
 #include <osg/PrimitiveSet>

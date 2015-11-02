@@ -1,4 +1,4 @@
-#include "TileMapper.h"
+﻿#include "TileMapper.h"
 #include "TXPPagedLOD.h"
 
 #include <algorithm>

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * PLY  ( Stanford Triangle Format )  File Loader for OSG
  * Copyright (C) 2009 by VizExperts Limited
  * All rights reserved.

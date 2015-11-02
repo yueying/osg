@@ -1,4 +1,4 @@
-/*
+﻿/*
     vertexData.h
     Copyright (c) 2007, Tobias Wolf <twolf@access.unizh.ch>
     All rights reserved.

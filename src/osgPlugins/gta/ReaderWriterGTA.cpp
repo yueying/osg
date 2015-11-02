@@ -1,4 +1,4 @@
-
+﻿
 #include <osg/Image>
 
 #include <osgDB/Registry>

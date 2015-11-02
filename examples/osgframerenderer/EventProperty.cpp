@@ -1,4 +1,4 @@
-#include "EventProperty.h"
+﻿#include "EventProperty.h"
 
 namespace gsc
 {

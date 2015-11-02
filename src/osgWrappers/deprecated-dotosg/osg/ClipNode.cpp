@@ -1,4 +1,4 @@
-#include "osg/ClipNode"
+﻿#include "osg/ClipNode"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

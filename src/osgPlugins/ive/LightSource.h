@@ -1,4 +1,4 @@
-#ifndef IVE_LIGHTSOURCE
+﻿#ifndef IVE_LIGHTSOURCE
 #define IVE_LIGHTSOURCE 1
 
 #include <osg/LightSource>

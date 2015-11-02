@@ -1,4 +1,4 @@
-#include <osg/LightModel>
+﻿#include <osg/LightModel>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

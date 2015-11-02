@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/ModularEmitter>
 #include <osgParticle/Counter>
 #include <osgParticle/Placer>

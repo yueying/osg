@@ -1,4 +1,4 @@
-#include <osgParticle/Counter>
+﻿#include <osgParticle/Counter>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

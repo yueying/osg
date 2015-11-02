@@ -1,4 +1,4 @@
-#include <osg/Hint>
+﻿#include <osg/Hint>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

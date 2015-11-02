@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(Text_Proxy)
 USE_DOTOSGWRAPPER(Text3D_Proxy)

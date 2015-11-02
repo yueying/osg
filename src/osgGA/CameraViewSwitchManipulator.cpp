@@ -1,4 +1,4 @@
-#include <osgGA/CameraViewSwitchManipulator>
+﻿#include <osgGA/CameraViewSwitchManipulator>
 #include <osg/Quat>
 #include <osg/Notify>
 #include <osg/BoundsChecking>

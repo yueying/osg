@@ -1,4 +1,4 @@
-#include <osg/ShadeModel>
+﻿#include <osg/ShadeModel>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#include <osgSim/LightPointNode>
+﻿#include <osgSim/LightPointNode>
 #include <osgSim/LightPoint>
 #include <osg/ref_ptr>
 

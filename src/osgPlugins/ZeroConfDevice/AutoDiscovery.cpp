@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  AutoDiscovery.cpp
  *  cefix_alterable
  *

@@ -1,4 +1,4 @@
-#include <osgParticle/BounceOperator>
+﻿#include <osgParticle/BounceOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

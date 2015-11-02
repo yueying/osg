@@ -1,4 +1,4 @@
-SET(TARGET_H DirectInputRegistry)
+﻿SET(TARGET_H DirectInputRegistry)
 SET(TARGET_SRC osgdirectinput.cpp DirectInputRegistry.cpp)
 
 INCLUDE_DIRECTORIES( ${DIRECTINPUT_INCLUDE_DIR} )

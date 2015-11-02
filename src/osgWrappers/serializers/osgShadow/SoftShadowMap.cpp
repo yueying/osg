@@ -1,4 +1,4 @@
-#include <osgShadow/SoftShadowMap>
+﻿#include <osgShadow/SoftShadowMap>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#include <osgUI/Validator>
+﻿#include <osgUI/Validator>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

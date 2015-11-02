@@ -1,4 +1,4 @@
-#include "osg/Drawable"
+﻿#include "osg/Drawable"
 #include "osg/Notify"
 
 #include "osgDB/Registry"

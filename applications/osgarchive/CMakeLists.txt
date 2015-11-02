@@ -1,3 +1,3 @@
-SET(TARGET_SRC osgarchive.cpp )
+﻿SET(TARGET_SRC osgarchive.cpp )
 
 SETUP_APPLICATION(osgarchive)

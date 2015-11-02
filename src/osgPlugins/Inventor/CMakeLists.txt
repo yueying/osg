@@ -1,4 +1,4 @@
-INCLUDE(OsgMacroUtils)
+﻿INCLUDE(OsgMacroUtils)
 
 SET(TARGET_SRC
     ConvertToInventor.cpp

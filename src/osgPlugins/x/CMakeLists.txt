@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     ReaderWriterDirectX.cpp
     directx.cpp
     mesh.cpp

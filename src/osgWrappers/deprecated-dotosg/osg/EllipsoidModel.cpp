@@ -1,4 +1,4 @@
-#include "osg/CoordinateSystemNode"
+﻿#include "osg/CoordinateSystemNode"
 #include "osg/Notify"
 
 #include "osgDB/Registry"

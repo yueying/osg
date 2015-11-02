@@ -1,4 +1,4 @@
-#include <osg/Projection>
+﻿#include <osg/Projection>
 #include <osg/Matrix>
 
 #include "osgDB/Registry"

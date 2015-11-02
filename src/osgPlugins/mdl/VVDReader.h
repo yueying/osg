@@ -1,4 +1,4 @@
-#ifndef __VVD_READER_H_
+﻿#ifndef __VVD_READER_H_
 #define __VVD_READER_H_
 
 

@@ -1,4 +1,4 @@
-#ifndef IVE_CAMERA
+﻿#ifndef IVE_CAMERA
 #define IVE_CAMERA 1
 
 #include <osg/Camera>

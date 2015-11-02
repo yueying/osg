@@ -1,4 +1,4 @@
-#include <osg/Shader>
+﻿#include <osg/Shader>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-B1. Object Files (.obj)
+﻿B1. Object Files (.obj)
 
 Object files define the geometry and other properties for objects in
 Wavefront's Advanced Visualizer. Object files can also be used to

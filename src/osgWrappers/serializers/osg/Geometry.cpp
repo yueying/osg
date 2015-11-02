@@ -1,4 +1,4 @@
-#include <osg/Geometry>
+﻿#include <osg/Geometry>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

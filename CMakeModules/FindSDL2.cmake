@@ -1,4 +1,4 @@
-# - Locate SDL library
+﻿# - Locate SDL library
 # This module defines
 #  SDL2_LIBRARY, the name of the library to link against
 #  SDL2_FOUND, if false, do not try to link to SDL

@@ -1,4 +1,4 @@
-#ifndef IVE_ANIMATIONPATHCALLBACK
+﻿#ifndef IVE_ANIMATIONPATHCALLBACK
 #define IVE_ANIMATIONPATHCALLBACK 1
 
 #include <osg/AnimationPath>

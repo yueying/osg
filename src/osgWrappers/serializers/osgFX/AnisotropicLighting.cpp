@@ -1,4 +1,4 @@
-#include <osgFX/AnisotropicLighting>
+﻿#include <osgFX/AnisotropicLighting>
 #include <osgDB/ReadFile>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

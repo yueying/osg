@@ -1,4 +1,4 @@
-#include <osgFX/Outline>
+﻿#include <osgFX/Outline>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

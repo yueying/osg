@@ -1,4 +1,4 @@
-#include <osgText/TextBase>
+﻿#include <osgText/TextBase>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

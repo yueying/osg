@@ -1,4 +1,4 @@
-#include <osg/BlendEquationi>
+﻿#include <osg/BlendEquationi>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

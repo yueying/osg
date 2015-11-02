@@ -1,4 +1,4 @@
-#include <osgFX/AnisotropicLighting>
+﻿#include <osgFX/AnisotropicLighting>
 #include <osgFX/Registry>
 
 #include <osg/VertexProgram>

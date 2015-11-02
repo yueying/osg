@@ -1,4 +1,4 @@
-#include <osgUtil/DrawElementTypeSimplifier>
+﻿#include <osgUtil/DrawElementTypeSimplifier>
 
 #include <osg/Geode>
 

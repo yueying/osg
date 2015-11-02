@@ -1,4 +1,4 @@
-SET(TARGET_SRC 
+﻿SET(TARGET_SRC 
   CameraConfig.cpp
   Camera.cpp
   ConfigLexer.cpp

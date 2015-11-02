@@ -1,4 +1,4 @@
-#include "osg/BlendEquation"
+﻿#include "osg/BlendEquation"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

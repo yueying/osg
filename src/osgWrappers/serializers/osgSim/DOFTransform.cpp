@@ -1,4 +1,4 @@
-#include <osgSim/DOFTransform>
+﻿#include <osgSim/DOFTransform>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

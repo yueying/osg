@@ -1,4 +1,4 @@
-#include <osgGA/MultiTouchTrackballManipulator>
+﻿#include <osgGA/MultiTouchTrackballManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

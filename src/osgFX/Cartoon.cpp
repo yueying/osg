@@ -1,4 +1,4 @@
-#include <osgFX/Cartoon>
+﻿#include <osgFX/Cartoon>
 #include <osgFX/Registry>
 
 #include <osg/PolygonOffset>

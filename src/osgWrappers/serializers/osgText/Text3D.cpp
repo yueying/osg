@@ -1,4 +1,4 @@
-#include <osgText/Text3D>
+﻿#include <osgText/Text3D>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#include <osgViewer/config/SingleWindow>
+﻿#include <osgViewer/config/SingleWindow>
 
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

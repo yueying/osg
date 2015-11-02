@@ -1,4 +1,4 @@
-#ifndef IVE_TEXGEN
+﻿#ifndef IVE_TEXGEN
 #define IVE_TEXGEN 1
 
 #include <osg/TexGen>

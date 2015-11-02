@@ -1,4 +1,4 @@
-#include <osgAnimation/StackedMatrixElement>
+﻿#include <osgAnimation/StackedMatrixElement>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

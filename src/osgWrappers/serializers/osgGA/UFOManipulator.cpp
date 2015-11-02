@@ -1,4 +1,4 @@
-#include <osgGA/UFOManipulator>
+﻿#include <osgGA/UFOManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

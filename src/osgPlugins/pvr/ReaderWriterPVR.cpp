@@ -1,4 +1,4 @@
-// ReaderWriter for pvr images
+﻿// ReaderWriter for pvr images
 
 #if defined(_MSC_VER)
 #include <windows.h>

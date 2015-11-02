@@ -1,4 +1,4 @@
-# Makefile for installing Lua
+﻿# Makefile for installing Lua
 # See doc/readme.html for installation and customization instructions.
 
 # == CHANGE THE SETTINGS BELOW TO SUIT YOUR ENVIRONMENT =======================

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright 2006 Sony Computer Entertainment Inc.
  *
  * Licensed under the SCEA Shared Source License, Version 1.0 (the "License"); you may not use this

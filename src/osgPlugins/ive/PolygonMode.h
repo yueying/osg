@@ -1,4 +1,4 @@
-#ifndef IVE_POLYGONMODE
+﻿#ifndef IVE_POLYGONMODE
 #define IVE_POLYGONMODE 1
 
 #include <osg/PolygonMode>

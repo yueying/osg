@@ -1,4 +1,4 @@
-#include <osgText/Text3D>
+﻿#include <osgText/Text3D>
 
 #include <iostream>
 #include <string>

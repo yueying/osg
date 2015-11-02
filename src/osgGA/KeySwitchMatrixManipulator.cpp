@@ -1,4 +1,4 @@
-#include <osgGA/KeySwitchMatrixManipulator>
+﻿#include <osgGA/KeySwitchMatrixManipulator>
 #include <osg/Notify>
 
 using namespace osgGA;

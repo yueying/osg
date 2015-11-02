@@ -1,4 +1,4 @@
-# For visual studio express 2005 and windows plateforme sdk 2003
+﻿# For visual studio express 2005 and windows plateforme sdk 2003
 # i have some problem with the windows sdk to build the BaseClasses, so
 # here some point that will help to fix this.
 # https://blogs.msdn.com/mikewasson/archive/2005/05/23/421116.aspx

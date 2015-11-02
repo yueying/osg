@@ -1,4 +1,4 @@
-#ifndef IVE_SWITCH
+﻿#ifndef IVE_SWITCH
 #define IVE_SWITCH 1
 
 #include <osg/Switch>

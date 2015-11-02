@@ -1,4 +1,4 @@
-#include <osg/ImageStream>
+﻿#include <osg/ImageStream>
 #include <osg/Notify>
 #include <osg/Geode>
 

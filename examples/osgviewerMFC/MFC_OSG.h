@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>

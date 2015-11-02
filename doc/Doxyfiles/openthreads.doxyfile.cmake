@@ -1,4 +1,4 @@
-# Doxyfile 1.5.7.1
+﻿# Doxyfile 1.5.7.1
 
 #---------------------------------------------------------------------------
 # Project related configuration options

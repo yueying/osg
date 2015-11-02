@@ -1,4 +1,4 @@
-#include <osgSim/BlinkSequence>
+﻿#include <osgSim/BlinkSequence>
 #include <osg/io_utils>
 
 #include <iostream>

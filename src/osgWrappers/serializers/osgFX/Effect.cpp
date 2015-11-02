@@ -1,4 +1,4 @@
-#include <osgFX/Effect>
+﻿#include <osgFX/Effect>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

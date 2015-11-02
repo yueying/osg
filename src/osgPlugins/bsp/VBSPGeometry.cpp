@@ -1,4 +1,4 @@
-
+﻿
 #include <stdlib.h>
 #include <osg/Geode>
 #include <osgUtil/TriStripVisitor>

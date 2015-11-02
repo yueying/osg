@@ -1,4 +1,4 @@
-/* -*-c++-*- Producer - Copyright (C) 2001-2004  Don Burns
+﻿/* -*-c++-*- Producer - Copyright (C) 2001-2004  Don Burns
  *
  * This library is open source and may be redistributed and/or modified under
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or

@@ -1,4 +1,4 @@
-#ifndef CAMERAPROPERTY_H
+﻿#ifndef CAMERAPROPERTY_H
 #define CAMERAPROPERTY_H
 
 #include <osg/AnimationPath>

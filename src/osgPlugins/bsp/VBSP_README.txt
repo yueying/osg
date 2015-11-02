@@ -1,4 +1,4 @@
-
+﻿
 Source Engine BSP map reader for OSG
 
 by Jason Daly

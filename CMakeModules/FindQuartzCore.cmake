@@ -1,4 +1,4 @@
-# Locate Apple QuartzCore
+﻿# Locate Apple QuartzCore
 # This module defines
 # QUARTZCORE_LIBRARY
 # QUARTZCORE_FOUND, if false, do not try to link to QUARTZCORE 

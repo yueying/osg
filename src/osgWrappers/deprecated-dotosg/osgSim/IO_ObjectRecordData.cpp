@@ -1,4 +1,4 @@
-#include <osgSim/ObjectRecordData>
+﻿#include <osgSim/ObjectRecordData>
 #include <osg/io_utils>
 
 #include <iostream>

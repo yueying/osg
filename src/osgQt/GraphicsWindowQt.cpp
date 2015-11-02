@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) 2009 Wang Rui
+﻿/* -*-c++-*- OpenSceneGraph - Copyright (C) 2009 Wang Rui
  *
  * This library is open source and may be redistributed and/or modified under
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or

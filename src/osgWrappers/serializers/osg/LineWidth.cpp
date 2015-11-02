@@ -1,4 +1,4 @@
-#include <osg/LineWidth>
+﻿#include <osg/LineWidth>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

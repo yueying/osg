@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     OrientationConverter.cpp 
     osgconv.cpp
 )

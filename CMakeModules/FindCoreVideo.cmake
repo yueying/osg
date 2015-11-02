@@ -1,4 +1,4 @@
-# Locate Apple CoreVideo (next-generation QuickTime)
+﻿# Locate Apple CoreVideo (next-generation QuickTime)
 # This module defines
 # COREVIDEO_LIBRARY
 # COREVIDEO_FOUND, if false, do not try to link to gdal 

@@ -1,4 +1,4 @@
-#include <osg/ShapeDrawable>
+﻿#include <osg/ShapeDrawable>
 #include <osg/Notify>
 #include <osg/io_utils>
 

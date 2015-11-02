@@ -1,4 +1,4 @@
-#ifndef POV_WRITER_NODE_VISITOR_H
+﻿#ifndef POV_WRITER_NODE_VISITOR_H
 #define POV_WRITER_NODE_VISITOR_H
 //
 //  POVWriterNodeVisitor converts OSG scene graph to POV (povray)

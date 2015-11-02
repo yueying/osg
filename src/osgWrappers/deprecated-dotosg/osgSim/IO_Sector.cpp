@@ -1,4 +1,4 @@
-#include <osgSim/Sector>
+﻿#include <osgSim/Sector>
 #include <osg/io_utils>
 
 #include <iostream>

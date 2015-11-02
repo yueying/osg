@@ -1,4 +1,4 @@
-#ifndef GLES_UTIL
+﻿#ifndef GLES_UTIL
 #define GLES_UTIL
 
 #include <cassert>

@@ -1,4 +1,4 @@
-char terrain_displacement_mapping_geom[] = "#version 120\n"
+﻿char terrain_displacement_mapping_geom[] = "#version 120\n"
                                            "\n"
                                            "#pragma requires(COMPUTE_DIAGONALS)\n"
                                            "\n"

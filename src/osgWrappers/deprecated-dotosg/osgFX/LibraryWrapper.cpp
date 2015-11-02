@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(AnisotropicLighting_Proxy)
 USE_DOTOSGWRAPPER(BumpMapping_Proxy)

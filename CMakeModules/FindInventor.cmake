@@ -1,4 +1,4 @@
-#
+﻿#
 # Find Open Inventor
 #
 # This module defines:

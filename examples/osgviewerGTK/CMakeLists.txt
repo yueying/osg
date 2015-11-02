@@ -1,4 +1,4 @@
-SET(TARGET_SRC osggtkdrawingarea.cpp osgviewerGTK.cpp)
+﻿SET(TARGET_SRC osggtkdrawingarea.cpp osgviewerGTK.cpp)
 SET(TARGET_H osggtkdrawingarea.h)
 
 INCLUDE_DIRECTORIES(${GTK_INCLUDE_DIRS} ${GTKGL_INCLUDE_DIRS})

@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  GraphicsWindowCocoa.cpp
  *  OpenSceneGraph
  *

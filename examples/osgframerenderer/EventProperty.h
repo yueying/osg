@@ -1,4 +1,4 @@
-#ifndef EVENTPROPERTY_H
+﻿#ifndef EVENTPROPERTY_H
 #define EVENTPROPERTY_H
 
 #include <osgGA/GUIEventAdapter>

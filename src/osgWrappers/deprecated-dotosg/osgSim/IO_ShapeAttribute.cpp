@@ -1,4 +1,4 @@
-#include <osgSim/ShapeAttribute>
+﻿#include <osgSim/ShapeAttribute>
 
 #include <iostream>
 #include <string>

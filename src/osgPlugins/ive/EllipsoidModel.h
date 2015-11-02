@@ -1,4 +1,4 @@
-#ifndef IVE_ELLIPSOIDMODEL
+﻿#ifndef IVE_ELLIPSOIDMODEL
 #define IVE_ELLIPSOIDMODEL 1
 
 #include <osg/CoordinateSystemNode>

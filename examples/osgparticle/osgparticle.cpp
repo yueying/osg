@@ -1,4 +1,4 @@
-/* OpenSceneGraph example, osgparticle.
+ï»¿/* OpenSceneGraph example, osgparticle.
 *
 *  Permission is hereby granted, free of charge, to any person obtaining a copy
 *  of this software and associated documentation files (the "Software"), to deal
@@ -261,7 +261,7 @@ osgParticle::ParticleSystem *create_complex_particle_system(osg::Group *root)
     osgParticle::SectorPlacer *placer = new osgParticle::SectorPlacer;
     placer->setCenter(8, 0, 10);
     placer->setRadiusRange(2.5, 5);
-    placer->setPhiRange(0, 2 * osg::PI);    // 360° angle to make a circle
+    placer->setPhiRange(0, 2 * osg::PI);    // 360?angle to make a circle
     emitter->setPlacer(placer);
 
     // now let's setup the shooter; we use a RadialShooter but we set the
@@ -397,7 +397,7 @@ osgParticle::ParticleSystem *create_animated_particle_system(osg::Group *root)
     osgParticle::SectorPlacer *placer = new osgParticle::SectorPlacer;
     placer->setCenter(-8, 0, 0);
     placer->setRadiusRange(2.5, 5);
-    placer->setPhiRange(0, 2 * osg::PI);    // 360° angle to make a circle
+    placer->setPhiRange(0, 2 * osg::PI);    // 360?angle to make a circle
     emitter1->setPlacer(placer);
     emitter2->setPlacer(placer);
 

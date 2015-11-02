@@ -1,4 +1,4 @@
-# Locate libgta
+﻿# Locate libgta
 # This module defines
 # GTA_FOUND, if false, do not try to link to libgta
 # GTA_INCLUDE_DIRS, where to find the headers

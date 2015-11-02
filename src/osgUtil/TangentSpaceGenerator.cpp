@@ -1,4 +1,4 @@
-#include <osgUtil/TangentSpaceGenerator>
+﻿#include <osgUtil/TangentSpaceGenerator>
 
 #include <osg/Notify>
 #include <osg/io_utils>

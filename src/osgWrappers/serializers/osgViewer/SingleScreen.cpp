@@ -1,4 +1,4 @@
-#include <osgViewer/config/SingleScreen>
+﻿#include <osgViewer/config/SingleScreen>
 
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

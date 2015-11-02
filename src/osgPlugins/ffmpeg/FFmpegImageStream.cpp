@@ -1,4 +1,4 @@
-
+﻿
 #include "FFmpegImageStream.hpp"
 #include "FFmpegAudioStream.hpp"
 #include "FFmpegParameters.hpp"

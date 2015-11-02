@@ -1,4 +1,4 @@
-#ifndef IVE_ALPHAFUNC
+﻿#ifndef IVE_ALPHAFUNC
 #define IVE_ALPHAFUNC 1
 
 #include <osg/AlphaFunc>

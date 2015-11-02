@@ -1,4 +1,4 @@
-#include <osg/StateSet>
+﻿#include <osg/StateSet>
 #include <osg/Texture1D>
 #include <osg/Texture2D>
 #include <osg/TextureCubeMap>

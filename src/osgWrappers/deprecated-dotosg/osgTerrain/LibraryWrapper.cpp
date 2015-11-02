@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(CompositeLayer_Proxy)
 USE_DOTOSGWRAPPER(GeometryTechnique_Proxy)

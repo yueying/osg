@@ -1,4 +1,4 @@
-#ifndef IVE_CARTOON
+﻿#ifndef IVE_CARTOON
 #define IVE_CARTOON 1
 
 #include <osgFX/Cartoon>

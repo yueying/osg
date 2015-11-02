@@ -1,4 +1,4 @@
-#include <osg/ShapeDrawable>
+﻿#include <osg/ShapeDrawable>
 
 #include <osgDB/Registry>
 #include <osgDB/Input>

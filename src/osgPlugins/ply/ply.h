@@ -1,4 +1,4 @@
-/*
+﻿/*
 
 Header for PLY polygon files.
 

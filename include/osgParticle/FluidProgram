@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield
+ï»¿/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield
  *
  * This library is open source and may be redistributed and/or modified under
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or
@@ -75,7 +75,7 @@ namespace osgParticle
         */
         inline void setToGravity(float scale = 1.0f) { _acceleration.set(0, 0, -9.81f*scale); }
 
-        /// Set the fluid parameters as for air (20°C temperature).
+        /// Set the fluid parameters as for air (20ç™ˆ temperature).
         inline void setFluidToAir()
         {
             setToGravity(1.0f);
@@ -83,7 +83,7 @@ namespace osgParticle
             setFluidViscosity(1.8e-5f);
         }
 
-        /// Set the fluid parameters as for pure water (20°C temperature).
+        /// Set the fluid parameters as for pure water (20ç™ˆ temperature).
         inline void setFluidToWater()
         {
             setToGravity(1.0f);

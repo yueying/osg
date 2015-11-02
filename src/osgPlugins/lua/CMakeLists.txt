@@ -1,4 +1,4 @@
-SET(TARGET_H
+﻿SET(TARGET_H
     LuaScriptEngine.h
 )
 SET(TARGET_SRC

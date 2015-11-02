@@ -1,4 +1,4 @@
-                   LIGHTWAVE 3D OBJECT FILE FORMAT
+﻿                   LIGHTWAVE 3D OBJECT FILE FORMAT
 
                           by Allen Hastings
 			  & Stuart Ferguson

@@ -1,4 +1,4 @@
-#include <osgParticle/AngularDampingOperator>
+﻿#include <osgParticle/AngularDampingOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-// (C) Robert Osfield, Feb 2004.
+﻿// (C) Robert Osfield, Feb 2004.
 // GPL'd.
 
 #include <osg/ImageStream>

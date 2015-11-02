@@ -1,4 +1,4 @@
-/* base64.hpp - base64 encoder/decoder implementing section 6.8 of RFC2045
+﻿/* base64.hpp - base64 encoder/decoder implementing section 6.8 of RFC2045
 
   Copyright (C) 2002 Ryan Petrie (ryanpetrie@netscape.net)
   and released under the zlib license:

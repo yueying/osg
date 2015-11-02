@@ -1,4 +1,4 @@
-# Locate ffmpeg
+﻿# Locate ffmpeg
 # This module defines
 # FFMPEG_LIBRARIES
 # FFMPEG_FOUND, if false, do not try to link to ffmpeg

@@ -1,4 +1,4 @@
-/**
+﻿/**
  * TODO:
  * 1) Change example to use offscreen rendering (pbuffer) so that it becomes a true commandline tool with now windows
  * 2) Make example work with other threading models than SingleThreaded

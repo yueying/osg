@@ -1,4 +1,4 @@
-//info : osgSSBO example,testing ShaderStorageBufferObjects ,Markus Hein,  2014, osg-3.2.1
+﻿//info : osgSSBO example,testing ShaderStorageBufferObjects ,Markus Hein,  2014, osg-3.2.1
 //required hardware and driver must support GL >=  GL 4.3 or GL ES 3.1 (GL ES not tested, would be nice if someone will test it on a small device)
 
 //testing osg support for Shader Storage Buffer Objects

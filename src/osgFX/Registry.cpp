@@ -1,4 +1,4 @@
-#include <osgFX/Registry>
+﻿#include <osgFX/Registry>
 
 using namespace osgFX;
 

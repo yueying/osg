@@ -1,4 +1,4 @@
-SET(TARGET_SRC osgscreencapture.cpp )
+﻿SET(TARGET_SRC osgscreencapture.cpp )
 
 #### end var setup  ###
 SETUP_EXAMPLE(osgscreencapture)

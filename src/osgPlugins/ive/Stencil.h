@@ -1,4 +1,4 @@
-#ifndef IVE_STENCIL
+﻿#ifndef IVE_STENCIL
 #define IVE_STENCIL 1
 
 #include <osg/Stencil>

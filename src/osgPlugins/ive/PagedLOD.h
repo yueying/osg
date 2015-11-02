@@ -1,4 +1,4 @@
-#ifndef IVE_PAGEDLOD
+﻿#ifndef IVE_PAGEDLOD
 #define IVE_PAGEDLOD 1
 
 #include <osg/PagedLOD>

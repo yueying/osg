@@ -1,4 +1,4 @@
-#include <osg/Drawable>
+﻿#include <osg/Drawable>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

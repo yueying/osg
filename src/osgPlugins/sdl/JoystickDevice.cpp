@@ -1,4 +1,4 @@
-/* -*-c++-*- Present3D - Copyright (C) 1999-2006 Robert Osfield 
+﻿/* -*-c++-*- Present3D - Copyright (C) 1999-2006 Robert Osfield 
  *
  * This software is open source and may be redistributed and/or modified under  
  * the terms of the GNU General Public License (GPL) version 2.0.

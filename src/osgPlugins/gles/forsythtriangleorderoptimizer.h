@@ -1,4 +1,4 @@
-//-----------------------------------------------------------------------------
+﻿//-----------------------------------------------------------------------------
 //  This is an implementation of Tom Forsyth's "Linear-Speed Vertex Cache
 //  Optimization" algorithm as described here:
 //  http://home.comcast.net/~tom_forsyth/papers/fast_vert_cache_opt.html

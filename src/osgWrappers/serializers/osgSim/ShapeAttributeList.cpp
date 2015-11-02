@@ -1,4 +1,4 @@
-#include <osgSim/ShapeAttribute>
+﻿#include <osgSim/ShapeAttribute>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

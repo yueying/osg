@@ -1,4 +1,4 @@
-#include <osgParticle/DomainOperator>
+﻿#include <osgParticle/DomainOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

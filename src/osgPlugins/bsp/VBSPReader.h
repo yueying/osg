@@ -1,4 +1,4 @@
-#ifndef __VBSP_READER_H_
+﻿#ifndef __VBSP_READER_H_
 #define __VBSP_READER_H_
 
 

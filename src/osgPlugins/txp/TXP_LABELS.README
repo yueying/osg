@@ -1,4 +1,4 @@
-Labels are objects that float above the terrain (usually) and display
+﻿Labels are objects that float above the terrain (usually) and display
 some text message to the user.  They're primarily used in 3D map sort of
 application.  In other words, they're not intended to be real world objects.
 You would use one if you want to float a message such as "Natural History Museum"

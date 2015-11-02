@@ -1,4 +1,4 @@
-/* Importation de fichiers DXF dans OpenSceneGraph (see www.openscenegraph.org)
+﻿/* Importation de fichiers DXF dans OpenSceneGraph (see www.openscenegraph.org)
 Copyright (C) 2004 by Paul de Repentigny <pdr@grapharchitecture.com>
 */
 

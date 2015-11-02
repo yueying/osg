@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     ReaderWriterBSP.cpp
     BITSET.cpp
     Q3BSPReader.cpp

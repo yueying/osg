@@ -1,4 +1,4 @@
-# Locate Collada
+﻿# Locate Collada
 # This module defines:
 # COLLADA_INCLUDE_DIR, where to find the headers
 #

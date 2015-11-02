@@ -1,4 +1,4 @@
-#ifndef IVE_BLENDFUNC
+﻿#ifndef IVE_BLENDFUNC
 #define IVE_BLENDFUNC 1
 
 #include <osg/BlendFunc>

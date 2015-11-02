@@ -1,4 +1,4 @@
-#include <osgFX/Cartoon>
+﻿#include <osgFX/Cartoon>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

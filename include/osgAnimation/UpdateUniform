@@ -1,4 +1,4 @@
-#ifndef OSGANIMATION_UPDATE_UNIFORM
+﻿#ifndef OSGANIMATION_UPDATE_UNIFORM
 #define OSGANIMATION_UPDATE_UNIFORM 1
 
 #include <osgAnimation/AnimationUpdateCallback>

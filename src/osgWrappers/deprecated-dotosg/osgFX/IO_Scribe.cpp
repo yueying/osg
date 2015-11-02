@@ -1,4 +1,4 @@
-#include <osgFX/Scribe>
+﻿#include <osgFX/Scribe>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

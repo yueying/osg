@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 /*
  * Wavefront DXF loader for Open Scene Graph

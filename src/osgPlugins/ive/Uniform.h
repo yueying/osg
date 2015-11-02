@@ -1,4 +1,4 @@
-#ifndef IVE_UNIFORM
+﻿#ifndef IVE_UNIFORM
 #define IVE_UNIFORM 1
 
 #include <osg/Uniform>

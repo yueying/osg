@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_SERIALIZER_WRAPPER(osgAnimation_Action)
 USE_SERIALIZER_WRAPPER(osgAnimation_ActionAnimation)

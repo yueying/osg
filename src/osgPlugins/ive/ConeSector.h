@@ -1,4 +1,4 @@
-#ifndef IVE_CONESECTOR
+﻿#ifndef IVE_CONESECTOR
 #define IVE_CONESECTOR 1
 
 #include <osgSim/Sector>

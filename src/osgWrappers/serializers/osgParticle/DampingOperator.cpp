@@ -1,4 +1,4 @@
-#include <osgParticle/DampingOperator>
+﻿#include <osgParticle/DampingOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

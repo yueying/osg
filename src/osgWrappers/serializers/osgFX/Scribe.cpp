@@ -1,4 +1,4 @@
-#include <osgFX/Scribe>
+﻿#include <osgFX/Scribe>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

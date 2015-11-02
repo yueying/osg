@@ -1,4 +1,4 @@
-#include <osgSim/MultiSwitch>
+﻿#include <osgSim/MultiSwitch>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

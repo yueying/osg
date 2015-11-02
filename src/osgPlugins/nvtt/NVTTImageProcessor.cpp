@@ -1,4 +1,4 @@
-
+﻿
 #include <osg/Texture>
 #include <osgDB/Registry>
 

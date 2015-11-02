@@ -1,4 +1,4 @@
-
+﻿
 #include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 #include <osgDB/ReadFile>

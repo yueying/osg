@@ -1,4 +1,4 @@
-#ifndef IVE_SWITCHLAYER
+﻿#ifndef IVE_SWITCHLAYER
 #define IVE_SWITCHLAYER 1
 
 #include <osgTerrain/Layer>

@@ -1,4 +1,4 @@
-#ifndef ISLANDSCENE_H
+﻿#ifndef ISLANDSCENE_H
 #define ISLANDSCENE_H
 
 // declare namespace and function to create the island scene 

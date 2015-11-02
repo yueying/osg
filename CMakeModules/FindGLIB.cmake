@@ -1,4 +1,4 @@
-# - Try to find Glib and its components (gio, gobject etc)
+﻿# - Try to find Glib and its components (gio, gobject etc)
 # Once done, this will define
 #
 #  GLIB_FOUND - system has Glib

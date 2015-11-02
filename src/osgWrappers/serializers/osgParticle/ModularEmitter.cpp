@@ -1,4 +1,4 @@
-#include <osgParticle/ModularEmitter>
+﻿#include <osgParticle/ModularEmitter>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

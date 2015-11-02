@@ -1,4 +1,4 @@
-#include <osgParticle/ParticleSystemUpdater>
+﻿#include <osgParticle/ParticleSystemUpdater>
 
 #include <osg/CopyOp>
 #include <osg/Geode>

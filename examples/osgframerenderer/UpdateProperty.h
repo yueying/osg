@@ -1,4 +1,4 @@
-#ifndef UPDATEPROPERTY_H
+﻿#ifndef UPDATEPROPERTY_H
 #define UPDATEPROPERTY_H
 
 #include <osgDB/ReadFile>

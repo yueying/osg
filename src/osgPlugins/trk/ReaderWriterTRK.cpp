@@ -1,4 +1,4 @@
-// Released under the OSGPL license, as part of the OpenSceneGraph distribution.
+﻿// Released under the OSGPL license, as part of the OpenSceneGraph distribution.
 //
 // specification : http://www.trackvis.org/docs/?subsect=fileformat
 //

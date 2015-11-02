@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/ConnectedParticleSystem>
 
 #include <osg/BoundingBox>

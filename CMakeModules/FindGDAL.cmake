@@ -1,4 +1,4 @@
-# Locate gdal
+﻿# Locate gdal
 # This module defines
 # GDAL_LIBRARY
 # GDAL_FOUND, if false, do not try to link to gdal 

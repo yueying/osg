@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     Animation.cpp
     Base64.cpp
     JSON_Objects.cpp

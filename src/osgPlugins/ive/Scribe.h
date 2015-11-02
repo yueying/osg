@@ -1,4 +1,4 @@
-#ifndef IVE_SCRIBE
+﻿#ifndef IVE_SCRIBE
 #define IVE_SCRIBE 1
 
 #include <osgFX/Scribe>

@@ -1,4 +1,4 @@
-#ifndef IVE_ClipNode
+﻿#ifndef IVE_ClipNode
 #define IVE_ClipNode 1
 
 #include <osg/ClipNode>

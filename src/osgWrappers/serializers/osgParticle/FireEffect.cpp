@@ -1,4 +1,4 @@
-#include <osgParticle/FireEffect>
+﻿#include <osgParticle/FireEffect>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

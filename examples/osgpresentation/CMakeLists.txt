@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     osgpresentation.cpp )
 
 SET(TARGET_ADDED_LIBRARIES osgPresentation )

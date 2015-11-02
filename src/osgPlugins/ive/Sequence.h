@@ -1,4 +1,4 @@
-#ifndef IVE_SEQUENCE
+﻿#ifndef IVE_SEQUENCE
 #define IVE_SEQUENCE 1
 
 #include <osg/Sequence>

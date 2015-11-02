@@ -1,4 +1,4 @@
-#include <osgParticle/AccelOperator>
+﻿#include <osgParticle/AccelOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

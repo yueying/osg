@@ -1,4 +1,4 @@
-#use pkg-config to find various modues
+﻿#use pkg-config to find various modues
 INCLUDE(FindPkgConfig OPTIONAL)
 
 IF(PKG_CONFIG_FOUND)

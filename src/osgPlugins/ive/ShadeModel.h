@@ -1,4 +1,4 @@
-#ifndef IVE_SHADEMODEL
+﻿#ifndef IVE_SHADEMODEL
 #define IVE_SHADEMODEL 1
 
 #include <osg/ShadeModel>

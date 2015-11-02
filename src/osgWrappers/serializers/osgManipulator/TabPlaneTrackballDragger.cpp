@@ -1,4 +1,4 @@
-#include <osgManipulator/TabPlaneTrackballDragger>
+﻿#include <osgManipulator/TabPlaneTrackballDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#include <osgFX/Cartoon>
+﻿#include <osgFX/Cartoon>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#ifndef DOTOSG_MATRIX
+﻿#ifndef DOTOSG_MATRIX
 #define DOTOSG_MATRIX
 
 #include <osg/Matrix>

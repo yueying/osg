@@ -1,4 +1,4 @@
-#include <osgDB/ImageOptions>
+﻿#include <osgDB/ImageOptions>
 
 
 using namespace osgDB;

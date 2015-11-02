@@ -1,4 +1,4 @@
-#ifndef READERWRITERFBX_H
+﻿#ifndef READERWRITERFBX_H
 #define READERWRITERFBX_H
 
 #include <osgDB/ReaderWriter>

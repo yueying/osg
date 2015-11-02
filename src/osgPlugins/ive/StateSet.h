@@ -1,4 +1,4 @@
-#ifndef IVE_STATESET
+﻿#ifndef IVE_STATESET
 #define IVE_STATESET 1
 
 #include <osg/StateSet>

@@ -1,4 +1,4 @@
-#include <osg/StateAttribute>
+﻿#include <osg/StateAttribute>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

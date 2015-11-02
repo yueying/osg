@@ -1,4 +1,4 @@
-#ifndef IVE_POLYGONOFFSET
+﻿#ifndef IVE_POLYGONOFFSET
 #define IVE_POLYGONOFFSET 1
 
 #include <osg/PolygonOffset>

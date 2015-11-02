@@ -1,4 +1,4 @@
-#ifndef IVE_OCCLUSIONQUERYNODE
+﻿#ifndef IVE_OCCLUSIONQUERYNODE
 #define IVE_OCCLUSIONQUERYNODE 1
 
 #include <osg/OcclusionQueryNode>

@@ -1,4 +1,4 @@
-#include "osg/TextureRectangle"
+﻿#include "osg/TextureRectangle"
 #include "osg/ImageSequence"
 
 #include "osgDB/Registry"

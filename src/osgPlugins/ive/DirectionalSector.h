@@ -1,4 +1,4 @@
-#ifndef IVE_DIRECTIONALSECTOR
+﻿#ifndef IVE_DIRECTIONALSECTOR
 #define IVE_DIRECTIONALSECTOR 1
 
 #include <osgSim/Sector>

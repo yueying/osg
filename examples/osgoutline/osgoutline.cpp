@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 /*
  * Draw an outline around a model.

@@ -1,4 +1,4 @@
-#include <osg/CameraView>
+﻿#include <osg/CameraView>
 #include <osg/Notify>
 
 #include <osgDB/ReadFile>

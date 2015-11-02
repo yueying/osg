@@ -1,4 +1,4 @@
-#include <osgParticle/VariableRateCounter>
+﻿#include <osgParticle/VariableRateCounter>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

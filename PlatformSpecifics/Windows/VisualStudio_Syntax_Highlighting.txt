@@ -1,4 +1,4 @@
-Mapping extensionless header files to C++ in Visual Studio
+﻿Mapping extensionless header files to C++ in Visual Studio
 =============================================================================
 
 Previous versions of the OSG included registry files which enabled syntax 

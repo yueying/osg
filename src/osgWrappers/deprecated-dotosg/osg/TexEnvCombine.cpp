@@ -1,4 +1,4 @@
-#include "osg/TexEnvCombine"
+﻿#include "osg/TexEnvCombine"
 #include <osg/io_utils>
 
 #include "osgDB/Registry"

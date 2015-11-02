@@ -1,4 +1,4 @@
-// OSG headers
+﻿// OSG headers
 #include <osg/Notify>
 #include <osgDB/FileUtils>
 #include <osgDB/FileNameUtils>

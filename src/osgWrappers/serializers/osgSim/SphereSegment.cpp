@@ -1,4 +1,4 @@
-#include <osgSim/SphereSegment>
+﻿#include <osgSim/SphereSegment>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

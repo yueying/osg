@@ -1,4 +1,4 @@
-    
+﻿    
 SET(TARGET_SRC
     AutoDiscovery.cpp
     ReaderWriterZeroConfDevice.cpp

@@ -1,4 +1,4 @@
-# Locate ASIO-headers (http://think-async.com/Asio)
+﻿# Locate ASIO-headers (http://think-async.com/Asio)
 # This module defines
 # ASIO_FOUND, if false, do not try to link to gdal
 # ASIO_INCLUDE_DIR, where to find the headers

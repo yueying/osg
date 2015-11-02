@@ -1,4 +1,4 @@
-#include <osgUtil/TriStripVisitor>
+﻿#include <osgUtil/TriStripVisitor>
 #include "TriangleStripVisitor"
 
 

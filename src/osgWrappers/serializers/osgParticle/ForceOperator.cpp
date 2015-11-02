@@ -1,4 +1,4 @@
-#include <osgParticle/ForceOperator>
+﻿#include <osgParticle/ForceOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

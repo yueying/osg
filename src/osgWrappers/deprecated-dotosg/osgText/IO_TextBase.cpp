@@ -1,4 +1,4 @@
-#include <osgText/Text>
+﻿#include <osgText/Text>
 #include <osgText/Font>
 
 #include <iostream>

@@ -1,4 +1,4 @@
-#ifndef IVE_VIEWPORT
+﻿#ifndef IVE_VIEWPORT
 #define IVE_VIEWPORT 1
 
 #include <osg/Viewport>

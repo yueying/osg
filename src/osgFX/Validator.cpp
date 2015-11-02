@@ -1,4 +1,4 @@
-#include <osgFX/Validator>
+﻿#include <osgFX/Validator>
 #include <osgFX/Effect>
 
 #include <osg/Notify>

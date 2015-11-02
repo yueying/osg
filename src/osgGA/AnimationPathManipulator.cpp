@@ -1,4 +1,4 @@
-#include <osgGA/AnimationPathManipulator>
+﻿#include <osgGA/AnimationPathManipulator>
 
 #include <osgDB/fstream>
 

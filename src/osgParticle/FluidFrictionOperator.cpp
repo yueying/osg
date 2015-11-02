@@ -1,4 +1,4 @@
-#include <osgParticle/FluidFrictionOperator>
+﻿#include <osgParticle/FluidFrictionOperator>
 #include <osgParticle/ModularProgram>
 #include <osgParticle/Operator>
 #include <osgParticle/Particle>

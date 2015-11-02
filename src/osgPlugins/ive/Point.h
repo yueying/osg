@@ -1,4 +1,4 @@
-#ifndef IVE_POINT
+﻿#ifndef IVE_POINT
 #define IVE_POINT 1
 
 #include <osg/Point>

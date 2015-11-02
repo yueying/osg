@@ -1,4 +1,4 @@
-#ifndef IVE_NODE
+﻿#ifndef IVE_NODE
 #define IVE_NODE 1
 
 #include <osg/Node>

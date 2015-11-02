@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/AngularDampingOperator>
 
 #include <osgDB/Registry>

@@ -1,4 +1,4 @@
-# Locate V8
+﻿# Locate V8
 # This module defines
 # V8_LIBRARY
 # V8_FOUND, if false, do not try to link to gdal

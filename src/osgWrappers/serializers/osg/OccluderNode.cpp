@@ -1,4 +1,4 @@
-#include <osg/OccluderNode>
+﻿#include <osg/OccluderNode>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

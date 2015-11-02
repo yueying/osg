@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_SERIALIZER_WRAPPER(osgFX_AnisotropicLighting)
 USE_SERIALIZER_WRAPPER(osgFX_BumpMapping)

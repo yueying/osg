@@ -1,4 +1,4 @@
-#include <osgText/String>
+﻿#include <osgText/String>
 
 #include <osg/Notify>
 #include <osg/Math>

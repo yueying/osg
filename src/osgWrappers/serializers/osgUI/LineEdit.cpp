@@ -1,4 +1,4 @@
-#include <osgUI/LineEdit>
+﻿#include <osgUI/LineEdit>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

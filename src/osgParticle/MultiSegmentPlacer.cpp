@@ -1,4 +1,4 @@
-#include <osgParticle/MultiSegmentPlacer>
+﻿#include <osgParticle/MultiSegmentPlacer>
 #include <osgParticle/Placer>
 
 #include <osg/CopyOp>

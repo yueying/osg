@@ -1,4 +1,4 @@
-# Finds the OpenGL Core Profile (cp) header file.
+﻿# Finds the OpenGL Core Profile (cp) header file.
 # Looks for glcorearb.h
 # 
 # This script defines the following:

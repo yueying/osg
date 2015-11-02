@@ -1,4 +1,4 @@
-#include <osg/PrimitiveSet>
+﻿#include <osg/PrimitiveSet>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

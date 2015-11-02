@@ -1,4 +1,4 @@
-#ANDROID ROOT MAKEFILE
+﻿#ANDROID ROOT MAKEFILE
 OSG_ROOT := $(call my-dir)
 LOCAL_PATH := $(call my-dir)
 OSG_ROOT := $(LOCAL_PATH)

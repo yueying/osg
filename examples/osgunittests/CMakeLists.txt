@@ -1,4 +1,4 @@
-SET(TARGET_SRC 
+﻿SET(TARGET_SRC 
     UnitTestFramework.cpp 
     UnitTests_osg.cpp 
     osgunittests.cpp 

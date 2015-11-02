@@ -1,4 +1,4 @@
-#include <osg/OcclusionQueryNode>
+﻿#include <osg/OcclusionQueryNode>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

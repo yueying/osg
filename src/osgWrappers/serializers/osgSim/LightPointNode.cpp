@@ -1,4 +1,4 @@
-#include <osgSim/LightPointNode>
+﻿#include <osgSim/LightPointNode>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

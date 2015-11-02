@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_SERIALIZER_WRAPPER(osgShadow_DebugShadowMap)
 USE_SERIALIZER_WRAPPER(osgShadow_LightSpacePerspectiveShadowMapCB)

@@ -1,4 +1,4 @@
-#ifndef IVE_MATRIXTRANSFORM
+﻿#ifndef IVE_MATRIXTRANSFORM
 #define IVE_MATRIXTRANSFORM 1
 
 #include <osg/MatrixTransform>

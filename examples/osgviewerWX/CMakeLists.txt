@@ -1,4 +1,4 @@
-SET(TARGET_SRC osgviewerWX.cpp )
+﻿SET(TARGET_SRC osgviewerWX.cpp )
 
 SET(TARGET_H osgviewerWX.h )
 

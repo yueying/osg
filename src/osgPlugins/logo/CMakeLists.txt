@@ -1,3 +1,3 @@
-SET(TARGET_SRC ReaderWriterLOGO.cpp )
+﻿SET(TARGET_SRC ReaderWriterLOGO.cpp )
 #### end var setup  ###
 SETUP_PLUGIN(logo)

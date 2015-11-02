@@ -1,4 +1,4 @@
-#include <osgParticle/Particle>
+﻿#include <osgParticle/Particle>
 #include <osgParticle/LinearInterpolator>
 #include <osgParticle/ParticleSystem>
 

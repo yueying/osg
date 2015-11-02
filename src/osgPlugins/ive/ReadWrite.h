@@ -1,4 +1,4 @@
-#ifndef IVE_READWRITE
+﻿#ifndef IVE_READWRITE
 #define IVE_READWRITE 1
 
 #include "DataInputStream.h"

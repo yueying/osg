@@ -1,4 +1,4 @@
-package osg.AndroidExample;
+﻿package osg.AndroidExample;
 
 public class osgNativeLib {
 	

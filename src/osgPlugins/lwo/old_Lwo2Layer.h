@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Lightwave Object version 2 loader for Open Scene Graph
  * Version 2 introduced in Lightwave v6.0
  *

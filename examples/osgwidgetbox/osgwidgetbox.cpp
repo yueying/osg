@@ -1,4 +1,4 @@
-// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
+﻿// -*-c++-*- osgWidget - Code by: Jeremy Moles (cubicool) 2007-2008
 // $Id: osgwidgetbox.cpp 59 2008-05-15 20:55:31Z cubicool $
 
 // NOTE: You'll find this example very similar to osgwidgetwindow. However, here we

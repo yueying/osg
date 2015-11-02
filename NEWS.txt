@@ -1,4 +1,4 @@
-OSG News
+﻿OSG News
 ========
 
 = !OpenSceneGraph 3.2 release improves support iOS and Android, supports a range of new OpenGL features much more.

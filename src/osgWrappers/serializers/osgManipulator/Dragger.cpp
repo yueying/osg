@@ -1,4 +1,4 @@
-#include <osgManipulator/Constraint>
+﻿#include <osgManipulator/Constraint>
 #include <osgManipulator/Dragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

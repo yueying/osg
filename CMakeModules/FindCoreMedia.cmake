@@ -1,4 +1,4 @@
-# Locate Apple CoreMedia
+﻿# Locate Apple CoreMedia
 # This module defines
 # COREMEDIA_LIBRARY
 # COREMEDIA_FOUND, if false, do not try to link to gdal 

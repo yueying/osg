@@ -1,4 +1,4 @@
-#ifndef IVE_AZIMSECTOR
+﻿#ifndef IVE_AZIMSECTOR
 #define IVE_AZIMSECTOR 1
 
 #include <osgSim/Sector>

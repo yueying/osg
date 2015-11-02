@@ -1,4 +1,4 @@
-#ifndef IVE_DATATYPESIZE
+﻿#ifndef IVE_DATATYPESIZE
 #define IVE_DATATYPESIZE 1
 
 

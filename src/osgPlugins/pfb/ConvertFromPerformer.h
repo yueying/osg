@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 #ifndef __CONVERTFROMPERFORMER_H
 #define __CONVERTFROMPERFORMER_H

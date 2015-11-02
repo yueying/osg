@@ -1,4 +1,4 @@
-#ifndef ESRITYPE_H_
+﻿#ifndef ESRITYPE_H_
 #define ESRITYPE_H_
 
 

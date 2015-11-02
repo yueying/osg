@@ -1,4 +1,4 @@
-#ifndef IVE_FRONTFACE
+﻿#ifndef IVE_FRONTFACE
 #define IVE_FRONTFACE 1
 
 #include <osg/FrontFace>

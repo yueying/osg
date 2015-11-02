@@ -1,4 +1,4 @@
-#include <osgFX/SpecularHighlights>
+﻿#include <osgFX/SpecularHighlights>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

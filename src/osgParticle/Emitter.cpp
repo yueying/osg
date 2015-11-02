@@ -1,4 +1,4 @@
-#include <osgParticle/Emitter>
+﻿#include <osgParticle/Emitter>
 #include <osgParticle/ParticleProcessor>
 
 #include <osg/CopyOp>

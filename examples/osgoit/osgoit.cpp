@@ -1,4 +1,4 @@
-/* OpenSceneGraph example, myosgoit.
+﻿/* OpenSceneGraph example, myosgoit.
 *
 *  Author: Christian Buchner, based on original osgoit by Mathias Frhlich
 *

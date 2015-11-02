@@ -1,4 +1,4 @@
-#include <osg/TextureCubeMap>
+﻿#include <osg/TextureCubeMap>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

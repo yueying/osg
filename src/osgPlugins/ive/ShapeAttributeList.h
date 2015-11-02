@@ -1,4 +1,4 @@
-#ifndef IVE_SHAPEATTRIBUTELIST
+﻿#ifndef IVE_SHAPEATTRIBUTELIST
 #define IVE_SHAPEATTRIBUTELIST 1
 
 #include <osgSim/ShapeAttribute>

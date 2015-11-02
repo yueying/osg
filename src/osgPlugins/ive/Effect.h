@@ -1,4 +1,4 @@
-#ifndef IVE_EFFECT
+﻿#ifndef IVE_EFFECT
 #define IVE_EFFECT 1
 
 #include <osgFX/Effect>

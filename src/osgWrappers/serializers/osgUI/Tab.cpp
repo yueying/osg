@@ -1,4 +1,4 @@
-#include <osgUI/TabWidget>
+﻿#include <osgUI/TabWidget>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

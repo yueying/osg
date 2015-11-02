@@ -1,4 +1,4 @@
-#include <osgShadow/ViewDependentShadowTechnique>
+﻿#include <osgShadow/ViewDependentShadowTechnique>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

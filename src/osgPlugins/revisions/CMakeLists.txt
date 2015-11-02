@@ -1,4 +1,4 @@
-SET(TARGET_SRC ReaderWriterRevisions.cpp )
+﻿SET(TARGET_SRC ReaderWriterRevisions.cpp )
 
 #### end var setup  ###
 SETUP_PLUGIN(revisions)

@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     ReaderWriterP3D.cpp
     ReaderWriterPaths.cpp
 )

@@ -1,4 +1,4 @@
-#include <osgManipulator/TranslatePlaneDragger>
+﻿#include <osgManipulator/TranslatePlaneDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

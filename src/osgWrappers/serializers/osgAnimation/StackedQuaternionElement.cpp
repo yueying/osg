@@ -1,4 +1,4 @@
-#include <osgAnimation/StackedQuaternionElement>
+﻿#include <osgAnimation/StackedQuaternionElement>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

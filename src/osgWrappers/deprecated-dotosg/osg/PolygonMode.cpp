@@ -1,4 +1,4 @@
-#include "osg/PolygonMode"
+﻿#include "osg/PolygonMode"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

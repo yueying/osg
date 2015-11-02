@@ -1,4 +1,4 @@
-#include <osg/ImageStream>
+﻿#include <osg/ImageStream>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

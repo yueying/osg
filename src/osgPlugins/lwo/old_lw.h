@@ -1,5 +1,5 @@
-/*
- * Copyright (C) 1998,1999 Janne L�f <jlof@mail.student.oulu.fi>
+﻿/*
+ * Copyright (C) 1998,1999 Janne L鰂 <jlof@mail.student.oulu.fi>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public

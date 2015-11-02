@@ -1,4 +1,4 @@
-#undef OBJECT_CAST
+﻿#undef OBJECT_CAST
 #define OBJECT_CAST dynamic_cast
 
 #include <osgUtil/CullVisitor>

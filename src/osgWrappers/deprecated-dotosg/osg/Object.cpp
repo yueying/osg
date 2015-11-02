@@ -1,4 +1,4 @@
-#include "osg/Object"
+﻿#include "osg/Object"
 #include "osg/Notify"
 
 #include "osgDB/Registry"

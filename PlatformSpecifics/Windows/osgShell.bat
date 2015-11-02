@@ -1,4 +1,4 @@
-@echo off
+﻿@echo off
 REM This script provides a commandline shell properly configured to run OSG
 REM executables directly from the OpenThreads/OpenSceneGraph source
 REM trees.

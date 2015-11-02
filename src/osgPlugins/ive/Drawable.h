@@ -1,4 +1,4 @@
-#ifndef IVE_DRAWABLE
+﻿#ifndef IVE_DRAWABLE
 #define IVE_DRAWABLE 1
 
 #include <osg/Drawable>

@@ -1,4 +1,4 @@
-/*
+﻿/*
  * OsgMainApp.hpp
  *
  *  Created on: 29/05/2011

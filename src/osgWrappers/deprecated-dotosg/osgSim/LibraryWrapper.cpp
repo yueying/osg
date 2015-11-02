@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(BlinkSequence_Proxy)
 USE_DOTOSGWRAPPER(BlinkSequence_SequenceGroup_Proxy)

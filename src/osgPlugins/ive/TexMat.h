@@ -1,4 +1,4 @@
-#ifndef IVE_TEXMAT
+﻿#ifndef IVE_TEXMAT
 #define IVE_TEXMAT 1
 
 #include <osg/TexMat>

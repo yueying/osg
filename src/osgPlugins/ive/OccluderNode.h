@@ -1,4 +1,4 @@
-#ifndef IVE_OCCLUDERNODE
+﻿#ifndef IVE_OCCLUDERNODE
 #define IVE_OCCLUDERNODE 1
 
 #include <osg/OccluderNode>

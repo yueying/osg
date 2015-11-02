@@ -1,4 +1,4 @@
-#include "OSXAVFoundationVideo.h"
+﻿#include "OSXAVFoundationVideo.h"
 
 #include <osgDB/FileNameUtils>
 #include <osg/ValueObject>

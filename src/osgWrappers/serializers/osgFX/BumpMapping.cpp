@@ -1,4 +1,4 @@
-#include <osgFX/BumpMapping>
+﻿#include <osgFX/BumpMapping>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

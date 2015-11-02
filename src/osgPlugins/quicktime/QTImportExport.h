@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  QTImportExport.h
  *  cefix
  *

@@ -1,4 +1,4 @@
-#include "osg/BlendFunc"
+﻿#include "osg/BlendFunc"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

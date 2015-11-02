@@ -1,4 +1,4 @@
-#ifndef IVE_TEXTURECUBEMAP
+﻿#ifndef IVE_TEXTURECUBEMAP
 #define IVE_TEXTURECUBEMAP 1
 
 #include <osg/TextureCubeMap>

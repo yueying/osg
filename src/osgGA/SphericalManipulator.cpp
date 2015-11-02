@@ -1,4 +1,4 @@
-
+﻿
 #include <osgGA/SphericalManipulator>
 #include <osg/Quat>
 #include <osg/Notify>

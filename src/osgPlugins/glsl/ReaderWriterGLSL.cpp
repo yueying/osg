@@ -1,4 +1,4 @@
-#include <sstream>
+﻿#include <sstream>
 #include <osg/Shader>
 #include <osg/Notify>
 #include <osg/GL>

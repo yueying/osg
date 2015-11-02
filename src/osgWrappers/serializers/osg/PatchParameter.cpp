@@ -1,4 +1,4 @@
-#include <osg/PatchParameter>
+﻿#include <osg/PatchParameter>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

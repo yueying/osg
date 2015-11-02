@@ -1,4 +1,4 @@
-#ifndef IVE_ClipPlane
+﻿#ifndef IVE_ClipPlane
 #define IVE_ClipPlane 1
 
 #include <osg/ClipPlane>

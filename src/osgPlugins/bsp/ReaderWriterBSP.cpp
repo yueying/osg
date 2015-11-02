@@ -1,4 +1,4 @@
-#include <osg/Node>
+﻿#include <osg/Node>
 #include <osg/Notify>
 #include <osgDB/Registry>
 #include <osgDB/FileUtils>

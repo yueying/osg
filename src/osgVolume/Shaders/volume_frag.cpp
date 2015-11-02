@@ -1,4 +1,4 @@
-char volume_frag[] = "#version 110\n"
+﻿char volume_frag[] = "#version 110\n"
                      "\n"
                      "#pragma import_defines(NVIDIA_Corporation)\n"
                      "\n"

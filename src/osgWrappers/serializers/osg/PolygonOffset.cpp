@@ -1,4 +1,4 @@
-#include <osg/PolygonOffset>
+﻿#include <osg/PolygonOffset>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#include <osgGA/GUIEventAdapter>
+﻿#include <osgGA/GUIEventAdapter>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

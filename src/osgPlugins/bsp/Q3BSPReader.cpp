@@ -1,4 +1,4 @@
-#include <osg/TexEnv>
+ï»¿#include <osg/TexEnv>
 #include <osg/CullFace>
 
 #include <osg/Geode>
@@ -504,7 +504,7 @@ bool Q3BSPReader::loadLightMaps(
 
 
 
-  // A continuación, añado el blanco
+  // A continuacié«‡, aé¦»do el blanco
   osg::Image* image=new osg::Image;
   unsigned char *data=new unsigned char[3];
   for(int whiteidx=0;whiteidx<3;whiteidx++)

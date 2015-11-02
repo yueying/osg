@@ -1,4 +1,4 @@
-#ifndef IVE_TEXENV
+﻿#ifndef IVE_TEXENV
 #define IVE_TEXENV 1
 
 #include <osg/TexEnv>

@@ -1,4 +1,4 @@
-// MFC_OSG_MDI.h : main header file for the MFC_OSG_MDI application
+﻿// MFC_OSG_MDI.h : main header file for the MFC_OSG_MDI application
 //
 #pragma once
 

@@ -1,4 +1,4 @@
-# This script sets up packaging targets for each "COMPONENT" as specified in INSTALL commands
+﻿# This script sets up packaging targets for each "COMPONENT" as specified in INSTALL commands
 #
 # for each component a CPackConfig-<component>.cmake is generated in the build tree
 # and a target is added to call cpack for it (e.g. package_openscenegaph

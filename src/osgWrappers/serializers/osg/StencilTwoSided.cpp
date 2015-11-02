@@ -1,4 +1,4 @@
-#include <osg/StencilTwoSided>
+﻿#include <osg/StencilTwoSided>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_DOTOSGWRAPPER(g_osgWidget_BoxProxy)
 USE_DOTOSGWRAPPER(g_osgWidget_EmbeddedWindowProxy)

@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) Cedric Pinson
+﻿/* -*-c++-*- OpenSceneGraph - Copyright (C) Cedric Pinson
  *
  * This application is open source and may be redistributed and/or modified
  * freely and without restriction, both in commercial and non commercial

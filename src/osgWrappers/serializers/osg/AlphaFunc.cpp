@@ -1,4 +1,4 @@
-#include <osg/AlphaFunc>
+﻿#include <osg/AlphaFunc>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

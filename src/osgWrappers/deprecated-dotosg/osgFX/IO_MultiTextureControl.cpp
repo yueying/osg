@@ -1,4 +1,4 @@
-#include <osgFX/MultiTextureControl>
+﻿#include <osgFX/MultiTextureControl>
 
 #include <osgDB/Registry>
 #include <osgDB/Input>

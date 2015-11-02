@@ -1,4 +1,4 @@
-#ifndef IVE_TEXGENNODE
+﻿#ifndef IVE_TEXGENNODE
 #define IVE_TEXGENNODE 1
 
 #include <osg/TexGenNode>

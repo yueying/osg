@@ -1,4 +1,4 @@
-#ifndef IVE_CONVEXPLANAROCCLUDER
+﻿#ifndef IVE_CONVEXPLANAROCCLUDER
 #define IVE_CONVEXPLANAROCCLUDER 1
 
 #include <osg/ConvexPlanarOccluder>

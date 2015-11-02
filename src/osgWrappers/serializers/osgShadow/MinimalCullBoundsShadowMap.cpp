@@ -1,4 +1,4 @@
-#include <osgShadow/MinimalCullBoundsShadowMap>
+﻿#include <osgShadow/MinimalCullBoundsShadowMap>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#ifndef IVE_CONVEXPLANARPOLYGON
+﻿#ifndef IVE_CONVEXPLANARPOLYGON
 #define IVE_CONVEXPLANARPOLYGON 1
 
 #include <osg/ConvexPlanarPolygon>

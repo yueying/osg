@@ -1,4 +1,4 @@
-#ifndef IVE_GROUP
+﻿#ifndef IVE_GROUP
 #define IVE_GROUP 1
 
 #include <osg/Group>

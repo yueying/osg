@@ -1,4 +1,4 @@
-#ifndef IVE_BUMPMAPPING
+﻿#ifndef IVE_BUMPMAPPING
 #define IVE_BUMPMAPPING 1
 
 #include <osgFX/BumpMapping>

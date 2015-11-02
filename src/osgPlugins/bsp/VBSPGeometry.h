@@ -1,4 +1,4 @@
-
+﻿
 #ifndef VBSP_GEOMETRY_H
 #define VBSP_GEOMETRY_H
 

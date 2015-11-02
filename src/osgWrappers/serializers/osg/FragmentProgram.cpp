@@ -1,4 +1,4 @@
-#include <osg/FragmentProgram>
+﻿#include <osg/FragmentProgram>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

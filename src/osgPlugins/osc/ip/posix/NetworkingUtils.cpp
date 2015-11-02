@@ -1,4 +1,4 @@
-/*
+﻿/*
     oscpack -- Open Sound Control packet manipulation library
     http://www.audiomulch.com/~rossb/oscpack
 

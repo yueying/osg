@@ -1,4 +1,4 @@
-#include <osgManipulator/AntiSquish>
+﻿#include <osgManipulator/AntiSquish>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

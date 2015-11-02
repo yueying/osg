@@ -1,4 +1,4 @@
-#include <osgUI/AlignmentSettings>
+﻿#include <osgUI/AlignmentSettings>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

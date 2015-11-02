@@ -1,4 +1,4 @@
-#include "AutoDiscoveryWinImpl.h"
+﻿#include "AutoDiscoveryWinImpl.h"
 #include "Autodiscovery.h"
 #include "dns_sd.h"
 #include <sstream>

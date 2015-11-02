@@ -1,4 +1,4 @@
-//
+﻿//
 // Copyright (C) 2007 Skew Matrix Software LLC (http://www.skew-matrix.com)
 //
 // This library is open source and may be redistributed and/or modified under

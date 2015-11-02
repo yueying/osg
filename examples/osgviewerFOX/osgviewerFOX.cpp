@@ -1,4 +1,4 @@
-#ifdef __BORLANDC__
+﻿#ifdef __BORLANDC__
 #pragma hdrstop
 #endif
 

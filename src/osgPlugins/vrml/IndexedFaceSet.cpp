@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 #include "ReaderWriterVRML2.h"
 

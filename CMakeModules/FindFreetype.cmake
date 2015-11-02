@@ -1,4 +1,4 @@
-# - Locate FreeType library
+﻿# - Locate FreeType library
 # This module defines
 #  FREETYPE_LIBRARY, the library to link against
 #  FREETYPE_FOUND, if false, do not try to link to FREETYPE

@@ -1,4 +1,4 @@
-#include "WriterCompareTriangle.h"
+﻿#include "WriterCompareTriangle.h"
 #include <assert.h>
 
 WriterCompareTriangle::WriterCompareTriangle(const osg::Geode & geode, unsigned int nbVertices) : geode(geode)

@@ -1,4 +1,4 @@
-This project is a very simple implementation of the Microsoft Multiple Document/View Architecture.
+﻿This project is a very simple implementation of the Microsoft Multiple Document/View Architecture.
 The only changes needed to compile the project should be to modify the include paths for headers
 and librarys.  This project was written to show how to implement the new osgViewer library with MFC.
 

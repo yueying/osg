@@ -1,4 +1,4 @@
-
+﻿
 Source Engine MDL reader for OSG
 
 by Jason Daly

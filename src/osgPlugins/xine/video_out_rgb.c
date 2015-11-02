@@ -1,4 +1,4 @@
-/*
+﻿/*
  * Copyright (C) 2000-2003 the xine project and Claudio "KLaN" Ciccani
  *
  * This file is part of xine, a free video player.

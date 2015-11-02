@@ -1,4 +1,4 @@
-#include <osgGA/Widget>
+﻿#include <osgGA/Widget>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

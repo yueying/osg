@@ -1,4 +1,4 @@
-#include "CameraPathProperty.h"
+﻿#include "CameraPathProperty.h"
 
 using namespace gsc;
 

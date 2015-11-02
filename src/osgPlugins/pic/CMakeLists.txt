@@ -1,3 +1,3 @@
-SET(TARGET_SRC ReaderWriterPIC.cpp )
+﻿SET(TARGET_SRC ReaderWriterPIC.cpp )
 #### end var setup  ###
 SETUP_PLUGIN(pic)

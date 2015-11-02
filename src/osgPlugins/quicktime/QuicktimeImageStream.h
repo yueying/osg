@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 /*
 * Copyright (C) 2004 Stephan Huber http://digitalmind.de

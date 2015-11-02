@@ -1,4 +1,4 @@
-#include <osgFX/SpecularHighlights>
+﻿#include <osgFX/SpecularHighlights>
 #include <osgFX/Registry>
 
 #include <osg/TextureCubeMap>

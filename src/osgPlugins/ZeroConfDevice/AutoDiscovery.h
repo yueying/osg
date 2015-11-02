@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  AutoDiscovery.h
  *  cefix_alterable
  *

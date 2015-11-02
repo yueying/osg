@@ -1,4 +1,4 @@
-// This is public domain software and comes with
+Ôªø// This is public domain software and comes with
 // absolutely no warranty. Use of public domain software
 // may vary between counties, but in general you are free
 // to use and distribute this software for any purpose.
@@ -118,7 +118,7 @@ OSG currently support OpenGL 3.x on Windows. This comment block describes the
 necessary configuration steps.
 
 Get the draft gl3.h header file from OpenGL.org and put it in a folder called
-ìGL3î somewhere on your hard drive. OSG includes this header as <GL3/gl3.h>. Get
+ÊèãL3?somewhere on your hard drive. OSG includes this header as <GL3/gl3.h>. Get
 gl3.h from here:
 http://www.opengl.org/registry/
 
@@ -128,7 +128,7 @@ several changes.
  * Add the path to <GL3/gl3.h> to the CMake compiler flags, CMAKE_CXX_FLAGS and
    CMAKE_CXX_FLAGS_DEBUG (for release and debug builds; others if you use other
    build configurations). The text to add should look something like this:
-     /I ìC:\GLHeaderî
+     /I ÊèÖ:\GLHeader?
    The folder GLHeader should contain a subfolder GL3, which in turn contains
    gl3.h.
 

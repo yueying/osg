@@ -1,4 +1,4 @@
-#include <osgParticle/BoxPlacer>
+﻿#include <osgParticle/BoxPlacer>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#include <osg/AutoTransform>
+﻿#include <osg/AutoTransform>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

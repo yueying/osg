@@ -1,4 +1,4 @@
-#include <osg/ClearNode>
+﻿#include <osg/ClearNode>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

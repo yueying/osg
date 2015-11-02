@@ -1,4 +1,4 @@
-
+﻿
 #include <osg/Referenced>
 #include <osg/Node>
 #include <osg/Camera>

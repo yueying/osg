@@ -1,4 +1,4 @@
-#include <osgManipulator/RotateCylinderDragger>
+﻿#include <osgManipulator/RotateCylinderDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

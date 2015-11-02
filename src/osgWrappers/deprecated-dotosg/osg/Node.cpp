@@ -1,4 +1,4 @@
-#include "osg/Node"
+﻿#include "osg/Node"
 #include "osg/io_utils"
 
 #include "osgDB/Registry"

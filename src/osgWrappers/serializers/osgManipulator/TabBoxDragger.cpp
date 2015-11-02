@@ -1,4 +1,4 @@
-#include <osgManipulator/TabBoxDragger>
+﻿#include <osgManipulator/TabBoxDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-#ifndef IVE_SHADER
+﻿#ifndef IVE_SHADER
 #define IVE_SHADER 1
 
 #include <osg/Shader>

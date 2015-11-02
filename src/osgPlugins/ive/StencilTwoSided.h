@@ -1,4 +1,4 @@
-#ifndef IVE_STENCIL_TWO_SIDED
+﻿#ifndef IVE_STENCIL_TWO_SIDED
 #define IVE_STENCIL_TWO_SIDED 1
 
 #include <osg/StencilTwoSided>

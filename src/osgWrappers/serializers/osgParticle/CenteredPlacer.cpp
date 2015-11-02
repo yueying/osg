@@ -1,4 +1,4 @@
-#include <osgParticle/CenteredPlacer>
+﻿#include <osgParticle/CenteredPlacer>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

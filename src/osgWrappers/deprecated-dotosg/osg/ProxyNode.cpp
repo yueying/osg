@@ -1,4 +1,4 @@
-#include "osg/ProxyNode"
+﻿#include "osg/ProxyNode"
 #include "osg/Notify"
 #include <osg/io_utils>
 

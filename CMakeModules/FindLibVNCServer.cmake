@@ -1,4 +1,4 @@
-# Locate libvncserver
+﻿# Locate libvncserver
 # This module defines
 # LIBVNCSERVER_LIBRARY
 # LIBVNCSERVER_FOUND, if false, do not try to link to libvncserver 

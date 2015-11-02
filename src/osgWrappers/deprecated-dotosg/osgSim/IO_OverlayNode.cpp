@@ -1,4 +1,4 @@
-#include <osgSim/OverlayNode>
+﻿#include <osgSim/OverlayNode>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

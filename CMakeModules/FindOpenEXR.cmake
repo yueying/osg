@@ -1,4 +1,4 @@
-# Locate OpenEXR
+﻿# Locate OpenEXR
 # This module defines
 # OPENEXR_LIBRARY
 # OPENEXR_FOUND, if false, do not try to link to OpenEXR 

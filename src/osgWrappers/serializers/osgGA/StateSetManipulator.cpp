@@ -1,4 +1,4 @@
-#include <osgGA/StateSetManipulator>
+﻿#include <osgGA/StateSetManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

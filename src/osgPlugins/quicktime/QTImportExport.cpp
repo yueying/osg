@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  QTImportExport.cpp
  *  cefix
  *

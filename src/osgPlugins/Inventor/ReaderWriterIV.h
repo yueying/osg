@@ -1,4 +1,4 @@
-#ifndef _READERWRITERIV_H_
+﻿#ifndef _READERWRITERIV_H_
 #define _READERWRITERIV_H_
 
 #include <osgDB/Registry>

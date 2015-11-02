@@ -1,4 +1,4 @@
-package osg.AndroidExample;
+﻿package osg.AndroidExample;
 
 import android.app.Activity;
 import android.app.AlertDialog;

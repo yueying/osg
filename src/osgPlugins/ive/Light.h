@@ -1,4 +1,4 @@
-#ifndef IVE_LIGHT
+﻿#ifndef IVE_LIGHT
 #define IVE_LIGHT 1
 
 #include <osg/Light>

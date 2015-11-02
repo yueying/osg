@@ -1,4 +1,4 @@
-#include <osg/PolygonStipple>
+﻿#include <osg/PolygonStipple>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

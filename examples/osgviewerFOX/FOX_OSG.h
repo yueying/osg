@@ -1,4 +1,4 @@
-#ifndef _FOXOSG_H_
+﻿#ifndef _FOXOSG_H_
 #define _FOXOSG_H_
 
 #include <osgViewer/Viewer>

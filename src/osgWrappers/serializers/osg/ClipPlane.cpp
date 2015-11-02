@@ -1,4 +1,4 @@
-#include <osg/ClipPlane>
+﻿#include <osg/ClipPlane>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-
+﻿
 This 3ds loader is based on lib3ds, details below.  ReaderWriter3DS.cpp is the
 OSG code which adapts the library into a osg plugin.
 

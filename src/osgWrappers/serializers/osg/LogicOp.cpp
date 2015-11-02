@@ -1,4 +1,4 @@
-#include <osg/LogicOp>
+﻿#include <osg/LogicOp>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

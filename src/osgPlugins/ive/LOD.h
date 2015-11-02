@@ -1,4 +1,4 @@
-#ifndef IVE_LOD
+﻿#ifndef IVE_LOD
 #define IVE_LOD 1
 
 #include <osg/LOD>

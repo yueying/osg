@@ -1,4 +1,4 @@
-#include <osgManipulator/RotateSphereDragger>
+﻿#include <osgManipulator/RotateSphereDragger>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

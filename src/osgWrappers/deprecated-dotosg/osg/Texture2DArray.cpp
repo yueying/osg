@@ -1,4 +1,4 @@
-#include "osg/Texture2DArray"
+﻿#include "osg/Texture2DArray"
 #include "osg/ImageSequence"
 
 #include "osgDB/Registry"

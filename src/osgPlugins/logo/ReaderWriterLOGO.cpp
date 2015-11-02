@@ -1,4 +1,4 @@
-#include <stdio.h>
+﻿#include <stdio.h>
 #include <osg/Geode>
 #include <osg/Drawable>
 #include <osg/BlendFunc>

@@ -1,4 +1,4 @@
-osg.xcf:      GIMP XCF image data, version 0, 122 x 122, RGB Color
+﻿osg.xcf:      GIMP XCF image data, version 0, 122 x 122, RGB Color
 osg16-32.png: PNG image data, 16 x 16, 8-bit/color RGBA, non-interlaced
 osg16-4.png:  PNG image data, 16 x 16, 4-bit colormap, non-interlaced
 osg16-8.png:  PNG image data, 16 x 16, 8-bit colormap, non-interlaced

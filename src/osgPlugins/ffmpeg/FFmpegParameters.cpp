@@ -1,4 +1,4 @@
-
+﻿
 #include "FFmpegParameters.hpp"
 
 #include <string>

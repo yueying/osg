@@ -1,4 +1,4 @@
-#include <osgFX/MultiTextureControl>
+﻿#include <osgFX/MultiTextureControl>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

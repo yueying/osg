@@ -1,4 +1,4 @@
-#include <osg/Projection>
+﻿#include <osg/Projection>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

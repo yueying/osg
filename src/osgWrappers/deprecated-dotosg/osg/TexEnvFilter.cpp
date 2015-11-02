@@ -1,4 +1,4 @@
-#include "osg/TexEnvFilter"
+﻿#include "osg/TexEnvFilter"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

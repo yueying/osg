@@ -1,4 +1,4 @@
-SET(TARGET_SRC
+﻿SET(TARGET_SRC
     ReaderWriterOSG.cpp
     ReaderWriterOSG2.cpp
 )

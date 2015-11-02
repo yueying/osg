@@ -1,4 +1,4 @@
-#ifndef IVE_CLUSTERCULLINGCALLBACK
+﻿#ifndef IVE_CLUSTERCULLINGCALLBACK
 #define IVE_CLUSTERCULLINGCALLBACK 1
 
 #include <osg/ClusterCullingCallback>

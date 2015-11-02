@@ -1,4 +1,4 @@
-#include "TXPSeamLOD.h"
+﻿#include "TXPSeamLOD.h"
 #include "TXPArchive.h"
 #include "TXPPagedLOD.h"
 #include "TileMapper.h"

@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/FluidFrictionOperator>
 
 #include <osg/io_utils>

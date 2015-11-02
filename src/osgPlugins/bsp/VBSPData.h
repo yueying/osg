@@ -1,4 +1,4 @@
-#ifndef __VBSP_DATA_H_
+﻿#ifndef __VBSP_DATA_H_
 #define __VBSP_DATA_H_
 
 

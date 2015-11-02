@@ -1,4 +1,4 @@
-#include <osg/TexEnvCombine>
+﻿#include <osg/TexEnvCombine>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

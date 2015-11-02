@@ -1,4 +1,4 @@
-#ifndef IVE_BLENDEQUATION
+﻿#ifndef IVE_BLENDEQUATION
 #define IVE_BLENDEQUATION 1
 
 #include <osg/BlendEquation>

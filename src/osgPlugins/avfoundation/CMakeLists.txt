@@ -1,4 +1,4 @@
-
+﻿
 SET(TARGET_SRC
     OSXAVFoundationVideo.mm
     OSXAVFoundationVideo.h

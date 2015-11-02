@@ -1,4 +1,4 @@
-#ifndef IVE_MATERIAL
+﻿#ifndef IVE_MATERIAL
 #define IVE_MATERIAL 1
 
 #include <osg/Material>

@@ -1,4 +1,4 @@
-# Locate Apple AVFoundation (next-generation QTKit)
+﻿# Locate Apple AVFoundation (next-generation QTKit)
 # This module defines
 # AV_FOUNDATION_LIBRARY
 # AV_FOUNDATION_FOUND, if false, do not try to link to gdal

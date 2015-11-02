@@ -1,4 +1,4 @@
-SET(TARGET_SRC osgvolume.cpp )
+﻿SET(TARGET_SRC osgvolume.cpp )
 
 SET(TARGET_ADDED_LIBRARIES osgVolume osgManipulator)
 

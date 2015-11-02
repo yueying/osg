@@ -1,4 +1,4 @@
-// MFC_OSG.cpp : implementation of the cOSG class
+﻿// MFC_OSG.cpp : implementation of the cOSG class
 //
 #include "stdafx.h"
 #include "MFC_OSG.h"

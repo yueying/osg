@@ -1,4 +1,4 @@
-#include <osgGA/TrackballManipulator>
+﻿#include <osgGA/TrackballManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

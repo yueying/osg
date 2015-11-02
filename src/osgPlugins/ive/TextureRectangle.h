@@ -1,4 +1,4 @@
-#ifndef IVE_TEXTURERECTANGLE
+﻿#ifndef IVE_TEXTURERECTANGLE
 #define IVE_TEXTURERECTANGLE 1
 
 #include <osg/TextureRectangle>

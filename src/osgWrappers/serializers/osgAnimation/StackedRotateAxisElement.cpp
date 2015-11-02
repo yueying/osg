@@ -1,4 +1,4 @@
-#include <osgAnimation/StackedRotateAxisElement>
+﻿#include <osgAnimation/StackedRotateAxisElement>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

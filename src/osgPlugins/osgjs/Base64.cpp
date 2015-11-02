@@ -1,4 +1,4 @@
-#include "Base64"
+﻿#include "Base64"
 
 namespace base64
 {

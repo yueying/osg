@@ -1,4 +1,4 @@
-#include <osgUI/Popup>
+﻿#include <osgUI/Popup>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

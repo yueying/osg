@@ -1,4 +1,4 @@
-#ifndef IVE_LINESTIPPLE
+﻿#ifndef IVE_LINESTIPPLE
 #define IVE_LINESTIPPLE 1
 
 #include <osg/LineStipple>

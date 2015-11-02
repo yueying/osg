@@ -1,4 +1,4 @@
-#include <osg/Material>
+﻿#include <osg/Material>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

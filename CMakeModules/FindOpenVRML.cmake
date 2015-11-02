@@ -1,4 +1,4 @@
-# Locate openvml library
+﻿# Locate openvml library
 # This module defines
 # OPENVRML_LIBRARY
 # OPENVRML_FOUND, if false, do not try to link to vrml 
@@ -8,7 +8,7 @@
 # correspond to the ./configure --prefix=$OPENVRML_DIR
 #
 # Created by Robert Osfield. 
-# Modified for the debug library by Jean-S�bastien Guay.
+# Modified for the debug library by Jean-S闳astien Guay.
 
 FIND_PATH(OPENVRML_INCLUDE_DIR openvrml/openvrml-common.h
     $ENV{OPENVRML_DIR}/include

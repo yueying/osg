@@ -1,4 +1,4 @@
-rem mew 2004-01-21
+﻿rem mew 2004-01-21
 rem for description of the icon creation process, see:
 rem http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnwxp/html/winxpicons.asp
 

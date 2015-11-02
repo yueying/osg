@@ -1,4 +1,4 @@
-// -*-c++-*- osgWidget - Copyright Cedric Pinson 2008
+﻿// -*-c++-*- osgWidget - Copyright Cedric Pinson 2008
 
 
 #include <osgWidget/Util>

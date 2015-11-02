@@ -1,4 +1,4 @@
-#---------------------------------------------------
+﻿#---------------------------------------------------
 # OSG CMAKE SUPPORT
 # (C) by Michael Wagner, mtw@shared-reality.com 2005
 # (C) Eric Wing, Luigi Calori and Robert Osfield 2006-2007

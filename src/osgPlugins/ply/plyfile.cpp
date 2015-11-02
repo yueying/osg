@@ -1,4 +1,4 @@
-/* Copyright (c) 2005-2007, Stefan Eilemann <eile@equalizergraphics.com>
+﻿/* Copyright (c) 2005-2007, Stefan Eilemann <eile@equalizergraphics.com>
    All rights reserved.
    - Cleaned up code for 64 bit, little and big endian support
    - Added new ply data types (uint8, float32, int32)

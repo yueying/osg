@@ -1,4 +1,4 @@
-#include <osgViewer/Viewer>
+﻿#include <osgViewer/Viewer>
 #include <osgViewer/ViewerEventHandlers>
 
 #include <osgWidget/PdfReader>

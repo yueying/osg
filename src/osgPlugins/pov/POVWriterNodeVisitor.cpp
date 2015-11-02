@@ -1,4 +1,4 @@
-//
+﻿//
 //  POVWriterNodeVisitor converts OSG scene graph to POV (povray)
 //  and writes it to the stream.
 //

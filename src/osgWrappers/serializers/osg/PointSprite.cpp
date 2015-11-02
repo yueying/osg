@@ -1,4 +1,4 @@
-#include <osg/PointSprite>
+﻿#include <osg/PointSprite>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

@@ -1,4 +1,4 @@
-// Released under the OSGPL license, as part of the OpenSceneGraph distribution.
+﻿// Released under the OSGPL license, as part of the OpenSceneGraph distribution.
 //
 // ReaderWriter for sgi's .rgb format.
 // specification can be found at http://local.wasp.uwa.edu.au/~pbourke/dataformats/sgirgb/sgiversion.html

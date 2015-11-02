@@ -1,4 +1,4 @@
-// THIS FILE is almost entirely based upon code by Jean-loup Gailly
+﻿// THIS FILE is almost entirely based upon code by Jean-loup Gailly
 // and Mark Adler, and subsequent modifications by Lucian Wischik.
 // It has been modified further by Neil Hughes.
 // The modifications were: a minor reorganisation of the include files

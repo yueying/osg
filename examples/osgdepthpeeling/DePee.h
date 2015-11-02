@@ -1,4 +1,4 @@
-/*
+﻿/*
   Steffen Frey
   Fachpraktikum Graphik-Programmierung 2007
   Institut fuer Visualisierung und Interaktive Systeme

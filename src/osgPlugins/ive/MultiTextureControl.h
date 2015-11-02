@@ -1,4 +1,4 @@
-#ifndef IVE_MULTITEXTYRECONTROL
+﻿#ifndef IVE_MULTITEXTYRECONTROL
 #define IVE_MULTITEXTYRECONTROL 1
 
 #include <osgFX/MultiTextureControl>

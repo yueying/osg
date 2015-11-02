@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield
+﻿/* -*-c++-*- OpenSceneGraph - Copyright (C) 1998-2006 Robert Osfield
  *
  * This library is open source and may be redistributed and/or modified under
  * the terms of the OpenSceneGraph Public License (OSGPL) version 0.0 or
@@ -12,7 +12,7 @@
 */
 
 //
-// OpenFlight� loader for OpenSceneGraph
+// OpenFlight锟?loader for OpenSceneGraph
 //
 //  Copyright (C) 2005-2007  Brede Johansen
 //

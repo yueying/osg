@@ -1,4 +1,4 @@
-#include <osgViewer/config/SphericalDisplay>
+﻿#include <osgViewer/config/SphericalDisplay>
 
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

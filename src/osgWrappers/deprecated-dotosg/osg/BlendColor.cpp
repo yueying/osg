@@ -1,4 +1,4 @@
-#include <osg/BlendColor>
+﻿#include <osg/BlendColor>
 #include <osg/io_utils>
 
 #include <osgDB/Registry>

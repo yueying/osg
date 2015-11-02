@@ -1,4 +1,4 @@
-Welcome to the OpenSceneGraph (OSG).
+﻿Welcome to the OpenSceneGraph (OSG).
 
 For up-to-date information on the project, in-depth details on how to
 compile and run libraries and examples, see the documentation on the

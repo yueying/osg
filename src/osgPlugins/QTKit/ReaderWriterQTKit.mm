@@ -1,4 +1,4 @@
-// Modern QTKit/Core Video plugin for OSG.
+﻿// Modern QTKit/Core Video plugin for OSG.
 // Eric Wing
 
 #include <osg/ImageStream>

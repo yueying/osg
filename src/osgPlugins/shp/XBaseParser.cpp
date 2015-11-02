@@ -1,4 +1,4 @@
-#include "XBaseParser.h"
+﻿#include "XBaseParser.h"
 
 #include <vector>
 #include <string>

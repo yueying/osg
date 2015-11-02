@@ -1,4 +1,4 @@
-#include <sstream>
+﻿#include <sstream>
 
 #include <osg/Image>
 #include <osg/Group>

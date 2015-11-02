@@ -1,4 +1,4 @@
-/* -*-c++-*- OpenSceneGraph - Copyright (C) 2012 Cedric Pinson  */
+﻿/* -*-c++-*- OpenSceneGraph - Copyright (C) 2012 Cedric Pinson  */
 #ifndef WRITE_VISITOR_H
 #define WRITE_VISITOR_H
 

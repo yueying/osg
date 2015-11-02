@@ -1,4 +1,4 @@
-#ifndef OSGDB_STREAMOPERATOR
+﻿#ifndef OSGDB_STREAMOPERATOR
 #define OSGDB_STREAMOPERATOR
 
 #include <iostream>

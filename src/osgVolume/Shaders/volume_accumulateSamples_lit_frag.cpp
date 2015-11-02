@@ -1,4 +1,4 @@
-char volume_accumulateSamples_lit_frag[] = "#version 110\n"
+﻿char volume_accumulateSamples_lit_frag[] = "#version 110\n"
                                            "\n"
                                            "uniform sampler3D volumeTexture;\n"
                                            "\n"

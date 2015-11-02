@@ -1,4 +1,4 @@
-#include "osg/LOD"
+﻿#include "osg/LOD"
 #include <osg/io_utils>
 
 #include "osgDB/Registry"

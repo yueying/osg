@@ -1,4 +1,4 @@
-#include "daeReader.h"
+﻿#include "daeReader.h"
 #include "domSourceReader.h"
 #include <dae.h>
 #include <dae/domAny.h>

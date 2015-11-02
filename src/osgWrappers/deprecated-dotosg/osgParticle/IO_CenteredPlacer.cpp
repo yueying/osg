@@ -1,4 +1,4 @@
-
+﻿
 #include <osgParticle/CenteredPlacer>
 
 #include <osgDB/Registry>

@@ -1,4 +1,4 @@
-char volume_multipass_cube_and_hull_frag[] = "#version 110\n"
+﻿char volume_multipass_cube_and_hull_frag[] = "#version 110\n"
                                              "\n"
                                              "uniform sampler2D colorTexture;\n"
                                              "uniform sampler2D depthTexture;\n"

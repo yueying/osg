@@ -1,4 +1,4 @@
-#include <osg/BlendColor>
+﻿#include <osg/BlendColor>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

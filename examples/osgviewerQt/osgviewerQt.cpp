@@ -1,4 +1,4 @@
-#include <QTimer>
+﻿#include <QTimer>
 #include <QApplication>
 #include <QGridLayout>
 

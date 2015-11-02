@@ -1,4 +1,4 @@
-#ifndef IVE_POLYGONSTIPPLE
+﻿#ifndef IVE_POLYGONSTIPPLE
 #define IVE_POLYGONSTIPPLE 1
 
 #include <osg/PolygonStipple>

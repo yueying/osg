@@ -1,4 +1,4 @@
-SET(TARGET_SRC osgpdf.cpp)
+﻿SET(TARGET_SRC osgpdf.cpp)
 
 SET(TARGET_ADDED_LIBRARIES osgWidget )
 

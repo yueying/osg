@@ -1,4 +1,4 @@
-/* Copyright Robert Osfield, Licensed under the GPL
+﻿/* Copyright Robert Osfield, Licensed under the GPL
  *
  * Experimental base for refactor of Present3D
  *

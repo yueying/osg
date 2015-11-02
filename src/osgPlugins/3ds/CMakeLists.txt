@@ -1,4 +1,4 @@
-# List of C files to be compiled as C++ (else CMake sets ".c" to be compiled as pure C)
+﻿# List of C files to be compiled as C++ (else CMake sets ".c" to be compiled as pure C)
 SET(C_FILES
     lib3ds/lib3ds_io.c        # Modified to support OSG endianness
 )

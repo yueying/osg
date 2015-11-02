@@ -1,4 +1,4 @@
-
+﻿
 /****************************************************************************
 
     Functions for reading basic data types from LWO2 files

@@ -1,4 +1,4 @@
- /*
+﻿ /*
  *  MovieData.h
  *  encapsulates movie-related stuff
  *

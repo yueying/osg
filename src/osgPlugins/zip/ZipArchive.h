@@ -1,4 +1,4 @@
-#ifndef OSGDB_ZIPARCHIVE
+﻿#ifndef OSGDB_ZIPARCHIVE
 #define OSGDB_ZIPARCHIVE 1
 
 #include <osgDB/ReaderWriter>

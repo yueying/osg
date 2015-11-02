@@ -1,4 +1,4 @@
-#include <osg/ClampColor>
+﻿#include <osg/ClampColor>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

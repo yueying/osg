@@ -1,4 +1,4 @@
-#include <osgAnimation/Animation>
+﻿#include <osgAnimation/Animation>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

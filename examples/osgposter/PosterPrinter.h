@@ -1,4 +1,4 @@
-#ifndef OSGPOSTER_POSTERPRINTER
+﻿#ifndef OSGPOSTER_POSTERPRINTER
 #define OSGPOSTER_POSTERPRINTER
 
 #include <osg/Camera>

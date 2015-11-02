@@ -1,4 +1,4 @@
-osgglsl/README.txt - mike.weiblen@3dlabs.com - 2005-03-30
+﻿osgglsl/README.txt - mike.weiblen@3dlabs.com - 2005-03-30
 Copyright 2005 3Dlabs Inc.
 
 osgglsl began as a port of the old osgshaders example from the deprecated

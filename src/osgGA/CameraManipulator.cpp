@@ -1,4 +1,4 @@
-#include <osg/GL>
+﻿#include <osg/GL>
 #include <osg/Matrix>
 #include <osg/io_utils>
 #include <osg/ComputeBoundsVisitor>

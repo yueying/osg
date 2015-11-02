@@ -1,4 +1,4 @@
-# Locate directinput
+﻿# Locate directinput
 # This module defines
 # DIRECTINPUT_LIBRARIES
 # DIRECTINPUT_FOUND, if false, do not try to link to directinput

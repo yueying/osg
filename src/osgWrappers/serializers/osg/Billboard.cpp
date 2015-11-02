@@ -1,4 +1,4 @@
-#include <osg/Billboard>
+﻿#include <osg/Billboard>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

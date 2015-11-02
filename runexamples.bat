@@ -1,4 +1,4 @@
-echo osgversion
+﻿echo osgversion
 osgversion
 
 echo osgunittests

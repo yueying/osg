@@ -1,4 +1,4 @@
-#include <osg/SampleMaski>
+﻿#include <osg/SampleMaski>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

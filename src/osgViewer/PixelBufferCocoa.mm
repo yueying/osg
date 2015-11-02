@@ -1,4 +1,4 @@
-/*
+﻿/*
  *  PixelBufferCocoa.cpp
  *  OpenSceneGraph
  *

@@ -1,4 +1,4 @@
-
+﻿
 #ifndef __VBSP_ENTITY_H_
 #define __VBSP_ENTITY_H_
 

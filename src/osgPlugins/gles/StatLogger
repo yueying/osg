@@ -1,4 +1,4 @@
-#ifndef STAT_LOGGER
+﻿#ifndef STAT_LOGGER
 #define STAT_LOGGER
 
 #include <osg/Timer>

@@ -1,4 +1,4 @@
-// -*-c++-*-
+﻿// -*-c++-*-
 
 /*
  * OpenSceneGraph - Copyright (C) 1998-2009 Robert Osfield

@@ -1,4 +1,4 @@
-#include <osg/Sequence>
+﻿#include <osg/Sequence>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

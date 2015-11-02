@@ -1,4 +1,4 @@
-#ifndef IVE_VISIBILITYGROUP
+﻿#ifndef IVE_VISIBILITYGROUP
 #define IVE_VISIBILITYGROUP 1
 
 #include <osgSim/VisibilityGroup>

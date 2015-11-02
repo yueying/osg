@@ -1,4 +1,4 @@
-#include <osgSim/BlinkSequence>
+﻿#include <osgSim/BlinkSequence>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

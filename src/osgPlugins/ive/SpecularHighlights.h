@@ -1,4 +1,4 @@
-#ifndef IVE_SPECULARHIGHLIGHTS
+﻿#ifndef IVE_SPECULARHIGHLIGHTS
 #define IVE_SPECULARHIGHLIGHTS 1
 
 #include <osgFX/SpecularHighlights>

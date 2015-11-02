@@ -1,4 +1,4 @@
-#ifndef IVE_ANISOTROPICLIGHTING
+﻿#ifndef IVE_ANISOTROPICLIGHTING
 #define IVE_ANISOTROPICLIGHTING 1
 
 #include <osgFX/AnisotropicLighting>

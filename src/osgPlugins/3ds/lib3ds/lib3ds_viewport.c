@@ -1,4 +1,4 @@
-/*
+﻿/*
     Copyright (C) 1996-2008 by Jan Eric Kyprianidis <www.kyprianidis.com>
     All rights reserved.
 

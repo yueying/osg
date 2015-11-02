@@ -1,4 +1,4 @@
-#ifndef IVE_MULTISWITCH
+﻿#ifndef IVE_MULTISWITCH
 #define IVE_MULTISWITCH 1
 
 #include <osgSim/MultiSwitch>

@@ -1,4 +1,4 @@
-#ifndef IVE_LINEWIDTH
+﻿#ifndef IVE_LINEWIDTH
 #define IVE_LINEWIDTH 1
 
 #include <osg/LineWidth>

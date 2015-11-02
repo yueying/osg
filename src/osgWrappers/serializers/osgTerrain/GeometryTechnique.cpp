@@ -1,4 +1,4 @@
-#include <osgTerrain/GeometryTechnique>
+﻿#include <osgTerrain/GeometryTechnique>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

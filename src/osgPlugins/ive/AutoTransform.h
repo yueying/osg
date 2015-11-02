@@ -1,4 +1,4 @@
-#ifndef IVE_AUTOTRANSFORM
+﻿#ifndef IVE_AUTOTRANSFORM
 #define IVE_AUTOTRANSFORM 1
 
 #include <osg/AutoTransform>

@@ -1,4 +1,4 @@
-#include "osg/TexGenNode"
+﻿#include "osg/TexGenNode"
 
 #include "osgDB/Registry"
 #include "osgDB/Input"

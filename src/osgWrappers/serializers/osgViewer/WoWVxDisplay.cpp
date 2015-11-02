@@ -1,4 +1,4 @@
-#include <osgViewer/config/WoWVxDisplay>
+﻿#include <osgViewer/config/WoWVxDisplay>
 
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

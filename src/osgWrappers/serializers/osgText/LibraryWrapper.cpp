@@ -1,4 +1,4 @@
-#include <osgDB/Registry>
+﻿#include <osgDB/Registry>
 
 USE_SERIALIZER_WRAPPER(osgText_FadeText)
 USE_SERIALIZER_WRAPPER(osgText_Text)

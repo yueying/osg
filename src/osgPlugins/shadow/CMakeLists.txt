@@ -1,4 +1,4 @@
-SET(TARGET_SRC 
+﻿SET(TARGET_SRC 
     ReaderWriterOsgShadow.cpp
 )
 SET(TARGET_ADDED_LIBRARIES osgShadow )

@@ -1,4 +1,4 @@
-#include <osgGA/StateSetManipulator>
+﻿#include <osgGA/StateSetManipulator>
 
 #include <osg/PolygonMode>
 #include <osg/ref_ptr>

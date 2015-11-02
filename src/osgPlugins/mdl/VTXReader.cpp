@@ -1,4 +1,4 @@
-#include <osg/Geometry>
+﻿#include <osg/Geometry>
 #include <osg/Group>
 #include <osg/Node>
 #include <osg/Notify>

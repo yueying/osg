@@ -1,4 +1,4 @@
-#include <osg/TexGen>
+﻿#include <osg/TexGen>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

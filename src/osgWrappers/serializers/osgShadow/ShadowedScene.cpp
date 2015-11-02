@@ -1,4 +1,4 @@
-#include <osgShadow/ShadowedScene>
+﻿#include <osgShadow/ShadowedScene>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

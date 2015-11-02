@@ -1,4 +1,4 @@
-# Check for availability of atomic operations
+﻿# Check for availability of atomic operations
 # This module defines
 # OPENTHREADS_HAVE_ATOMIC_OPS
 

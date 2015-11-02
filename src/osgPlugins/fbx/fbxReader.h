@@ -1,4 +1,4 @@
-#ifndef FBXRANIMATION_H
+﻿#ifndef FBXRANIMATION_H
 #define FBXRANIMATION_H
 
 #include <fbxsdk.h>

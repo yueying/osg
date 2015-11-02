@@ -1,4 +1,4 @@
-
+﻿
 IF   (DYNAMIC_OPENSCENEGRAPH)
 
     OPTION(OSG_PLUGIN_SEARCH_INSTALL_DIR_FOR_PLUGINS "Set to ON to have OpenSceneGraph search the configured install directory for plugins." ON)

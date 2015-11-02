@@ -1,4 +1,4 @@
-#ifndef IVE_SCISSOR
+﻿#ifndef IVE_SCISSOR
 #define IVE_SCISSOR 1
 
 #include <osg/Scissor>

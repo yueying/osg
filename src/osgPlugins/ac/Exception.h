@@ -1,4 +1,4 @@
-#ifndef AC3D_EXCEPTION
+﻿#ifndef AC3D_EXCEPTION
 #define AC3D_EXCEPTION 1
 
 #include <string>

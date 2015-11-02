@@ -1,4 +1,4 @@
-# Locate zlib
+﻿# Locate zlib
 # This module defines
 # ZLIB_LIBRARY
 # ZLIB_FOUND, if false, do not try to link to zlib 

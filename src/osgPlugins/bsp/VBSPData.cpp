@@ -1,4 +1,4 @@
-
+﻿
 #include "VBSPData.h"
 #include <string.h>
 

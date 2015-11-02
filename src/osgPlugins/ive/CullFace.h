@@ -1,4 +1,4 @@
-#ifndef IVE_CULLFACE
+﻿#ifndef IVE_CULLFACE
 #define IVE_CULLFACE 1
 
 #include <osg/CullFace>

@@ -1,4 +1,4 @@
-#ifndef IVE_FADETEXT
+﻿#ifndef IVE_FADETEXT
 #define IVE_FADETEXT 1
 
 #include <osgText/FadeText>

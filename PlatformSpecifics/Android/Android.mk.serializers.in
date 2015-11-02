@@ -1,4 +1,4 @@
-#ANDROID makefile in src
+﻿#ANDROID makefile in src
 
 SERIALIZER_ROOT := $(call my-dir)
 LOCAL_PATH := $(call my-dir)

@@ -1,4 +1,4 @@
-#include <osgParticle/FluidFrictionOperator>
+﻿#include <osgParticle/FluidFrictionOperator>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

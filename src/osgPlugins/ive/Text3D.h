@@ -1,4 +1,4 @@
-#ifndef IVE_TEXT3D
+﻿#ifndef IVE_TEXT3D
 #define IVE_TEXT3D 1
 
 #include <osgText/Text3D>

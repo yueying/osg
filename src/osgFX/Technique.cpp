@@ -1,4 +1,4 @@
-#include <osgFX/Technique>
+﻿#include <osgFX/Technique>
 #include <osgFX/Effect>
 
 #include <osg/GLExtensions>

@@ -1,4 +1,4 @@
-# - find DCMTK libraries
+﻿# - find DCMTK libraries
 #
 
 #  DCMTK_INCLUDE_DIRS  - Directories to include to use DCMTK

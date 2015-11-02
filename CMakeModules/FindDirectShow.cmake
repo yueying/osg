@@ -1,4 +1,4 @@
-# Locate directshow
+﻿# Locate directshow
 # This module defines
 # DIRECTSHOW_LIBRARIES
 # DIRECTSHOW_FOUND, if false, do not try to link to directshow

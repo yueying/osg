@@ -1,4 +1,4 @@
-#include "GStreamerImageStream.hpp"
+﻿#include "GStreamerImageStream.hpp"
 
 #if 0
     #define OSGGST_INFO OSG_NOTICE

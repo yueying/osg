@@ -1,4 +1,4 @@
-#ifndef READER_WRITER_POV_H
+﻿#ifndef READER_WRITER_POV_H
 #define READER_WRITER_POV_H
 
 #include <osgDB/Registry>

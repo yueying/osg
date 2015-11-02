@@ -1,4 +1,4 @@
-package osg.AndroidExample;
+﻿package osg.AndroidExample;
 
 import android.app.Dialog;
 import android.content.Context;

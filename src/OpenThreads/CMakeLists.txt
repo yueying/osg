@@ -1,4 +1,4 @@
-# This is mainly for Windows declspec, but other platforms know
+﻿# This is mainly for Windows declspec, but other platforms know
 # what to do with it.
 ADD_DEFINITIONS(-DOPENTHREADS_EXPORTS)
 

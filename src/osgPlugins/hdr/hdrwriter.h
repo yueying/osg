@@ -1,4 +1,4 @@
-/*
+﻿/*
  The following code was based on code from the following location:
     http://www.graphics.cornell.edu/online/formats/rgbe/
 

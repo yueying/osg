@@ -1,4 +1,4 @@
-#ANDROID makefile         ${MODULE_NAME}
+﻿#ANDROID makefile         ${MODULE_NAME}
 
 LOCAL_PATH :=             ${MODULE_DIR}
 

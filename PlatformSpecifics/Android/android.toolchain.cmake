@@ -1,4 +1,4 @@
-# Copyright (c) 2010-2011, Ethan Rublee
+﻿# Copyright (c) 2010-2011, Ethan Rublee
 # Copyright (c) 2011-2014, Andrey Kamaev
 # All rights reserved.
 #

@@ -1,4 +1,4 @@
-#include <osgUI/Label>
+﻿#include <osgUI/Label>
 #include <osg/ValueObject>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>

@@ -1,4 +1,4 @@
-#ifndef NORMALS_DEF
+﻿#ifndef NORMALS_DEF
 #define NORMALS_DEF
 
 //#define DEBUG 1

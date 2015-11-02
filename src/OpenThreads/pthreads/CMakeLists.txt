@@ -1,4 +1,4 @@
-# This file should only be included when using Pthreads
+﻿# This file should only be included when using Pthreads
 
 INCLUDE (CheckFunctionExists)
 INCLUDE (CheckLibraryExists)

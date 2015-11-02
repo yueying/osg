@@ -1,4 +1,4 @@
-#ifndef IVE_HIEGHTFIELD
+﻿#ifndef IVE_HIEGHTFIELD
 #define IVE_HIEGHTFIELD 1
 
 #include <osg/Shape>

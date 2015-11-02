@@ -1,4 +1,4 @@
-/*  -*-c++-*-
+﻿/*  -*-c++-*-
  *  Copyright (C) 2008 Cedric Pinson <mornifle@plopbyte.net>
  *
  * This library is open source and may be redistributed and/or modified under

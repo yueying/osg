@@ -1,4 +1,4 @@
-#include <osg/TextureRectangle>
+﻿#include <osg/TextureRectangle>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

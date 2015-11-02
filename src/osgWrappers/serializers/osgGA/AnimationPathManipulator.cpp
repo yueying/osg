@@ -1,4 +1,4 @@
-#include <osgGA/AnimationPathManipulator>
+﻿#include <osgGA/AnimationPathManipulator>
 
 #define OBJECT_CAST dynamic_cast
 

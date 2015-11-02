@@ -1,4 +1,4 @@
-#include <osg/TexMat>
+﻿#include <osg/TexMat>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

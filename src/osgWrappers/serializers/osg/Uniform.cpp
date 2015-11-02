@@ -1,4 +1,4 @@
-#include <osg/Uniform>
+﻿#include <osg/Uniform>
 #include <osgDB/ObjectWrapper>
 #include <osgDB/InputStream>
 #include <osgDB/OutputStream>

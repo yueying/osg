@@ -1,4 +1,4 @@
-#include <osg/BlendFunc>
+﻿#include <osg/BlendFunc>
 #include <osg/BoundingSphere>
 #include <osg/Geometry>
 #include <osg/Group>

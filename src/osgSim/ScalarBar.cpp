@@ -1,4 +1,4 @@
-#include <osgSim/ScalarBar>
+﻿#include <osgSim/ScalarBar>
 #include <osgText/Text>
 #include <osg/Geometry>
 #include <osg/Material>
