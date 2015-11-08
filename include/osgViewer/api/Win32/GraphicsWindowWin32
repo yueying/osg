@@ -24,11 +24,11 @@
 
 namespace osgViewer
 {
-
+	/**创建Windows系统下的渲染窗口 */
 class OSGVIEWER_EXPORT GraphicsWindowWin32 : public osgViewer::GraphicsWindow, public osgViewer::GraphicsHandleWin32
 {
     public:
-
+		/**构造函数，输入参数为该窗口的特性参数 */
         GraphicsWindowWin32(osg::GraphicsContext::Traits* traits);
 
         ~GraphicsWindowWin32();
@@ -93,7 +93,8 @@ class OSGVIEWER_EXPORT GraphicsWindowWin32 : public osgViewer::GraphicsWindow, p
         /** Set swap group. */
         virtual void setSwapGroup(bool on, GLuint group, GLuint barrier);
 
-        /** Handle a native (Win32) windowing event as received from the system */
+        /** 虚函数，它是Windows SDK窗口的消息处理函数
+		* Handle a native (Win32) windowing event as received from the system */
         virtual LRESULT handleNativeWindowingEvent( HWND hwnd, UINT uMsg, WPARAM wParam, LPARAM lParam );
 
         /** WindowData is used to pass in the Win32 window handle attached the GraphicsContext::Traits structure.*/
@@ -107,17 +108,19 @@ class OSGVIEWER_EXPORT GraphicsWindowWin32 : public osgViewer::GraphicsWindow, p
         };
 
     protected:
-
+		/**初始化Windows窗口的内部函数 */
         virtual void init();
 
         virtual void registerWindow();
         virtual void unregisterWindow();
-
+		/***/
         virtual bool registerWindowProcedure();
         virtual bool unregisterWindowProcedure();
 
         virtual HGLRC createContextImplementation();
+		/** 创建新窗口的内部函数 */
         virtual bool createWindow();
+		/** 将渲染设备设置到已有窗口的内部函数*/
         virtual bool setWindow( HWND handle );
 
         virtual void destroyWindow( bool deleteNativeWindow = true );

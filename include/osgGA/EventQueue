@@ -24,13 +24,19 @@
 
 namespace osgGA {
 
-/**
+/** 对于所有传递给场景的鼠标和键盘事件，可以通过EventQueue来记录所有输入
+ * 设备和系统事件的一个数据队列，并使用GUIEventAdapter及其派生类将这些事件
+ * 传递给用户进行处理。
+ * EventQueue类可以理解为一个交互事件的集合，保存了一个GUIEventAdapter的队列
+ * 并提供想队列中新增元素的方法，这些新增函数的内部会执行对应的GUIEventAdapter
+ * 设置函数，并由GraphicsContext图形设备类的平台相关的派生类负责完成外部的调用，
+ * 完成不同的交互事件的设置
  * EventQueue implementation for collecting and adapting windowing events
  */
 class OSGGA_EXPORT EventQueue : public osg::Referenced
 {
     public:
-
+		/**构造函数，输入参数为该窗口Y坐标的增长方向*/
         EventQueue(GUIEventAdapter::MouseYOrientation mouseYOrientation=GUIEventAdapter::Y_INCREASING_DOWNWARDS);
 
         typedef std::list< osg::ref_ptr<Event> > Events;
@@ -41,22 +47,23 @@ class OSGGA_EXPORT EventQueue : public osg::Referenced
             return _eventQueue.empty();
         }
 
-        /** Set events.*/
+        /** 设置新的事件队列Set events.*/
         void setEvents(Events& events);
 
-        /** Take the entire event queue leaving the EventQueue' event queue empty.*/
+        /** 取出当前事件队列，并清空此队列
+		 *Take the entire event queue leaving the EventQueue' event queue empty.*/
         bool takeEvents(Events& events);
 
-        /** Take the events that were recorded before with specified time queue.*/
+        /** 取出某个事件之间的事件队列Take the events that were recorded before with specified time queue.*/
         bool takeEvents(Events& events, double cutOffTime);
 
-        /** Take a copy the entire event queue leaving the EventQueue' event queue intact.*/
+        /** 复制当前事件队列Take a copy the entire event queue leaving the EventQueue' event queue intact.*/
         bool copyEvents(Events& events) const;
 
-        /** Add events to end of event queue.*/
+        /** 将新的事件队列追加到当前队列末端Add events to end of event queue.*/
         void appendEvents(Events& events);
 
-        /** Add an event to the end of the event queue.*/
+        /** 设置一个新的交互事件Add an event to the end of the event queue.*/
         void addEvent(Event* event);
 
 
@@ -220,7 +227,11 @@ class OSGGA_EXPORT EventQueue : public osg::Referenced
         /** convenience method for create an event ready to fill in.  Clones the getCurrentEventState() to produce a up to date event state. */
         GUIEventAdapter* createEvent();
 
-
+		/**获取累计交互事件，累计交互变量用于保存一些可能会持续作用的交互数据
+		*  包括当前鼠标位置、鼠标按键信息以及键盘上控制键（Ctrl、shift等）的按键信息
+		*  这些信息会被自动导入到每一个新产生的交互事件当中，便于处理一个特殊事件
+		* （例如，按下Ctrl的同时点击鼠标左键）时判断相关的环境状态并给出相应的处理方案
+		*/
         void setCurrentEventState(GUIEventAdapter* ea) { _accumulateEventState = ea; }
         GUIEventAdapter* getCurrentEventState() { return _accumulateEventState.get(); }
         const GUIEventAdapter* getCurrentEventState() const { return _accumulateEventState.get(); }

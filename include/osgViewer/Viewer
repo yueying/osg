@@ -23,7 +23,10 @@
 
 namespace osgViewer {
 
-/** Viewer holds a single view on to a single scene.*/
+/** 单视景器类就是ViewerBase和osgViewer::View共同子类，实现了父类全部纯虚函数的代码
+* 其基本构建方法与视图类的构建没有什么区别，完成视景器的组件设置后，可以直接使用run()
+函数执行这个视景器。
+Viewer holds a single view on to a single scene.*/
 class OSGVIEWER_EXPORT Viewer : public ViewerBase, public osgViewer::View
 {
     public:

@@ -27,18 +27,21 @@
 
 namespace osgAnimation
 {
-
+	/**关键帧的基类*/
     class Keyframe
     {
     public:
+		/**得到关键帧的时刻*/
         double getTime() const { return _time; }
+		/**设置关键帧的时刻*/
         void setTime(double time) { _time = time; }
 
     protected:
         double _time;
 
     };
-
+	/**定义一个关键帧模板，以便记录各种可能随时间变化的数据
+	例如一个数值、一个空间点、一个四元数等*/
     template <class T>
     class TemplateKeyframe : public Keyframe
     {
@@ -58,18 +61,22 @@ namespace osgAnimation
         const T& getValue() const { return _value;}
     };
 
-
+	/**关键帧容器类，用于负责记录所有用户设置的关键帧容器*/
     class KeyframeContainer : public osg::Referenced
     {
     public:
+		/**默认构造函数*/
         KeyframeContainer() {}
+		/**容器中保存的数据量*/
         virtual unsigned int size() const = 0;
     protected:
         ~KeyframeContainer() {}
         std::string _name;
     };
 
-
+	/**使用模板类定义一个使用向量组记录关键帧模板的“关键帧容器模板”
+	它可以保存下面定义的各种类型的关键帧数据，由于继承vector，这样具备了
+	std::vector的全部共有成员函数和属性。*/
     template <class T>
     class TemplateKeyframeContainer : public std::vector<TemplateKeyframe<T> >, public KeyframeContainer
     {
@@ -96,10 +103,10 @@ namespace osgAnimation
         osg::Vec3f _scale;
     };
 
-
+	/**float*/
     typedef TemplateKeyframe<float> FloatKeyframe;
     typedef TemplateKeyframeContainer<float> FloatKeyframeContainer;
-
+	/**double*/
     typedef TemplateKeyframe<double> DoubleKeyframe;
     typedef TemplateKeyframeContainer<double> DoubleKeyframeContainer;
 
@@ -121,6 +128,9 @@ namespace osgAnimation
     typedef TemplateKeyframe<Vec3Packed> Vec3PackedKeyframe;
     typedef TemplateKeyframeContainer<Vec3Packed> Vec3PackedKeyframeContainer;
 
+	/**CubicBezier属于三次贝赛尔数据类型，其构造函数需要输入3个同类型的控制值
+	第一个为位置点，后两个为切线点，进行关键帧之间的插值运算时，将使用三次贝赛尔曲线插值
+	的方式进行计算*/
     typedef TemplateKeyframe<FloatCubicBezier> FloatCubicBezierKeyframe;
     typedef TemplateKeyframeContainer<FloatCubicBezier> FloatCubicBezierKeyframeContainer;
 

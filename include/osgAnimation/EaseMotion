@@ -343,19 +343,24 @@ namespace osgAnimation
             }
         }
     };
-
+	/**渐进动画曲线的插值运算提供的专门处理工具基类*/
     class Motion : public osg::Referenced
     {
     public:
         typedef float value_type;
         enum TimeBehaviour
         {
-            CLAMP,
-            LOOP
+            CLAMP,//不循环
+            LOOP//循环
         };
+		/**构造函数，传入参数分别为
+		初始值，默认为0，持续时间默认为1，渐进动画的步进长度，默认为1
+		渐进动画循环方式CLAMP（不循环）LOOP（循环）*/
         Motion(float startValue = 0, float duration = 1, float changeValue = 1, TimeBehaviour tb = CLAMP) : _time(0), _startValue(startValue), _changeValue(changeValue), _duration(duration), _behaviour(tb) {}
         virtual ~Motion() {}
+		/**重置当前时刻*/
         void reset() { setTime(0);}
+		/**获取当前时刻，对于各类渐进曲线，不同的时刻将取得不同的瞬时值*/
         float getTime() const { return _time; }
         float evaluateTime(float time) const
         {
@@ -376,13 +381,14 @@ namespace osgAnimation
             }
             return time;
         }
-
+		/**根据当前事件的步进值，更新动画当前时刻*/
         void update(float dt)
         {
             _time = evaluateTime(_time + dt);
         }
 
         void setTime(float time) { _time = evaluateTime(time);}
+		/**获取当前时刻的渐进曲线瞬时值，或者获取指定时刻的瞬时值*/
         void getValue(value_type& result) const { getValueAt(_time, result); }
         value_type getValue() const
         {
@@ -404,7 +410,7 @@ namespace osgAnimation
         }
 
         virtual void getValueInNormalizedRange(float t, value_type& result) const = 0;
-
+		/**获得动画持续时间*/
         float getDuration() const { return _duration;}
     protected:
         float _time;
@@ -415,7 +421,7 @@ namespace osgAnimation
     };
 
 
-
+	/**模板类型子类专门负责各种类型的渐进动画曲线构造*/
     template <typename T>
     struct MathMotionTemplate : public Motion
     {

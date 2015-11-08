@@ -19,7 +19,10 @@
 
 namespace osg {
 
-/** Class to globally enable/disable OpenGL's polygon culling mode.
+/** 当我们观察一个不透明物体时，通常大约有一半的物体表面是看不到的
+ * 因此完全可以省去这一半的绘制工作，场景的多边形复杂度因此将降低
+ * 至多1/2左右。OpenGL本身提供了背景裁减的实现函数，本类主要对其进封装
+ * Class to globally enable/disable OpenGL's polygon culling mode.
  */
 class OSG_EXPORT CullFace : public StateAttribute
 {

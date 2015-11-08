@@ -24,7 +24,7 @@
 
 namespace osgAnimation
 {
-
+	/**通用的插值器*/
     template <class TYPE, class KEY>
     class TemplateInterpolatorBase
     {
@@ -34,7 +34,7 @@ namespace osgAnimation
 
     public:
         TemplateInterpolatorBase() {}
-
+		/**取得最符合指定时刻的关键帧索引号*/
         int getKeyIndexFromTime(const TemplateKeyframeContainer<KEY>& keys, double time) const
         {
             int key_size = keys.size();
@@ -85,16 +85,17 @@ namespace osgAnimation
         }
     };
 
-
+	/**线性插值器模板*/
     template <class TYPE, class KEY=TYPE>
     class TemplateLinearInterpolator : public TemplateInterpolatorBase<TYPE,KEY>
     {
     public:
-
+		/**默认构造函数*/
         TemplateLinearInterpolator() {}
+		/**取得指定时刻的中间帧数据*/
         void getValue(const TemplateKeyframeContainer<KEY>& keyframes, double time, TYPE& result) const
         {
-
+			// 判断时刻是否在最大和最小之间
             if (time >= keyframes.back().getTime())
             {
                 result = keyframes.back().getValue();
@@ -105,11 +106,12 @@ namespace osgAnimation
                 result = keyframes.front().getValue();
                 return;
             }
-
+			// 根据时间获得当前时刻对应的前后两个关键帧
             int i = this->getKeyIndexFromTime(keyframes,time);
             float blend = (time - keyframes[i].getTime()) / ( keyframes[i+1].getTime() -  keyframes[i].getTime());
             const TYPE& v1 =  keyframes[i].getValue();
             const TYPE& v2 =  keyframes[i+1].getValue();
+			// 计算当前时刻与关键帧时刻的比值
             result = v1*(1-blend) + v2*blend;
         }
     };

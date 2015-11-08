@@ -61,7 +61,10 @@ public:
         /** Handle event. Override the handle(..) method in your event handlers to respond to events. */
         virtual bool handle(osgGA::Event* event, osg::Object* object, osg::NodeVisitor* nv);
 
-        /** Handle events, return true if handled, false otherwise. */
+        /** 事件处理函数，重构此函数以完成各种用户自定义的交互操作
+		* 传入参数包括当前的交互事件、反馈动作、保存该处理器的对象以及
+		* 传递该事件的访问器（EventVisitor）
+		*Handle events, return true if handled, false otherwise. */
         virtual bool handle(const GUIEventAdapter& ea,GUIActionAdapter& aa, osg::Object*, osg::NodeVisitor*) { return handle(ea,aa); }
 
         /** Deprecated, Handle events, return true if handled, false otherwise. */

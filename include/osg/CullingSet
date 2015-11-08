@@ -25,7 +25,8 @@ namespace osg {
 
 #define COMPILE_WITH_SHADOW_OCCLUSION_CULLING
 
-/** A CullingSet class which contains a frustum and a list of occluders. */
+/**裁减器，包含了裁减方法的实现代码以及当前的视锥体，遮挡板
+* A CullingSet class which contains a frustum and a list of occluders. */
 class OSG_EXPORT CullingSet : public Referenced
 {
 
@@ -33,7 +34,7 @@ class OSG_EXPORT CullingSet : public Referenced
 
         typedef std::pair< osg::ref_ptr<osg::StateSet>, osg::Polytope > StateFrustumPair;
         typedef std::vector< StateFrustumPair > StateFrustumList;
-
+		/**默认构造函数*/
         CullingSet();
 
         CullingSet(const CullingSet& cs):
@@ -143,9 +144,9 @@ class OSG_EXPORT CullingSet : public Referenced
 
         void setCullingMask(Mask mask) { _mask = mask; }
         Mask getCullingMask() const { return _mask; }
-
+		/**设置视锥体对象*/
         void setFrustum(Polytope& cv) { _frustum = cv; }
-
+		/**获取视锥体对象*/
         Polytope& getFrustum() { return _frustum; }
         const Polytope& getFrustum() const { return _frustum; }
 
@@ -153,7 +154,7 @@ class OSG_EXPORT CullingSet : public Referenced
 
         void getStateFrustumList(StateFrustumList& sfl) { _stateFrustumList = sfl; }
         StateFrustumList& getStateFrustumList() { return _stateFrustumList; }
-
+		/**添加一个遮挡版对象*/
         void addOccluder(ShadowVolumeOccluder& cv) { _occluderList.push_back(cv); }
 
         void setPixelSizeVector(const Vec4& v) { _pixelSizeVector = v; }
@@ -182,7 +183,7 @@ class OSG_EXPORT CullingSet : public Referenced
         /** Compute the pixel of a bounding sphere. fabs()ed to always be positive. */
         float clampedPixelSize(const BoundingSphere& bs) const { return fabs(pixelSize(bs)); }
 
-
+		/**判断多个顶点是否可能被裁减*/
         inline bool isCulled(const std::vector<Vec3>& vertices)
         {
             if (_mask&VIEW_FRUSTUM_CULLING)
@@ -211,7 +212,7 @@ class OSG_EXPORT CullingSet : public Referenced
 
             return false;
         }
-
+		/**判断一个包围盒是否可能被裁减*/
         inline bool isCulled(const BoundingBox& bb)
         {
             if (_mask&VIEW_FRUSTUM_CULLING)
@@ -240,17 +241,19 @@ class OSG_EXPORT CullingSet : public Referenced
 
             return false;
         }
-
+		/**判断一个包围球是否可能被裁减*/
         inline bool isCulled(const BoundingSphere& bs)
         {
+			// 需要视锥体裁减
             if (_mask&VIEW_FRUSTUM_CULLING)
             {
-                // is it outside the view frustum...
+                // 视锥体包含
                 if (!_frustum.contains(bs)) return true;
             }
-
+			// 需要细节裁减
             if (_mask&SMALL_FEATURE_CULLING)
             {
+				//小于最小像素阈值
                 if (((bs.center()*_pixelSizeVector)*_smallFeatureCullingPixelSize)>bs.radius()) return true;
             }
 #ifdef COMPILE_WITH_SHADOW_OCCLUSION_CULLING

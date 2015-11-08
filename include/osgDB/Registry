@@ -43,6 +43,7 @@ namespace osgDB {
 
 
 /**
+    注册器类，采用单例模式
     Registry is a singleton factory which stores
     the reader/writers which are linked in
     at runtime for reading non-native file formats.
@@ -56,13 +57,15 @@ class OSGDB_EXPORT Registry : public osg::Referenced
 
 
 
-
+		/**获取注册器的唯一实例，可以使用传入参数定义是否要清除之前的设置，默认为false*/
         static Registry* instance(bool erase = false);
 
         /** read the command line arguments.*/
         void readCommandLine(osg::ArgumentParser& commandLine);
 
-        /** register an .fileextension alias to mapExt toExt, the later
+        /** 将某种扩展名类型关联到另一种扩展名类型，例如将WRL映射到IV，即强制由
+		  * osgdb_Inventor插件，而非osgdb_vrml插件来解析VRML文件
+		  * register an .fileextension alias to mapExt toExt, the later
           * should be the extension name of the readerwriter plugin library.
           * For example to map .tif files to the tiff loader, use
           * addExtAlias("tif","tiff") which will enable .tif to be read
@@ -83,8 +86,9 @@ class OSGDB_EXPORT Registry : public osg::Referenced
         void addMimeTypeExtensionMapping(const std::string fromMimeType, const std::string toExt);
         MimeTypeExtensionMap& getMimeTypeExtensionMap() { return _mimeTypeExtMap; }
         const MimeTypeExtensionMap& getMimeTypeExtensionMap() const { return _mimeTypeExtMap; }
-
+		/**注册一个新的插件对象*/
         void addReaderWriter(ReaderWriter* rw);
+		/**注销一个插件对象*/
         void removeReaderWriter(ReaderWriter* rw);
 
         void addImageProcessor(ImageProcessor* ip);
@@ -117,17 +121,18 @@ class OSGDB_EXPORT Registry : public osg::Referenced
 
         typedef std::vector< osg::ref_ptr<ReaderWriter> > ReaderWriterList;
 
-        /** get a reader writer which handles specified extension.*/
+        /** 获取指定扩展名对应的插件对象，如果希望直接使用特定的插件来读写文件，可以使用这个函数
+		* get a reader writer which handles specified extension.*/
         ReaderWriter* getReaderWriterForExtension(const std::string& ext);
 
         /** gets a reader/writer that handles the extension mapped to by one of
           * the registered mime-types. */
         ReaderWriter* getReaderWriterForMimeType(const std::string& mimeType);
 
-        /** get list of all registered ReaderWriters.*/
+        /** 获取当前已注册的插件列表get list of all registered ReaderWriters.*/
         ReaderWriterList& getReaderWriterList() { return _rwList; }
 
-        /** get const list of all registered ReaderWriters.*/
+        /** 获取当前已注册的插件列表get const list of all registered ReaderWriters.*/
         const ReaderWriterList& getReaderWriterList() const { return _rwList; }
 
         /** get a list of registered ReaderWriters which can handle given protocol */
@@ -261,7 +266,7 @@ class OSGDB_EXPORT Registry : public osg::Referenced
         ReaderWriter::ReadResult readScriptImplementation(const std::string& fileName,const Options* options);
 
 
-        /** Set the Registry callback to use in place of the default writeFile calls.*/
+        /** 设置文件写出回调，该回调的内容会替代默认的文件写出流程Set the Registry callback to use in place of the default writeFile calls.*/
         void setWriteFileCallback( WriteFileCallback* cb) { _writeFileCallback = cb; }
 
         /** Get the writeFile callback.*/
@@ -332,10 +337,10 @@ class OSGDB_EXPORT Registry : public osg::Referenced
             }
         }
 
-        /** Set the callback to use inform to the DatabasePager whether a file is located on local or remote file system.*/
+        /** 设置文件定位回调，用于在DatabasePager中定位动态调度的文件位置。Set the callback to use inform to the DatabasePager whether a file is located on local or remote file system.*/
         void setFileLocationCallback( FileLocationCallback* cb) { _fileLocationCallback = cb; }
 
-        /** Get the callback to use inform to the DatabasePager whether a file is located on local or remote file system.*/
+        /** 获取文件定位回调，用于在DatabasePager中定位动态调度的文件位置。Get the callback to use inform to the DatabasePager whether a file is located on local or remote file system.*/
         FileLocationCallback* getFileLocationCallback() const { return _fileLocationCallback.get(); }
 
 
@@ -732,7 +737,7 @@ struct PluginFunctionProxy
 #define USE_COMPRESSOR_WRAPPER(classname) \
     extern "C" void wrapper_compressor_##classname(void); \
     static osgDB::PluginFunctionProxy proxy_compressor_##classname(wrapper_compressor_##classname);
-
+/**新建一个用户插件类*/
 #define REGISTER_OSGPLUGIN(ext, classname) \
     extern "C" void osgdb_##ext(void) {} \
     static osgDB::RegisterReaderWriterProxy<classname> g_proxy_##classname;

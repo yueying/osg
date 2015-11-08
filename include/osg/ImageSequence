@@ -23,11 +23,12 @@
 namespace osg {
 
 /**
-  * Image Buffer class.
+  * 专门用于播放纹理动画的图形序列类Image Buffer class.
 */
 class OSG_EXPORT ImageSequence : public ImageStream
 {
     public:
+		/**默认构造函数*/
         ImageSequence();
 
         /** Copy constructor using CopyOp to manage deep vs shallow copy. */
@@ -60,13 +61,13 @@ class OSG_EXPORT ImageSequence : public ImageStream
         };
 
         typedef std::vector<ImageData> ImageDataList;
-
+		/**虚函数，执行动画的定位*/
         virtual void seek(double time);
-
+		/**虚函数，执行动画的播放*/
         virtual void play();
-
+		/**虚函数，执行动画的暂停*/
         virtual void pause();
-
+		/**虚函数，执行动画的回退*/
         virtual void rewind();
 
         enum Mode
@@ -80,18 +81,19 @@ class OSG_EXPORT ImageSequence : public ImageStream
 
         void setMode(Mode mode);
         Mode getMode() const { return _mode; }
-
+		/**设置纹理动画运行长度*/
         void setLength(double length);
+		/**得到纹理动画运行长度*/
         virtual double getLength() const { return _length; }
 
-
+		/**向图像序列中追加新的图像文件*/
         void addImageFile(const std::string& fileName);
-
+		/**设置指定关键帧位置的图像文件*/
         void setImageFile(unsigned int pos, const std::string& fileName);
         std::string getImageFile(unsigned int pos) const;
-
+		/**向图像序列中追加新的图像*/
         void addImage(osg::Image* image);
-
+		/**设置指定关键帧位置的图像*/
         void setImage(int s,int t,int r,
                       GLint internalTextureformat,
                       GLenum pixelFormat,GLenum type,
@@ -102,7 +104,7 @@ class OSG_EXPORT ImageSequence : public ImageStream
         void setImage(unsigned int pos, osg::Image* image);
         Image* getImage(unsigned int pos);
         const Image* getImage(unsigned int pos) const;
-
+		/**获取已设置图像的总数目*/
         unsigned int getNumImageData() const { return _imageDataList.size(); }
 
         ImageDataList& getImageDataList() { return _imageDataList; }

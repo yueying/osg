@@ -25,6 +25,21 @@
 
 namespace osg {
 
+	/**记录当前视图运行的各类统计信息
+	* \note OSG记录的统计信息有
+	* 系统运行时间Reference Time
+	* 当前帧速率 Frame Rate
+	* 一帧内交互事件的处理时间 Event Traversal Time Taken
+	* 一帧内场景更新的时间 Update Traversal Time Taken
+	* 一帧内场景裁减的时间 Cull Traversal Time Taken
+	* 一帧内场景渲染的时间 Draw Traversal Time Taken
+	* 一帧内GPU渲染的时间 GPU Draw Time Taken
+	* 场景内的独立叶节点数 Number of Unique Geode
+	* 场景内的独立可绘制体总数 Number of Unique Drawable
+	* 场景内的独立顶点总数 Number of Unique Vertices
+	* .......
+	* 还有一些属性
+	*/
 class OSG_EXPORT Stats : public osg::Referenced
 {
     public:
@@ -45,7 +60,10 @@ class OSG_EXPORT Stats : public osg::Referenced
         typedef std::vector<AttributeMap> AttributeMapList;
 
         bool setAttribute(unsigned int frameNumber, const std::string& attributeName, double value);
-
+		/**获取视图运行的统计信息，具体使用如下，获取第100帧时的帧速率统计信息的示意图：
+		* double frameRate;
+		* viewer->getViewStats()->getAttribute(100,"Frame rate",frameRate);
+		*/
         inline bool getAttribute(unsigned int frameNumber, const std::string& attributeName, double& value) const
         {
             OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);

@@ -26,20 +26,24 @@ namespace OpenThreads {
 
 
 /**
- *  @class Barrier
+ *  @class 线程栅栏类Barrier
  *  @brief This class provides an object-oriented thread barrier interface
  *
  *  @warning It is unwise to use the construct "Barrier barrier" in the
  *           global namespace on sgi's.  The object "barrier"
  *           will confilict with the c-library sproc function "barrier" and
  *           unpredictable results may occur. You have been warned.
+ *  @note 这是一个对线程同步来说颇为重要的阻塞器接口，其构造函数与Blockcount
+ *  类似，可以设置一个整数值，我们可以把这个值理解为栅栏的“强度”，就好比栅栏无法
+ *  支持那么大的强度一样，栅栏被冲开，所有的线程被释放，重要的是，这些线程是几乎同时释放的
+ * 也就保证了线程执行的同步性
  */
 class OPENTHREAD_EXPORT_DIRECTIVE Barrier {
 
 public:
 
     /**
-     *  Constructor
+     *  构造函数，定义了栅栏可以负荷的线程数
      */
     Barrier(int numThreads=0);
 
@@ -54,7 +58,9 @@ public:
     virtual void reset();
 
     /**
-     *  Block until numThreads threads have entered the barrier.
+     *  阻塞当前的线程，如果超过栅栏的强度（可以在这里重新设定强度）
+	 *  则自动释放所有的线程
+	 *  Block until numThreads threads have entered the barrier.
      */
     virtual void block(unsigned int numThreads=0);
 

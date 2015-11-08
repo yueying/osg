@@ -76,7 +76,8 @@ struct PointerData : public osg::Referenced
 };
 
 
-/** Event class for storing Keyboard, mouse and window events.
+/** 主要包括常见窗口系统中的鼠标，键盘以及触屏版等操作
+Event class for storing Keyboard, mouse and window events.
 */
 class OSGGA_EXPORT GUIEventAdapter : public Event
 {
@@ -88,27 +89,28 @@ public:
             RIGHT_MOUSE_BUTTON   = 1<<2
         };
 
+		/** 人机交互的事件类型*/
         enum EventType {
-            NONE                = 0,
-            PUSH                = 1<<0,
-            RELEASE             = 1<<1,
-            DOUBLECLICK         = 1<<2,
-            DRAG                = 1<<3,
-            MOVE                = 1<<4,
-            KEYDOWN             = 1<<5,
-            KEYUP               = 1<<6,
-            FRAME               = 1<<7,
-            RESIZE              = 1<<8,
-            SCROLL              = 1<<9,
-            PEN_PRESSURE        = 1<<10,
-            PEN_ORIENTATION     = 1<<11,
-            PEN_PROXIMITY_ENTER = 1<<12,
-            PEN_PROXIMITY_LEAVE = 1<<13,
-            CLOSE_WINDOW        = 1<<14,
-            QUIT_APPLICATION    = 1<<15,
-            USER                = 1<<16
+            NONE                = 0,// 无
+            PUSH                = 1<<0,// 按下鼠标键
+            RELEASE             = 1<<1,// 释放鼠标键
+            DOUBLECLICK         = 1<<2,// 双击鼠标键
+            DRAG                = 1<<3,// 拖动鼠标
+            MOVE                = 1<<4,// 移动鼠标
+            KEYDOWN             = 1<<5,// 按下键盘键
+            KEYUP               = 1<<6,// 释放键盘键
+            FRAME               = 1<<7,// 帧事件，每帧都会自动产生此事件
+            RESIZE              = 1<<8,// 窗口尺寸变更
+            SCROLL              = 1<<9,//滚动鼠标滚轮
+            PEN_PRESSURE        = 1<<10,// 按压Max OS X 手写笔
+            PEN_ORIENTATION     = 1<<11,// 改变Max OS X 手写笔方向
+            PEN_PROXIMITY_ENTER = 1<<12,// 感应Max OS X 手写笔进入
+            PEN_PROXIMITY_LEAVE = 1<<13,// 感应Mac OS X 手写笔离开
+            CLOSE_WINDOW        = 1<<14,// 关闭窗口
+            QUIT_APPLICATION    = 1<<15,// 退出程序
+            USER                = 1<<16 // 用户事件
         };
-
+		// 键盘上的各种字母键，数字键，符号键等
         enum KeySymbol
         {
             KEY_Space           = 0x20,
@@ -325,7 +327,7 @@ public:
             KEY_Hyper_R         = 0xFFEE         /* Right hyper */
         };
 
-
+		// 这边指持续按下的键
         enum ModKeyMask
         {
             MODKEY_LEFT_SHIFT  = 0x0001,
@@ -349,7 +351,7 @@ public:
             MODKEY_SUPER       = (MODKEY_LEFT_SUPER|MODKEY_RIGHT_SUPER),
             MODKEY_HYPER       = (MODKEY_LEFT_HYPER|MODKEY_RIGHT_HYPER)
         };
-
+		// 当前窗体Y的增长方向
         enum MouseYOrientation
         {
             Y_INCREASING_UPWARDS,
@@ -442,7 +444,7 @@ public:
         };
 
     public:
-
+		/**默认构造函数*/
         GUIEventAdapter();
 
         GUIEventAdapter(const GUIEventAdapter& rhs, const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY);
@@ -459,22 +461,23 @@ public:
         static osg::ref_ptr<GUIEventAdapter>& getAccumulatedEventState();
 
 
-        /** set the event type. */
+        /** 设置事件的类型 set the event type. */
         void setEventType(EventType Type) { _eventType = Type; }
 
-        /** get the event type. */
+        /** 获取事件的类型get the event type. */
         virtual EventType getEventType() const { return _eventType; }
 
         /** deprecated function for getting time of event. */
         double time() const { return _time; }
 
-
+		/**获取该事件所来源的图形设备*/
         void setGraphicsContext(osg::GraphicsContext* context) { _context = context; }
         osg::GraphicsContext* getGraphicsContext() { return _context.get(); }
         const osg::GraphicsContext* getGraphicsContext() const { return _context.get(); }
 
 
-        /** set window rectangle. */
+        /** 设置事件所来源的图形窗口的位置和尺寸信息，如果该事件来源于窗口的话
+		 * set window rectangle. */
         void setWindowRectangle(int x, int y, int width, int height, bool updateMouseRange = true);
 
         /** set window x origin.*/
@@ -502,7 +505,7 @@ public:
         int getWindowHeight() const { return _windowHeight; }
 
 
-        /** set key pressed. */
+        /** 设置键盘按键事件set key pressed. */
         inline void setKey(int key) { _key = key; }
 
         /** get key pressed, return -1 if inappropriate for this GUIEventAdapter. */
@@ -514,14 +517,14 @@ public:
         /** get virtual key pressed. */
         int getUnmodifiedKey() const { return _unmodifiedKey; }
 
-        /** set button pressed/released.*/
+        /** 设置鼠标按键事件set button pressed/released.*/
         void setButton(int button) { _button = button; }
 
-        /** button pressed/released, return -1 if inappropriate for this GUIEventAdapter.*/
+        /** 获取鼠标按键事件button pressed/released, return -1 if inappropriate for this GUIEventAdapter.*/
         int getButton() const { return _button; }
 
 
-        /** set mouse input range. */
+        /** 设置鼠标输入的控制范围set mouse input range. */
         void setInputRange(float Xmin, float Ymin, float Xmax, float Ymax);
 
         /** set mouse minimum x. */
@@ -561,6 +564,7 @@ public:
         float getY() const { return _my; }
 
 #if 1
+		/**获取当前事件的鼠标光标位置，并将光标位置限制在[-1,1]无论实际的窗口坐标是多少*/
         inline float getXnormalized() const
         {
             return _pointerDataList.size()>=1 ?
@@ -596,7 +600,9 @@ public:
         }
 #endif
 
-        /// set mouse-Y orientation (mouse-Y increases upwards or downwards).
+        /// 设置当前窗口Y坐标的增长方向，例如Windows窗口上端Y值为0
+		/// 下端为最大值，即Y_INCREASING_DOWNWARDS
+		/// set mouse-Y orientation (mouse-Y increases upwards or downwards).
         void setMouseYOrientation(MouseYOrientation myo) { _mouseYOrientation = myo; }
 
         /// get mouse-Y orientation (mouse-Y increases upwards or downwards).
@@ -605,25 +611,28 @@ public:
         /// set mouse-Y orientation (mouse-Y increases upwards or downwards) and recompute variables
         void setMouseYOrientationAndUpdateCoords(MouseYOrientation myo);
 
-        /// set current mouse button state.
+        /// 设置持续作用的鼠标按键事件，例如一直按下的鼠标左键/中键/右键
+		/// set current mouse button state.
         void setButtonMask(int mask) { _buttonMask = mask; }
 
         /// get current mouse button state.
         int getButtonMask() const { return _buttonMask; }
 
-        /// set modifier key mask.
+        /// 设置持续作用的键盘控制事件，例如一直按下Shift,Alt,Ctrl键等
+		/// set modifier key mask.
         void setModKeyMask(int mask) { _modKeyMask = mask; }
 
         /// get modifier key mask.
         int getModKeyMask() const { return _modKeyMask; }
 
-        /// set scrolling motion (for EventType::SCROLL).
+        /// 设置鼠标滚轮的滚动方向 set scrolling motion (for EventType::SCROLL).
         void setScrollingMotion(ScrollingMotion motion) { _scrolling.motion = motion; }
 
         /// get scrolling motion (for EventType::SCROLL).
         ScrollingMotion getScrollingMotion() const { return _scrolling.motion; }
 
-        /// set the scrolling delta to x,y and the scrolling motion to SCROLL_2D.
+        /// 设置鼠标滚轮的滚动增量值，对于Windows的兼容鼠标而言，一般只有Y方向的滚动增量值
+		///set the scrolling delta to x,y and the scrolling motion to SCROLL_2D.
         void setScrollingMotionDelta(float x, float y) {
             _scrolling.motion = SCROLL_2D;
             _scrolling.deltaX = x;
@@ -643,13 +652,13 @@ public:
         float getScrollingDeltaY() const { return _scrolling.deltaY; }
 
 
-        /// set the tablet pen pressure (range 0..1).
+        /// 设置Mac OS X触摸板的触压值set the tablet pen pressure (range 0..1).
         void setPenPressure(float pressure) { _tabletPen.pressure = pressure; }
 
-        /// get the tablet pen pressure (range 0..1).
+        /// 获得Mac OS X触摸板的触压值get the tablet pen pressure (range 0..1).
         float getPenPressure()  const { return _tabletPen.pressure; }
 
-        /// set the tablet pen tiltX in degrees.
+        /// 设置Mac OS X触摸板X方向的偏移值set the tablet pen tiltX in degrees.
         void setPenTiltX(float tiltX) { _tabletPen.tiltX = tiltX; }
 
         /// get the tablet pen tiltX in degrees.
@@ -661,7 +670,7 @@ public:
         /// get the tablet pen tiltY in degrees.
         float getPenTiltY()  const { return _tabletPen.tiltY; }
 
-        /// set the tablet pen rotation around the Z-axis in degrees.
+        /// 设置Mac OS X触摸板的旋转值set the tablet pen rotation around the Z-axis in degrees.
         void setPenRotation(float rotation) { _tabletPen.rotation = rotation; }
 
         /// get the tablet pen rotation around the Z-axis in degrees.
@@ -670,7 +679,7 @@ public:
         /// set the tablet pointer type.
         void setTabletPointerType(TabletPointerType pt) { _tabletPen.tabletPointerType = pt; }
 
-        /// get the tablet pointer type.
+        /// 获得Mac OS X触摸板的类型 get the tablet pointer type.
         TabletPointerType getTabletPointerType() const { return _tabletPen.tabletPointerType; }
 
         /// set the orientation from a tablet input device as a matrix.

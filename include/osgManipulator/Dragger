@@ -80,7 +80,8 @@ class OSGMANIPULATOR_EXPORT DraggerTransformCallback : public DraggerCallback
         osg::Matrix _worldToLocal;
 };
 
-
+/**表示一个信息的集合，例如，使用鼠标选中待操控对象上的某个点，以及当前相机的观察矩阵和投影矩阵等
+都需要及时反映到这个输入参数中，以便拖拽器根据实际情况进行判断并生成命令*/
 class OSGMANIPULATOR_EXPORT PointerInfo
 {
     public:
@@ -198,7 +199,7 @@ class OSGMANIPULATOR_EXPORT Dragger : public osg::MatrixTransform
 
         META_Node(osgManipulator,Dragger)
 
-        /**
+        /** 设置/获取父拖拽器，对于一个单独的拖拽器对象，其父拖拽器就是它自己
          * Set/Get parent dragger. For simple draggers parent points to itself.
          * For composite draggers parent points to the parent dragger that uses
          * this dragger.
@@ -228,7 +229,7 @@ class OSGMANIPULATOR_EXPORT Dragger : public osg::MatrixTransform
 
 
         virtual void traverse(osg::NodeVisitor& nv);
-
+		/**虚函数，根据用户交互事件，触发操控命令*/
         virtual bool handle(const osgGA::GUIEventAdapter& ea, osgGA::GUIActionAdapter& aa);
         virtual bool handle(const PointerInfo&, const osgGA::GUIEventAdapter&, osgGA::GUIActionAdapter&) { return false; }
 
@@ -287,7 +288,7 @@ class OSGMANIPULATOR_EXPORT Dragger : public osg::MatrixTransform
         bool                            _activationPermittedByMouseButtonMask;
         bool                            _activationPermittedByKeyEvent;
 
-        osgManipulator::PointerInfo     _pointer;
+        osgManipulator::PointerInfo     _pointer;//!<信息的集合
 
         Dragger*                        _parentDragger;
 

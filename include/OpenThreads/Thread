@@ -42,7 +42,7 @@ extern OPENTHREAD_EXPORT_DIRECTIVE int GetNumberOfProcessors();
  */
 extern OPENTHREAD_EXPORT_DIRECTIVE int SetProcessorAffinityOfCurrentThread(unsigned int cpunum);
 
-/**
+/** 线程实现类，是一个面向对象的线程实现接口
  *  @class Thread
  *  @brief  This class provides an object-oriented thread interface.
  */
@@ -121,7 +121,7 @@ public:
      */
     static void Init();
 
-    /**
+    /** 要求当前线程出让cpu控制权，交给其他正在等待的线程
      *  Yield the processor.
      *
      *  @note This method operates on the calling process.  And is
@@ -158,7 +158,7 @@ public:
      */
     size_t getProcessId();
 
-    /**
+    /** 启动线程，此时将自动开始执行线程的run()函数
      *  Start the thread.  This method will configure the thread, set
      *  it's priority, and spawn it.
      *
@@ -181,7 +181,7 @@ public:
     int testCancel();
 
 
-    /**
+    /** 虚函数，用于终止线程的执行
      *  Cancel the thread.  Equivalent to SIGKILL.
      *
      *  @return 0 if normal, -1 if errno set, errno code otherwise.
@@ -316,7 +316,8 @@ public:
      */
     bool isRunning();
 
-    /**
+    /** 线程执行的主函数，在这个函数中可以循环执行一段线程功能代码
+	 * 但最后一定要使用YieldCurrentThread()出让CPU控制权
      *  Thread's run method.  Must be implemented by derived classes.
      *  This is where the action happens.
      */
@@ -332,7 +333,8 @@ public:
 
     void* getImplementation(){ return _prvData;	};
 
-    /** Thread's processor affinity method.  This binds a thread to a
+    /** 对于多处理器的系统，设置线程所在的CPU位置
+	  * Thread's processor affinity method.  This binds a thread to a
       * processor whenever possible.   This call must be made before
       * start() or startThread() and has no effect after the thread
       * has been running.  In the pthreads implementation, this is only

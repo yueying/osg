@@ -24,7 +24,7 @@ namespace osgUtil {
 
 class RenderStage;
 class Statistics;
-/**
+/** 渲染元承担了渲染树的管理和绘制任务
  * RenderBin base class. Renderbin contains geometries to be rendered as a group,
  * renderbins are rendered once each.  They can improve efficiency or
  * use different rendering algorithms.
@@ -47,7 +47,7 @@ class OSGUTIL_EXPORT RenderBin : public osg::Object
             TRAVERSAL_ORDER
         };
 
-        // static methods.
+        // 根据类型名称，创建一个渲染元
         static RenderBin* createRenderBin(const std::string& binName);
         static RenderBin* getRenderBinPrototype(const std::string& binName);
         static void addRenderBinPrototype(const std::string& binName,RenderBin* proto);
@@ -77,34 +77,35 @@ class OSGUTIL_EXPORT RenderBin : public osg::Object
         osg::StateSet* getStateSet() { return _stateset.get(); }
         const osg::StateSet* getStateSet() const { return _stateset.get(); }
 
-
+		/**获取父节点渲染元*/
         RenderBin* getParent() { return _parent; }
         const RenderBin* getParent() const { return _parent; }
-
+		/**获取父节点渲染台*/
         RenderStage* getStage() { return _stage; }
         const RenderStage* getStage() const { return _stage; }
-
+		/**获取渲染元的顺序号*/
         int getBinNum() const { return _binNum; }
 
         StateGraphList& getStateGraphList() { return _stateGraphList; }
         const StateGraphList& getStateGraphList() const { return _stateGraphList; }
-
+		/**获取子节点渲染元的列表*/
         RenderBinList& getRenderBinList() { return _bins; }
         const RenderBinList& getRenderBinList() const { return _bins; }
 
         RenderLeafList& getRenderLeafList() { return _renderLeafList; }
         const RenderLeafList& getRenderLeafList() const { return _renderLeafList; }
 
-
+		/**追加一个子节点渲染元到当前节点中，如果该子节点的顺序号已经存在
+		则合并并返回已存在的子节点渲染元*/
         RenderBin* find_or_insert(int binNum,const std::string& binName);
-
+		/**追加一个状态节点到该渲染元中*/
         void addStateGraph(StateGraph* rg)
         {
             _stateGraphList.push_back(rg);
         }
-
+		/**对取出的渲染叶进行排序*/
         virtual void sort();
-
+		/**排序的实际执行*/
         virtual void sortImplementation();
 
         void setSortMode(SortMode mode);
@@ -120,22 +121,22 @@ class OSGUTIL_EXPORT RenderBin : public osg::Object
         {
             virtual void sortImplementation(RenderBin*) = 0;
         };
-
+		/**设置自定义的排序回调*/
         void setSortCallback(SortCallback* sortCallback) { _sortCallback = sortCallback; }
         SortCallback* getSortCallback() { return _sortCallback.get(); }
         const SortCallback* getSortCallback() const { return _sortCallback.get(); }
 
 
-
+		/**虚函数，对取出的渲染叶进行绘制*/
         virtual void draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous);
-
+		/**渲染叶绘制的实际执行*/
         virtual void drawImplementation(osg::RenderInfo& renderInfo,RenderLeaf*& previous);
 
         struct DrawCallback : public osg::Referenced
         {
             virtual void drawImplementation(RenderBin* bin,osg::RenderInfo& renderInfo,RenderLeaf*& previous) = 0;
         };
-
+		/**设置自定义的绘制回调*/
         void setDrawCallback(DrawCallback* drawCallback) { _drawCallback = drawCallback; }
         DrawCallback* getDrawCallback() { return _drawCallback.get(); }
         const DrawCallback* getDrawCallback() const { return _drawCallback.get(); }
@@ -143,9 +144,9 @@ class OSGUTIL_EXPORT RenderBin : public osg::Object
         /** Extract stats for current draw list. */
         bool getStats(Statistics& primStats) const;
 
-        /** Compute the number of dynamic RenderLeaves.*/
+        /** 计算所有的渲染叶中动态对象的数目Compute the number of dynamic RenderLeaves.*/
         virtual unsigned int computeNumberOfDynamicRenderLeaves() const;
-
+		/**从当前渲染元保存的所有状态节点中取出所有的渲染叶*/
         void copyLeavesFromStateGraphListToRenderLeafList();
 
         /** If State is non-zero, this function releases any associated OpenGL objects for

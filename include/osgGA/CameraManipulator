@@ -75,16 +75,17 @@ class OSGGA_EXPORT CameraManipulator : public GUIEventHandler
         osg::Vec3d getFrontVector(const osg::CoordinateFrame& cf) const { return osg::Vec3d(cf(1,0),cf(1,1),cf(1,2)); }
         osg::Vec3d getUpVector(const osg::CoordinateFrame& cf) const { return osg::Vec3d(cf(2,0),cf(2,1),cf(2,2)); }
 
-        /** set the position of the matrix manipulator using a 4x4 Matrix.*/
+        /** 虚函数，设置相机的位置姿态矩阵set the position of the matrix manipulator using a 4x4 Matrix.*/
         virtual void setByMatrix(const osg::Matrixd& matrix) = 0;
 
-        /** set the position of the matrix manipulator using a 4x4 Matrix.*/
+        /** 虚函数，设置相机的观察矩阵set the position of the matrix manipulator using a 4x4 Matrix.*/
         virtual void setByInverseMatrix(const osg::Matrixd& matrix) = 0;
 
-        /** get the position of the manipulator as 4x4 Matrix.*/
+		/// 通常由OSG系统内部获取并实时调整场景的漫游方式
+        /** 虚函数，获取相机的位置姿态矩阵get the position of the manipulator as 4x4 Matrix.*/
         virtual osg::Matrixd getMatrix() const = 0;
 
-        /** get the position of the manipulator as a inverse matrix of the manipulator, typically used as a model view matrix.*/
+        /** 虚函数，获取相机的观察矩阵get the position of the manipulator as a inverse matrix of the manipulator, typically used as a model view matrix.*/
         virtual osg::Matrixd getInverseMatrix() const = 0;
 
         /** update the camera for the current frame, typically called by the viewer classes.
@@ -146,7 +147,7 @@ class OSGGA_EXPORT CameraManipulator : public GUIEventHandler
         /** finish any active manipulator animations.*/
         virtual void finishAnimation() {}
 
-        /**
+        /** 回到场景的初始位置，初始位置由漫游器自己定义
         Move the camera to the default position.
         May be ignored by manipulators if home functionality is not appropriate.
         */
@@ -166,7 +167,8 @@ class OSGGA_EXPORT CameraManipulator : public GUIEventHandler
         */
         virtual void init(const GUIEventAdapter& ,GUIActionAdapter&) {}
 
-        /** Handle event. Override the handle(..) method in your event handlers to respond to events. */
+        /** 根据用户的交互动作（交互事件和反馈动作），调整漫游方式和漫游器的位置、姿态
+		Handle event. Override the handle(..) method in your event handlers to respond to events. */
         virtual bool handle(osgGA::Event* event, osg::Object* object, osg::NodeVisitor* nv) { return GUIEventHandler::handle(event, object, nv); }
 
         /** Handle events, return true if handled, false otherwise. */

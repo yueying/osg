@@ -28,12 +28,12 @@ namespace osgUtil {
 // Forward declare StateGraph
 class StateGraph;
 
-/** Container class for all data required for rendering of drawables.
+/** 渲染叶
+  * Container class for all data required for rendering of drawables.
   */
 class OSGUTIL_EXPORT RenderLeaf : public osg::Referenced
 {
     public:
-
 
         inline RenderLeaf(osg::Drawable* drawable,osg::RefMatrix* projection,osg::RefMatrix* modelview, float depth=0.0f, unsigned int traversalNumber=0):
             osg::Referenced(false),
@@ -47,7 +47,8 @@ class OSGUTIL_EXPORT RenderLeaf : public osg::Referenced
             _dynamic = (drawable->getDataVariance()==osg::Object::DYNAMIC);
         }
 
-
+		/**设置渲染叶的参数，包括它对应的可绘制体，投影矩阵，模型视点矩阵、
+		深度值，以及遍历顺序号，其中深度值和遍历顺序号参数主要用于状态树的状态排序*/
         inline void set(osg::Drawable* drawable,osg::RefMatrix* projection,osg::RefMatrix* modelview, float depth=0.0f, unsigned int traversalNumber=0)
         {
             _parent = 0;
@@ -69,7 +70,7 @@ class OSGUTIL_EXPORT RenderLeaf : public osg::Referenced
             _dynamic = false;
             _traversalNumber = 0;
         }
-
+		/**虚函数，执行当前渲染叶的渲染，传入参数包括场景的渲染信息和前一个渲染叶的信息*/
         virtual void render(osg::RenderInfo& renderInfo,RenderLeaf* previous);
 
         /// Allow StateGraph to change the RenderLeaf's _parent.

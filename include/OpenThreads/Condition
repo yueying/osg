@@ -27,7 +27,14 @@ namespace OpenThreads {
 
 /**
  *  @class Condition
- *  @brief  This class provides an object-oriented thread condition interface.
+ *  @brief  条件量接口类This class provides an object-oriented thread condition interface.
+ *  @note  1、依赖于某个Mutex互斥体，互斥体加锁时阻塞所在的线程，解锁或者超过时限则释放此线程
+ *         允许其继续运行。
+ *         2、这里涉及线程操作中的，同步、阻塞以及条件变量。线程同步，简单来说就是使同一个进程中
+ *         的多个线程可以协调工作，例如让它们都在指定的执行点等待对方，直到全员到齐之后才开始
+ *         同步运行；拥塞，即强制一个线程在某个执行点上等待，直到满足继续运行的条件为止，例如
+ *         线程到达同一个执行点，某个变量初始化完成等，可以通过条件变量来设置各种条件。
+ *         3、程序主进程也可以视为一个线程看待，它同样可以被阻塞和同步处理
  */
 class OPENTHREAD_EXPORT_DIRECTIVE Condition {
 
@@ -44,7 +51,7 @@ public:
     virtual ~Condition();
 
     /**
-     *  Wait on a mutex.
+     *  设置作为条件量的互斥体，并强制线程等待此条件满足Wait on a mutex.
      */
     virtual int wait(Mutex *mutex);
 
@@ -56,14 +63,14 @@ public:
     virtual int wait(Mutex *mutex, unsigned long int ms);
 
     /**
-     *  Signal a SINGLE thread to wake if it's waiting.
+     *  唤醒一个线程 Signal a SINGLE thread to wake if it's waiting.
      *
      *  @return 0 if normal, -1 if errno set, errno code otherwise.
      */
     virtual int signal();
 
     /**
-     *  Wake all threads waiting on this condition.
+     *  唤醒所有被阻塞的线程 Wake all threads waiting on this condition.
      *
      *  @return 0 if normal, -1 if errno set, errno code otherwise.
      */

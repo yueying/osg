@@ -21,7 +21,11 @@
 
 namespace osgViewer {
 
-/** CompositeViewer holds one or more views to one or more scenes.*/
+/** 多视景器类是多个视图类的集合
+*CompositeViewer holds one or more views to one or more scenes.
+\note 多视景器并不一定工作在某个固定的主窗口中，根据视图个数和类型的不同，一段多视景器
+的程序可能会同时打开多个窗口，也可能几个视图共享同一个窗口并在其中分列显示。它们的渲染则由
+多视景器的frame()函数统一进行调度*/
 class OSGVIEWER_EXPORT CompositeViewer : public ViewerBase
 {
     public:
@@ -49,10 +53,11 @@ class OSGVIEWER_EXPORT CompositeViewer : public ViewerBase
         /** Get the Viewers Stats object.*/
         virtual const osg::Stats* getViewerStats() const { return _stats.get(); }
 
-
+		/**增加/删除一个视图 */
         void addView(osgViewer::View* view);
         void removeView(osgViewer::View* view);
 
+		/** 获取指定的视图，以及多视景器中的视图的个数*/
         osgViewer::View* getView(unsigned i) { return _views[i].get(); }
         const osgViewer::View* getView(unsigned i) const { return _views[i].get(); }
 

@@ -43,7 +43,7 @@ class OSG_EXPORT View : public virtual osg::Object
         /** Set the Stats object used to collect various frame related timing and scene graph stats.*/
         void setStats(osg::Stats* stats) { _stats = stats; }
 
-        /** Get the Viewers Stats object.*/
+        /** 得到记录当前视图运行的各类统计信息Get the Viewers Stats object.*/
         osg::Stats* getStats() { return _stats.get(); }
 
         /** Get the Viewers Stats object.*/
@@ -53,16 +53,19 @@ class OSG_EXPORT View : public virtual osg::Object
         /** Options for controlling the global lighting used for the view.*/
         enum LightingMode
         {
-            NO_LIGHT,
-            HEADLIGHT,
-            SKY_LIGHT
+            NO_LIGHT,// 无光照
+            HEADLIGHT,//前灯光，光源固定不动
+            SKY_LIGHT//天光，光源位置随着视点变化
         };
 
-        /** Set the global lighting to use for this view.
+        /** 设置全局光照模式
+		  * Set the global lighting to use for this view.
           * Defaults to headlight. */
         void setLightingMode(LightingMode lightingMode);
 
-        /** Get the global lighting used for this view.*/
+        /** 得到全局光照模式
+		* Get the global lighting used for this view.
+		*/
         LightingMode getLightingMode() const { return _lightingMode; }
 
         /** Get the global light.*/
@@ -146,6 +149,9 @@ class OSG_EXPORT View : public virtual osg::Object
 
         bool addSlave(osg::Camera* camera, bool useMastersSceneData=true) { return addSlave(camera, osg::Matrix::identity(), osg::Matrix::identity(), useMastersSceneData); }
 
+		/**设置视图的从相机，从相机可以和主相机共同一棵节点树，并与主相机的观察矩阵和投影矩阵有所偏置
+		* 从而形成类似多通道/威力墙形成排布的相机队列
+		*/
         bool addSlave(osg::Camera* camera, const osg::Matrix& projectionOffset, const osg::Matrix& viewOffset, bool useMastersSceneData=true);
 
         bool removeSlave(unsigned int pos);

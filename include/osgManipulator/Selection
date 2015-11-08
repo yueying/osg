@@ -20,7 +20,7 @@
 
 namespace osgManipulator {
 
-
+	/**备选对象也就是一个矩阵的选择*/
 typedef osg::MatrixTransform Selection;
 
 

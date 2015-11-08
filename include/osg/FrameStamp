@@ -26,7 +26,10 @@ using std::tm;
 namespace osg
 {
 
-/** Class which encapsulates the frame number, reference time and calendar
+/**帧数的封装，记录了当前运行的帧数，并作为系统运行的全局时间戳
+  * 无论是获取实时的时间信息，还是利用这个时间戳来完成一些有时间要求的更新动作
+  * （比如物理仿真，场景动画等）都需要用到。
+  * Class which encapsulates the frame number, reference time and calendar
   * time of specific frame, used to synchronize operations on the scene graph
   * and other machines when using a graphics cluster.  Note the calendar
   * time can be an artificial simulation time or capture the real time
@@ -40,12 +43,13 @@ class OSG_EXPORT FrameStamp : public Referenced
 
         FrameStamp& operator = (const FrameStamp& fs);
 
+		/**得到和设置当前帧数*/
         void setFrameNumber(unsigned int fnum) { _frameNumber = fnum; }
         unsigned int getFrameNumber() const { return _frameNumber; }
 
         void setReferenceTime(double refTime) { _referenceTime = refTime; }
         double getReferenceTime() const { return _referenceTime; }
-
+		/** 获取/设置系统运行的总时间*/
         void setSimulationTime(double refTime) { _simulationTime = refTime; }
         double getSimulationTime() const { return _simulationTime; }
 

@@ -32,7 +32,7 @@
 
 namespace osgGA {
 
-/**
+/**作为场景访问的主要执行者，负责区分和调节各个节点，可绘制体以及渲染状态集的事件回调对象
  * Basic EventVisitor implementation for animating a scene.
  * This visitor traverses the scene graph, calling each nodes appCallback if
  * it exists.

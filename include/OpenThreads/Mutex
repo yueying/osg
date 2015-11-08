@@ -26,7 +26,11 @@ namespace OpenThreads {
 
 /**
  *  @class Mutex
- *  @brief  This class provides an object-oriented thread mutex interface.
+ *  @brief  互斥体接口类This class provides an object-oriented thread mutex interface.
+ *  @note 互斥体操作机制，可以有效地避免各个线程对同一资源的相互竞争——某一个线程欲
+ *        操作某一个共享资源时，首先使用互斥体成员的lock()函数加锁，操作完成之后再使用
+ *        unlock()函数解锁。一个线程类中可以存在多个Mutex成员，用于在不同的地点或情形下
+ *        为共享区域加锁；但是一定要在适当的时候解锁，以免造成线程的共享数据无法再访问。
  */
 class OPENTHREAD_EXPORT_DIRECTIVE Mutex {
 
@@ -55,14 +59,14 @@ public:
 
 
     /**
-     *  Lock the mutex
+     *  互斥体加锁Lock the mutex
      *
      *  @return 0 if normal, -1 if errno set, errno code otherwise.
      */
     virtual int lock();
 
     /**
-     *  Unlock the mutex
+     *  互斥体解锁Unlock the mutex
      *
      *  @return 0 if normal, -1 if errno set, errno code otherwise.
      */

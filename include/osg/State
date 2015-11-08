@@ -216,10 +216,10 @@ class OSG_EXPORT State : public Referenced
         }
 
 
-        /** Push stateset onto state stack.*/
+        /** 将渲染状态集压入堆栈Push stateset onto state stack.*/
         void pushStateSet(const StateSet* dstate);
 
-        /** Pop stateset off state stack.*/
+        /** 将渲染状态集弹出堆栈Pop stateset off state stack.*/
         void popStateSet();
 
         /** pop all statesets off state stack, ensuring it is empty ready for the next frame.
@@ -244,7 +244,8 @@ class OSG_EXPORT State : public Referenced
         StateSetStack& getStateSetStack() { return _stateStateStack; }
 
 
-        /** Copy the modes and attributes which capture the current state.*/
+        /** 获取当前所有的OpenGL状态设置
+		*Copy the modes and attributes which capture the current state.*/
         void captureCurrentState(StateSet& stateset) const;
 
         /** Release all OpenGL objects associated cached by this osg::State object.*/
@@ -253,6 +254,7 @@ class OSG_EXPORT State : public Referenced
         /** reset the state object to an empty stack.*/
         void reset();
 
+		/**获取当前视口*/
         inline const Viewport* getCurrentViewport() const
         {
             return static_cast<const Viewport*>(getLastAppliedAttribute(osg::StateAttribute::VIEWPORT));
@@ -263,11 +265,15 @@ class OSG_EXPORT State : public Referenced
 
         inline const osg::Matrix& getInitialViewMatrix() const { return *_initialViewMatrix; }
         inline const osg::Matrix& getInitialInverseViewMatrix() const { return _initialInverseViewMatrix; }
-
+		/**设置当前OpenGL投影矩阵，其内部相当于执行
+		glMatrixMode(GL_PROJECTION);
+		glLoadMatrix(matrix);*/
         void applyProjectionMatrix(const osg::RefMatrix* matrix);
 
         inline const osg::Matrix& getProjectionMatrix() const { return *_projection; }
-
+		/**设置当前OpenGL模型视点矩阵，其内部相当于执行
+		glMatrixMode(GL_MODELVIEW);
+		glLoadMatrix(matrix);*/
         void applyModelViewMatrix(const osg::RefMatrix* matrix);
         void applyModelViewMatrix(const osg::Matrix&);
 
@@ -331,7 +337,8 @@ class OSG_EXPORT State : public Referenced
         /** Apply stateset.*/
         void apply(const StateSet* dstate);
 
-        /** Updates the OpenGL state so that it matches the \c StateSet at the
+        /** 将所有已记录的渲染模式、属性和一致变量应用到渲染管线
+		  * Updates the OpenGL state so that it matches the \c StateSet at the
           * top of the stack of <tt>StateSet</tt>s maintained internally by a
           * \c State.
          */
@@ -368,7 +375,9 @@ class OSG_EXPORT State : public Referenced
         }
 
 
-        /** Apply an OpenGL mode if required. This is a wrapper around
+        /** 将一个渲染模式开关的设置应用到渲染管线
+		  * 其内部执行了glEnable()/glDisable()指令，从而改变了OpenGL状态机的模式内容
+		  * Apply an OpenGL mode if required. This is a wrapper around
           * \c glEnable() and \c glDisable(), that just actually calls these
           * functions if the \c enabled flag is different than the current
           * state.
@@ -418,7 +427,9 @@ class OSG_EXPORT State : public Referenced
             return as.global_default_attribute.get();
         }
 
-        /** Apply an attribute if required. */
+        /** 将一个渲染属性的设置应用到渲染管线
+		其内部执行了某一渲染属性的参数设置函数，从而改变了OpenGL
+		状态机的某一属性的内容Apply an attribute if required. */
         inline bool applyAttribute(const StateAttribute* attribute)
         {
             AttributeStack& as = _attributeMap[attribute->getTypeMemberPair()];
@@ -1431,7 +1442,8 @@ class OSG_EXPORT State : public Referenced
         /** Get the callback to be called when the dynamic object count hits 0.*/
         DynamicObjectRenderingCompletedCallback* getDynamicObjectRenderingCompletedCallback() { return _completeDynamicObjectRenderingCallback.get(); }
 
-        /** Set the number of dynamic objects that will be rendered in this graphics context this frame.*/
+        /** 设置当前未处理的动态变度对象的个数
+		*Set the number of dynamic objects that will be rendered in this graphics context this frame.*/
         void setDynamicObjectCount(unsigned int count, bool callCallbackOnZero = false)
         {
             if (_dynamicObjectCount != count)
@@ -1447,7 +1459,8 @@ class OSG_EXPORT State : public Referenced
         /** Get the number of dynamic objects that will be rendered in this graphics context this frame.*/
         unsigned int getDynamicObjectCount() const { return _dynamicObjectCount; }
 
-        /** Decrement the number of dynamic objects left to render this frame, and once the count goes to zero call the
+        /** 削减未处理的动态变度对象的个数
+		  * Decrement the number of dynamic objects left to render this frame, and once the count goes to zero call the
           * DynamicObjectRenderingCompletedCallback to inform of completion.*/
         inline void decrementDynamicObjectCount()
         {
@@ -1921,6 +1934,7 @@ class OSG_EXPORT State : public Referenced
 
         inline void applyModeMap(ModeMap& modeMap);
         inline void applyAttributeMap(AttributeMap& attributeMap);
+		/**将场景中GLSL一致变量的设置应用到渲染管线*/
         inline void applyUniformMap(UniformMap& uniformMap);
 
         inline void applyModeListOnTexUnit(unsigned int unit,ModeMap& modeMap,const StateSet::ModeList& modeList);

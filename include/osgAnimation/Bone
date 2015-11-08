@@ -25,8 +25,10 @@
 namespace osgAnimation
 {
 
-    // A bone can't have more than one parent Bone, so sharing a part of Bone's hierarchy
-    // makes no sense. You can share the entire hierarchy but not only a part of it.
+    /** 人体骨骼类
+	* A bone can't have more than one parent Bone, so sharing a part of Bone's hierarchy
+    *  makes no sense. You can share the entire hierarchy but not only a part of it.
+	*/
     class OSGANIMATION_EXPORT Bone : public osg::MatrixTransform
     {
     public:
@@ -34,17 +36,21 @@ namespace osgAnimation
 
         META_Node(osgAnimation, Bone);
         Bone(const Bone& b, const osg::CopyOp& copyop= osg::CopyOp::SHALLOW_COPY);
-        Bone(const std::string& name = "");
-
+		/**构造函数，构建一个有名称的骨骼节点，骨骼的名称不能重复*/
+		Bone(const std::string& name = "");
+		/**自动设置有名骨骼节点的更新回调，传入字符串为空的情况下
+		将与这个骨骼节点的名称相同*/
         void setDefaultUpdateCallback(const std::string& name = "");
-
+		/**获取骨骼的父节点*/
         Bone* getBoneParent();
         const Bone* getBoneParent() const;
-
+		/**获取此骨骼在父骨骼节点坐标系下的变换矩阵*/
         const osg::Matrix& getMatrixInBoneSpace() const { return getMatrix();}
-        const osg::Matrix& getMatrixInSkeletonSpace() const { return _boneInSkeletonSpace; }
+		/**获取此骨骼在角色全局坐标系下的变换矩阵*/
+		const osg::Matrix& getMatrixInSkeletonSpace() const { return _boneInSkeletonSpace; }
         const osg::Matrix& getInvBindMatrixInSkeletonSpace() const { return _invBindInSkeletonSpace;}
-        void setMatrixInSkeletonSpace(const osg::Matrix& matrix) { _boneInSkeletonSpace = matrix; }
+		/**设置此骨骼在全局坐标下的变换矩阵*/
+		void setMatrixInSkeletonSpace(const osg::Matrix& matrix) { _boneInSkeletonSpace = matrix; }
         void setInvBindMatrixInSkeletonSpace(const osg::Matrix& matrix) { _invBindInSkeletonSpace = matrix; }
 
     protected:

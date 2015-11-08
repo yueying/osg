@@ -25,7 +25,9 @@
 namespace osgDB {
 
 
-/** Options base class used for passing options into plugins to control their operation.*/
+/** 用于保存各种文件读写参数的Options类
+Options base class used for passing options into plugins to control their operation.
+*/
 class OSGDB_EXPORT Options : public osg::Object
 {
     public:
@@ -100,7 +102,7 @@ class OSGDB_EXPORT Options : public osg::Object
             _objectCacheHint(CACHE_ARCHIVES),
             _precisionHint(FLOAT_PRECISION_ALL),
             _buildKdTreesHint(NO_PREFERENCE) {}
-
+		/**构造函数，输入参数为读写选项的内容*/
         Options(const std::string& str):
             osg::Object(true),
             _str(str),
@@ -117,13 +119,13 @@ class OSGDB_EXPORT Options : public osg::Object
 
         Options* cloneOptions(const osg::CopyOp& copyop=osg::CopyOp::SHALLOW_COPY) const { return static_cast<Options*>(clone(copyop)); }
 
-        /** Set the general Options string.*/
+        /** 设置文件读写时的选项参数Set the general Options string.*/
         void setOptionString(const std::string& str) { _str = str; parsePluginStringData(str); }
 
-        /** Get the general Options string.*/
+        /** 获取文件读写时的选项参数Get the general Options string.*/
         const std::string& getOptionString() const { return _str; }
 
-        /** Set the database path to use a hint of where to look when loading models.*/
+        /** 设置文件读写的附件选项参数表Set the database path to use a hint of where to look when loading models.*/
         void setDatabasePath(const std::string& str) { _databasePaths.clear();  _databasePaths.push_back(str); }
 
         /** Get the database path which is used a hint of where to look when loading models.*/
@@ -166,7 +168,9 @@ class OSGDB_EXPORT Options : public osg::Object
         const AuthenticationMap* getAuthenticationMap() const { return _authenticationMap.get(); }
 
 
-        /** Sets a plugindata value PluginData with a string */
+        /** 设置文件读写的附加选项参数表，这里使用一个映射表来记录void *的指针数据
+		* 因此可以将运行时的一些对象地址传递到插件中，虽然这样也行是不安全的
+		* Sets a plugindata value PluginData with a string */
         void setPluginData(const std::string& s, void* v) const { _pluginData[s] = v; }
 
         /** Get a value from the PluginData */
@@ -265,7 +269,7 @@ class OSGDB_EXPORT Options : public osg::Object
         CacheHintOptions                _objectCacheHint;
         osg::ref_ptr<ObjectCache>       _objectCache;
 
-        PrecisionHint                   _precisionHint;
+        PrecisionHint                   _precisionHint;//!<设置输出到文件时的浮点数的精度
         BuildKdTreesHint                _buildKdTreesHint;
         osg::ref_ptr<AuthenticationMap> _authenticationMap;
 

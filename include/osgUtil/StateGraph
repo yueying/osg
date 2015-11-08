@@ -36,7 +36,8 @@ struct LessDepthSortFunctor
     }
 };
 
-/** StateGraph - contained in a renderBin, defines the scene to be drawn.
+/** 状态节点
+  * StateGraph - contained in a renderBin, defines the scene to be drawn.
   */
 class OSGUTIL_EXPORT StateGraph : public osg::Referenced
 {
@@ -104,6 +105,7 @@ class OSGUTIL_EXPORT StateGraph : public osg::Referenced
         void setStateSet(const osg::StateSet* stateset) { _stateset = stateset; }
 
 #ifdef OSGUTIL_RENDERBACKEND_USE_REF_PTR
+		/**获取该状态节点对应的渲染状态*/
         const osg::StateSet* getStateSet() const { return _stateset.get(); }
 #else
         const osg::StateSet* getStateSet() const { return _stateset; }
@@ -171,7 +173,8 @@ class OSGUTIL_EXPORT StateGraph : public osg::Referenced
         /** Recursively prune the StateGraph of empty children.*/
         void prune();
 
-
+		/**追加一个子状态节点到当前状态节点中，如果该子节点的渲染状态已经
+		存在，则合并状态并返回已存在的子节点*/
         inline StateGraph* find_or_insert(const osg::StateSet* stateset)
         {
             // search for the appropriate state group, return it if found.
@@ -185,7 +188,7 @@ class OSGUTIL_EXPORT StateGraph : public osg::Referenced
             return sg;
         }
 
-        /** add a render leaf.*/
+        /** 追加一个子渲染叶到当前状态节点中add a render leaf.*/
         inline void addLeaf(RenderLeaf* leaf)
         {
             if (leaf)
@@ -197,7 +200,9 @@ class OSGUTIL_EXPORT StateGraph : public osg::Referenced
                 if (_dynamic) leaf->_dynamic = true;
             }
         }
-
+		/**渲染时，从前一个状态节点切换到新的状态节点，在这个过程中将
+		关闭前一节点以及其父系节点的所有渲染状态量，并启用新节点及其父系节点
+		的所有状态量*/
         static inline void moveStateGraph(osg::State& state,StateGraph* sg_curr,StateGraph* sg_new)
         {
             if (sg_new==sg_curr || sg_new==NULL) return;

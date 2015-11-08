@@ -25,7 +25,9 @@ namespace osg {
 // forward declare osg::Camera
 class Camera;
 
-/** Base class for providing Windowing API agnostic access to creating and managing graphics context.*/
+/** 图形设备类，定义了场景渲染所处的设备平台，它可以是一个图形窗口，也可以是一个离屏渲染设备
+*（例如Pixel Buffer）。所有的OpengL指令都会在这个设备上运行，并最终得到正确的场景绘制结果
+ *Base class for providing Windowing API agnostic access to creating and managing graphics context.*/
 class OSG_EXPORT GraphicsContext : public Object
 {
     public:
@@ -255,10 +257,12 @@ class OSG_EXPORT GraphicsContext : public Object
 
     public:
 
-        /** Add operation to end of OperationQueue.*/
+        /** 向图形设备对应的图形线程追加用户操作
+		*Add operation to end of OperationQueue.*/
         void add(Operation* operation);
 
-        /** Remove operation from OperationQueue.*/
+        /** 向图形设备对应的图形线程删除用户操作 
+		*Remove operation from OperationQueue.*/
         void remove(Operation* operation);
 
         /** Remove named operation from OperationQueue.*/
@@ -267,7 +271,9 @@ class OSG_EXPORT GraphicsContext : public Object
         /** Remove all operations from OperationQueue.*/
         void removeAllOperations();
 
-        /** Run the operations. */
+        /** 执行所有的用户操作，这个函数通常不是由设备的图形线程调度
+		*的，而是在线程模式下直接调用执行
+		*Run the operations. */
         virtual void runOperations();
 
         typedef std::list< ref_ptr<Operation> > GraphicsOperationQueue;
@@ -364,10 +370,14 @@ class OSG_EXPORT GraphicsContext : public Object
 
 
 
-        /** Create a graphics thread to the graphics context, so that the thread handles all OpenGL operations.*/
+        /**创建一个新的图形线程，如有必要，这一步将在视景器的
+		*startThreading()函数中完成
+		*Create a graphics thread to the graphics context, so that the thread handles all OpenGL operations.*/
         void createGraphicsThread();
 
-        /** Assign a graphics thread to the graphics context, so that the thread handles all OpenGL operations.*/
+        /** 设置一个图形线程，如果希望在使用自定义的图形线程类，需要再视景器的初始化函数
+		*realize()之前完成
+		*Assign a graphics thread to the graphics context, so that the thread handles all OpenGL operations.*/
         void setGraphicsThread(GraphicsThread* gt);
 
         /** Get the graphics thread assigned the graphics context.*/

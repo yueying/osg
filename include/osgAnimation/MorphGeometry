@@ -21,7 +21,9 @@
 
 namespace osgAnimation
 {
-
+	/**用于表达三维场景中各种物体变形动画，继承osg::Geometry类，并且通过随时变换顶点
+	坐标的方式来完成每帧逐步变形的动画效果，为了保证变形动画的效率，采用VBO的方式来
+	完成顶点数据的动态刷新*/
     class OSGANIMATION_EXPORT MorphGeometry : public osg::Geometry
     {
 
@@ -49,6 +51,7 @@ namespace osgAnimation
         typedef std::vector<MorphTarget> MorphTargetList;
 
         MorphGeometry();
+		/**构造函数，将一个已定义的几何体对象作为输入参数*/
         MorphGeometry(const osg::Geometry& b);
         MorphGeometry(const MorphGeometry& b, const osg::CopyOp& copyop = osg::CopyOp::SHALLOW_COPY);
 
@@ -70,7 +73,9 @@ namespace osgAnimation
         /** Get the flag for morphing normals. */
         inline bool getMorphNormals() const { return _morphNormals; }
 
-        /** Add a \c MorphTarget to the \c MorphGeometry.
+        /** 添加一个变化目标（几何体对象），并设置其权重（默认1.0）。这个变化目标
+		  * 应当与原几何体对象的顶点数相同
+		  * Add a \c MorphTarget to the \c MorphGeometry.
           * If \c MorphTarget is not \c NULL and is not contained in the \c MorphGeometry
           * then increment its reference count, add it to the MorphTargets list and
           * dirty the bounding sphere to force it to be recomputed on the next
@@ -93,13 +98,13 @@ namespace osgAnimation
         /** Set the MorphGeometry dirty.*/
         void dirty() { _dirty = true; }
 
-        /** Get the list of MorphTargets.*/
+        /** 获得所有变形体变化目标Get the list of MorphTargets.*/
         const MorphTargetList& getMorphTargetList() const { return _morphTargets; }
 
         /** Get the list of MorphTargets. Warning if you modify this array you will have to call dirty() */
         MorphTargetList& getMorphTargetList() { return _morphTargets; }
 
-        /** Return the \c MorphTarget at position \c i.*/
+        /** 获得指定索引位置的变化目标Return the \c MorphTarget at position \c i.*/
         inline const MorphTarget& getMorphTarget( unsigned int i ) const { return _morphTargets[i]; }
 
         /** Return the \c MorphTarget at position \c i.*/
@@ -119,6 +124,7 @@ namespace osgAnimation
         bool _morphNormals;
     };
 
+	/**场景叶节点添加的动画回调，用于实现变形体动画的更新过程*/
     class OSGANIMATION_EXPORT UpdateMorph : public AnimationUpdateCallback<osg::NodeCallback>
     {
     protected:

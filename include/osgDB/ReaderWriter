@@ -35,12 +35,13 @@ typedef std::deque<std::string> FilePathList;
 // forward declare
 class Options;
 
-/** Pure virtual base class for reading and writing of non native formats. */
+/** 文件读写插件的公共接口
+* Pure virtual base class for reading and writing of non native formats. */
 class OSGDB_EXPORT ReaderWriter : public osg::Object
 {
     public:
 
-
+		/**默认构造函数*/
         ReaderWriter():
             osg::Object(true) {}
 
@@ -51,19 +52,24 @@ class OSGDB_EXPORT ReaderWriter : public osg::Object
 
         META_Object(osgDB,ReaderWriter);
 
-        typedef std::map<std::string, std::string> FormatDescriptionMap;
+        typedef std::map<std::string, std::string> FormatDescriptionMap;//!<字符串-字符串的映射表
         typedef std::list<std::string> FeatureList;
 
-        /** Return which protocols are supported by ReaderWriter. */
+        /**虚函数，用于获取该插件当前支持的网络协议
+		*Return which protocols are supported by ReaderWriter. */
         virtual const FormatDescriptionMap& supportedProtocols() const { return _supportedProtocols; }
 
-        /** Return which list of file extensions supported by ReaderWriter. */
+        /** 虚函数，用于获取该插件当前的扩展名
+		*Return which list of file extensions supported by ReaderWriter. */
         virtual const FormatDescriptionMap& supportedExtensions() const { return _supportedExtensions; }
 
-        /** Return which list of file extensions supported by ReaderWriter. */
+        /** 虚函数，用于获取该插件的参数列表
+		*Return which list of file extensions supported by ReaderWriter. */
         virtual const FormatDescriptionMap& supportedOptions() const { return _supportedOptions; }
 
-        /** Return true if ReaderWriter accepts specified file extension.*/
+        /** 虚函数，用于判断某一个扩展名是否被此插件所支持，例如osgdb_ive插件支持IVE格式
+		* 因此此函数传入"ive"将返回真值，其它均返回否定值
+		* Return true if ReaderWriter accepts specified file extension.*/
         virtual bool acceptsExtension(const std::string& /*extension*/) const;
 
         virtual bool acceptsProtocol(const std::string& protocol) const;
@@ -104,18 +110,18 @@ class OSGDB_EXPORT ReaderWriter : public osg::Object
         static FeatureList featureAsString(Features feature);
 
 
-
+		/**读取结果对象*/
         class OSGDB_EXPORT ReadResult
         {
             public:
 
                 enum ReadStatus
                 {
-                    NOT_IMPLEMENTED, //!< read*() method not implemented in concrete ReaderWriter.
-                    FILE_NOT_HANDLED, //!< File is not appropriate for this file reader, due to some incompatibility, but *not* a read error.
-                    FILE_NOT_FOUND, //!< File could not be found or could not be read.
-                    ERROR_IN_READING_FILE, //!< File found, loaded, but an error was encountered during processing.
-                    FILE_LOADED, //!< File successfully found, loaded, and converted into osg.
+                    NOT_IMPLEMENTED, //!< 该插件没有实现这种类型的读的功能，例如osgdb_osg插件不能读取图片
+                    FILE_NOT_HANDLED, //!< 该文件跳过未处理，如果待读取文件的扩展名不符合插件的要求（即acceptsExtension()返回false）,则通常拒绝继续处理，立即返回
+                    FILE_NOT_FOUND, //!< 文件未找到，文件可能不存在于指定的路径下
+                    ERROR_IN_READING_FILE, //!<读取文件时出错，这能是由于文件被损坏，或者文件扩展名与实际内容不相符造成的
+                    FILE_LOADED, //!< 文件已加载，此时ReadResult通常还保存了数据对象的指针，供系统和用户调用
                     FILE_LOADED_FROM_CACHE, //!< File found in cache and returned.
                     FILE_REQUESTED, //!< Asynchronous file read has been requested, but returning immediately, keep polling plugin until file read has been completed.
                     INSUFFICIENT_MEMORY_TO_LOAD //!< File found but not loaded because estimated required memory surpasses available memory.
@@ -172,17 +178,17 @@ class OSGDB_EXPORT ReaderWriter : public osg::Object
                 osg::ref_ptr<osg::Object>   _object;
 
         };
-
+		/**写出结果对象*/
         class WriteResult
         {
             public:
 
                 enum WriteStatus
                 {
-                    NOT_IMPLEMENTED, //!< write*() method not implemented in concrete ReaderWriter.
-                    FILE_NOT_HANDLED,
-                    ERROR_IN_WRITING_FILE,
-                    FILE_SAVED
+                    NOT_IMPLEMENTED, //!< 该插件没有实现这种类型数据的写出功能
+                    FILE_NOT_HANDLED,//!<该文件跳过未处理
+                    ERROR_IN_WRITING_FILE,//!<写出到文件时出错
+                    FILE_SAVED//!<文件已成功保存
                 };
 
                 WriteResult(WriteStatus status=FILE_NOT_HANDLED):_status(status) {}

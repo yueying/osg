@@ -44,7 +44,11 @@ namespace osgDB {
 
 
 
-/** Database paging class which manages the loading of files in a background thread,
+/**负责执行场景动态调度工作，视景器每一帧执行到更新遍历函数updateTraversal时都会自动将
+* 一段时间内始终不在当前页面上的场景子树去除，并将新载入到当前页面的场景子树加入渲染
+* 这里所说的页面指的就是用户的视野范围，分页和节点管理的工作由DatabasePager内置的数据线程
+* DatabaseThread 负责。
+ * Database paging class which manages the loading of files in a background thread,
   * and synchronizing of loaded models with the main scene graph.*/
 class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandler
 {
@@ -69,7 +73,10 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
 
 
 
-        /** Add a request to load a node file to end the database request list.*/
+        /** 虚函数，请求加载数据，提供了需要加载的数据文件名，数据的父节点指针
+		*以及一系列加载时的设置参数，这个函数并不负责实际的加载，它只是发出一个加载请求
+		*并最终由数据线程DatabaseThread完成工作
+		*Add a request to load a node file to end the database request list.*/
         virtual void requestNodeFile(const std::string& fileName, osg::NodePath& nodePath,
                                      float priority, const osg::FrameStamp* framestamp,
                                      osg::ref_ptr<osg::Referenced>& databaseRequest,
@@ -136,26 +143,32 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
 
         unsigned int getNumDatabaseThreads() const { return static_cast<unsigned int>(_databaseThreads.size()); }
 
-        /** Set whether the database pager thread should be paused or not.*/
+        /** 设置启动或者停止数据调度线程
+		* Set whether the database pager thread should be paused or not.*/
         void setDatabasePagerThreadPause(bool pause);
 
-        /** Get whether the database pager thread should is paused or not.*/
+        /** 查询数据调度线程是否启动
+		* Get whether the database pager thread should is paused or not.*/
         bool getDatabasePagerThreadPause() const { return _databasePagerThreadPaused; }
 
-        /** Set whether new database request calls are accepted or ignored.*/
+        /** 设置是否允许实时加载新的数据
+		* Set whether new database request calls are accepted or ignored.*/
         void setAcceptNewDatabaseRequests(bool acceptNewRequests) { _acceptNewRequests = acceptNewRequests; }
 
-        /** Get whether new database request calls are accepted or ignored.*/
+        /** 查询是否允许实时加载新的数据
+		* Get whether new database request calls are accepted or ignored.*/
         bool getAcceptNewDatabaseRequests() const { return _acceptNewRequests; }
 
         /** Get the number of frames that are currently active.*/
         int getNumFramesActive() const { return _numFramesActive; }
 
-        /** Signal the database thread that the update, cull and draw has begun for a new frame.
+        /** 虚函数，指示新的一帧开始，主要用于数据线程与系统主进程保持同步
+		  * Signal the database thread that the update, cull and draw has begun for a new frame.
           * Note, this is called by the application so that the database pager can go to sleep while the CPU is busy on the main rendering threads. */
         virtual void signalBeginFrame(const osg::FrameStamp* framestamp);
 
-        /** Signal the database thread that the update, cull and draw dispatch has completed.
+        /** 虚函数，表示当前帧的裁减和绘制工作已经结束
+		  * Signal the database thread that the update, cull and draw dispatch has completed.
           * Note, this is called by the application so that the database pager can go to wake back up now the main rendering threads are iddle waiting for the next frame.*/
         virtual void signalEndFrame();
 
@@ -174,19 +187,23 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
         osgUtil::IncrementalCompileOperation* getIncrementalCompileOperation() { return _incrementalCompileOperation.get(); }
 
 
-        /** Set whether the database pager should pre compile OpenGL objects before allowing
+        /** 设置数据线程是否代为执行数据预编译的工作
+		  * Set whether the database pager should pre compile OpenGL objects before allowing
           * them to be merged into the scene graph.
           * Pre compilation helps reduce the chances of frame drops, but also slows the
           * speed at which tiles are merged as they have to be compiled first.*/
         void setDoPreCompile(bool flag) { _doPreCompile = flag; }
 
-        /** Get whether the database pager should pre compile OpenGL objects before allowing
+        /** 获取数据线程是否代为执行数据预编译的工作
+		  * Get whether the database pager should pre compile OpenGL objects before allowing
           * them to be merged into the scene graph.*/
         bool getDoPreCompile() const { return _doPreCompile; }
 
 
 
-        /** Set the target maximum number of PagedLOD to maintain in memory.
+        /** 设置数据线程可以同时调度的分页LOD节点数目，这个数目越大，可以
+		  * 同时监视和管理的场景元素也就越多，但系统的负担也就越重
+		  * Set the target maximum number of PagedLOD to maintain in memory.
           * Note, if more than the target number are required for rendering of a frame then these active PagedLOD are excempt from being expiried.
           * But once the number of active drops back below the target the inactive PagedLOD will be trimmed back to the target number.*/
         void setTargetMaximumNumberOfPageLOD(unsigned int target) { _targetMaximumNumberOfPageLOD = target; }

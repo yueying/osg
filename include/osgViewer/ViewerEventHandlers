@@ -26,7 +26,12 @@
 
 namespace osgViewer {
 
-/** Event handler for adding on screen help to Viewers.*/
+	/** 视景器交互动作处理工具，它们分别用于执行特定的视景器浏览或更新功能，然后
+	* 使用addEventHandler()添加到视图对象中，并因此使仿真系统具备了一定的交互特征。
+	*/
+
+/** 用于显示视景器所有的快捷键及相关提示信息，按下h键将显示或隐藏这些帮助文字
+Event handler for adding on screen help to Viewers.*/
 class OSGVIEWER_EXPORT HelpHandler : public osgGA::GUIEventHandler
 {
     public:
@@ -68,7 +73,8 @@ class OSGVIEWER_EXPORT HelpHandler : public osgGA::GUIEventHandler
 
 };
 
-/**
+/**显示场景统计信息，包括当前帧速率、场景中的节点和顶点数目等，反复按下
+ * s键可以切换显示从简单到负责的实时统计信息，按下S键则可以把它们输出到标准控制台窗口
  * Event handler for adding on screen stats reporting to Viewers.
  */
 class OSGVIEWER_EXPORT StatsHandler : public osgGA::GUIEventHandler
@@ -226,7 +232,9 @@ protected:
 
 };
 
-/** Event handler allowing to change the screen resolution (in windowed mode) and toggle between fullscreen and windowed mode. */
+/** 允许用户在全屏和窗口模式下切换，并且可以实时地改变窗口的分辨率。默认情况下按下f键
+* 切换全屏和窗口模式的渲染，按“<”和“>”键则可以改变窗口分辨率
+Event handler allowing to change the screen resolution (in windowed mode) and toggle between fullscreen and windowed mode. */
 class OSGVIEWER_EXPORT WindowSizeHandler : public osgGA::GUIEventHandler
 {
 public:
@@ -269,7 +277,8 @@ protected:
         int                     _currentResolutionIndex;
 };
 
-/** Event handler allowing to change the viewer threading model */
+/** 允许用户实时地切换多线程渲染的模式（按m键可在多种线程模型之间进行切换）
+Event handler allowing to change the viewer threading model */
 class OSGVIEWER_EXPORT ThreadingHandler : public osgGA::GUIEventHandler
 {
 public:
@@ -305,7 +314,8 @@ protected:
         bool            _done;
 };
 
-/**
+/**允许用户记录相机允许的路径，按下z键之后，开始自动记录场景主相机的观察矩阵变化过程，
+ * 再次按下z则停止记录；按下大写Z（Shift+Z），可以回放刚才记录的路径，从而实现相机运动的动画效果。
  * Event handler allowing the user to record the animation "path" of a camera. In it's current
  * implementation, this handler cannot guarantee the final view matrix is correct; it is
  * conceivable that the matrix may be one frame off. Eh--not a big deal! :)
@@ -351,7 +361,11 @@ protected:
         osg::ref_ptr<osgGA::CameraManipulator>          _oldManipulator;
 };
 
-/** Event handler for increase/decreasing LODScale.*/
+/** 允许用户即时调整场景细节层次（LOD）的缩放比例。当按下"*"键使这个值增加时，
+* 场景中所有LOD层次距视点距离的预设值都会按比例减小，导致精细层次的模型只有距视点更近
+* 才能显示；反之按下"/"键使缩放比例减小，各LOD层次距视点距离的预设值都会增加，因而精细层次
+* 的模型会在更大范围内地被渲染出来
+Event handler for increase/decreasing LODScale.*/
 class OSGVIEWER_EXPORT LODScaleHandler : public osgGA::GUIEventHandler
 {
     public:
@@ -402,7 +416,8 @@ class OSGVIEWER_EXPORT ToggleSyncToVBlankHandler : public osgGA::GUIEventHandler
 };
 
 
-/** Event handler that will capture the screen on key press. */
+/** 允许用户将当前场景保存到图片，按下c键将直接保存场景截图为图片文件
+Event handler that will capture the screen on key press. */
 class OSGVIEWER_EXPORT ScreenCaptureHandler : public osgGA::GUIEventHandler
 {
     public:

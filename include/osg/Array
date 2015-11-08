@@ -56,6 +56,9 @@ class ConstArrayVisitor;
 class ValueVisitor;
 class ConstValueVisitor;
 
+/**数组，主要有两种用途：1、表达单精度或双精度的浮点数据，包括数值、多维向量等，以便用于OpenGL顶点坐标（Vec3类型）
+颜色（Vec4类型）、纹理坐标（Vec2类型）等属性数组的设置；2、表达顶点数据的索引，此时
+数组的元素一般是整数类型，索引数组在绘制OpenGL几何图元时尤为常见*/
 class OSG_EXPORT Array : public BufferData
 {
 
@@ -120,7 +123,7 @@ class OSG_EXPORT Array : public BufferData
             BIND_PER_PRIMITIVE_SET=2,
             BIND_PER_VERTEX=4
         };
-
+		/**构造一个已知数组类型，各元素分量数和元素数据类型的数组*/
         Array(Type arrayType=ArrayType,GLint dataSize=0,GLenum dataType=0, Binding binding=BIND_UNDEFINED):
             _arrayType(arrayType),
             _dataSize(dataSize),
@@ -152,16 +155,22 @@ class OSG_EXPORT Array : public BufferData
           * 1 if lhs element is greater than rhs element. */
         virtual int compare(unsigned int lhs,unsigned int rhs) const = 0;
 
+		/**获取数组类型定义*/
         Type getType() const { return _arrayType; }
+		/**获取数组元素的分量数，例如Vec3类型的数组有3个分量X,Y,Z，而float数组只有一个分量*/
         GLint getDataSize() const { return _dataSize; }
+		/**获取数组元素的数据类型，例如Vec3和float数组元素均为GL_FLOAT类型*/
         GLenum getDataType() const { return _dataType; }
 
         virtual osg::Array* asArray() { return this; }
         virtual const osg::Array* asArray() const { return this; }
 
         virtual unsigned int getElementSize() const = 0;
+		/**纯虚函数，获取该数组第一个元素的地址指针*/
         virtual const GLvoid* getDataPointer() const = 0;
+		/**纯虚函数，获取该数组元素的总大小，即元素个数与分量数的乘积*/
         virtual unsigned int getTotalDataSize() const = 0;
+		/**纯虚函数，获取该数组元素的总个数*/
         virtual unsigned int getNumElements() const = 0;
         virtual void reserveArray(unsigned int num) = 0;
         virtual void resizeArray(unsigned int num) = 0;
@@ -218,7 +227,9 @@ inline osg::Array::Binding getBinding(const osg::Array* array) { return array ? 
 /** convenience function for getting the binding of array via a ptr that may be null.*/
 inline bool getNormalize(const osg::Array* array) { return array ? array->getNormalize() : false; }
 
-
+/**为了使Array真正具备保存多种类型的数据的能力，需要再定义一个模板类并接受
+不同的模板参数，同时还需要使用std::vector向量组来记录数组中多个元素信息
+MixinVector<T>是对std::vector进行封装，避免模板类的虚的析构函数问题*/
 template<typename T, Array::Type ARRAYTYPE, int DataSize, int DataType>
 class TemplateArray : public Array, public MixinVector<T>
 {
@@ -296,6 +307,7 @@ class TemplateArray : public Array, public MixinVector<T>
         virtual ~TemplateArray() {}
 };
 
+/**索引数组类，派生自Array类*/
 class OSG_EXPORT IndexArray : public Array
 {
 
@@ -308,14 +320,14 @@ class OSG_EXPORT IndexArray : public Array
             Array(array,copyop) {}
 
         virtual bool isSameKindAs(const Object* obj) const { return dynamic_cast<const IndexArray*>(obj)!=NULL; }
-
+		/**获取指定索引位置的元素*/
         virtual unsigned int index(unsigned int pos) const = 0;
 
     protected:
 
         virtual ~IndexArray() {}
 };
-
+/**索引数组模板类的定义*/
 template<typename T, Array::Type ARRAYTYPE, int DataSize, int DataType>
 class TemplateIndexArray : public IndexArray, public MixinVector<T>
 {
@@ -387,7 +399,7 @@ class TemplateIndexArray : public IndexArray, public MixinVector<T>
         virtual ~TemplateIndexArray() {}
 };
 
-typedef TemplateIndexArray<GLbyte,Array::ByteArrayType,1,GL_BYTE>               ByteArray;
+typedef TemplateIndexArray<GLbyte,Array::ByteArrayType,1,GL_BYTE>               ByteArray;//GLbyte
 typedef TemplateIndexArray<GLshort,Array::ShortArrayType,1,GL_SHORT>            ShortArray;
 typedef TemplateIndexArray<GLint,Array::IntArrayType,1,GL_INT>                  IntArray;
 

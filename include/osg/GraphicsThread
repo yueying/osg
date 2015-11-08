@@ -21,7 +21,9 @@ namespace osg {
 
 class GraphicsContext;
 
-/** GraphicsThread is a helper class for running OpenGL GraphicsOperation within a single thread assigned to a specific GraphicsContext.*/
+/** 这个线程专用于OpenGL图形相关的操作，因此线程会自动在每执行一个用户操作之前指定一次
+*OpenGL的渲染设备，并在执行完毕后重置。
+*GraphicsThread is a helper class for running OpenGL GraphicsOperation within a single thread assigned to a specific GraphicsContext.*/
 class OSG_EXPORT GraphicsThread : public osg::OperationThread
 {
     public:

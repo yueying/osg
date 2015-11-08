@@ -31,21 +31,21 @@ class CommandManager : public osg::Referenced
 {
     public:
         CommandManager() {}
-
+		/**绑定拖拽器与一个备选对象 */
         bool connect(Dragger& dragger, Selection& selection)
         {
             dragger.addTransformUpdating(&selection);
 
             return true;
         }
-
+		/**绑定拖拽器与一个约束对象*/
         bool connect(Dragger& dragger, Constraint& constraint)
         {
             dragger.addConstraint(&constraint);
 
             return true;
         }
-
+		/**取消所有与当前拖拽器有关的备选对象和约束条件*/
         bool disconnect(Dragger& dragger)
         {
             dragger.getConstraints().clear();

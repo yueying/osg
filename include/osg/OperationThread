@@ -50,7 +50,8 @@ class RefBlockCount : virtual public osg::Referenced, public OpenThreads::BlockC
 class Operation : virtual public Referenced
 {
     public:
-
+		/**构造函数，可以指定用户操作的标识名称；以及它是否会一直保持
+		在操作队列中，还是一次性使用后删除*/
         Operation(const std::string& name, bool keep):
             _name(name),
             _keep(keep) {}
@@ -68,10 +69,11 @@ class Operation : virtual public Referenced
         /** Get whether the operation should be kept once its been applied.*/
         bool getKeep() const { return _keep; }
 
-        /** if this operation is a barrier then release it.*/
+        /** 虚函数，如果它的作用是阻塞线程的话，则强制释放当前操作if this operation is a barrier then release it.*/
         virtual void release() {}
 
-        /** Do the actual task of this operation.*/
+        /** 虚函数，可重构的操作符用于执行操作的具体内容，它必须是线程安全的
+		 * Do the actual task of this operation.*/
         virtual void operator () (Object*) = 0;
 
 protected:
@@ -155,20 +157,22 @@ class OSG_EXPORT OperationQueue : public Referenced
         OperationThreads            _operationThreads;
 };
 
-/** OperationThread is a helper class for running Operation within a single thread.*/
+/** OperationThread is a helper class for running Operation within a single thread.
+接受一个操作队列的内容，并依次执行其中的自定义操作的回调函数*/
 class OSG_EXPORT OperationThread : public Referenced, public OpenThreads::Thread
 {
     public:
         OperationThread();
-
+		/**设置线程的父对象*/
         void setParent(Object* parent) { _parent = parent; }
-
+		/**获取线程的父对象*/
         Object* getParent() { return _parent.get(); }
 
         const Object* getParent() const { return _parent.get(); }
 
 
-        /** Set the OperationQueue. */
+        /** 设置操作线程当前正在执行的操作队列。默认情况下，系统会自动生成一个默认的空操作队列
+		*Set the OperationQueue. */
         void setOperationQueue(OperationQueue* opq);
 
         /** Get the OperationQueue. */
@@ -178,11 +182,13 @@ class OSG_EXPORT OperationThread : public Referenced, public OpenThreads::Thread
         const OperationQueue* getOperationQueue() const { return _operationQueue.get(); }
 
 
-        /** Add operation to end of OperationQueue, this will be
+        /** 从操作队列中追加一个自定义的用户操作
+		  * Add operation to end of OperationQueue, this will be
           * executed by the graphics thread once this operation gets to the head of the queue.*/
         void add(Operation* operation);
 
-        /** Remove operation from OperationQueue.*/
+        /** 从操作队列中删除一个自定义的用户操作
+		 * Remove operation from OperationQueue.*/
         void remove(Operation* operation);
 
         /** Remove named operation from OperationQueue.*/
@@ -192,7 +198,8 @@ class OSG_EXPORT OperationThread : public Referenced, public OpenThreads::Thread
         void removeAllOperations();
 
 
-        /** Get the operation currently being run.*/
+        /**获取当前将要执行的自定义操作
+		 *Get the operation currently being run.*/
         osg::ref_ptr<Operation> getCurrentOperation() { return _currentOperation; }
 
         /** Run does the opertion thread run loop.*/

@@ -28,7 +28,7 @@ namespace osgAnimation
 {
 
     class Channel;
-
+	/**执行对象类*/
     class OSGANIMATION_EXPORT Target : public osg::Referenced
     {
     public:
@@ -51,12 +51,13 @@ namespace osgAnimation
     public:
 
         TemplateTarget() : _target() {}
+		/**构造函数，输入参数为数据类型，例如float、Vec3等*/
         TemplateTarget(const T& v) { setValue(v); }
         TemplateTarget(const TemplateTarget& v) { setValue(v.getValue()); }
 
         inline void lerp(float t, const T& a, const T& b);
 
-        /**
+        /** 将输入值与权重相乘，得到最终的计算结果的值
          *  The priority is used to detect a change of priority
          *  It's important to update animation target in priority
          *  order. eg:
@@ -89,8 +90,9 @@ namespace osgAnimation
                 _target = val;
             }
         }
+		/**获取最终计算结果的值*/
         const T& getValue() const { return _target; }
-
+		/**设置最终计算结果的值*/
         void setValue(const T& value) { _target = value; }
 
     protected:

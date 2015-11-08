@@ -22,6 +22,7 @@
 
 namespace osgAnimation
 {
+	/**动画管理器*/
     class OSGANIMATION_EXPORT BasicAnimationManager : public AnimationManagerBase
     {
     public:

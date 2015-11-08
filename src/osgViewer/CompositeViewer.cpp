@@ -694,6 +694,7 @@ void CompositeViewer::advance(double simulationTime)
 
     if (getViewerStats() && getViewerStats()->collectStats("frame_rate"))
     {
+		//设置记录的统计信息
         // update previous frame stats
         double deltaFrameTime = _frameStamp->getReferenceTime() - previousReferenceTime;
         getViewerStats()->setAttribute(previousFrameNumber, "Frame duration", deltaFrameTime);

@@ -26,7 +26,9 @@
 namespace osgDB {
 
 
-/** Read an osg::Object from file.
+/** 读取其他类型对象的文件，如字体文件，文档文件，配置文件等，函数
+  * 返回值是派生至Object类的对象指针
+  * Read an osg::Object from file.
   * Return valid osg::Object on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -62,7 +64,9 @@ inline T* readFile(const std::string& filename)
 }
 
 
-/** Read an osg::Image from file.
+/** 读取图像或视频格式文件，输入文件名参数中的扩展名用于判断此文件的类型
+  * 例如image.jpg,则应使用JPEG插件进行解析和加载
+  * Read an osg::Image from file.
   * Return valid osg::Image on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -102,7 +106,8 @@ inline osg::HeightField*  readHeightFieldFile(const std::string& filename)
     return readHeightFieldFile(filename,Registry::instance()->getOptions());
 }
 
-/** Read an osg::Node from file.
+/** 读取三维模型节点格式的文件，输入文件名参数中的扩展名用于判断此文件类型
+  * Read an osg::Node from file.
   * Return valid osg::Node on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -123,7 +128,8 @@ inline osg::Node*  readNodeFile(const std::string& filename)
 }
 
 
-/** Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
+/** 读取多个三维模型节点格式文件，并将它们添加到统一的根节点中，返回这个根节点的指针
+  * Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
   * than one subgraph has been loaded.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
   * Does NOT ignore strings beginning with a dash '-' character. */
@@ -149,7 +155,9 @@ inline osg::Node* readNodeFiles(osg::ArgumentParser& parser)
     return readNodeFiles(parser,Registry::instance()->getOptions());
 }
 
-/** Read an osg::Shader from file.
+/** 读取着色器源代码文件，扩展名为.vert的文件将自动识别为顶点着色器对象
+  * 扩展名为.frag的文件自动识别为片元着色器
+  * Read an osg::Shader from file.
   * Return valid osg::Shader on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.

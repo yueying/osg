@@ -24,7 +24,7 @@
 
 namespace osgAnimation
 {
-
+	/**动画体类*/
     class OSGANIMATION_EXPORT Animation : public osg::Object
     {
     public:
@@ -35,16 +35,19 @@ namespace osgAnimation
 
         enum PlayMode
         {
-            ONCE,
-            STAY,
-            LOOP,
-            PPONG
+            ONCE,//执行一次
+            STAY,//执行并停止在末端
+            LOOP,//循环执行
+            PPONG//乒乓执行
         };
 
-        // addChannel insert the channel and call the computeDuration function
+        /* 添加一个动画频道
+		* addChannel insert the channel and call the computeDuration function
+		*/
         void addChannel (Channel* pChannel);
 
-        /** Those accessors let you add and remove channels
+        /** 获取动画频道列表
+		 *  Those accessors let you add and remove channels
          *  if you modify something that can change the duration
          *  you are supposed to call computeDuration or setDuration
          */
@@ -67,17 +70,20 @@ namespace osgAnimation
 
         double getDuration() const;
 
-
+		/**设置动画的权重值*/
         void setWeight (float weight);
+		/**获取动画的权重值*/
         float getWeight() const;
-
+		/**更新动画的内容*/
         bool update (double time, int priority = 0);
         void resetTargets();
-
+		/**设置动画循环方式*/
         void setPlayMode (PlayMode mode) { _playmode = mode; }
+		/**获取动画循环方式*/
         PlayMode getPlayMode() const { return _playmode; }
-
+		/**设置动画运行的起始时间*/
         void setStartTime(double time)  { _startTime = time;}
+		/**获取动画运行的起始时间*/
         double getStartTime() const { return _startTime;}
 
     protected:

@@ -26,7 +26,7 @@
 namespace osgDB {
 
 
-/** deprecated. */
+/** 封装支持类deprecated. */
 class OSGDB_EXPORT DotOsgWrapper : public osg::Referenced
 {
     public:
@@ -40,21 +40,26 @@ class OSGDB_EXPORT DotOsgWrapper : public osg::Referenced
             READ_AND_WRITE,
             READ_ONLY
         };
+		/**构造函数*/
+        DotOsgWrapper(osg::Object* proto,//待处理的自定义场景对象原型proto
+                      const std::string& name,//对象类的名称
+                      const std::string& associates,//对象的直接和间接父类列表字符串
+                      ReadFunc readFunc,//对象的读取函数地址
+                      WriteFunc writeFunc,//对象的写出函数
+                      ReadWriteMode readWriteMode=READ_AND_WRITE);//封装模式READ_AND_WRITE（读写）READ_ONLY（只读）
 
-        DotOsgWrapper(osg::Object* proto,
-                      const std::string& name,
-                      const std::string& associates,
-                      ReadFunc readFunc,
-                      WriteFunc writeFunc,
-                      ReadWriteMode readWriteMode=READ_AND_WRITE);
-
-
+		/**获取场景对象原型的指针*/
         inline const osg::Object* getPrototype() const { return _prototype.get(); }
-        inline const std::string& getName() const      { return _name; }
-        inline const Associates& getAssociates() const { return _associates; }
-        inline ReadFunc getReadFunc() const            { return _readFunc; }
-        inline WriteFunc getWriteFunc() const          { return _writeFunc; }
-        inline ReadWriteMode getReadWriteMode() const  { return _readWriteMode; }
+		/**获取对象类的名称*/
+		inline const std::string& getName() const      { return _name; }
+		/**获取对象的直接和间接父类列表*/
+		inline const Associates& getAssociates() const { return _associates; }
+		/**获取对象的读取函数地址*/
+		inline ReadFunc getReadFunc() const            { return _readFunc; }
+		/**获取对象的写出函数地址*/
+		inline WriteFunc getWriteFunc() const          { return _writeFunc; }
+		/**获取对象的封装模式*/
+		inline ReadWriteMode getReadWriteMode() const  { return _readWriteMode; }
 
     protected:
 
@@ -67,15 +72,15 @@ class OSGDB_EXPORT DotOsgWrapper : public osg::Referenced
         /// protected to prevent wrapper being created on stack.
         virtual ~DotOsgWrapper() {}
 
-        osg::ref_ptr<osg::Object>   _prototype;
+        osg::ref_ptr<osg::Object>   _prototype;//待处理的自定义场景对象原型
 
-        std::string                 _name;
+        std::string                 _name;//对象类的名称
         Associates                  _associates;
 
-        ReadFunc                    _readFunc;
-        WriteFunc                   _writeFunc;
+        ReadFunc                    _readFunc;//对象的读取函数地址
+        WriteFunc                   _writeFunc;//对象的写出函数地址
 
-        ReadWriteMode               _readWriteMode;
+        ReadWriteMode               _readWriteMode;//封装模式
 };
 
 

@@ -25,7 +25,8 @@
 
 namespace osgDB {
 
-/** Write an osg::Object to file.
+/** 写出其他格式的数据到文件中，文件参数中的扩展名指定了要写出的文件类型
+  * Write an osg::Object to file.
   * Return true on success,
   * return false on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -45,7 +46,9 @@ inline bool writeObjectFile(const osg::Object& object, const std::string& filena
     return writeObjectFile( object, filename, Registry::instance()->getOptions() );
 }
 
-/** Write an osg::Image to file.
+/** 写出图像数据到文件中，文件参数中的扩展名指定了要写出的文件类型
+  * 例如image.png 即使用PNG图像格式的插件来保存文件
+  * Write an osg::Image to file.
   * Return true on success,
   * return false on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -85,7 +88,8 @@ inline bool writeHeightFieldFile(const osg::HeightField& hf, const std::string& 
     return writeHeightFieldFile( hf, filename, Registry::instance()->getOptions() );
 }
 
-/** Write an osg::Node to file.
+/** 写出模型节点数据类型到文件中，文件参数中的扩展名指定了要写出文件的类型
+  * Write an osg::Node to file.
   * Return true on success,
   * return false on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -105,7 +109,8 @@ inline bool writeNodeFile(const osg::Node& node, const std::string& filename)
     return writeNodeFile( node, filename, Registry::instance()->getOptions() );
 }
 
-/** Write an osg::Shader to file.
+/** 写出着色器对象的着色语言源代码到文件中
+  * Write an osg::Shader to file.
   * Return true on success,
   * return false on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.

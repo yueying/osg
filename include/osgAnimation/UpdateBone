@@ -25,7 +25,7 @@ namespace osgAnimation
     {
     public:
         META_Object(osgAnimation, UpdateBone);
-
+		/**构造函数，向回调传入对应骨骼节点的名称*/
         UpdateBone(const std::string& name = "");
         UpdateBone(const UpdateBone&,const osg::CopyOp&);
         void operator()(osg::Node* node, osg::NodeVisitor* nv);

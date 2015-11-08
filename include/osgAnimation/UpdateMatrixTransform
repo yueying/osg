@@ -23,12 +23,12 @@
 
 namespace osgAnimation
 {
-
+	/**实现了空间变换*/
     class OSGANIMATION_EXPORT UpdateMatrixTransform : public AnimationUpdateCallback<osg::NodeCallback>
     {
     public:
         META_Object(osgAnimation, UpdateMatrixTransform);
-
+		/**构造函数，设置空间变换回调的名称，也就是各个动画频道的作用对象名称*/
         UpdateMatrixTransform(const std::string& name = "");
         UpdateMatrixTransform(const UpdateMatrixTransform& apc,const osg::CopyOp& copyop = osg::CopyOp::SHALLOW_COPY);
 

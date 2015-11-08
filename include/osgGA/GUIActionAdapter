@@ -20,7 +20,7 @@
 
 namespace osgGA{
 
-/**
+/** 用户向系统传递请求（常见的用户请求包括窗口的刷新以及鼠标坐标的设置）
 Abstract base class defining the interface by which GUIEventHandlers may request
 actions of the GUI system in use. These requests for actions should then be honored
 by the GUI toolkit of the user's application.
@@ -52,8 +52,10 @@ You can override requestRedraw() and implement to call your own window
 redraw straight away. Or you can implement so that a flag is set and
 then you then respond the flag being set in your own leisure.
 
-
-
+\note 所有的动作都会传递给平台相关的窗口系统，如果可能的话，执行相应平台的API函数。
+重绘和持续重绘请求的另外一个重要作用是指示OSG视景器（Viewer）重新渲染场景，进而可以实现
+“按需渲染”的功能，而鼠标移动请求则可以用来模拟一些GUIEventAdapter中没有涵盖的交互事件。
+例如游戏杆、触摸屏等，不过需要自行编写软件和硬件设备的接口代码
 */
 
 class GUIEventAdapter;
@@ -67,12 +69,12 @@ public:
           * One would use this to case view to osgViewer::View(er) if supported by the subclass.*/
         virtual osg::View* asView() { return 0; }
 
-        /**
+        /** 请求重绘画面
         requestRedraw() requests a single redraw.
         */
         virtual void requestRedraw() = 0;
 
-        /**
+        /** 请求持续重绘画面
         requestContinuousUpdate(bool) is for en/disabling a throw or idle
         callback to be requested by a GUIEventHandler (typically a CameraManipulator,
         though other GUIEventHandler's may also provide functionality).
@@ -81,7 +83,7 @@ public:
         */
         virtual void requestContinuousUpdate(bool needed=true) = 0;
 
-        /**
+        /** 请求将鼠标移动到指定位置
         requestWarpPointer(int,int) is requesting a repositioning of the mouse pointer
         to a specified x,y location on the window.  This is used by some camera manipulators
         to initialise the mouse pointer when mouse position relative to a controls

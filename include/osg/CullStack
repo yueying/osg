@@ -38,22 +38,26 @@ class OSG_EXPORT CullStack : public osg::CullSettings
         typedef std::vector<ShadowVolumeOccluder>   OccluderList;
 
         void reset();
-
+		/**将一个裁减器压入裁减器堆栈*/
         void pushCullingSet();
+		/**将一个裁减器弹出堆栈*/
         void popCullingSet();
 
         void setOccluderList(const ShadowVolumeOccluderList& svol) { _occluderList = svol; }
         ShadowVolumeOccluderList& getOccluderList() { return _occluderList; }
         const ShadowVolumeOccluderList& getOccluderList() const { return _occluderList; }
-
+		/**将一个视口对象压入视口堆栈*/
         void pushViewport(osg::Viewport* viewport);
+		/** 将一个视口对象弹出堆栈*/
         void popViewport();
-
+		/**将一个投影矩阵数据压入投影矩阵堆栈*/
         void pushProjectionMatrix(osg::RefMatrix* matrix);
+		/**将一个投影矩阵数据弹出堆栈*/
         void popProjectionMatrix();
-
+		/**将一个模型视点矩阵数据压入模型视点堆栈*/
         void pushModelViewMatrix(osg::RefMatrix* matrix, Transform::ReferenceFrame referenceFrame);
-        void popModelViewMatrix();
+		/**将一个模型视点矩阵数据弹出堆栈*/
+		void popModelViewMatrix();
 
         inline float getFrustumVolume() { if (_frustumVolume<0.0f) computeFrustumVolume(); return _frustumVolume; }
 
@@ -138,13 +142,16 @@ class OSG_EXPORT CullStack : public osg::CullSettings
         inline CullingStack& getProjectionCullingStack() { return _projectionCullingStack; }
 
         inline CullingStack& getModelViewCullingStack() { return _modelviewCullingStack; }
-
+		/**获取场景所用的一种或多种裁减方式*/
         inline CullingSet& getCurrentCullingSet() { return *_back_modelviewCullingStack; }
         inline const CullingSet& getCurrentCullingSet() const { return *_back_modelviewCullingStack; }
-
+		/**获取视口堆栈的顶部值*/
         inline osg::Viewport* getViewport();
+		/**获取模型视点矩阵堆栈的顶部值*/
         inline osg::RefMatrix* getModelViewMatrix();
+		/**获取投影矩阵堆栈的顶部值*/
         inline osg::RefMatrix* getProjectionMatrix();
+		/**获取当前图形设备对应的窗口矩阵*/
         inline osg::Matrix getWindowMatrix();
         inline const osg::RefMatrix* getMVPW();
 

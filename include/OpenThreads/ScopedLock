@@ -21,6 +21,14 @@
 
 namespace OpenThreads{
 
+	/**ScopedLock模板类与Mutex配合出现，在其作用域内将对共享资源进行加锁，作用域之外则自动解锁
+	*代码格式如下：
+	* {
+	* OpenThreads::ScopedLock<OpenThreads::Mutex> lock(_mutex);
+	* ...
+	* }
+	* 在大括号范围内，进程的共享资源被当前进程锁定，超过范围则自动解锁
+	*/
 template <class M> class ScopedLock
 {
     private:

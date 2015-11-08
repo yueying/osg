@@ -36,13 +36,16 @@ namespace osgAnimation
     {
     public:
         AnimationUpdateCallback() {}
+		/**构造函数，设置回调的名称，也就是各个动画频道的作用对象名称*/
         AnimationUpdateCallback(const std::string& name) { T::setName(name);}
         AnimationUpdateCallback(const AnimationUpdateCallback& apc,const osg::CopyOp& copyop): T(apc, copyop) {}
 
         META_Object(osgAnimation, AnimationUpdateCallback<T>);
-
+		/**得到回调的名称*/
         const std::string& getName() const { return T::getName(); }
+		/** 链接一个动画频道*/
         bool link(Channel* /*channel*/) { return 0; }
+		/** 链接一个动画体对象，并返回已经链接的频道数*/
         int link(Animation* animation)
         {
             if (T::getName().empty())

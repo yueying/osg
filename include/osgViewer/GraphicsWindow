@@ -33,7 +33,14 @@ namespace osgViewer {
 class View;
 
 
-/** Base class for providing Windowing API agnostic access to creating and managing graphics window and events.
+/** 继承了osg::GraphicsContext用于表达一个图形窗口，继承了osgGA::GUIActionAdapter
+  * 从而具备了接受用户交互请求并执行相应动作的能力；GraphicsWindow的另一个重要任务是
+  * 接收系统底层传递的人机交互事件，并将它们保存到事件队列EventQueue中，进而在OSG的事件
+  * 处理器中处理这些原本与平台密切相关的键盘和鼠标信号，并且不必考虑不同系统平台中各不兼容
+  * 的接口函数对开发者带来的影响。
+  * 根据底层平台的不同，GraphicsWindow的派生类需要运用不同的系统API函数来完成OpenGL设备的请求
+  * 、释放、查询以及缓存交换工作，动作适配器的功能实现，以及一些窗口属性设置相关的动作。
+  * Base class for providing Windowing API agnostic access to creating and managing graphics window and events.
   * Note, the GraphicsWindow is subclassed from osg::GraphicsContext, and to provide an implementation you'll need to implement its
   * range of pure virtual functions, you'll find these all have naming convention methodNameImplementation(..).
   * GraphicsWindow adds the event queue on top of the GraphicsContext, thereby adding a mechanism for adapting Windowing events
@@ -42,7 +49,7 @@ class View;
 class OSGVIEWER_EXPORT GraphicsWindow : public osg::GraphicsContext, public osgGA::GUIActionAdapter
 {
     public:
-
+		/**默认构造函数*/
         GraphicsWindow() { _eventQueue = new osgGA::EventQueue; _eventQueue->setGraphicsContext(this); }
 
         virtual bool isSameKindAs(const Object* object) const { return dynamic_cast<const GraphicsWindow*>(object)!=0; }
@@ -53,10 +60,11 @@ class OSGVIEWER_EXPORT GraphicsWindow : public osg::GraphicsContext, public osgG
         osgGA::EventQueue* getEventQueue() { return _eventQueue.get(); }
         const osgGA::EventQueue* getEventQueue() const { return _eventQueue.get(); }
 
-        /** Check events, return true if events have been received.*/
+        /** 检查事件队列是否为空
+		 *Check events, return true if events have been received.*/
         virtual bool checkEvents() { return !(_eventQueue->empty()); }
 
-        /** Set the window's position and size.*/
+        /** 设置窗口的位置和大小Set the window's position and size.*/
         void setWindowRectangle(int x, int y, int width, int height)
         {
             if (setWindowRectangleImplementation(x ,y ,width, height) && _traits.valid())
@@ -65,13 +73,15 @@ class OSGVIEWER_EXPORT GraphicsWindow : public osg::GraphicsContext, public osgG
             }
         }
 
-        /** implementation of setWindowRectangle, should be implemented by derived classes */
+        /** 虚函数，设置窗口尺寸的实际执行函数，可以被派生类重构
+		*implementation of setWindowRectangle, should be implemented by derived classes */
         virtual bool setWindowRectangleImplementation(int /*x*/, int /*y*/, int /*width*/, int /*height*/) { osg::notify(osg::NOTICE)<<"GraphicsWindow::setWindowRectangleImplementation(..) not implemented."<<std::endl; return false; }
 
-        /** Get the window's position and size.*/
+        /** 虚函数，获取窗口尺寸，可以被派生类重构
+		*Get the window's position and size.*/
         virtual void getWindowRectangle(int& x, int& y, int& width, int& height) { if (_traits.valid()) { x = _traits->x; y = _traits->y; width = _traits->width; height = _traits->height; }  }
 
-        /** Set Window decoration.*/
+        /** 设置窗体是否显示标题栏Set Window decoration.*/
         void setWindowDecoration(bool flag)
         {
             if (setWindowDecorationImplementation(flag) && _traits.valid())
@@ -80,20 +90,22 @@ class OSGVIEWER_EXPORT GraphicsWindow : public osg::GraphicsContext, public osgG
             }
         }
 
-        /** implementation of setWindowDecoration, should be implemented by derived classes */
+        /** 虚函数，设置窗口是否显示标题栏的实际执行函数，可以被派生类重构
+		* implementation of setWindowDecoration, should be implemented by derived classes */
         virtual bool setWindowDecorationImplementation(bool /*flag*/) {  osg::notify(osg::NOTICE)<<"GraphicsWindow::setWindowDecorationImplementation(..) not implemented."<<std::endl; return false; }
 
 
-        /** Set Window decoration.*/
+        /** 虚函数，获取窗口是否显示标题栏，可以被派生类重构Set Window decoration.*/
         virtual bool getWindowDecoration() const { return _traits.valid() ? _traits->windowDecoration : false; }
 
-        /** Get focus.*/
+        /** 虚函数，强制渲染窗口取得焦点Get focus.*/
         virtual void grabFocus() { osg::notify(osg::NOTICE)<<"GraphicsWindow::grabFocus(..) not implemented."<<std::endl; }
 
-        /** Get focus on if the pointer is in this window.*/
+        /** 虚函数，如果鼠标位置在窗口中，强制渲染窗口取得焦点
+		*Get focus on if the pointer is in this window.*/
         virtual void grabFocusIfPointerInWindow() { osg::notify(osg::NOTICE)<<"GraphicsWindow::grabFocusIfPointerInWindow(..) not implemented."<<std::endl; }
 
-        /** Raise the window to the top.*/
+        /** 虚函数，将渲染窗口提升到最前Raise the window to the top.*/
         virtual void raiseWindow() { osg::notify(osg::NOTICE)<<"GraphicsWindow::raiseWindow(..) not implemented."<<std::endl; }
 
         /** Mouse cursor types, the same ones already present with ancient glut ... */
@@ -123,16 +135,16 @@ class OSGVIEWER_EXPORT GraphicsWindow : public osg::GraphicsContext, public osgG
             BottomLeftCorner
         };
 
-        /** Set the name of the window */
+        /** 虚函数，设置窗口名称Set the name of the window */
         virtual void setWindowName(const std::string& /*name*/) { osg::notify(osg::NOTICE)<<"GraphicsWindow::setWindowName(..) not implemented."<<std::endl; }
 
-        /** Return the name of the window */
+        /** 虚函数，获取窗口名称Return the name of the window */
         virtual std::string getWindowName() { return _traits.valid() ? _traits->windowName : ""; }
 
-        /** Switch on/off the cursor.*/
+        /** 虚函数，设置是否在窗口中显示光标 Switch on/off the cursor.*/
         virtual void useCursor(bool cursorOn) { setCursor(cursorOn ? InheritCursor : NoCursor); }
 
-        /** Set mouse cursor to a specific shape.*/
+        /** 虚函数，设置鼠标光标的形状 Set mouse cursor to a specific shape.*/
         virtual void setCursor(MouseCursor /*mouseCursor*/) { osg::notify(osg::NOTICE)<<"GraphicsWindow::setCursor(..) not implemented."<<std::endl; }
 
         /** Create a new mouse cursor from the usual bitmap data.*/

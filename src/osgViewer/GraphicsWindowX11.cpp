@@ -42,6 +42,8 @@
 
 using namespace osgViewer;
 
+/// 构建UNIX、Linux X11的窗口
+
 #ifdef OSG_USE_EGL
 bool checkEGLError(const char* str)
 {

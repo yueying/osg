@@ -31,7 +31,21 @@ namespace osgViewer {
 
 class View;
 
-/** ViewerBase is the view base class that is inherited by both Viewer and CompositeViewer.*/
+/** 视景器的基类，Viewer 和 CompositeViewer继承这个类.
+视景器的工作就是高效的将一个或多个相机组织在一起，并结合场景节点的更新和遍历，
+将相机在每一帧所拍摄的内容连续的播放出来，从而实现一个完整的三维仿真系统的主要工作
+视景器的主要工作包括：
+1、管理场景所对应的一个或多个节点树（getScenes()函数），这个是整个三维世界的主要数据组织者和保存者
+2、管理场景中所有的相机，进而管理所有的图形设备，例如渲染窗体和像素缓存
+3、执行场景的仿真循环，即按照一定的循环速率，持续执行场景的渲染并将其反映到图形设备上，每
+当场景被渲染一次，即称做一帧，在每帧中，视景器需要依次执行场景的更新 （包括交互事件响应、
+内存空间的管理，以及用户自定义的更新事件）、裁减（将无益于绘制结果的对象从帧的渲染中剔除，
+例如视锥体以外的对象）和绘制（使用OpenGL管线进行渲染并输出结果）等，周而复始，形成完整的
+三维交互环境
+4、为了提升渲染效率，视景器还需要负责管理多个参与更新、裁减和绘制过程的线程，检查他们的
+同步性和数据的互锁，保证多线程的仿真工作能顺利地进行
+5、记录场景的统计信息，例如帧速率，系统运行时间（由osg::FrameStamp类负责），以及当前渲染
+的节点数，三角形数，顶点数(由osg::Stats类负责)*/
 class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
 {
     public:
@@ -43,20 +57,20 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
         /** Set the Stats object used to collect various frame related timing and scene graph stats.*/
         virtual void setViewerStats(osg::Stats* stats) = 0;
 
-        /** Get the Viewers Stats object.*/
+        /** 获取场景统计工具*/
         virtual osg::Stats* getViewerStats() = 0;
 
-        /** Get the Viewers Stats object.*/
+        /** 获取场景统计工具const*/
         virtual const osg::Stats* getViewerStats() const = 0;
 
 
          /** read the viewer configuration from a configuration file.*/
         virtual bool readConfiguration(const std::string& filename) = 0;
 
-        /** Get whether at least of one of this viewers windows are realized.*/
+        /** 判断是否初始化，以及执行视景器初始化的函数*/
         virtual bool isRealized() const = 0;
 
-        /** set up windows and associated threads.*/
+        /** 设置窗体及相关线程*/
         virtual void realize() = 0;
 
         enum ThreadingModel
@@ -70,10 +84,10 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
             AutomaticSelection
         };
 
-        /** Set the threading model the rendering traversals will use.*/
+        /** 设置遍历渲染的线程模型*/
         virtual void setThreadingModel(ThreadingModel threadingModel);
 
-        /** Get the threading model the rendering traversals will use.*/
+        /** 得到遍历渲染的线程模型*/
         ThreadingModel getThreadingModel() const { return _threadingModel; }
 
         /** Let the viewer suggest the best threading model for the viewers camera/window setup and the hardware available.*/
@@ -120,16 +134,16 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
         /** Set the done flag to signal the viewer's work is done and should exit the frame loop.*/
         void setDone(bool done) { _done = done; }
 
-        /** Return true if  viewer's work is done and should exit the frame loop.*/
+        /** 如果仿真工作已经完成，退出帧的循环，则返回true*/
         bool done() const { return _done; }
 
-        /** Set the EventVisitor. */
+        /** 设置交互事件访问器 EventVisitor. */
         void setEventVisitor(osgGA::EventVisitor* eventVisitor) { _eventVisitor = eventVisitor; }
 
-        /** Get the EventVisitor. */
+        /** 得到交互事件访问器 EventVisitor. */
         osgGA::EventVisitor* getEventVisitor() { return _eventVisitor.get(); }
 
-        /** Get the const EventVisitor. */
+        /** 得到交互事件访问器 const EventVisitor. */
         const osgGA::EventVisitor* getEventVisitor() const { return _eventVisitor.get(); }
 
         /** Set the key event that the viewer checks on each frame to see if the viewer's done flag should be set to
@@ -202,23 +216,24 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
         /** Get the incremental compile operation. */
         osgUtil::IncrementalCompileOperation* getIncrementalCompileOperation() { return _incrementalCompileOperation.get(); }
 
-
+		// 仿真循环运行的方式
         enum FrameScheme
         {
-            ON_DEMAND,
-            CONTINUOUS
+            ON_DEMAND,//采用按需渲染
+            CONTINUOUS//持续渲染
         };
-
+		/** 设置\获取仿真循环运行的方式，是采用按需渲染ON_DEMAND，还是持续渲染CONTINUOUS*/
         void setRunFrameScheme(FrameScheme fs) { _runFrameScheme = fs; }
         FrameScheme getRunFrameScheme() const { return _runFrameScheme; }
 
+		/**设置\获取仿真循环运行的最大帧速率，系统的运行速率将被限制在这个数值以下*/
         void setRunMaxFrameRate(double frameRate) { _runMaxFrameRate = frameRate; }
         double getRunMaxFrameRate() const { return _runMaxFrameRate; }
 
-        /** Execute a main frame loop.
-          * Equivalent to while (!viewer.done()) viewer.frame();
-          * Also calls realize() if the viewer is not already realized,
-          * and installs trackball manipulator if one is not already assigned.
+        /** 执行仿真循环
+          * 相当于执行 while (!viewer.done()) viewer.frame();
+          * 另外如果viewwe没有初始化，会调用 realize()进行初始化
+          * 并且如果指定相机操纵器则会安装trackball manipulator
           */
         virtual int run();
 
@@ -228,36 +243,39 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
         /** check to see if events have been received, return true if events are now available.*/
         virtual bool checkEvents() = 0;
 
-        /** Render a complete new frame.
+        /** 完成仿真循环的一帧
           * Calls advance(), eventTraversal(), updateTraversal(), renderingTraversals(). */
         virtual void frame(double simulationTime=USE_REFERENCE_TIME);
 
+		/** 在一帧中被调用，执行时间的推进*/
         virtual void advance(double simulationTime=USE_REFERENCE_TIME) = 0;
-
+		/** 在一帧中被调用，交互事件的处理*/
         virtual void eventTraversal() = 0;
-
+		/** 在一帧中被调用，场景和用户更新*/
         virtual void updateTraversal() = 0;
-
+		/** 在一帧中被调用，场景裁减和渲染操作*/
         virtual void renderingTraversals();
 
+		//////////////////////////用于获取视景器所管理的各种组件元素//////////////////////
+		/** 场景中的相机*/
         typedef std::vector<osg::Camera*> Cameras;
         virtual void getCameras(Cameras& cameras, bool onlyActive=true) = 0;
-
+		/** 视景器对应的窗口和像素缓存设备*/
         typedef std::vector<osg::GraphicsContext*> Contexts;
         virtual void getContexts(Contexts& contexts, bool onlyValid=true) = 0;
-
+		/** 视景器对应的所有图形窗口*/
         typedef std::vector<osgViewer::GraphicsWindow*> Windows;
         virtual void getWindows(Windows& windows, bool onlyValid=true);
-
+		/** 视景器开启的所有线程*/
         typedef std::vector<OpenThreads::Thread*> Threads;
         virtual void getAllThreads(Threads& threads, bool onlyActive=true) = 0;
-
+		/** 视景器开启的所有与图形操作相关的线程*/
         typedef std::vector<osg::OperationThread*> OperationThreads;
         virtual void getOperationThreads(OperationThreads& threads, bool onlyActive=true) = 0;
-
+		/** 场景节点树*/
         typedef std::vector<osgViewer::Scene*> Scenes;
         virtual void getScenes(Scenes& scenes, bool onlyValid=true) = 0;
-
+		/** 视图对象*/
         typedef std::vector<osgViewer::View*> Views;
         virtual void getViews(Views& views, bool onlyValid=true) = 0;
 
@@ -270,8 +288,9 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
          *  the context list and should be used whenever context list is already available in your code.*/
         void checkWindowStatus(const Contexts& contexts);
 
+		/** 随时记录当前运行的时间*/
         virtual double elapsedTime() = 0;
-
+		/** 获取帧数据统计工具*/
         virtual osg::FrameStamp* getViewerFrameStamp() = 0;
 
         /** Get the keyboard and mouse usage of this viewer.*/

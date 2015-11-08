@@ -37,7 +37,9 @@
 
 namespace osgUtil {
 
-/**
+/** 裁减访问器，主要负责遍历整个场景数据节点树，修剪不必要显示的节点分支，
+ * 屏蔽无效用的可绘制体，与此同时，它将节点树转换为一棵按照OpengL
+ * 渲染状态排序的树状结构，称为“状态树”，可以说这是整个OSG系统的核心实现者之一
  * Basic NodeVisitor implementation for rendering a scene.
  * This visitor traverses the scene graph, collecting transparent and
  * opaque osg::Drawables into a depth sorted transparent bin and a state
@@ -51,7 +53,7 @@ class OSGUTIL_EXPORT CullVisitor : public osg::NodeVisitor, public osg::CullStac
 
         typedef osg::Matrix::value_type value_type;
 
-
+		/**默认构造函数*/
         CullVisitor();
 
         /// Copy constructor that does a shallow copy.
@@ -106,7 +108,8 @@ class OSGUTIL_EXPORT CullVisitor : public osg::NodeVisitor, public osg::CullStac
         virtual void apply(osg::OccluderNode& node);
         virtual void apply(osg::OcclusionQueryNode& node);
 
-        /** Push state set on the current state group.
+        /** 将一个渲染状态数据存入状态树节点
+		  * Push state set on the current state group.
           * If the state exists in a child state group of the current
           * state group then move the current state group to that child.
           * Otherwise, create a new state group for the state set, add
@@ -135,7 +138,8 @@ class OSGUTIL_EXPORT CullVisitor : public osg::NodeVisitor, public osg::CullStac
             }
         }
 
-        /** Pop the top state set and hence associated state group.
+        /** 返回上一级状态树节点
+		  * Pop the top state set and hence associated state group.
           * Move the current state group to the parent of the popped
           * state group.
           */

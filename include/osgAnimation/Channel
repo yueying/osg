@@ -27,30 +27,36 @@
 
 namespace osgAnimation
 {
-
+	/**动画频道类*/
     class OSGANIMATION_EXPORT Channel : public osg::Referenced
     {
     public:
-
+		/**默认构造函数*/
         Channel();
         Channel(const Channel& channel);
         virtual ~Channel();
         virtual Channel* clone() const = 0;
-
+		/**虚函数，更新频道的内容*/
         virtual void update(double time, float weight, int priority) = 0;
+		/**虚函数，重新设置这个频道*/
         virtual void reset() = 0;
+		/** 虚函数，获取频道的执行对象*/
         virtual Target* getTarget() = 0;
+		/** 虚函数，设置频道的执行对象*/
         virtual bool setTarget(Target*) = 0;
-
+		/**得到频道的名称*/
         const std::string& getName() const;
+		/**设置频道的名称*/
         void setName(const std::string& name);
-
+		/** 虚函数，获取频道动画的起始时间*/
         virtual double getStartTime() const = 0;
+		/** 虚函数，获取频道动画的结束时间*/
         virtual double getEndTime() const = 0;
-
+		/**获取频道作用对象的名称*/
         const std::string& getTargetName() const;
+		/**设置频道作用对象的名称*/
         void setTargetName(const std::string& name);
-
+		/**获取频道所用的关键帧采样器*/
         virtual Sampler* getSampler() = 0;
         virtual const Sampler* getSampler() const = 0;
 
@@ -85,7 +91,7 @@ namespace osgAnimation
             if (channel.getSamplerTyped())
                 _sampler = new SamplerType(*channel.getSamplerTyped());
         }
-
+		/**构造函数，构造一个包含已有采用器和执行对象的频道对象*/
         TemplateChannel (SamplerType* s = 0,TargetType* target = 0)
         {
             if (target)
@@ -124,12 +130,13 @@ namespace osgAnimation
         }
         virtual void reset() { _target->reset(); }
         virtual Target* getTarget() { return _target.get();}
+		/**虚函数，设置与频道类型对应的执行对象*/
         virtual bool setTarget(Target* target)
         {
             _target = dynamic_cast<TargetType*>(target);
             return _target.get() == target;
         }
-
+		/**获取或者重新创建一个适用于此频道的关键帧采样器*/
         SamplerType* getOrCreateSampler()
         {
             if (!_sampler.valid())

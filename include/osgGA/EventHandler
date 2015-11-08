@@ -51,10 +51,12 @@ public:
             return true;
         }
 
-        /** Event traversal node callback method. There is no need to override this method in subclasses of EventHandler as this implementation calls handle(..) for you. */
+        /** 虚函数。作为节点事件回调使用时，调用处理函数handle()并传入相应参数
+		* Event traversal node callback method. There is no need to override this method in subclasses of EventHandler as this implementation calls handle(..) for you. */
         virtual void operator()(osg::Node* node, osg::NodeVisitor* nv);
 
-        /** Event traversal drawable callback method. There is no need to override this method in subclasses of EventHandler as this implementation calls handle(..) for you. */
+        /** 虚函数，作为可绘制体事件回调时，调用处理函数handle()并传入相应参数
+		Event traversal drawable callback method. There is no need to override this method in subclasses of EventHandler as this implementation calls handle(..) for you. */
         virtual void event(osg::NodeVisitor* nv, osg::Drawable* drawable);
 
         /** Handle event. Override the handle(..) method in your event handlers to respond to events. */
