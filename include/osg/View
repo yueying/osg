@@ -178,7 +178,7 @@ class OSG_EXPORT View : public virtual osg::Object
         LightingMode                    _lightingMode;
         osg::ref_ptr<osg::Light>        _light;
 
-        osg::ref_ptr<osg::Camera>       _camera;
+        osg::ref_ptr<osg::Camera>       _camera;//!<场景的主摄像机
 
         typedef std::vector<Slave>      Slaves;
         Slaves                          _slaves;

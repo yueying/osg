@@ -61,7 +61,7 @@ class OSGVIEWER_EXPORT Viewer : public ViewerBase, public osgViewer::View
         /** Get whether at least of one of this viewers windows are realized.*/
         virtual bool isRealized() const;
 
-        /** set up windows and associated threads.*/
+        /** 完成窗口和场景的设置工作set up windows and associated threads.*/
         virtual void realize();
 
         virtual void setStartTick(osg::Timer_t tick);

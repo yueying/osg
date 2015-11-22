@@ -21,7 +21,9 @@
 
 namespace osg {
 
-/** AutoTransform is a derived form of Transform that automatically
+/** 自动对齐节点，主要作用是使节点自动对齐于摄像机或者屏幕。
+  * 在实际应用中，通常可以用来显示一些不变化的文字或者其他的标识
+  * AutoTransform is a derived form of Transform that automatically
   * scales or rotates to keep its children aligned with screen coordinates.
 */
 class OSG_EXPORT AutoTransform : public Transform
@@ -67,13 +69,13 @@ class OSG_EXPORT AutoTransform : public Transform
         void setAutoUpdateEyeMovementTolerance(float tolerance) { _autoUpdateEyeMovementTolerance = tolerance; }
         float getAutoUpdateEyeMovementTolerance() const { return _autoUpdateEyeMovementTolerance; }
 
-
+		//自动旋转的模式
         enum AutoRotateMode
         {
-            NO_ROTATION,
-            ROTATE_TO_SCREEN,
-            ROTATE_TO_CAMERA,
-            ROTATE_TO_AXIS
+            NO_ROTATION,//无旋转
+            ROTATE_TO_SCREEN,//自动朝向屏幕
+            ROTATE_TO_CAMERA,//自动朝向相机
+            ROTATE_TO_AXIS//自动朝向轴
         };
 
         void setAutoRotateMode(AutoRotateMode mode);

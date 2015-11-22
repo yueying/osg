@@ -43,13 +43,16 @@ class OSG_EXPORT GraphicsContext : public Object
             /** Return the display name in the form hostName::displayNum:screenNum. */
             std::string displayName() const;
 
-            /** Read the DISPLAY environmental variable, and set the ScreenIdentifier accordingly.
+            /** 尝试检查系统环境变量DISPLAY
+			  * Read the DISPLAY environmental variable, and set the ScreenIdentifier accordingly.
               * Note, if either of displayNum or screenNum are not defined then -1 is set respectively to
               * signify that this parameter has not been set. When parameters are undefined one can call
               * call setUndefinedScreenDetailsToDefaultScreen() after readDISPLAY() to ensure valid values. */
             void readDISPLAY();
 
-            /** Set the screenIndentifier from the displayName string.
+            /** 将其中的内容按照“hostName:0.0”的格式解析为系统的主机名称（hostName）
+			  * 显示数（在Win32下必须为0）和屏幕数（0或者其它数字）
+			  * Set the screenIndentifier from the displayName string.
               * Note, if either of displayNum or screenNum are not defined then -1 is set to
               * signify that this parameter has not been set. When parameters are undefined one can call
               * call setUndefinedScreenDetailsToDefaultScreen() after readDISPLAY() to ensure valid values. */
@@ -187,7 +190,8 @@ class OSG_EXPORT GraphicsContext : public Object
             virtual ~WindowingSystemInterface() {}
 
 
-            /** Gets screen resolution without using the ScreenResolution structure.
+            /** 获取屏幕分辨率
+			  * Gets screen resolution without using the ScreenResolution structure.
               * \deprecated Provided only for backward compatibility. */
             inline void getScreenResolution(const ScreenIdentifier& screenIdentifier, unsigned int& width, unsigned int& height)
             {

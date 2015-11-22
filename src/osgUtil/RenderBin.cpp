@@ -438,7 +438,11 @@ void RenderBin::drawImplementation(osg::RenderInfo& renderInfo,RenderLeaf*& prev
 
     // OSG_NOTICE<<"begin RenderBin::drawImplementation "<<className()<<" sortMode "<<getSortMode()<<std::endl;
 
-
+	// 首先判断当前 RenderBin 在渲染树中的位置，并在此位置临时插入一个新的渲染状
+	//态 RenderBin::_stateset。对于透明渲染元（TRANSPARENT_BIN） ，此渲染状态会自动设置
+	//	一个 Alpha 检测属性（osg::AlphaFunc） ，以便自动剔除绘制结果中颜色 Alpha 分量为 0 的像
+	//	素。因此，我们可以直接指定某个几何体的 StateSet 为 TRANSPARENT_BIN，从而自动实
+	// 现背景透明的效果（如果纹理或者颜色的 Alpha 值设置正确的话） 。
     unsigned int numToPop = (previous ? StateGraph::numToPop(previous->_parent) : 0);
     if (numToPop>1) --numToPop;
     unsigned int insertStateSetPosition = state.getStateSetStackSize() - numToPop;
@@ -448,7 +452,10 @@ void RenderBin::drawImplementation(osg::RenderInfo& renderInfo,RenderLeaf*& prev
         state.insertStateSet(insertStateSetPosition, _stateset.get());
     }
 
-
+	// 2、遍历所有的子渲染元（RenderBin::_bins） ，其中渲染顺序号小于 0 的渲染元将在这
+	//里执行它们的 RenderBin::draw 函数，由于 draw 函数内部调用了 drawImplementation，因此
+	//	这构成了一个递归调用，直至渲染树遍历至末端节点。在用户程序中，渲染顺序号的设置使
+	//	用 StateSet::setRenderBinDetails 函数。
     // draw first set of draw bins.
     RenderBinList::iterator rbitr;
     for(rbitr = _bins.begin();
@@ -457,7 +464,9 @@ void RenderBin::drawImplementation(osg::RenderInfo& renderInfo,RenderLeaf*& prev
     {
         rbitr->second->draw(renderInfo,previous);
     }
-
+	//3、遍历当前 RenderBin 所保存的所有渲染叶（RenderBin::_renderLeafList） ，执行
+	//RenderLeaf::render 函数，实现场景的绘制。通常只有被设置为“DepthSortedBin”的渲染元
+	//	会选择保存渲染叶而非状态节点（StateGraph） ，因为这样便于按照深度值排序对象。
     // draw fine grained ordering.
     for(RenderLeafList::iterator rlitr= _renderLeafList.begin();
         rlitr!= _renderLeafList.end();
@@ -468,9 +477,9 @@ void RenderBin::drawImplementation(osg::RenderInfo& renderInfo,RenderLeaf*& prev
         previous = rl;
     }
 
-
     bool draw_forward = true; //(_sortMode!=SORT_BY_STATE) || (state.getFrameStamp()->getFrameNumber() % 2)==0;
-
+	// 4、遍历当前 RenderBin 所保存的所有状态节点（RenderBin::_stateGraphList） ，获取其
+	//中保存的 RenderLeaf 对象（保存为 StateGraph::_leaves） ，并执行其 render 函数。
     // draw coarse grained ordering.
     if (draw_forward)
     {
@@ -508,7 +517,8 @@ void RenderBin::drawImplementation(osg::RenderInfo& renderInfo,RenderLeaf*& prev
             }
         }
     }
-
+	// 5、遍历所有的子渲染元（RenderBin::_bins） ，其中渲染顺序号大于 0 的渲染元此时才
+	// 执行它们的 RenderBin::draw 函数
     // draw post bins.
     for(;
         rbitr!=_bins.end();

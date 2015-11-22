@@ -118,11 +118,20 @@ class OSGUTIL_EXPORT CullVisitor : public osg::NodeVisitor, public osg::CullStac
           */
         inline void pushStateSet(const osg::StateSet* ss)
         {
+			// 1、状态树的构建。判断传入的渲染状态 ss 是否已经存在于某个状态节点中，并将状态
+			// 树的当前位置（CullVisitor::_currentStateGraph）转到那个节点或者新建一个包含了 ss 的状
+			// 态节点（StateGraph::find_or_insert 的工作）
             _currentStateGraph = _currentStateGraph->find_or_insert(ss);
 
             bool useRenderBinDetails = (ss->useRenderBinDetails() && !ss->getBinName().empty()) &&
                                        (_numberOfEncloseOverrideRenderBinDetails==0 || (ss->getRenderBinMode()&osg::StateSet::PROTECTED_RENDERBIN_DETAILS)!=0);
-
+			//  渲染树的构建。创建新的渲染树节点（渲染元）有三个条件：一是渲染状态没有采
+			//  用覆盖渲染细节（OVERRIDE_RENDERBIN_DETAILS）的方式（由 setRenderBinMode 函
+			//	数设置） ，二是使用 setRenderBinDetails 设置了渲染细节，三是渲染细节的字符串名称不为
+			//	空（事实上也不能随意写，只能为“RenderBin”或“DepthSortedBin” ） 。如果不满足这些条
+			//	件的话，渲染树的当前位置（CullVisitor::_currentRenderBin）就不会发生变化；否则将尝试
+			//	转到指定的节点或者新建一个渲染元（RenderBin::find_or_insert 的工作） ，并使用堆栈记录
+			//	上一次在渲染树中的位置
             if (useRenderBinDetails)
             {
                 _renderBinStack.push_back(_currentRenderBin);

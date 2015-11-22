@@ -75,10 +75,19 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
 
         enum ThreadingModel
         {
-            SingleThreaded,
-            CullDrawThreadPerContext,
+            SingleThreaded,//单线程模型，OSG不会创建任何新线程来完成场景的cull和draw
+			//为没一个图形设备上下文（GraphicsContext）创建一个图形线程，以实现并行的渲染工作
+			//如果有多个 CPU 的话，那么系统将尝试把线程分
+			//别放在不同的 CPU 上运行，不过每一帧结束前都会强制同步所有的线程。
+			CullDrawThreadPerContext,
             ThreadPerContext = CullDrawThreadPerContext,
+			// 这一线程模型同样会为每个 GraphicsContext 创建线程，并分配到不同的 CPU 上。
+			// 十分值得注意的是，这种模式会在当前帧的所有线程完成工作之前，开始下一帧。
             DrawThreadPerContext,
+			// 这一线程模型将为每个 GraphicsContext和每个摄像机创建线程， 
+			//这种模式同样不会等待前一次的渲染结束， 而是返回仿真循环并再
+			//次开始执行 frame 函数。如果您使用四核甚至更高的系统配置，
+			//那么使用这一线程模型将最大限度地发挥多 CPU 的处理能力。
             CullThreadPerCameraDrawThreadPerContext,
             ThreadPerCamera = CullThreadPerCameraDrawThreadPerContext,
             AutomaticSelection
@@ -90,7 +99,19 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
         /** 得到遍历渲染的线程模型*/
         ThreadingModel getThreadingModel() const { return _threadingModel; }
 
-        /** Let the viewer suggest the best threading model for the viewers camera/window setup and the hardware available.*/
+		/** 帮助用户决定采用什么样的线程模型，基本的判断原则如下：
+		1、如果定义了环境变量 OSG_THREADING，且其中内容为四个字符串中的一个，则
+		采用对应的模型， “SingleThreaded” ， “CullDrawThreadPerContext” ， “DrawThreadPerContext” ，
+		“CullThreadPerCameraDrawThreadPerContext” 。
+		2、如果当前不存在图形设备或者摄像机，则采用 SingleThreaded 模型。
+		3、 如果当前只存在一个图形窗口 （这是最常见的情况） ， 则采用 SingleThreaded 模型 （单
+		核）或 DrawThreadPerContext 模型（多核） 。
+		4、如果系统 CPU 数超过当前图形设备和摄像机数总合，为了充分发挥每个 CPU 的能
+		力，将采用 CullThreadPerCameraDrawThreadPerContext 模型。
+		5、以上情形均不符合时，采用 DrawThreadPerContext 模型。
+		Let the viewer suggest the best threading model for the viewers camera/window setup 
+		and the hardware available.
+		*/
         virtual ThreadingModel suggestBestThreadingModel();
 
         /** Set up the threading and processor affinity as per the viewers threading model.*/
@@ -340,9 +361,12 @@ class OSGVIEWER_EXPORT ViewerBase : public virtual osg::Object
 
         BarrierPosition                                     _endBarrierPosition;
         osg::BarrierOperation::PreBlockOp                   _endBarrierOperation;
-
+		/// 可以理解为渲染启动的一个栅栏标志，用于同步开始所有的图形设备的线程操作。
         osg::ref_ptr<osg::BarrierOperation>                 _startRenderingBarrier;
+		/// 渲染结束的一个栅栏标志，用于同步结束所有的图形设备的线程操作。
         osg::ref_ptr<osg::BarrierOperation>                 _endRenderingDispatchBarrier;
+		/// 用于同步结束所有的动态对象绘制操作，这里所
+		/// 谓的动态对象，指得是使用 Object::setDataVariance 设置为 DYNAMIC 的场景对象。
         osg::ref_ptr<osg::EndOfDynamicDrawBlock>            _endDynamicDrawBlock;
 
         osg::ref_ptr<osgGA::EventVisitor>                   _eventVisitor;

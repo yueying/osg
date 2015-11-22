@@ -272,15 +272,16 @@ void ViewerBase::startThreading()
     OSG_INFO<<"Viewer::startThreading() - starting threading"<<std::endl;
 
     // release any context held by the main thread.
+	// 首先释放渲染上下文
     releaseContext();
-
+	//如果用户没有设置线程模型，则使用suggestBestThreadingModel自行判断
     _threadingModel = _threadingModel==AutomaticSelection ? suggestBestThreadingModel() : _threadingModel;
-
+	//获取当前所有的图形设备（GraphicsContext）
     Contexts contexts;
     getContexts(contexts);
 
     OSG_INFO<<"Viewer::startThreading() - contexts.size()="<<contexts.size()<<std::endl;
-
+	//获取当前所有的摄像机（主摄像机和所有从摄像机）
     Cameras cameras;
     getCameras(cameras);
 
@@ -648,14 +649,16 @@ int ViewerBase::run()
 
 void ViewerBase::frame(double simulationTime)
 {
+	// 这是ViewerBase，是单视景器和多视景器的基类，两个类没有重写该方法
     if (_done) return;
 
     // OSG_NOTICE<<std::endl<<"CompositeViewer::frame()"<<std::endl<<std::endl;
-
+	
+	// 如果是仿真系统启动后的第一帧，则执行viewerInit()
     if (_firstFrame)
     {
         viewerInit();
-
+		// 如果没有执行realize()函数，则执行它
         if (!isRealized())
         {
             realize();
@@ -664,9 +667,12 @@ void ViewerBase::frame(double simulationTime)
         _firstFrame = false;
     }
     advance(simulationTime);
-
+	// 负责处理系统产生的各种事件，如鼠标的移动，点击，键盘的响应，窗口的关闭等等
+	// 以及摄像机与场景图形的事件回调(EventCallback)
     eventTraversal();
+	// 负责遍历所有的更新回调(UpdateCallback),另外负责更新DatabasePager与Imagepager两个分页数据处理
     updateTraversal();
+	// 线程处理方法，完成场景的筛选(cull)和绘制(draw)工作
     renderingTraversals();
 }
 
@@ -691,14 +697,16 @@ void ViewerBase::renderingTraversals()
             }
         }
     }
-
+	// 获取当前所有的图形设备（GraphicsContext）
     Contexts contexts;
     getContexts(contexts);
 
     // check to see if windows are still valid
+	// 首先使用 ViewerBase::checkWindowStatus 检查是否存在有效的图形设备，不存在的
+	//话，需要使用 ViewerBase::stopThreading 停止线程运行
     checkWindowStatus(contexts);
     if (_done) return;
-
+	// 记录渲染遍历开始的时间
     double beginRenderingTraversals = elapsedTime();
 
     osg::FrameStamp* frameStamp = getViewerFrameStamp();
@@ -764,6 +772,9 @@ void ViewerBase::renderingTraversals()
         }
     }
 
+	// 遍历视景器对应的所有 Scene 场景（Viewer 单视景器只存在一个场景） ，记录分页数
+	// 据库的更新启动帧（使用 DatabasePager::signalBeginFrame，这将决定 DatabasePager 中的数
+	// 据请求是否过期） ，并计算场景节点的边界球
     Scenes scenes;
     getScenes(scenes);
 
@@ -788,7 +799,7 @@ void ViewerBase::renderingTraversals()
 
     // OSG_NOTICE<<std::endl<<"Start frame"<<std::endl;
 
-
+	// 获取当前所有的摄像机
     Cameras cameras;
     getCameras(cameras);
 
@@ -805,6 +816,7 @@ void ViewerBase::renderingTraversals()
     if (_startRenderingBarrier.valid()) _startRenderingBarrier->block();
 
     // reset any double buffer graphics objects
+	// 遍历所有摄像机的渲染器（Renderer） ，执行 Renderer::cull 场景筛选的操作
     for(Cameras::iterator camItr = cameras.begin();
         camItr != cameras.end();
         ++camItr)
@@ -819,7 +831,8 @@ void ViewerBase::renderingTraversals()
             }
         }
     }
-
+	// 遍历所有的图形设备，设置渲染上下文（使用 ViewerBase::makeCurrent）并执行
+	// GraphicsContext::runOperations，实现场景绘制的操作！
     for(itr = contexts.begin();
         itr != contexts.end() && !_done;
         ++itr)
@@ -836,7 +849,8 @@ void ViewerBase::renderingTraversals()
 
     // wait till the rendering dispatch is done.
     if (_endRenderingDispatchBarrier.valid()) _endRenderingDispatchBarrier->block();
-
+	// 再次遍历所有的图形设备，执行双缓存交换操作（GraphicsContext::swapBuffers） ，
+	// 这是避免动态绘图时产生闪烁的重要步骤。
     for(itr = contexts.begin();
         itr != contexts.end() && !_done;
         ++itr)
@@ -848,7 +862,7 @@ void ViewerBase::renderingTraversals()
             (*itr)->swapBuffers();
         }
     }
-
+	// 遍历视景器中的场景， 告知分页数据库更新已经结束
     for(Scenes::iterator sitr = scenes.begin();
         sitr != scenes.end();
         ++sitr)
@@ -868,13 +882,13 @@ void ViewerBase::renderingTraversals()
         _endDynamicDrawBlock->block();
         // OSG_NOTICE<<"Time waiting "<<osg::Timer::instance()->delta_m(startTick, osg::Timer::instance()->tick())<<std::endl;;
     }
-
+	// 释放当前的渲染上下文
     if (_releaseContextAtEndOfFrameHint && doneMakeCurrentInThisThread)
     {
         //OSG_NOTICE<<"Doing release context"<<std::endl;
         releaseContext();
     }
-
+	// 记录渲染遍历结束的时间，并保存到记录器当中（ViewerBase::getStats）
     if (getViewerStats() && getViewerStats()->collectStats("update"))
     {
         double endRenderingTraversals = elapsedTime();

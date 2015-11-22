@@ -240,7 +240,9 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         const ViewConfig* getLastAppliedViewConfig() const { return _lastAppliedViewConfig.get(); }
 
 
-        /** deprecated, use view.apply(new osgViewer::AcrossAllWindows()). */
+		/** 已弃用，自行判断屏幕的数量， 并且使用多个从摄像机来对应多个屏幕的显示
+		  * deprecated, use view.apply(new osgViewer::AcrossAllWindows()). 
+		  */
         void setUpViewAcrossAllScreens();
 
         /** 已弃用，快速构建视图的窗口设备，在指定屏幕上创建一个指定位置和尺寸的窗口，或者一个全屏窗口
@@ -326,6 +328,7 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
     public:
 
         void assignSceneDataToCameras();
+		/**完成视景器初始化工作*/
         void init();
 
     protected:
@@ -339,7 +342,7 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         osg::observer_ptr<ViewerBase>          _viewerBase;
 
 
-        osg::Timer_t                            _startTick;
+        osg::Timer_t                            _startTick;//!<初始时间戳
 
         Devices                                 _eventSources;
 

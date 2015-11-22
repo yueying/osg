@@ -19,18 +19,23 @@
 
 namespace osg {
 
-/** Billboard is a derived form of Geode that orients its osg::Drawable
+/** 布告板技术，Billboard节点继承Geode节点，因此也是一个叶子节点，不能包含其它子节点
+  * Billboard is a derived form of Geode that orients its osg::Drawable
   * children to face the eye point. Typical uses include trees and
   * particle explosions.
+  * @note 将图形绘制在朝向视点的多边形表面上，根据视点的观察方向来确定多边形的方向，随着观察角度的
+  *       变化，多边形的方向也随之变换。
+  *       osg::Billboard布告板与Alpha纹理和动画融合技术相结合可以实现很多没有实心表面的现象，例如粒子
+  *       系统中的烟，火，雾，爆炸，雨，雪及云朵等
 */
 class OSG_EXPORT Billboard : public Geode
 {
     public:
-
+		//模式
         enum Mode {
-            POINT_ROT_EYE,
-            POINT_ROT_WORLD,
-            AXIAL_ROT
+            POINT_ROT_EYE,//绕视点
+            POINT_ROT_WORLD,//绕世界坐标
+            AXIAL_ROT//绕轴
         };
 
         Billboard();

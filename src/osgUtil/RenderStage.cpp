@@ -904,7 +904,9 @@ void RenderStage::drawInner(osg::RenderInfo& renderInfo,RenderLeaf*& previous, b
     };
 
     osg::State& state = *renderInfo.getState();
-
+	// 工作首先是 FBO 对象的初始化，这里将使用 FBOExtensions::isSupported 和
+	//FrameBufferObject::hasMultipleRenderingTargets 函数来判断显示卡是否支持 FBO 以及 MRT
+	//	（多重渲染目标）扩展，并使用 FrameBufferObject::apply 来调用实际的 FBO 执行函数。
     osg::GLExtensions* ext = _fbo.valid() ? state.get<osg::GLExtensions>() : 0;
     bool fbo_supported = ext && ext->isFrameBufferObjectSupported;
 
@@ -1152,7 +1154,7 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     if (_camera.valid()) renderInfo.pushCamera(_camera.get());
 
     _stageDrawnThisFrame = true;
-
+	// 执行摄像机的初始化回调
     if (_camera.valid() && _camera->getInitialDrawCallback())
     {
         // if we have a camera with a initial draw callback invoke it.
@@ -1162,7 +1164,7 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     // note, SceneView does call to drawPreRenderStages explicitly
     // so there is no need to call it here.
     drawPreRenderStages(renderInfo,previous);
-
+	// 运行摄像机设置
     if (_cameraRequiresSetUp || (_camera.valid() && _cameraAttachmentMapModifiedCount!=_camera->getAttachmentMapModifiedCount()))
     {
         runCameraSetUp(renderInfo);
@@ -1177,7 +1179,10 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     osg::RenderInfo useRenderInfo(renderInfo);
 
     RenderLeaf* saved_previous = previous;
-
+	// 为了保证各个图形处理线程之间不会产生冲突，这里对当前调用的图形设备指针
+	//（GraphicsContext）做了一个检查.如果发现正在运行的图形设备与渲染台所记录的当前设
+	//备（RenderStage::_graphicsContext）不同的话，则转换到当前设备，避免指定渲染上下文时
+	//	（GraphicsContext::makeCurrent）出错。
     if (_graphicsContext.valid() && _graphicsContext != callingContext)
     {
         // show we release the context so that others can use it?? will do so right
@@ -1208,7 +1213,7 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     }
 
     unsigned int originalStackSize = useState->getStateSetStackSize();
-
+	// 执行摄像机的绘制前回调
     if (_camera.valid() && _camera->getPreDrawCallback())
     {
         // if we have a camera with a pre draw callback invoke it.
@@ -1218,10 +1223,13 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     bool doCopyTexture = _texture.valid() ?
                         (callingContext != useContext) :
                         false;
-
+	// 对于多线程模型来说，这里将向图形设备线程（GraphicsContext::getGraphicsThread）
+	//添加一个新的 Operation 对象 DrawInnerOperation，专用于绘制工作；	
     if (useThread)
     {
 #if 1
+		// 一个阻塞器 BlockAndFlushOperation（同为 Operation 对象） ，它强制
+		// 在绘制结束之后方能继续执行线程的其它 Operation 对象
         ref_ptr<osg::BlockAndFlushOperation> block = new osg::BlockAndFlushOperation;
 
         useThread->add(new DrawInnerOperation( this, renderInfo ));
@@ -1241,6 +1249,7 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     }
     else
     {
+		// 单线程模型处理
         drawInner( useRenderInfo, previous, doCopyTexture);
 
         if (useRenderInfo.getUserData() != renderInfo.getUserData())
@@ -1259,6 +1268,8 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
 
 
     // now copy the rendered image to attached texture.
+	// 设定了摄像机的 RTT （纹理烘焙） 方式， 则执行 RenderStage::copyTexture 函数，
+	// 将场景拷贝到用户指定的纹理对象中
     if (_texture.valid() && !doCopyTexture)
     {
         if (callingContext && useContext!= callingContext)
@@ -1269,7 +1280,7 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
 
         copyTexture(renderInfo);
     }
-
+	// 执行摄像机的绘制后回调（Camera::setPostDrawCallback） 
     if (_camera.valid() && _camera->getPostDrawCallback())
     {
         // if we have a camera with a post draw callback invoke it.
@@ -1279,15 +1290,13 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     if (_graphicsContext.valid() && _graphicsContext != callingContext)
     {
         useState->popStateSetStackToSize(originalStackSize);
-
+		// 对于单线程模型来说，这个时候应当使用 glFlush 刷新所有 OpenGL 管道中的命令，
+		// 并释放当前渲染上下文（GraphicsContext::releaseContext） 。
         if (!useThread)
         {
-
-
             // flush any command left in the useContex's FIFO
             // to ensure that textures are updated before main thread commenses.
             glFlush();
-
 
             useContext->releaseContext();
         }
@@ -1306,8 +1315,12 @@ void RenderStage::draw(osg::RenderInfo& renderInfo,RenderLeaf*& previous)
     }
 
     // render all the post draw callbacks
+	// 执行“后序渲染”渲染台的绘制（RenderStage::drawPostRenderStages） 。
     drawPostRenderStages(renderInfo,previous);
-
+	//  执行摄像机的绘制结束回调（Camera::setFinalDrawCallback） 。可见场景绘制时总
+	//  共会执行五种不同时机下调用的摄像机回调（尤其注意回调时机与渲染上下文的关系） ，根
+	//	据我们的实际需要， 可以选择在某个回调中执行 OpenGL 函数 （初始化与结束回调时不能执
+	//	行）或者自定义代码，完成所需的操作。
     if (_camera.valid() && _camera->getFinalDrawCallback())
     {
         // if we have a camera with a final callback invoke it.

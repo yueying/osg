@@ -18,7 +18,10 @@
 
 namespace osg {
 
-/** Switch is a Group node that allows switching between children.
+/** 使用开关节点可以渲染或者跳过指定的子节点
+  * Switch的优势在于能够根据当前渲染的负荷有选择地渲染子场景以实现渲染性能的均衡
+  * 或者在游戏的界面和层级之间有选择地切换
+  * Switch is a Group node that allows switching between children.
   * Typical uses would be for objects which might need to be rendered
   * differently at different times, for instance a switch could be used
   * to represent the different states of a traffic light.
@@ -40,7 +43,7 @@ class OSG_EXPORT Switch : public Group
         META_Node(osg, Switch);
 
         virtual void traverse(NodeVisitor& nv);
-
+		/**设置新加节点的初始值*/
         void setNewChildDefaultValue(bool value) { _newChildDefaultValue = value; }
 
         bool getNewChildDefaultValue() const { return _newChildDefaultValue; }

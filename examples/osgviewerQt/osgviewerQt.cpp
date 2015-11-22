@@ -65,6 +65,7 @@ public:
     osgQt::GraphicsWindowQt* createGraphicsWindow( int x, int y, int w, int h, const std::string& name="", bool windowDecoration=false )
     {
         osg::DisplaySettings* ds = osg::DisplaySettings::instance().get();
+		// 首先设置嵌入窗口的特征(Traits)，例如X，Y位置，宽度和高度等
         osg::ref_ptr<osg::GraphicsContext::Traits> traits = new osg::GraphicsContext::Traits;
         traits->windowName = name;
         traits->windowDecoration = windowDecoration;

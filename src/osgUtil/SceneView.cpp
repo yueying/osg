@@ -651,7 +651,8 @@ void SceneView::cull()
 
     // update the active uniforms
     updateUniforms();
-
+	// 初始化必要的 SceneView 类成员变量，包括该视图的渲染信息（_renderInfo） ，筛选
+	// 访问器（_cullVisitor） ，状态树根节点（_stateGraph）和渲染树根节点（_renderStage） 。
     if (!_renderInfo.getState())
     {
         OSG_INFO << "Warning: no valid osgUtil::SceneView::_state attached, creating a default state automatically."<< std::endl;
@@ -776,7 +777,7 @@ bool SceneView::cullStage(const osg::Matrixd& projection,const osg::Matrixd& mod
 
     osg::ref_ptr<RefMatrix> proj = new osg::RefMatrix(projection);
     osg::ref_ptr<RefMatrix> mv = new osg::RefMatrix(modelview);
-
+	// 统计场景中的遮挡节点（OccluderNode）
     // collect any occluder in the view frustum.
     if (_camera->containsOccluderNodes())
     {
@@ -902,7 +903,8 @@ bool SceneView::cullStage(const osg::Matrixd& projection,const osg::Matrixd& mod
     if (_secondaryStateSet.valid()) cullVisitor->popStateSet();
     if (_globalStateSet.valid()) cullVisitor->popStateSet();
 
-
+	// 依次执行 RenderStage::sort 和 StateGraph::prune 函数， 对筛选访问器执行之后得到的
+	// 渲染树内容进行排序和精简（构建过程中可能有些空节点需要剔除）
     renderStage->sort();
 
     // prune out any empty StateGraph children.
@@ -912,9 +914,9 @@ bool SceneView::cullStage(const osg::Matrixd& projection,const osg::Matrixd& mod
     // allocation and deleteing of the StateGraph nodes.
     rendergraph->prune();
 
+	// 计算出场景中动态对象（DYNAMIC）的数目，并保存到 SceneView 的成员变量_dynamicObjectCount 中
     // set the number of dynamic objects in the scene.
     _dynamicObjectCount += renderStage->computeNumberOfDynamicRenderLeaves();
-
 
     bool computeNearFar = (cullVisitor->getComputeNearFarMode()!=osgUtil::CullVisitor::DO_NOT_COMPUTE_NEAR_FAR) && getSceneData()!=0;
     return computeNearFar;
@@ -950,7 +952,7 @@ void SceneView::flushDeletedGLObjects(double& availableTime)
 void SceneView::draw()
 {
     if (_camera->getNodeMask()==0) return;
-
+	// 初始化 osg::State 类的 GL 库函数
     osg::State* state = _renderInfo.getState();
 
     // we in theory should be able to be able to bypass reset, but we'll call it just incase.
@@ -961,18 +963,21 @@ void SceneView::draw()
     {
         state->setDisplaySettings(_displaySettings.get());
     }
-
+	// State 类还负责从当前系统平台的 OpenGL 链接库中获取函数的地址，
+	// 这也是我们第一次执行场景绘制之前的必备工作所用函数为 State::initializeExtensionProcs	
     state->initializeExtensionProcs();
 
     osg::get<ContextData>(state->getContextID())->newFrame(state->getFrameStamp());
-
+	// 之后，如果用户设置了场景视图初始化访问器（SceneView::setInitVisitor） ，那么 draw
+	// 函数第一次执行时将使用这个访问器遍历场景树。相关代码位于 SceneView::init 函数中
     if (!_initCalled) init();
 
     // note, to support multi-pipe systems the deletion of OpenGL display list
     // and texture objects is deferred until the OpenGL context is the correct
     // context for when the object were originally created.  Here we know what
     // context we are in so can flush the appropriate caches.
-
+	// 将所有已经标记为要删除的节点或者 Drawable 对象统一从场景和内存中删除，执
+	// 行 flushDeletedGLObjects 函数
     if (_requiresFlush)
     {
         double availableTime = 0.005;
@@ -985,7 +990,7 @@ void SceneView::draw()
     RenderLeaf* previous = NULL;
     if (_displaySettings.valid() && _displaySettings->getStereo())
     {
-
+		// OSG 为立体显示提供的支持
         switch(_displaySettings->getStereoMode())
         {
         case(osg::DisplaySettings::QUAD_BUFFER):

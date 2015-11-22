@@ -1233,22 +1233,29 @@ void CullVisitor::apply(Transform& node)
 
     // push the culling mode.
     pushCurrentMask();
-
+	// 尝试获取节点的渲染状态（StateSet） ，如果存在的话，使用函数pushStateSet，
+	// 将这个 StateSet 对象置入状态树和渲染树中，添加到对应的状态节点 / 渲染元
+	//	中，或者为其新建一个相关的节点
     // push the node's state.
     StateSet* node_state = node.getStateSet();
     if (node_state) pushStateSet(node_state);
-
+	// 计算并储存 Transform 节点的位置姿态矩阵。是 Transform节点在节点树中主要作用的体现。
+	//  CullVisitor 将尝试为矩阵变换节点提供一个存储矩阵（使用CullStack::createOrReuseMatrix）， 
+	//	并使用 CullStack::pushModelViewMatrix 将计算得到的世界矩阵
+	//	（Transform::computeLocalToWorldMatrix）压入堆栈，供后面的场景绘制和相应的用户回调使用		
     RefMatrix* matrix = createOrReuseMatrix(*getModelViewMatrix());
     node.computeLocalToWorldMatrix(*matrix,this);
     pushModelViewMatrix(matrix, node.getReferenceFrame());
-
+	// 用户自定义的节点筛选回调（Node::setCullCallback） ，并使用 traverse 将访问器对象传
+	// 递给所有的子节点
     handle_cull_callbacks_and_traverse(node);
 
+	//前几步的“逆操作” ，即先后“弹出”模型视点矩阵（所用函数为
+	//popModelViewMatrix，事实上只是弹出堆栈中的临时数据，计算结果仍然保留，下同） ，渲
+	//	染状态（使用 popStateSet）和筛选结果掩码（popCurrentMask）
     popModelViewMatrix();
-
     // pop the node's state off the render graph stack.
     if (node_state) popStateSet();
-
     // pop the culling mode.
     popCurrentMask();
 }

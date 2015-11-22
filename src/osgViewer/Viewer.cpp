@@ -473,16 +473,20 @@ GraphicsWindowEmbedded* Viewer::setUpViewerAsEmbeddedInWindow(int x, int y, int 
 void Viewer::realize()
 {
     //OSG_INFO<<"Viewer::realize()"<<std::endl;
-
+	// 保存了osg::GraphicsContext指针的向量组
     Contexts contexts;
+	// 获取所有的图形上下文，并保存到这个向量组中来
     getContexts(contexts);
-
+	// 如果没有得到任何图形上下文的话，就说明仿真系统还没有合适的显示平台
+	// 这个时候就需要创建一个缺省的GraphicsContext设备，并再次执行getContexts
     if (contexts.empty())
     {
         OSG_INFO<<"Viewer::realize() - No valid contexts found, setting up view across all screens."<<std::endl;
 
         // no windows are already set up so set up a default view
-
+		// 创建缺省GraphicsContext设备的方法有以下几种：
+		// 读取OSG_CONFIG_FILE环境变量的内容，如果用户在这个环境变量中定义了一个文件路径的话
+		// 使用配置文件设置当前视景器
         const char* ptr = 0;
         if ((ptr = getenv("OSG_CONFIG_FILE")) != 0)
         {
@@ -521,7 +525,7 @@ void Viewer::realize()
 
         getContexts(contexts);
     }
-
+	// 再次执行了getContexts还是没有得到任何图形上下文的话，那就退出程序
     if (contexts.empty())
     {
         OSG_NOTICE<<"Viewer::realize() - failed to set up any windows"<<std::endl;
@@ -538,7 +542,7 @@ void Viewer::realize()
 
     unsigned int maxTexturePoolSize = ds->getMaxTexturePoolSize();
     unsigned int maxBufferObjectPoolSize = ds->getMaxBufferObjectPoolSize();
-
+	// 遍历所得的所有GraphicsContext设备
     for(Contexts::iterator citr = contexts.begin();
         citr != contexts.end();
         ++citr)
@@ -569,6 +573,7 @@ void Viewer::realize()
     bool grabFocus = true;
     if (grabFocus)
     {
+		//再次遍历所有的GraphicsContext设备，对于每个GraphicsContext指针判断其是否是GraphicsWindow对象
         for(Contexts::iterator citr = contexts.begin();
             citr != contexts.end();
             ++citr)
@@ -576,18 +581,22 @@ void Viewer::realize()
             osgViewer::GraphicsWindow* gw = dynamic_cast<osgViewer::GraphicsWindow*>(*citr);
             if (gw)
             {
+				// 将鼠标的焦点转到当前的窗口
                 gw->grabFocusIfPointerInWindow();
             }
         }
     }
 
-    // initialize the global timer to be relative to the current time.
+    // 初始化osg内部定时器，并开始计时。
+	// initialize the global timer to be relative to the current time.
     osg::Timer::instance()->setStartTick();
 
-    // pass on the start tick to all the associated event queues
+    // 找到当前视景器和所有的GraphicsContext设备的事件队列_eventQueue，并设定它们的启动时刻为当前时间
+	// pass on the start tick to all the associated event queues
     setStartTick(osg::Timer::instance()->getStartTick());
 
-    // configure threading.
+    // 设置多线程渲染 
+	// configure threading.
     setUpThreading();
 
     if (osg::DisplaySettings::instance()->getCompileContextsHint())
@@ -628,12 +637,13 @@ void Viewer::realize()
 void Viewer::advance(double simulationTime)
 {
     if (_done) return;
-
+	// 获取上一次记录的参考时间
     double previousReferenceTime = _frameStamp->getReferenceTime();
+	// 获取已经经过的帧数
     unsigned int previousFrameNumber = _frameStamp->getFrameNumber();
-
+	// 设置当前帧为已经经过的帧数+1
     _frameStamp->setFrameNumber(_frameStamp->getFrameNumber()+1);
-
+	// 设置经历过的总时间
     _frameStamp->setReferenceTime( osg::Timer::instance()->delta_s(_startTick, osg::Timer::instance()->tick()) );
 
     if (simulationTime==USE_REFERENCE_TIME)
@@ -644,10 +654,11 @@ void Viewer::advance(double simulationTime)
     {
         _frameStamp->setSimulationTime(simulationTime);
     }
-
+	// 通过osg::Stats对象将帧状态进行保存及显示
     if (getViewerStats() && getViewerStats()->collectStats("frame_rate"))
     {
         // update previous frame stats
+		// 得到一帧经历的时间，获得帧率
         double deltaFrameTime = _frameStamp->getReferenceTime() - previousReferenceTime;
         getViewerStats()->setAttribute(previousFrameNumber, "Frame duration", deltaFrameTime);
         getViewerStats()->setAttribute(previousFrameNumber, "Frame rate", 1.0/deltaFrameTime);
@@ -655,8 +666,7 @@ void Viewer::advance(double simulationTime)
         // update current frames stats
         getViewerStats()->setAttribute(_frameStamp->getFrameNumber(), "Reference time", _frameStamp->getReferenceTime());
     }
-
-
+	// 处理 osg::Referenced 对象被弃用之后的删除工作。
     if (osg::Referenced::getDeleteHandler())
     {
         osg::Referenced::getDeleteHandler()->flush();
@@ -867,7 +877,7 @@ void Viewer::reprojectPointerData(osgGA::GUIEventAdapter& source_event, osgGA::G
 void Viewer::eventTraversal()
 {
     if (_done) return;
-
+	// 记录时间
     double cutOffTime = _frameStamp->getReferenceTime();
 
     double beginEventTraversal = osg::Timer::instance()->delta_s(_startTick, osg::Timer::instance()->tick());
@@ -876,17 +886,18 @@ void Viewer::eventTraversal()
 
     // need to copy events from the GraphicsWindow's into local EventQueue;
     osgGA::EventQueue::Events events;
-
+	// 首先找到视景器中所有已有的GraphicsWindow 图形窗口
     Contexts contexts;
     getContexts(contexts);
 
     // set done if there are no windows
     checkWindowStatus(contexts);
     if (_done) return;
-
+	// 取得事件队列的状态事件
     osgGA::GUIEventAdapter* eventState = getEventQueue()->getCurrentEventState();
 
     // get events from user Devices attached to Viewer.
+	// 事件遍历，请求分发消息
     for(Devices::iterator eitr = _eventSources.begin();
         eitr != _eventSources.end();
         ++eitr)
@@ -897,6 +908,7 @@ void Viewer::eventTraversal()
 
         // open question, will we need to reproject mouse coordinates into current view's coordinate frame as is down for GraphicsWindow provided events?
         // for now assume now and just get the events directly without any reprojection.
+		// 获取交互事件
         es->getEventQueue()->takeEvents(events, cutOffTime);
     }
 
@@ -1122,7 +1134,7 @@ void Viewer::eventTraversal()
 
 }
 
-void Viewer::updateTraversal()
+void Viewer::updateTraversal() 
 {
     if (_done) return;
 
@@ -1294,7 +1306,7 @@ void Viewer::getContexts(Contexts& contexts, bool onlyValid)
     ContextSet contextSet;
 
     contexts.clear();
-
+	// 首先判断场景的主摄像机_camera是否包含了一个有效地GraphicsContext设备
     if (_camera.valid() &&
         _camera->getGraphicsContext() &&
         (_camera->getGraphicsContext()->valid() || !onlyValid))
@@ -1302,10 +1314,11 @@ void Viewer::getContexts(Contexts& contexts, bool onlyValid)
         contextSet.insert(_camera->getGraphicsContext());
         contexts.push_back(_camera->getGraphicsContext());
     }
-
+	// 然后，遍历所有的从摄像机
     for(unsigned int i=0; i<getNumSlaves(); ++i)
     {
         Slave& slave = getSlave(i);
+		// 找到从摄像机对应的图形上下文设备
         osg::GraphicsContext* sgc = slave._camera.valid() ? slave._camera->getGraphicsContext() : 0;
         if (sgc && (sgc->valid() || !onlyValid))
         {

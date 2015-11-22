@@ -110,7 +110,8 @@ class OSG_EXPORT CullStack : public osg::CullSettings
         {
             return getCurrentCullingSet().isCulled(bs);
         }
-
+		/**如果返回值为 true，说明当前节点（及其子树）应当被裁减出场景图形
+		*/
         inline bool isCulled(const osg::Node& node)
         {
             if (node.isCullingActive())
@@ -123,7 +124,9 @@ class OSG_EXPORT CullStack : public osg::CullSettings
                 return false;
             }
         }
-
+		/** 记录当前节点视锥体筛选计算的结果（即，视锥体的哪几个面与节点的包围球有交集）,
+           并将这个结果压入堆栈，以便为下一次的计算提供方便
+		*/
         inline void pushCurrentMask()
         {
             getCurrentCullingSet().pushCurrentMask();

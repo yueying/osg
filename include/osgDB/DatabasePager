@@ -92,7 +92,9 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
 
         /** Clear all internally cached structures.*/
         virtual void clear();
-
+		/**分页数据库的核心处理线程，它负责实现场景元素的定期清理，加载以及合并工作
+		但是让它一直处于检查各个数据列表的循环状态，有点太消耗系统资源，因此，这个线程平常状态下
+		应该被阻塞，需要的时候再予以唤醒*/
         class OSGDB_EXPORT DatabaseThread : public osg::Referenced, public OpenThreads::Thread
         {
         public:
@@ -315,7 +317,8 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
         friend struct DatabaseRequest;
 
         struct RequestQueue;
-
+		/**这个结构体保存了用户的单个数据请求，包括数据文件名，请求时间，数据加载后
+		存入的节点，以及要进行合并的父节点等*/
         struct OSGDB_EXPORT DatabaseRequest : public osg::Referenced
         {
             DatabaseRequest():
@@ -361,7 +364,8 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
             bool                                _groupExpired; // flag used only in update thread
         };
 
-
+		/**负责保存和管理一个“数据请求列表”_requestList，也就是由DatabasePager对象组成的
+		向量组，除此之外还负责对列表中的数据按请求时间排序*/
         struct OSGDB_EXPORT RequestQueue : public osg::Referenced
         {
         public:
@@ -403,7 +407,9 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
 
 
         typedef std::vector< osg::ref_ptr<DatabaseThread> > DatabaseThreadList;
-
+		/**这个结构体继承自 RequestQueue，不过还增加了一个“弃用对象列表”
+		_childrenToDeleteList，也就是 osg::Object 对象组成的向量组
+		*/
         struct OSGDB_EXPORT ReadQueue : public RequestQueue
         {
             ReadQueue(DatabasePager* pager, const std::string& name);
@@ -411,7 +417,14 @@ class OSGDB_EXPORT DatabasePager : public osg::NodeVisitor::DatabaseRequestHandl
             void block() { _block->block(); }
 
             void release() { _block->release(); }
-
+			/** updateBlock 函数可能在以下几种情形下被执行：
+			1、ReadQueue 对象中的“数据请求列表”被修改，例如新的数据加载请求被传入，请
+			求被取出，列表被重置。
+			2、ReadQueue 对象中的“弃用对象列表” 被修改，例如有新的过期对象被送入，对象
+			被删除，列表被重置。
+			3、执行了 DatabasePager ::setDatabasePagerThreadPause 函数，当线程被重新启动时，会
+			自动检查线程是否应当被唤醒。
+			*/
             virtual void updateBlock();
 
 

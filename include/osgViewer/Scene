@@ -44,7 +44,7 @@ class OSGVIEWER_EXPORT Scene : public osg::Referenced
         void setImagePager(osgDB::ImagePager* ip);
         osgDB::ImagePager* getImagePager() { return _imagePager.get(); }
         const osgDB::ImagePager* getImagePager() const { return _imagePager.get(); }
-
+		/**更新分页数据库的内容*/
         void updateSceneGraph(osg::NodeVisitor& updateVisitor);
 
 

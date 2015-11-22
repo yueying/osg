@@ -624,17 +624,25 @@ void Renderer::cull()
     if (_done || _graphicsThreadDoesCull) return;
 
     // note we assume lock has already been acquired.
+	// 1、首先从_availableQueue 队列中获取一个可用的场景视图（SceneView） 。这个队列中
+	// 通常会保存有两个 SceneView 对象，以实现我们刚刚提到的渲染后台双缓存支持
     osgUtil::SceneView* sceneView = _availableQueue.takeFront();
 
     DEBUG_MESSAGE<<"cull() got SceneView "<<sceneView<<std::endl;
 
     if (sceneView)
     {
+		// 执行 Renderer::updateSceneView 函数，更新这个场景视图的全局渲染状态（根据场
+		// 景主摄像机的 StateSet 渲染状态集，更新成员变量 (SceneView::_globalStateSet） ，状态量
+		//	（osg::State） ，显示设置（osg::DisplaySettings）
         updateSceneView(sceneView);
 
         // OSG_NOTICE<<"Culling buffer "<<_currentCull<<std::endl;
 
         // pass on the fusion distance settings from the View to the SceneView
+		// 更新场景视图 （SceneView） 的融合距离 （Fusion Distance） 和筛选设置 （CullSettings） 。
+		// 所谓融合距离， 指得是双眼所在平面到视线汇聚点的距离， 可以通过 View::setFusionDistance
+		// 函数传递给 SceneView，通常应用于立体显示的场合。
         osgViewer::View* view = dynamic_cast<osgViewer::View*>(sceneView->getCamera()->getView());
         if (view) sceneView->setFusionDistance(view->getFusionDistanceMode(), view->getFusionDistanceValue());
 
@@ -646,8 +654,9 @@ void Renderer::cull()
         osg::Timer_t beforeCullTick = osg::Timer::instance()->tick();
 
         sceneView->inheritCullSettings(*(sceneView->getCamera()));
+		// 执行 SceneView::cull 函数，这才是真正的场景筛选（裁减）工作的所在
         sceneView->cull();
-
+		// 记录场景筛选所耗费的时间，并保存到统计器（osg::Stats）中
         osg::Timer_t afterCullTick = osg::Timer::instance()->tick();
 
 #if 0
@@ -671,7 +680,8 @@ void Renderer::cull()
         {
             collectSceneViewStats(frameNumber, sceneView, stats);
         }
-
+		// 最后，将这个渲染视图添加到绘制队列_drawQueue 中。这个队列中保存的对象将在
+		// 场景绘制时用到
         _drawQueue.add(sceneView);
 
     }
@@ -684,7 +694,7 @@ void Renderer::draw()
     DEBUG_MESSAGE<<"draw() "<<this<<std::endl;
 
     // osg::Timer_t startDrawTick = osg::Timer::instance()->tick();
-
+	// 从绘制队列_drawQueue 中取出一个场景图形（SceneView）对象
     osgUtil::SceneView* sceneView = _drawQueue.takeFront();
 
     DEBUG_MESSAGE<<"draw() got SceneView "<<sceneView<<std::endl;
@@ -720,12 +730,14 @@ void Renderer::draw()
         osg::Stats* stats = sceneView->getCamera()->getStats();
         osg::State* state = sceneView->getState();
         unsigned int frameNumber = sceneView->getFrameStamp()->getFrameNumber();
-
+		// 初始化 Renderer 绘制所需的基本变量
         if (!_initialized)
         {
             initialize(state);
         }
-
+		// 执行 SceneView::getDynamicObjectCount 函数判断场景视图中动态对
+		// 象（设置为 DYNAMIC） 的个数， 并执行其回调类 （此回调类派生自线程阻塞器 BlockCount，
+		// 此处为 State::getDynamicObjectRenderingCompletedCallback）的 completed 函数
         state->setDynamicObjectCount(sceneView->getDynamicObjectCount());
 
         if (sceneView->getDynamicObjectCount()==0 && state->getDynamicObjectRenderingCompletedCallback())
@@ -735,13 +747,14 @@ void Renderer::draw()
         }
 
         bool acquireGPUStats = stats && _querySupport && stats->collectStats("gpu");
-
+		// 判断是否可以使用 OpenGL 查询对象
         if (acquireGPUStats)
         {
             _querySupport->checkQuery(stats, state, _startTick);
         }
 
         // do draw traversal
+		// 创建或者获取一个查询对象，其工作主要是获取并统计 GPU 计算的时间。
         if (acquireGPUStats)
         {
             _querySupport->checkQuery(stats, state, _startTick);
@@ -750,7 +763,7 @@ void Renderer::draw()
 
         osg::Timer_t beforeDrawTick;
 
-
+		// 场景的绘制工作最后也是在 SceneView 函数中完成的
         if (_serializeDraw)
         {
             OpenThreads::ScopedLock<OpenThreads::Mutex> lock(s_drawSerializerMutex);
@@ -762,7 +775,8 @@ void Renderer::draw()
             beforeDrawTick = osg::Timer::instance()->tick();
             sceneView->draw();
         }
-
+		// 将已经结束绘制的场景视图对象再次追加到_availableQueue 队列中，这样可以保证
+		// 该队列始终保存有两个 SceneView 对象，以正确实现场景的筛选和渲染工作。
         _availableQueue.add(sceneView);
 
         if (acquireGPUStats)

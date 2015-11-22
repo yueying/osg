@@ -69,10 +69,12 @@ GraphicsContext::WindowingSystemInterface* GraphicsContext::getWindowingSystemIn
 
 GraphicsContext* GraphicsContext::createGraphicsContext(Traits* traits)
 {
+	//获取窗口系统API接口
     ref_ptr<GraphicsContext::WindowingSystemInterface> &wsref = windowingSystemInterfaceRef();
     if ( wsref.valid())
     {
-        // catch any undefined values.
+        // 如果用户没有设置屏幕数，则自动设置为缺省值0 
+		// catch any undefined values.
         if (traits) traits->setUndefinedScreenDetailsToDefaultScreen();
 
         return wsref->createGraphicsContext(traits);
@@ -627,11 +629,17 @@ void GraphicsContext::removeAllOperations()
 void GraphicsContext::runOperations()
 {
     // sort the cameras into order
+	// 获取场景中所有注册的摄像机（包括主摄像机和从摄像机组） ，对它们执行排序，排
+	// 序的原则根据摄像机的渲染顺序而定，可以通过 Camera::setRenderOrder 进行设置。设置为
+	// PRE_RENDER 级别的摄像机排序在最前， 而 POST_RENDER 级别的摄像机排序在最后； 同
+	// 一级别的摄像机根据 setRenderOrder 函数中传入的整数设置先后顺序， 排序数较小的摄像机在前		
     typedef std::vector<Camera*> CameraVector;
     CameraVector camerasCopy;
     std::copy(_cameras.begin(), _cameras.end(), std::back_inserter(camerasCopy));
     std::sort(camerasCopy.begin(), camerasCopy.end(), CameraRenderOrderSortOp());
-
+	// 依次遍历排序过的各个摄像机，执行其渲染器 Renderer 的 operator()操作，它有一个
+	// 传入参数，即当前的 GraphicsContext 图形设备。这个重载的操作符实质上执行了场景在该
+	// 图形设备中的绘制工作，因此前面的排序工作将决定哪个摄像机的内容先被绘制出来。
     for(CameraVector::iterator itr = camerasCopy.begin();
         itr != camerasCopy.end();
         ++itr)
@@ -639,7 +647,11 @@ void GraphicsContext::runOperations()
         osg::Camera* camera = *itr;
         if (camera->getRenderer()) (*(camera->getRenderer()))(this);
     }
-
+	// 遍历 GraphicsContext::_operations 队列中的各个 Operation 对象，执行其 operator()
+	// 操作。这里的 osg::Operation 类已经在之前的文字中被提及多次，我们可以重写自己的
+	//	Operation 派生对象，并通过 GraphicsContext::add 将其添加到图形设备的执行队列中，从而
+	//	实现自己定义的 OpenGL 绘图功能（由于在执行 runOperations 函数之前已经执行了图形设
+	//	备的 makeCurrent 函数，因此这里不必考虑渲染上下文的设置问题） 。
     for(GraphicsOperationQueue::iterator itr = _operations.begin();
         itr != _operations.end();
         )

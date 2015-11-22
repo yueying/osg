@@ -22,7 +22,9 @@
 
 namespace osg {
 
-/** PositionAttitudeTransform - is a Transform. Sets the coordinate transform
+/** PositionAttitudeTransform -一个位置变换节点，继承自osg::Transform
+   * 主要作用是提供模型的位置变换、大小缩放、原点位置的设置以及坐标系的变换
+    * is a Transform. Sets the coordinate transform
     via a Vec3 position and Quat attitude.
 */
 class OSG_EXPORT PositionAttitudeTransform : public Transform
@@ -42,20 +44,23 @@ class OSG_EXPORT PositionAttitudeTransform : public Transform
 
         virtual PositionAttitudeTransform* asPositionAttitudeTransform() { return this; }
         virtual const PositionAttitudeTransform* asPositionAttitudeTransform() const { return this; }
-
+		/**设置位置*/
         inline void setPosition(const Vec3d& pos) { _position = pos; dirtyBound(); }
+		/**得到位置*/
         inline const Vec3d& getPosition() const { return _position; }
 
-
+		/**设置姿态，参数为四元数*/
         inline void setAttitude(const Quat& quat) { _attitude = quat; dirtyBound(); }
+		/**得到姿态*/
         inline const Quat& getAttitude() const { return _attitude; }
 
-
+		/**设置缩放*/
         inline void setScale(const Vec3d& scale) { _scale = scale; dirtyBound(); }
+		/**得到缩放*/
         inline const Vec3d& getScale() const { return _scale; }
-
-
+	/**设置原点*/
         inline void setPivotPoint(const Vec3d& pivot) { _pivotPoint = pivot; dirtyBound(); }
+		/**得到原点*/
         inline const Vec3d& getPivotPoint() const { return _pivotPoint; }
 
 

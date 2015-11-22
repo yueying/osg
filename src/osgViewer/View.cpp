@@ -257,12 +257,14 @@ osg::GraphicsOperation* View::createRenderer(osg::Camera* camera)
 void View::init()
 {
     OSG_INFO<<"View::init()"<<std::endl;
-
+	// 分配和返回一个新的GUIEventAdapter事件的指针
     osg::ref_ptr<osgGA::GUIEventAdapter> initEvent = _eventQueue->createEvent();
-    initEvent->setEventType(osgGA::GUIEventAdapter::FRAME);
+    // 新的事件的类型被指定为FRAME事件，即每帧都会触发的一个事件
+	initEvent->setEventType(osgGA::GUIEventAdapter::FRAME);
 
     if (_cameraManipulator.valid())
     {
+		// 将FRAME事件和Viewer对象本身传递给_cameraManipulator
         _cameraManipulator->init(*initEvent, *this);
     }
 }
@@ -785,7 +787,7 @@ void View::assignSceneDataToCameras()
     }
 
     osg::Node* sceneData = _scene.valid() ? _scene->getSceneData() : 0;
-
+	// 对于场景漫游器设置漫游器对应于场景图形根节点，并回到其原点位置
     if (_cameraManipulator.valid())
     {
         _cameraManipulator->setNode(sceneData);
@@ -794,7 +796,7 @@ void View::assignSceneDataToCameras()
 
         _cameraManipulator->home(*dummyEvent, *this);
     }
-
+	// 将场景图形赋予给主相机_camera，同时设置它对应的Renderer的相关函数
     if (_camera.valid())
     {
         _camera->removeChildren(0,_camera->getNumChildren());
@@ -804,7 +806,7 @@ void View::assignSceneDataToCameras()
         if (renderer) renderer->setCompileOnNextDraw(true);
 
     }
-
+	// 同样将场景图形赋予所有的从摄像机，并设置每个摄像机的渲染器
     for(unsigned i=0; i<getNumSlaves(); ++i)
     {
         Slave& slave = getSlave(i);

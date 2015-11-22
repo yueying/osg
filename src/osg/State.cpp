@@ -610,7 +610,9 @@ void State::apply()
     {
         applyShaderComposition();
     }
-
+	//4、使用 State::applyUniformList 将着色器所使用的 Uniform 变量传递下去（事实上是传
+	//递给 OSG 内部的 GLSL 预编译器 Program::PerContextProgram 处理了） ，这是实现 GLSL 与
+	//	OSG 系统交互的重要途径，它的实现代码就在这里。
     if (_currentShaderCompositionUniformList.empty()) applyUniformMap(_uniformMap);
     else applyUniformList(_uniformMap, _currentShaderCompositionUniformList);
 

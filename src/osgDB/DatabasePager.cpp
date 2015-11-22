@@ -1609,6 +1609,7 @@ void DatabasePager::updateSceneGraph(const osg::FrameStamp& frameStamp)
 #endif
 
     {
+		// 用于去除已经过期的场景子树
         removeExpiredSubgraphs(frameStamp);
 
 #if UPDATE_TIMING

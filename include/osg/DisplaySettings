@@ -69,13 +69,13 @@ class OSG_EXPORT DisplaySettings : public osg::Referenced
         /** read the commandline arguments.*/
         void readCommandLine(ArgumentParser& arguments);
 
-
+		/**显示器类型*/
         enum DisplayType
         {
-            MONITOR,
-            POWERWALL,
-            REALITY_CENTER,
-            HEAD_MOUNTED_DISPLAY
+            MONITOR,//监视器
+            POWERWALL,//威力墙
+            REALITY_CENTER,//虚拟实镜中心
+            HEAD_MOUNTED_DISPLAY//头盔显示器
         };
 
         void setDisplayType(DisplayType type) { _displayType = type; }
@@ -85,18 +85,18 @@ class OSG_EXPORT DisplaySettings : public osg::Referenced
 
         void setStereo(bool on) { _stereo = on; }
         bool getStereo() const { return _stereo; }
-
+		/**立体显示模式*/
         enum StereoMode
         {
-            QUAD_BUFFER,
-            ANAGLYPHIC,
-            HORIZONTAL_SPLIT,
-            VERTICAL_SPLIT,
-            LEFT_EYE,
-            RIGHT_EYE,
-            HORIZONTAL_INTERLACE,
-            VERTICAL_INTERLACE,
-            CHECKERBOARD
+            QUAD_BUFFER,//四方体缓冲
+            ANAGLYPHIC,//互补色
+            HORIZONTAL_SPLIT,//水平分割
+            VERTICAL_SPLIT,//垂直分割
+            LEFT_EYE,//左眼用
+            RIGHT_EYE,//右眼用
+            HORIZONTAL_INTERLACE,//水平交错
+            VERTICAL_INTERLACE,//垂直交错
+            CHECKERBOARD//棋盘式交错，用于DLP显示器
         };
 
         void setStereoMode(StereoMode mode) { _stereoMode = mode; }
@@ -104,11 +104,11 @@ class OSG_EXPORT DisplaySettings : public osg::Referenced
 
         void setEyeSeparation(float eyeSeparation) { _eyeSeparation = eyeSeparation; }
         float getEyeSeparation() const { return _eyeSeparation; }
-
+		/**眼睛与视口的对应关系*/
         enum SplitStereoHorizontalEyeMapping
         {
-            LEFT_EYE_LEFT_VIEWPORT,
-            LEFT_EYE_RIGHT_VIEWPORT
+            LEFT_EYE_LEFT_VIEWPORT,//左眼渲染左视口
+            LEFT_EYE_RIGHT_VIEWPORT//左眼渲染右视口
         };
 
         void setSplitStereoHorizontalEyeMapping(SplitStereoHorizontalEyeMapping m) { _splitStereoHorizontalEyeMapping = m; }
@@ -119,8 +119,8 @@ class OSG_EXPORT DisplaySettings : public osg::Referenced
 
         enum SplitStereoVerticalEyeMapping
         {
-            LEFT_EYE_TOP_VIEWPORT,
-            LEFT_EYE_BOTTOM_VIEWPORT
+            LEFT_EYE_TOP_VIEWPORT,//左眼渲染顶视口
+            LEFT_EYE_BOTTOM_VIEWPORT//左眼渲染低视口
         };
 
         void setSplitStereoVerticalEyeMapping(SplitStereoVerticalEyeMapping m) { _splitStereoVerticalEyeMapping = m; }
@@ -341,29 +341,35 @@ class OSG_EXPORT DisplaySettings : public osg::Referenced
         DisplayType                     _displayType;
         bool                            _stereo;
         StereoMode                      _stereoMode;
-        float                           _eyeSeparation;
-        float                           _screenWidth;
-        float                           _screenHeight;
-        float                           _screenDistance;
-
+        float                           _eyeSeparation;//!<双眼的物理距离，默认为0.05
+        float                           _screenWidth;//!<屏幕的实际宽度默认0.325
+        float                           _screenHeight;//!<屏幕的实际高度，默认为0.26
+        float                           _screenDistance;//!<人眼到屏幕的距离，默认为0.5
+		/// 默认为左眼渲染左视口
         SplitStereoHorizontalEyeMapping _splitStereoHorizontalEyeMapping;
+		/// 左视口与右视口之间的距离（像素数），默认为0
         int                             _splitStereoHorizontalSeparation;
+		/// 默认为左眼渲染顶视口
         SplitStereoVerticalEyeMapping   _splitStereoVerticalEyeMapping;
+		/// 顶视口与低视口之间的距离（像素数），默认为0
         int                             _splitStereoVerticalSeparation;
+		/// 默认为true 用于屏幕分割之后对其高度进行补偿
         bool                            _splitStereoAutoAdjustAspectRatio;
 
         bool                            _doubleBuffer;
         bool                            _RGB;
         bool                            _depthBuffer;
         unsigned int                    _minimumNumberAlphaBits;
+		/// 模板缓存的最小位数
         unsigned int                    _minimumNumberStencilBits;
         unsigned int                    _minimumNumberAccumRedBits;
         unsigned int                    _minimumNumberAccumGreenBits;
         unsigned int                    _minimumNumberAccumBlueBits;
         unsigned int                    _minimumNumberAccumAlphaBits;
-
+		/// 用户程序中最多可用的GraphicsContexts（图形设备上下文）数目，默认为32个
         unsigned int                    _maxNumOfGraphicsContexts;
-
+		/// 多重采样的子像素样本数，默认为0，如果显卡支持的话，打开多重采样可以大幅
+		/// 改善反走样(anti-aliasing）的效果
         unsigned int                    _numMultiSamples;
 
         bool                            _compileContextsHint;
