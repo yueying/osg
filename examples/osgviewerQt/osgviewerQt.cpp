@@ -23,25 +23,25 @@ public:
         // disable the default setting of viewer.done() by pressing Escape.
         setKeyEventSetsDone(0);
 
-        QWidget* widget1 = addViewWidget( createGraphicsWindow(0,0,400,400), osgDB::readNodeFile("1.fbx") );
-        //QWidget* widget2 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("glider.osgt") );
-        //QWidget* widget3 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("axes.osgt") );
-       // QWidget* widget4 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("fountain.osgt") );
-        //QWidget* popupWidget = addViewWidget( createGraphicsWindow(900,100,320,240,"Popup window",true), osgDB::readNodeFile("dumptruck.osgt") );
-        //popupWidget->show();
+        QWidget* widget1 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readRefNodeFile("cow.osgt") );
+        QWidget* widget2 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readRefNodeFile("glider.osgt") );
+        QWidget* widget3 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readRefNodeFile("axes.osgt") );
+        QWidget* widget4 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readRefNodeFile("fountain.osgt") );
+        QWidget* popupWidget = addViewWidget( createGraphicsWindow(900,100,320,240,"Popup window",true), osgDB::readRefNodeFile("dumptruck.osgt") );
+        popupWidget->show();
 
         QGridLayout* grid = new QGridLayout;
         grid->addWidget( widget1, 0, 0 );
-        //grid->addWidget( widget2, 0, 1 );
-        //grid->addWidget( widget3, 1, 0 );
-        //grid->addWidget( widget4, 1, 1 );
+        grid->addWidget( widget2, 0, 1 );
+        grid->addWidget( widget3, 1, 0 );
+        grid->addWidget( widget4, 1, 1 );
         setLayout( grid );
 
         connect( &_timer, SIGNAL(timeout()), this, SLOT(update()) );
         _timer.start( 10 );
     }
 
-    QWidget* addViewWidget( osgQt::GraphicsWindowQt* gw, osg::Node* scene )
+    QWidget* addViewWidget( osgQt::GraphicsWindowQt* gw, osg::ref_ptr<osg::Node> scene )
     {
         osgViewer::View* view = new osgViewer::View;
         addView( view );
@@ -65,7 +65,6 @@ public:
     osgQt::GraphicsWindowQt* createGraphicsWindow( int x, int y, int w, int h, const std::string& name="", bool windowDecoration=false )
     {
         osg::DisplaySettings* ds = osg::DisplaySettings::instance().get();
-		// 首先设置嵌入窗口的特征(Traits)，例如X，Y位置，宽度和高度等
         osg::ref_ptr<osg::GraphicsContext::Traits> traits = new osg::GraphicsContext::Traits;
         traits->windowName = name;
         traits->windowDecoration = windowDecoration;
@@ -96,7 +95,7 @@ int main( int argc, char** argv )
 
 #if QT_VERSION >= 0x050000
     // Qt5 is currently crashing and reporting "Cannot make QOpenGLContext current in a different thread" when the viewer is run multi-threaded, this is regression from Qt4
-	osgViewer::ViewerBase::ThreadingModel threadingModel = osgViewer::ViewerBase::SingleThreaded;
+    osgViewer::ViewerBase::ThreadingModel threadingModel = osgViewer::ViewerBase::SingleThreaded;
 #else
     osgViewer::ViewerBase::ThreadingModel threadingModel = osgViewer::ViewerBase::CullDrawThreadPerContext;
 #endif
@@ -111,7 +110,7 @@ int main( int argc, char** argv )
     if (threadingModel != osgViewer::ViewerBase::SingleThreaded)
         QApplication::setAttribute(Qt::AA_X11InitThreads);
 #endif
-    
+
     QApplication app(argc, argv);
     ViewerWidget* viewWidget = new ViewerWidget(0, Qt::Widget, threadingModel);
     viewWidget->setGeometry( 100, 100, 800, 600 );

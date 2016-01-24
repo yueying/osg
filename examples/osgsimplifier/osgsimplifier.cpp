@@ -17,19 +17,25 @@
 */
 
 #include <osgDB/ReadFile>
+
 #include <osgUtil/Optimizer>
 #include <osgUtil/Simplifier>
+
 #include <osgViewer/Viewer>
+#include <osgViewer/ViewerEventHandlers>
+
 #include <osgGA/TrackballManipulator>
+#include <osgGA/StateSetManipulator>
+
 #include <iostream>
 
 class KeyboardEventHandler : public osgGA::GUIEventHandler
 {
 public:
-    
+
     KeyboardEventHandler(unsigned int& flag) : _flag(flag)
     {}
-    
+
     virtual bool handle(const osgGA::GUIEventAdapter& ea,osgGA::GUIActionAdapter&)
     {
         switch(ea.getEventType())
@@ -65,7 +71,7 @@ int main( int argc, char **argv )
 
     // use an ArgumentParser object to manage the program arguments.
     osg::ArgumentParser arguments(&argc,argv);
-    
+
     // set up the usage document, in case we need to print out how to use this program.
     arguments.getApplicationUsage()->setApplicationName(arguments.getApplicationName());
     arguments.getApplicationUsage()->setDescription(arguments.getApplicationName()+" examples illustrates simplification of triangle meshes.");
@@ -73,7 +79,7 @@ int main( int argc, char **argv )
     arguments.getApplicationUsage()->addCommandLineOption("-h or --help","Display this information");
     arguments.getApplicationUsage()->addCommandLineOption("--ratio <ratio>","Specify the sample ratio","0.5]");
     arguments.getApplicationUsage()->addCommandLineOption("--max-error <error>","Specify the maximum error","4.0");
-    
+
 
     float sampleRatio = 0.5f;
     float maxError = 4.0f;
@@ -99,27 +105,36 @@ int main( int argc, char **argv )
     }
 
     // read the scene from the list of file specified commandline args.
-    osg::ref_ptr<osg::Node> loadedModel = osgDB::readNodeFiles(arguments);
-  
+    osg::ref_ptr<osg::Node> loadedModel = osgDB::readRefNodeFiles(arguments);
+
     // if not loaded assume no arguments passed in, try use default mode instead.
-    if (!loadedModel) loadedModel = osgDB::readNodeFile("dumptruck.osgt");
-    
+    if (!loadedModel) loadedModel = osgDB::readRefNodeFile("dumptruck.osgt");
+
     // if no model has been successfully loaded report failure.
-    if (!loadedModel) 
+    if (!loadedModel)
     {
         std::cout << arguments.getApplicationName() <<": No data loaded" << std::endl;
         return 1;
     }
-    
+
     //loadedModel->accept(simplifier);
 
     unsigned int keyFlag = 0;
     viewer.addEventHandler(new KeyboardEventHandler(keyFlag));
 
-    // set the scene to render
-    viewer.setSceneData(loadedModel.get());
+    // add the state manipulator
+    viewer.addEventHandler( new osgGA::StateSetManipulator(viewer.getCamera()->getOrCreateStateSet()) );
+
+    // add the window size toggle handler
+    viewer.addEventHandler(new osgViewer::WindowSizeHandler);
+
+    // add the stats handler
+    viewer.addEventHandler(new osgViewer::StatsHandler);
 
     viewer.setCameraManipulator(new osgGA::TrackballManipulator());
+
+    // set the scene to render
+    viewer.setSceneData(loadedModel.get());
 
     // create the windows and run the threads.
     viewer.realize();
@@ -133,29 +148,29 @@ int main( int argc, char **argv )
     {
         // fire off the cull and draw traversals of the scene.
         viewer.frame();
-    
+
         if (keyFlag == 1 || keyFlag == 2)
         {
             if (keyFlag == 1) ratio *= multiplier;
             if (keyFlag == 2) ratio /= multiplier;
             if (ratio<minRatio) ratio=minRatio;
-            
+
             osgUtil::Simplifier simplifier(ratio, maxError);
 
             std::cout<<"Runing osgUtil::Simplifier with SampleRatio="<<ratio<<" maxError="<<maxError<<" ...";
             std::cout.flush();
-            
+
             osg::ref_ptr<osg::Node> root = (osg::Node*)loadedModel->clone(osg::CopyOp::DEEP_COPY_ALL);
 
             root->accept(simplifier);
-            
+
             std::cout<<"done"<<std::endl;
-            
+
             viewer.setSceneData(root.get());
             keyFlag = 0;
         }
     }
-    
+
     return 0;
 }
 

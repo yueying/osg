@@ -26,9 +26,216 @@
 namespace osgDB {
 
 
-/** 读取其他类型对象的文件，如字体文件，文档文件，配置文件等，函数
-  * 返回值是派生至Object类的对象指针
-  * Read an osg::Object from file.
+/** Read an osg::Object from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+extern OSGDB_EXPORT osg::ref_ptr<osg::Object> readRefObjectFile(const std::string& filename,const Options* options);
+
+/** Read an osg::Object from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Object> readRefObjectFile(const std::string& filename)
+{
+    return readRefObjectFile(filename, Registry::instance()->getOptions());
+}
+
+template<class T>
+inline osg::ref_ptr<T> readRefFile(const std::string& filename, const Options* options)
+{
+    osg::ref_ptr<osg::Object> object = readRefObjectFile(filename, options);
+    osg::ref_ptr<T> t = dynamic_cast<T*>(object.get());
+    return t;
+}
+
+template<class T>
+inline osg::ref_ptr<T> readRefFile(const std::string& filename)
+{
+    return readRefFile<T>(filename, Registry::instance()->getOptions());
+}
+
+
+/** Read an osg::Image from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+extern OSGDB_EXPORT osg::ref_ptr<osg::Image> readRefImageFile(const std::string& filename,const Options* options);
+
+/** Read an osg::Image from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Image> readRefImageFile(const std::string& filename)
+{
+    return readRefImageFile(filename,Registry::instance()->getOptions());
+}
+
+/** Read an osg::HeightField from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+extern OSGDB_EXPORT osg::ref_ptr<osg::HeightField> readRefHeightFieldFile(const std::string& filename,const Options* options);
+
+/** Read an osg::HeightField from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::HeightField> readRefHeightFieldFile(const std::string& filename)
+{
+    return readRefHeightFieldFile(filename,Registry::instance()->getOptions());
+}
+
+/** Read an osg::Node from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+extern OSGDB_EXPORT osg::ref_ptr<osg::Node> readRefNodeFile(const std::string& filename,const Options* options);
+
+/** Read an osg::Node from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Node> readRefNodeFile(const std::string& filename)
+{
+    return readRefNodeFile(filename,Registry::instance()->getOptions());
+}
+
+/** Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
+  * than one subgraph has been loaded.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * Does NOT ignore strings beginning with a dash '-' character. */
+extern OSGDB_EXPORT osg::ref_ptr<osg::Node> readRefNodeFiles(std::vector<std::string>& fileList,const Options* options);
+
+/** Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
+  * than one subgraph has been loaded.*/
+inline osg::ref_ptr<osg::Node> readRefNodeFiles(std::vector<std::string>& fileList)
+{
+    return readRefNodeFiles(fileList, Registry::instance()->getOptions());
+}
+
+
+/** Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
+  * than one subgraph has been loaded.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.*/
+extern OSGDB_EXPORT osg::ref_ptr<osg::Node> readRefNodeFiles(osg::ArgumentParser& parser,const Options* options);
+
+/** Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
+  * than one subgraph has been loaded.*/
+inline osg::ref_ptr<osg::Node> readRefNodeFiles(osg::ArgumentParser& parser)
+{
+    return readRefNodeFiles(parser,Registry::instance()->getOptions());
+}
+
+/** Read an osg::Shader from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+extern OSGDB_EXPORT osg::ref_ptr<osg::Shader> readRefShaderFile(const std::string& filename,const Options* options);
+
+/** Read an osg::Shader from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Shader> readRefShaderFile(const std::string& filename)
+{
+    return readRefShaderFile(filename, Registry::instance()->getOptions());
+}
+
+/** Read an osg::Shader from file and set to specified shader type.
+  * Return valid osg::Shader on success,
+  * return NULL on failure.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Shader> readRefShaderFile(osg::Shader::Type type, const std::string& filename, const Options* options)
+{
+    osg::ref_ptr<osg::Shader> shader = readRefShaderFile(filename, options);
+    if (shader.valid() && type != osg::Shader::UNDEFINED) shader->setType(type);
+    return shader;
+}
+
+/** Read an osg::Shader from file and set to specified shader type
+  * Return valid osg::Shader on success,
+  * return NULL on failure.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Shader> readRefShaderFile(osg::Shader::Type type, const std::string& filename)
+{
+    return readRefShaderFile(type, filename, Registry::instance()->getOptions());
+}
+
+/** Read an osg::Shader from file and set to specified shader type, if a shader isn't loaded fallback to specific shader source.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Shader> readRefShaderFileWithFallback(osg::Shader::Type type, const std::string& filename, const Options* options, const char* fallback)
+{
+    osg::ref_ptr<osg::Shader> shader = readRefShaderFile(filename, options);
+    if (shader.valid() && type != osg::Shader::UNDEFINED) shader->setType(type);
+    if (!shader) shader = new osg::Shader(type, fallback);
+    return shader;
+}
+
+/** Read an osg::Shader from file and set to specified shader type, if a shader isn't loaded fallback to specific shader source.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Shader> readRefShaderFileWithFallback(osg::Shader::Type type, const std::string& filename, const char* fallback)
+{
+    return osgDB::readRefShaderFileWithFallback(type, filename, Registry::instance()->getOptions(), fallback);
+}
+
+/** Read an osg::Script from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+extern OSGDB_EXPORT osg::ref_ptr<osg::Script> readRefScriptFile(const std::string& filename,const Options* options);
+
+/** Read an osg::Script from file.
+  * Return an assigned osg::ref_ptr on success,
+  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
+  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
+  * for the filename extension, and this plugin then handles the request
+  * to read the specified file.*/
+inline osg::ref_ptr<osg::Script> readRefScriptFile(const std::string& filename)
+{
+    return readRefScriptFile(filename,Registry::instance()->getOptions());
+}
+
+#ifdef OSG_PROVIDE_READFILE
+/** Read an osg::Object from file.
   * Return valid osg::Object on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -51,7 +258,7 @@ inline osg::Object* readObjectFile(const std::string& filename)
 template<typename T>
 inline T* readFile(const std::string& filename, const Options* options)
 {
-    osg::ref_ptr<osg::Object> object = readObjectFile(filename, options);
+    osg::ref_ptr<osg::Object> object = readRefObjectFile(filename, options);
     osg::ref_ptr<T> t = dynamic_cast<T*>(object.get());
     object = 0;
     return t.release();
@@ -64,9 +271,7 @@ inline T* readFile(const std::string& filename)
 }
 
 
-/** 读取图像或视频格式文件，输入文件名参数中的扩展名用于判断此文件的类型
-  * 例如image.jpg,则应使用JPEG插件进行解析和加载
-  * Read an osg::Image from file.
+/** Read an osg::Image from file.
   * Return valid osg::Image on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -106,8 +311,7 @@ inline osg::HeightField*  readHeightFieldFile(const std::string& filename)
     return readHeightFieldFile(filename,Registry::instance()->getOptions());
 }
 
-/** 读取三维模型节点格式的文件，输入文件名参数中的扩展名用于判断此文件类型
-  * Read an osg::Node from file.
+/** Read an osg::Node from file.
   * Return valid osg::Node on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -128,8 +332,7 @@ inline osg::Node*  readNodeFile(const std::string& filename)
 }
 
 
-/** 读取多个三维模型节点格式文件，并将它们添加到统一的根节点中，返回这个根节点的指针
-  * Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
+/** Read an osg::Node subgraph from files, creating a osg::Group to contain the nodes if more
   * than one subgraph has been loaded.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
   * Does NOT ignore strings beginning with a dash '-' character. */
@@ -155,9 +358,7 @@ inline osg::Node* readNodeFiles(osg::ArgumentParser& parser)
     return readNodeFiles(parser,Registry::instance()->getOptions());
 }
 
-/** 读取着色器源代码文件，扩展名为.vert的文件将自动识别为顶点着色器对象
-  * 扩展名为.frag的文件自动识别为片元着色器
-  * Read an osg::Shader from file.
+/** Read an osg::Shader from file.
   * Return valid osg::Shader on success,
   * return NULL on failure.
   * Use the Options object to control cache operations and file search paths in osgDB::Registry.
@@ -244,154 +445,8 @@ inline osg::Script*  readScriptFile(const std::string& filename)
 {
     return readScriptFile(filename,Registry::instance()->getOptions());
 }
+#endif
 
-
-
-/** Read an osg::Object from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-extern OSGDB_EXPORT osg::ref_ptr<osg::Object> readRefObjectFile(const std::string& filename,const Options* options);
-
-/** Read an osg::Object from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::Object> readRefObjectFile(const std::string& filename)
-{
-    return readRefObjectFile(filename,Registry::instance()->getOptions());
-}
-
-/** Read an osg::Image from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-extern OSGDB_EXPORT osg::ref_ptr<osg::Image> readRefImageFile(const std::string& filename,const Options* options);
-
-/** Read an osg::Image from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::Image> readRefImageFile(const std::string& filename)
-{
-    return readRefImageFile(filename,Registry::instance()->getOptions());
-}
-
-/** Read an osg::HeightField from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-extern OSGDB_EXPORT osg::ref_ptr<osg::HeightField> readRefHeightFieldFile(const std::string& filename,const Options* options);
-
-/** Read an osg::HeightField from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::HeightField> readRefHeightFieldFile(const std::string& filename)
-{
-    return readRefHeightFieldFile(filename,Registry::instance()->getOptions());
-}
-
-/** Read an osg::Node from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-extern OSGDB_EXPORT osg::ref_ptr<osg::Node> readRefNodeFile(const std::string& filename,const Options* options);
-
-/** Read an osg::Node from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::Node> readRefNodeFile(const std::string& filename)
-{
-    return readRefNodeFile(filename,Registry::instance()->getOptions());
-}
-
-/** Read an osg::Shader from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-extern OSGDB_EXPORT osg::ref_ptr<osg::Shader> readRefShaderFile(const std::string& filename,const Options* options);
-
-/** Read an osg::Shader from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::Shader> readRefShaderFile(const std::string& filename)
-{
-    return readRefShaderFile(filename, Registry::instance()->getOptions());
-}
-
-/** Read an osg::Shader from file and set to specified shader type.
-  * Return valid osg::Shader on success,
-  * return NULL on failure.
-  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::Shader> readRefShaderFile(osg::Shader::Type type, const std::string& filename, const Options* options)
-{
-    osg::ref_ptr<osg::Shader> shader = readShaderFile(filename, options);
-    if (shader.valid() && type != osg::Shader::UNDEFINED) shader->setType(type);
-    return shader;
-}
-
-/** Read an osg::Shader from file and set to specified shader type
-  * Return valid osg::Shader on success,
-  * return NULL on failure.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::Shader> readRefShaderFile(osg::Shader::Type type, const std::string& filename)
-{
-    return readRefShaderFile(type, filename, Registry::instance()->getOptions());
-}
-
-
-/** Read an osg::Script from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * Use the Options object to control cache operations and file search paths in osgDB::Registry.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-extern OSGDB_EXPORT osg::ref_ptr<osg::Script> readRefScriptFile(const std::string& filename,const Options* options);
-
-/** Read an osg::Script from file.
-  * Return an assigned osg::ref_ptr on success,
-  * return an osg::ref_ptr with a NULL pointer assigned to it on failure.
-  * The osgDB::Registry is used to load the appropriate ReaderWriter plugin
-  * for the filename extension, and this plugin then handles the request
-  * to read the specified file.*/
-inline osg::ref_ptr<osg::Script> readRefScriptFile(const std::string& filename)
-{
-    return readRefScriptFile(filename,Registry::instance()->getOptions());
-}
 
 }
 

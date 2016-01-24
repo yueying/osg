@@ -65,7 +65,7 @@ class DrawableDrawCallback : public osg::Drawable::DrawCallback
         }
 };
 
-struct DrawableUpdateCallback : public osg::Drawable::UpdateCallback
+struct DrawableUpdateCallback : public osg::DrawableUpdateCallback
 {
     virtual void update(osg::NodeVisitor*, osg::Drawable* drawable)
     {
@@ -73,7 +73,7 @@ struct DrawableUpdateCallback : public osg::Drawable::UpdateCallback
     }
 };
 
-struct DrawableCullCallback : public osg::Drawable::CullCallback
+struct DrawableCullCallback : public osg::DrawableCullCallback
 {
     /** do customized cull code.*/
     virtual bool cull(osg::NodeVisitor*, osg::Drawable* drawable, osg::State* /*state*/) const
@@ -158,7 +158,7 @@ class CameraEventCallback : public osg::NodeCallback
 };
 
 
-struct TestDrawableUpdateCallback : public osg::Drawable::UpdateCallback
+struct TestDrawableUpdateCallback : public osg::DrawableUpdateCallback
 {
     TestDrawableUpdateCallback(const std::string &message): _message(message) {}
 
@@ -239,10 +239,10 @@ int main( int argc, char **argv )
     }
     else
     {
-        rootnode = osgDB::readNodeFiles(arguments);
+        rootnode = osgDB::readRefNodeFiles(arguments);
 
         // if not loaded assume no arguments passed in, try use default mode instead.
-        if (!rootnode) rootnode = osgDB::readNodeFile("cow.osgt");
+        if (!rootnode) rootnode = osgDB::readRefNodeFile("cow.osgt");
 
         if (!rootnode)
         {

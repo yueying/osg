@@ -135,7 +135,7 @@ CompositeViewer::~CompositeViewer()
 bool CompositeViewer::readConfiguration(const std::string& filename)
 {
     OSG_NOTICE<<"CompositeViewer::readConfiguration("<<filename<<")"<<std::endl;
-    osg::ref_ptr<osg::Object> obj = osgDB::readObjectFile(filename);
+    osg::ref_ptr<osg::Object> obj = osgDB::readRefObjectFile(filename);
     osgViewer::View * view = dynamic_cast<osgViewer::View *>(obj.get());
     if (view)
     {
@@ -917,7 +917,8 @@ void CompositeViewer::reprojectPointerData(osgGA::GUIEventAdapter& source_event,
 
     dest_event.setMouseYOrientationAndUpdateCoords(osgGA::GUIEventAdapter::Y_INCREASING_UPWARDS);
 
-    osg::Camera* camera = (source_event.getNumPointerData()>=2) ? dynamic_cast<osg::Camera*>(source_event.getPointerData(1)->object.get()) : 0;
+    osg::Object* object = (source_event.getNumPointerData()>=2) ? source_event.getPointerData(1)->object.get() : 0;
+    osg::Camera* camera = object ? object->asCamera() : 0;
     osg::Viewport* viewport = camera ? camera->getViewport() : 0;
 
     if (!viewport) return;
@@ -1031,7 +1032,8 @@ void CompositeViewer::eventTraversal()
         }
 
         osgGA::PointerData* pd = event->getNumPointerData()>0 ? event->getPointerData(event->getNumPointerData()-1) : 0;
-        osg::Camera* camera = pd ? dynamic_cast<osg::Camera*>(pd->object.get()) : 0;
+        osg::Object* object = pd ? pd->object.get() : 0;
+        osg::Camera* camera = object ? object->asCamera() : 0;
         osgViewer::View* view = camera ? dynamic_cast<osgViewer::View*>(camera->getView()) : 0;
 
         if (!view)
@@ -1115,7 +1117,7 @@ void CompositeViewer::eventTraversal()
         // create a frame event for the new frame.
         {
             osg::ref_ptr<osgGA::GUIEventAdapter> event = view->getEventQueue()->frame( getFrameStamp()->getReferenceTime() );
-            
+
             if (!_previousEvent || _previousEvent->getNumPointerData()<2)
             {
                 generatePointerData(*event);
@@ -1125,7 +1127,7 @@ void CompositeViewer::eventTraversal()
                 reprojectPointerData(*_previousEvent, *event);
             }
         }
-        
+
 
         view->getEventQueue()->takeEvents(viewEventsMap[view], cutOffTime);
     }

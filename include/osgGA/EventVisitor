@@ -46,6 +46,14 @@ class OSGGA_EXPORT EventVisitor : public osg::NodeVisitor
 
         META_NodeVisitor(osgGA, EventVisitor)
 
+        /** Convert 'this' into a osgGA::EventVisitor pointer if Object is a osgGA::EventVisitor, otherwise return 0.
+          * Equivalent to dynamic_cast<osgGA::EventVisitor*>(this).*/
+        virtual osgGA::EventVisitor* asEventVisitor() { return this; }
+
+        /** convert 'const this' into a const osgGA::EventVisitor pointer if Object is a osgGA::EventVisitor, otherwise return 0.
+          * Equivalent to dynamic_cast<const osgGA::EventVisitor*>(this).*/
+        virtual const osgGA::EventVisitor* asEventVisitor() const { return this; }
+
         void setActionAdapter(osgGA::GUIActionAdapter* actionAdapter) { _actionAdapter=actionAdapter; }
 
         osgGA::GUIActionAdapter* getActionAdapter() { return _actionAdapter; }
@@ -75,9 +83,9 @@ class OSGGA_EXPORT EventVisitor : public osg::NodeVisitor
             osg::Callback* callback = drawable.getEventCallback();
             if (callback)
             {
-                osg::Drawable::EventCallback* drawable_callback = dynamic_cast<osg::Drawable::EventCallback*>(callback);
-                osg::NodeCallback* node_callback = dynamic_cast<osg::NodeCallback*>(callback);
-                osg::CallbackObject* callback_object = dynamic_cast<osg::CallbackObject*>(callback);
+                osg::DrawableEventCallback* drawable_callback = callback->asDrawableEventCallback();
+                osg::NodeCallback* node_callback = callback->asNodeCallback();
+                osg::CallbackObject* callback_object = callback->asCallbackObject();
 
                 if (drawable_callback) drawable_callback->event(this,&drawable);
                 if (node_callback) (*node_callback)(&drawable, this);

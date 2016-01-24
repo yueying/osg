@@ -18,10 +18,7 @@
 
 namespace osg {
 
-/** 分页LOD节点 场景的动态调度不适应在所有类型的场景节点上，也并不是任意的场合都
-*使用，事实上，数据分页的需求往往出自海量地形或模型数据浏览的实现方案中。
-*大量地形分块或者模型数据需要使用细节层次（LOD）的原则进行划分，同时也需要实现
-* 动态的调度，以保证渲染的效率和内存管理的可行性PagedLOD.
+/** PagedLOD.
 */
 class OSG_EXPORT PagedLOD : public LOD
 {
@@ -34,16 +31,19 @@ class OSG_EXPORT PagedLOD : public LOD
 
         META_Node(osg, PagedLOD);
 
-
-
         virtual void traverse(NodeVisitor& nv);
+
+        using osg::Group::addChild;
 
         virtual bool addChild(Node *child);
 
-        virtual bool addChild(Node *child, float min, float max);
-		/**虚函数，追加一个LOD层次子节点，设置距离范围，并指示它对应的数据文件名
-		随着节点在调度过程中的动态加载和卸载，系统将自动搜索和读入这一文件名对应的文件内容*/
-        virtual bool addChild(Node *child, float min, float max,const std::string& filename, float priorityOffset=0.0f, float priorityScale=1.0f);
+        virtual bool addChild(Node *child, float rmin, float rmax);
+
+        template<class T> bool addChild( const ref_ptr<T>& child, float rmin, float rmax) { return addChild(child.get(), rmin, rmax); }
+
+        virtual bool addChild(Node *child, float rmin, float rmax, const std::string& filename, float priorityOffset=0.0f, float priorityScale=1.0f);
+
+        template<class T> bool addChild( const ref_ptr<T>& child, float rmin, float rmax, const std::string& filename, float priorityOffset=0.0f, float priorityScale=1.0f) { return addChild(child.get(), rmin, rmax, filename, priorityOffset, priorityScale); }
 
         virtual bool removeChildren(unsigned int pos,unsigned int numChildrenToRemove=1);
 
@@ -83,8 +83,7 @@ class OSG_EXPORT PagedLOD : public LOD
         };
 
         typedef std::vector<PerRangeData> PerRangeDataList;
-		/**设置一个LOD层次子节点的数据文件名和addChild()不同，它并没有直接
-		加载模型节点，而是指示了数据文件名并动态进行调度*/
+
         void setFileName(unsigned int childNo, const std::string& filename) { expandPerRangeDataTo(childNo); _perRangeDataList[childNo]._filename=filename; }
         const std::string& getFileName(unsigned int childNo) const { return _perRangeDataList[childNo]._filename; }
         unsigned int getNumFileNames() const { return static_cast<unsigned int>(_perRangeDataList.size()); }

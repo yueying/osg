@@ -71,13 +71,7 @@ struct OSGVIEWER_EXPORT DepthPartitionSettings : public osg::Referenced
 };
 
 
-/** View类，对一个场景拥有一个单一的视图，这个视图可以由一个或多个从相机组成
- *   View holds a single view on a scene, this view may be composed of one or more slave cameras.
- * \note 设置一个视景器视图时，有以下几个部件通常是必不可少的：1、所观察的场景节点树
- *       2、所使用的漫游器工具，以及附加的交互事件处理器
- *       3、场景的主相机，如果没有设置，那么会使用一个默认的Camera节点，视图类会自动将场景树
- *       追加到这个相机节点下
- */
+/** View holds a single view on a scene, this view may be composed of one or more slave cameras.*/
 class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
 {
     public:
@@ -92,8 +86,7 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
           * One would use this to case view to osgViewer::View(er) if supported by the subclass.*/
         virtual osg::View* asView() { return this; }
 
-        /** 取得视图对应的视景器基类
-		  * Provide a mechanism for getting the viewer object from this osgViewer::View.
+        /** Provide a mechanism for getting the viewer object from this osgViewer::View.
           * In the case of a osgViewer::Viewer the ViewerBase will effectively point to this object as Viewer subclasses from View.
           * In the case of a osgViewer::CompsoiteViewer the ViewerBase will point to the CompositeViewer that owns this View. */
         ViewerBase* getViewerBase() { return _viewerBase.get(); }
@@ -107,22 +100,22 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         Scene* getScene() { return _scene.get(); }
         const Scene* getScene() const { return _scene.get(); }
 
-        /** 设置视图所观察的场景树根节点
-		  *Set the scene graph that the View will use.
-		  */
+        /** Set the scene graph that the View will use.*/
         virtual void setSceneData(osg::Node* node);
 
-        /** 得到视图所观察的场景树根节点
-		  *Get the View's scene graph.
-		  */
+        template<class T> void setSceneData(const osg::ref_ptr<T>& node) { setSceneData(node.get()); }
+
+        /** Get the View's scene graph.*/
         osg::Node* getSceneData() { return _scene.valid() ? _scene->getSceneData() : 0; }
 
         /** Get the const View's scene graph.*/
         const osg::Node* getSceneData() const { return _scene.valid() ? _scene->getSceneData() : 0; }
 
 
-        /** 设置分页数据库，用于数据的动态调度Set the View's database pager.*/
+        /** Set the View's database pager.*/
         void setDatabasePager(osgDB::DatabasePager* dp);
+
+        template<class T> void setDatabasePager(const osg::ref_ptr<T>& dp) { setDatabasePager(dp.get()); }
 
         /** Get the View's database pager.*/
         osgDB::DatabasePager* getDatabasePager();
@@ -131,8 +124,10 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         const osgDB::DatabasePager* getDatabasePager() const;
 
 
-        /** 设置分页图像库，用于图像的动态加载Set the View's image pager.*/
+        /** Set the View's image pager.*/
         void setImagePager(osgDB::ImagePager* ip);
+
+        template<class T> void setImagePager(const osg::ref_ptr<T>& ip) { setImagePager(ip.get()); }
 
         /** Get the View's image pager.*/
         osgDB::ImagePager* getImagePager();
@@ -145,8 +140,12 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
          * The Device is polled on each new frame via it's Device::checkEvents() method and any events generated then collected via Device::getEventQueue()*/
         void addDevice(osgGA::Device* eventSource);
 
+        template<class T> void addDevice(const osg::ref_ptr<T>& eventSource) { addDevice(eventSource.get()); }
+
         /** Remove a Device. /*/
         void removeDevice(osgGA::Device* eventSource);
+
+        template<class T> void removeDevice(const osg::ref_ptr<T>& eventSource) { removeDevice(eventSource.get()); }
 
         typedef std::vector< osg::ref_ptr<osgGA::Device> > Devices;
 
@@ -154,10 +153,10 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         const Devices& getDevices() const { return _eventSources; }
 
 
-        /* 设置人机交互事件的存储队列
-		 *Set the EventQueue that the View uses to integrate external non window related events.
-		 */
+        /* Set the EventQueue that the View uses to integrate external non window related events.*/
         void setEventQueue(osgGA::EventQueue* eventQueue) { _eventQueue = eventQueue; }
+
+        template<class T> void setEventQueue(const osg::ref_ptr<T>& eventQueue) { setEventQueue(eventQueue.get()); }
 
         /* Get the View's EventQueue.*/
         osgGA::EventQueue* getEventQueue() { return _eventQueue.get(); }
@@ -165,10 +164,11 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         /* Get the const View's EventQueue.*/
         const osgGA::EventQueue* getEventQueue() const { return _eventQueue.get(); }
 
-        /** 设置交互漫游器
-		  * Set the CameraManipulator that moves the View's master Camera position in response to events.
+        /** Set the CameraManipulator that moves the View's master Camera position in response to events.
           * The parameter resetPosition determines whether manipulator is set to its home position.*/
         void setCameraManipulator(osgGA::CameraManipulator* manipulator, bool resetPosition = true);
+
+        template<class T> void setCameraManipulator(const osg::ref_ptr<T>& manipulator, bool resetPosition = true) { setCameraManipulator(manipulator.get(), resetPosition); }
 
         /** Get the View's CameraManipulator.*/
         osgGA::CameraManipulator* getCameraManipulator() { return _cameraManipulator.get(); }
@@ -183,13 +183,15 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
 
         typedef std::list< osg::ref_ptr<osgGA::EventHandler> > EventHandlers;
 
-        /** 追加一个用户自定义的交互事件处理器
-		 * Add an EventHandler that adds handling of events to the View.
-		 */
+        /** Add an EventHandler that adds handling of events to the View.*/
         void addEventHandler(osgGA::EventHandler* eventHandler);
+
+        template<class T> void addEventHandler(const osg::ref_ptr<T>& eventHandler) { addEventHandler(eventHandler.get()); }
 
         /** Remove an EventHandler from View.*/
         void removeEventHandler(osgGA::EventHandler* eventHandler);
+
+        template<class T> void removeEventHandler(const osg::ref_ptr<T>& eventHandler) { removeEventHandler(eventHandler.get()); }
 
         /** Get the View's list of EventHandlers.*/
         EventHandlers& getEventHandlers() { return _eventHandlers; }
@@ -212,6 +214,8 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
 
         /** Set the DisplaySettings object associated with this view.*/
         void setDisplaySettings(osg::DisplaySettings* ds) { _displaySettings = ds; }
+
+        template<class T> void setDisplaySettings(const osg::ref_ptr<T>& ds) { setDisplaySettings(ds.get()); }
 
         /** Set the DisplaySettings object associated with this view.*/
         osg::DisplaySettings* getDisplaySettings() { return _displaySettings.get(); }
@@ -236,22 +240,19 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         /** Apply a viewer configuration to set up Cameras and Windowing. */
         void apply(ViewConfig* config);
 
+        template<class T> void apply(const osg::ref_ptr<T>& config) { apply(config.get()); }
+
         ViewConfig* getLastAppliedViewConfig() { return _lastAppliedViewConfig.get(); }
         const ViewConfig* getLastAppliedViewConfig() const { return _lastAppliedViewConfig.get(); }
 
 
-		/** 已弃用，自行判断屏幕的数量， 并且使用多个从摄像机来对应多个屏幕的显示
-		  * deprecated, use view.apply(new osgViewer::AcrossAllWindows()). 
-		  */
+        /** deprecated, use view.apply(new osgViewer::AcrossAllWindows()). */
         void setUpViewAcrossAllScreens();
 
-        /** 已弃用，快速构建视图的窗口设备，在指定屏幕上创建一个指定位置和尺寸的窗口，或者一个全屏窗口
-		 * deprecated, use view.apply(new osgViewer::SingleWindow(x,y,width,screenNum)). 
-		 */
+        /** deprecated, use view.apply(new osgViewer::SingleWindow(x,y,width,screenNum)). */
         void setUpViewInWindow(int x, int y, int width, int height, unsigned int screenNum=0);
 
-        /** 已弃用，将视图指定到某个屏幕上
-		 * deprecated, use view.apply(new osgViewer::SingleScreen(screenNum)). */
+        /** deprecated, use view.apply(new osgViewer::SingleScreen(screenNum)). */
         void setUpViewOnSingleScreen(unsigned int screenNum=0);
 
         /** deprecated, use view.apply(new osgViewer::SphericalDisplay(radius, collar, screenNum, intensityMap, projectorMatrix)). */
@@ -272,13 +273,12 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         bool setUpDepthPartition(DepthPartitionSettings* dsp=0);
 
 
-        /** 判断相机节点是否包含在该视图中
-		 * Return true if this view contains a specified camera.*/
+        /** Return true if this view contains a specified camera.*/
         bool containsCamera(const osg::Camera* camera) const;
 
+        template<class T> bool containsCamera(const osg::ref_ptr<T>& camera) const { return containsCamera(camera.get()); }
 
-        /** 已弃用，判断指定的屏幕坐标点包含在哪个相机对象的视野范围内
-		并返回相应的局部坐标deprecated. */
+        /** deprecated. */
         const osg::Camera* getCameraContainingPosition(float x, float y, float& local_x, float& local_y) const;
 
         /** deprecated. */
@@ -328,7 +328,6 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
     public:
 
         void assignSceneDataToCameras();
-		/**完成视景器初始化工作*/
         void init();
 
     protected:
@@ -342,7 +341,7 @@ class OSGVIEWER_EXPORT View : public osg::View, public osgGA::GUIActionAdapter
         osg::observer_ptr<ViewerBase>          _viewerBase;
 
 
-        osg::Timer_t                            _startTick;//!<初始时间戳
+        osg::Timer_t                            _startTick;
 
         Devices                                 _eventSources;
 

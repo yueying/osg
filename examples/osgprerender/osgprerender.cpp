@@ -47,7 +47,7 @@
 
 // call back which creates a deformation field to oscillate the model.
 class MyGeometryCallback :
-    public osg::Drawable::UpdateCallback,
+    public osg::DrawableUpdateCallback,
     public osg::Drawable::AttributeFunctor
 {
     public:
@@ -463,10 +463,10 @@ int main( int argc, char **argv )
 
 
     // load the nodes from the commandline arguments.
-    osg::Node* loadedModel = osgDB::readNodeFiles(arguments);
+    osg::ref_ptr<osg::Node> loadedModel = osgDB::readRefNodeFiles(arguments);
 
     // if not loaded assume no arguments passed in, try use default mode instead.
-    if (!loadedModel) loadedModel = osgDB::readNodeFile("cessna.osgt");
+    if (!loadedModel) loadedModel = osgDB::readRefNodeFile("cessna.osgt");
 
     if (!loadedModel)
     {
