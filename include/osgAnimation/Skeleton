@@ -21,7 +21,7 @@
 
 namespace osgAnimation
 {
-	/**整个角色骨骼结构的根节点*/
+	/**骨骼和关节的集合体，整个角色骨骼结构的根节点*/
     class OSGANIMATION_EXPORT Skeleton : public osg::MatrixTransform
     {
     public:

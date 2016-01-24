@@ -23,18 +23,18 @@ public:
         // disable the default setting of viewer.done() by pressing Escape.
         setKeyEventSetsDone(0);
 
-        QWidget* widget1 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("cow.osgt") );
-        QWidget* widget2 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("glider.osgt") );
-        QWidget* widget3 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("axes.osgt") );
-        QWidget* widget4 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("fountain.osgt") );
-        QWidget* popupWidget = addViewWidget( createGraphicsWindow(900,100,320,240,"Popup window",true), osgDB::readNodeFile("dumptruck.osgt") );
-        popupWidget->show();
+        QWidget* widget1 = addViewWidget( createGraphicsWindow(0,0,400,400), osgDB::readNodeFile("1.fbx") );
+        //QWidget* widget2 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("glider.osgt") );
+        //QWidget* widget3 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("axes.osgt") );
+       // QWidget* widget4 = addViewWidget( createGraphicsWindow(0,0,100,100), osgDB::readNodeFile("fountain.osgt") );
+        //QWidget* popupWidget = addViewWidget( createGraphicsWindow(900,100,320,240,"Popup window",true), osgDB::readNodeFile("dumptruck.osgt") );
+        //popupWidget->show();
 
         QGridLayout* grid = new QGridLayout;
         grid->addWidget( widget1, 0, 0 );
-        grid->addWidget( widget2, 0, 1 );
-        grid->addWidget( widget3, 1, 0 );
-        grid->addWidget( widget4, 1, 1 );
+        //grid->addWidget( widget2, 0, 1 );
+        //grid->addWidget( widget3, 1, 0 );
+        //grid->addWidget( widget4, 1, 1 );
         setLayout( grid );
 
         connect( &_timer, SIGNAL(timeout()), this, SLOT(update()) );
@@ -96,7 +96,7 @@ int main( int argc, char** argv )
 
 #if QT_VERSION >= 0x050000
     // Qt5 is currently crashing and reporting "Cannot make QOpenGLContext current in a different thread" when the viewer is run multi-threaded, this is regression from Qt4
-    osgViewer::ViewerBase::ThreadingModel threadingModel = osgViewer::ViewerBase::SingleThreaded;
+	osgViewer::ViewerBase::ThreadingModel threadingModel = osgViewer::ViewerBase::SingleThreaded;
 #else
     osgViewer::ViewerBase::ThreadingModel threadingModel = osgViewer::ViewerBase::CullDrawThreadPerContext;
 #endif
